@@ -55,7 +55,10 @@
 <loc>http://localhost:4000//</loc>
 </url>
 <url>
-<loc>http://localhost:4000//test</loc>
+<loc>http://localhost:4000//movie</loc>
+</url>
+<url>
+<loc>http://localhost:4000//programming</loc>
 </url>
 <url>
 <loc>http://localhost:4000//page2/</loc>
