@@ -4,12 +4,24 @@
  <title>Song Yikun</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <id>http://localhost:4000</id>
- <updated>2017-04-07T03:38:03+08:00</updated>
+ <updated>2017-04-09T22:27:45+08:00</updated>
  <author>
    <name>Song Yikun</name>
    <uri>*</uri>
    <email>yikun.song@u.nus.edu</email>
  </author>
+
+ 
+
+ <entry>
+   <title>Fluent Python - Introduction</title>
+   <link href="http://localhost:4000/programming-fluent-python-1"/>
+   <id>http://localhost:4000/programming-fluent-python-1</id>
+   <updated>2017-04-07T00:00:00+08:00</updated>
+   <content type="html">&lt;h3 id=&quot;fluent-python&quot;&gt;Fluent Python&lt;/h3&gt;
+&lt;p&gt;Fluent Python is a good book&lt;/p&gt;
+</content>
+ </entry>
 
  
 
@@ -97,16 +109,6 @@
    <title>This is the third test post.</title>
    <link href="http://localhost:4000/test-post-3"/>
    <id>http://localhost:4000/test-post-3</id>
-   <updated>2017-02-11T00:00:00+08:00</updated>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est optio ut impedit architecto iusto tempore rem, voluptates sed magni nisi corrupti praesentium voluptatum harum expedita temporibus ipsam, odit ad distinctio! Labore cupiditate distinctio facere earum, iste! Reiciendis possimus voluptatum explicabo corporis ab. Ex adipisci laudantium mollitia vel optio deserunt...</content>
- </entry>
-
- 
-
- <entry>
-   <title>This is second test post.</title>
-   <link href="http://localhost:4000/test-post-2"/>
-   <id>http://localhost:4000/test-post-2</id>
    <updated>2017-02-11T00:00:00+08:00</updated>
    <content type="html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est optio ut impedit architecto iusto tempore rem, voluptates sed magni nisi corrupti praesentium voluptatum harum expedita temporibus ipsam, odit ad distinctio! Labore cupiditate distinctio facere earum, iste! Reiciendis possimus voluptatum explicabo corporis ab. Ex adipisci laudantium mollitia vel optio deserunt...</content>
  </entry>
