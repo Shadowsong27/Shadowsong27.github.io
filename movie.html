@@ -2,12 +2,14 @@
 layout: page
 title: Movie
 ---
+<h2>Type 1</h2>
+<br>
 <ul id="posts">
 
 	{% for post in site.posts %}
   {% if post.title contains "test" %}
 	  <li class="post">
-	  	<h2><a href="
+	  	<h3><a href="
 				{% if site.baseurl == "/" %}
 				{{ post.url }}
 				{% else %}
@@ -20,7 +22,7 @@ title: Movie
       {% endif %}
 
     </a>
-  </h2>
+  </h3>
       <time datetime="{{ post.date | date_to_xmlschema }}" class="by-line"> <i>{{ post.date | date_to_string }}</i> </time>
 	  	<p>{{ post.content | strip_html | truncatewords:50 }}</p>
 	  </li>

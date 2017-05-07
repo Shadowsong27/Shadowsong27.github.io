@@ -53,6 +53,18 @@
 <lastmod>2017-04-07T00:00:00+08:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000//financial-stats-intro</loc>
+<lastmod>2017-04-15T00:00:00+08:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000//financial-stats-fundamentals</loc>
+<lastmod>2017-04-16T00:00:00+08:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000//data-mining-intro</loc>
+<lastmod>2017-05-07T00:00:00+08:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000//404</loc>
 </url>
 <url>
@@ -63,5 +75,8 @@
 </url>
 <url>
 <loc>http://localhost:4000//programming</loc>
+</url>
+<url>
+<loc>http://localhost:4000//statistics</loc>
 </url>
 </urlset>

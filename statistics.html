@@ -1,0 +1,52 @@
+---
+layout: page
+title: Statistics
+description: Posts related to statistics
+---
+<h2>Data Mining</h2>
+<br>
+<ul id="posts">
+	{% for post in site.posts %}
+  	{% if post.description contains "Mining" %}
+	  <li class="post">
+	  	<h3><a href="
+				{% if site.baseurl == "/" %}
+				{{ post.url }}
+				{% else %}
+				{{ post.url | prepend: site.baseurl }}
+				{% endif %}">
+      {% if post.title %}
+        {{ post.title }}
+      {% else %}
+        {{ post.header }}
+      {% endif %}
+  		</a></h3>
+      <time datetime="{{ post.date | date_to_xmlschema }}" class="by-line"> <i>{{ post.date | date_to_string }}</i> </time>
+	  </li>
+    {% endif %}
+    {% endfor %}
+</ul>
+
+<h2>Financial Statistics</h2>
+<br>
+<ul id="posts">
+	{% for post in site.posts %}
+  	{% if post.description contains "sStatistics" %}
+	  <li class="post">
+	  	<h3><a href="
+				{% if site.baseurl == "/" %}
+				{{ post.url }}
+				{% else %}
+				{{ post.url | prepend: site.baseurl }}
+				{% endif %}">
+      {% if post.title %}
+        {{ post.title }}
+      {% else %}
+        {{ post.header }}
+      {% endif %}
+  		</a></h3>
+      <time datetime="{{ post.date | date_to_xmlschema }}" class="by-line"> <i>{{ post.date | date_to_string }}</i> </time>
+	  </li>
+    {% endif %}
+    {% endfor %}
+</ul>

@@ -4,12 +4,71 @@
  <title>Song Yikun</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <id>http://localhost:4000</id>
- <updated>2017-04-09T22:27:45+08:00</updated>
+ <updated>2017-05-07T10:30:09+08:00</updated>
  <author>
    <name>Song Yikun</name>
    <uri>*</uri>
    <email>yikun.song@u.nus.edu</email>
  </author>
+
+ 
+
+ <entry>
+   <title>Data Mining - Introduction</title>
+   <link href="http://localhost:4000/data-mining-intro"/>
+   <id>http://localhost:4000/data-mining-intro</id>
+   <updated>2017-05-07T00:00:00+08:00</updated>
+   <content type="html">&lt;p&gt;This section contains my personal notes for &lt;strong&gt;Data Mining&lt;/strong&gt; concepts and techniques in general, written in complete sentences instead of bullet points. It does not officially serve as a tutorial for beginners, but one may use it as references.&lt;/p&gt; &lt;p&gt;After the final examination of this theory-based course, I suddenly felt...</content>
+ </entry>
+
+ 
+
+ <entry>
+   <title>Financial Statistics - Fundamental Concepts</title>
+   <link href="http://localhost:4000/financial-stats-fundamentals"/>
+   <id>http://localhost:4000/financial-stats-fundamentals</id>
+   <updated>2017-04-16T00:00:00+08:00</updated>
+   <content type="html">&lt;h1 id=&quot;overview&quot;&gt;Overview&lt;/h1&gt;
+
+&lt;p&gt;This page contains various Latex generated PDF files. One may view them by clicking the title of them.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/Shadowsong27/statistical-finance-summary/blob/master/pdf/Chapter1%20Returns%20and%20Adjustments.pdf&quot;&gt;Chapter 1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/Shadowsong27/statistical-finance-summary/blob/master/pdf/Chapter1%20Returns%20and%20Adjustments.pdf&quot;&gt;Chapter 1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/Shadowsong27/statistical-finance-summary/blob/master/pdf/Chapter1%20Returns%20and%20Adjustments.pdf&quot;&gt;Chapter 1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/Shadowsong27/statistical-finance-summary/blob/master/pdf/Chapter1%20Returns%20and%20Adjustments.pdf&quot;&gt;Chapter 1&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+
+ 
+
+ <entry>
+   <title>Financial Statistics - Introduction</title>
+   <link href="http://localhost:4000/financial-stats-intro"/>
+   <id>http://localhost:4000/financial-stats-intro</id>
+   <updated>2017-04-15T00:00:00+08:00</updated>
+   <content type="html">&lt;h1 id=&quot;overview&quot;&gt;Overview&lt;/h1&gt;
+
+&lt;p&gt;The following list will be modified with the increment of my knowledge.&lt;/p&gt;
+
+&lt;h1 id=&quot;details&quot;&gt;Details&lt;/h1&gt;
+
+&lt;h3 id=&quot;fundamental-concepts&quot;&gt;Fundamental concepts&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;log-return, net-return&lt;/li&gt;
+  &lt;li&gt;distributions, CDF, pdf&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;recognize-patterns&quot;&gt;Recognize patterns&lt;/h3&gt;
+
+&lt;h3 id=&quot;model-patterns-and-understanding&quot;&gt;Model patterns and understanding&lt;/h3&gt;
+
+&lt;h3 id=&quot;apply-models-and-analysis&quot;&gt;Apply models and analysis&lt;/h3&gt;
+</content>
+ </entry>
 
  
 
@@ -79,36 +138,6 @@
    <title>This is the sixth test post.</title>
    <link href="http://localhost:4000/test-post-6"/>
    <id>http://localhost:4000/test-post-6</id>
-   <updated>2017-02-11T00:00:00+08:00</updated>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est optio ut impedit architecto iusto tempore rem, voluptates sed magni nisi corrupti praesentium voluptatum harum expedita temporibus ipsam, odit ad distinctio! Labore cupiditate distinctio facere earum, iste! Reiciendis possimus voluptatum explicabo corporis ab. Ex adipisci laudantium mollitia vel optio deserunt...</content>
- </entry>
-
- 
-
- <entry>
-   <title>This is the fifth test post</title>
-   <link href="http://localhost:4000/test-post-5"/>
-   <id>http://localhost:4000/test-post-5</id>
-   <updated>2017-02-11T00:00:00+08:00</updated>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est optio ut impedit architecto iusto tempore rem, voluptates sed magni nisi corrupti praesentium voluptatum harum expedita temporibus ipsam, odit ad distinctio! Labore cupiditate distinctio facere earum, iste! Reiciendis possimus voluptatum explicabo corporis ab. Ex adipisci laudantium mollitia vel optio deserunt...</content>
- </entry>
-
- 
-
- <entry>
-   <title>This is the forth test post.</title>
-   <link href="http://localhost:4000/test-post-4"/>
-   <id>http://localhost:4000/test-post-4</id>
-   <updated>2017-02-11T00:00:00+08:00</updated>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est optio ut impedit architecto iusto tempore rem, voluptates sed magni nisi corrupti praesentium voluptatum harum expedita temporibus ipsam, odit ad distinctio! Labore cupiditate distinctio facere earum, iste! Reiciendis possimus voluptatum explicabo corporis ab. Ex adipisci laudantium mollitia vel optio deserunt...</content>
- </entry>
-
- 
-
- <entry>
-   <title>This is the third test post.</title>
-   <link href="http://localhost:4000/test-post-3"/>
-   <id>http://localhost:4000/test-post-3</id>
    <updated>2017-02-11T00:00:00+08:00</updated>
    <content type="html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est optio ut impedit architecto iusto tempore rem, voluptates sed magni nisi corrupti praesentium voluptatum harum expedita temporibus ipsam, odit ad distinctio! Labore cupiditate distinctio facere earum, iste! Reiciendis possimus voluptatum explicabo corporis ab. Ex adipisci laudantium mollitia vel optio deserunt...</content>
  </entry>
