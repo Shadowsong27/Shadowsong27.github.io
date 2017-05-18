@@ -3,12 +3,13 @@ layout: page
 title: Programming
 description: Posts related to programming
 ---
+<h2>Dig Deeper in Python</h2>
+<br>
 <ul id="posts">
-
 	{% for post in site.posts %}
-  	{% if post.description contains "Programming" %}
+  	{% if post.description contains "dig-deeper-in-python" %}
 	  <li class="post">
-	  	<h2><a href="
+	  	<h3><a href="
 				{% if site.baseurl == "/" %}
 				{{ post.url }}
 				{% else %}
@@ -19,11 +20,8 @@ description: Posts related to programming
       {% else %}
         {{ post.header }}
       {% endif %}
-
-    </a>
-  </h2>
+  		</a></h3>
       <time datetime="{{ post.date | date_to_xmlschema }}" class="by-line"> <i>{{ post.date | date_to_string }}</i> </time>
-	  	<p>{{ post.content | strip_html | truncatewords:50 }}</p>
 	  </li>
     {% endif %}
     {% endfor %}
