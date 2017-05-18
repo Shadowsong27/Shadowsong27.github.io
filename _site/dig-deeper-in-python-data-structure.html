@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Meta -->
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta name="generator" content="Jekyll">
+
+	<title>Data Structure</title>
+  <meta name="description" content="dig-deeper-in-python">
+
+	<!-- CSS & fonts -->
+	<link rel="stylesheet" href="/css/main.css">
+
+	<!-- RSS -->
+	<link href="/atom.xml" type="application/atom+xml" rel="alternate" title="ATOM Feed" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+
+</head>
+
+
+<body>
+	<div id="wrap">
+
+	  	<!-- Navigation -->
+	  	<nav id="nav">
+	<div id="nav-list">
+		<a href="//">Home</a>
+
+		<!-- Nav pages -->
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	      <a href="/movie" title="Movie">Movie</a>
+	    
+	  
+	    
+	      <a href="/programming" title="Programming">Programming</a>
+	    
+	  
+	    
+	      <a href="/statistics" title="Statistics">Statistics</a>
+	    
+	  
+	    
+	  
+	    
+	  
+    
+    <!-- Nav links -->
+	  <a href="https://github.com/thereviewindex/monochrome/archive/master.zip">Download</a>
+<a href="https://github.com/thereviewindex/monochrome">Project on Github</a>
+
+
+	</div>
+  
+  <!-- Nav footer -->
+	
+	  <footer>
+	
+	<span>version 1.0.0</span>
+
+</footer>
+	
+
+</nav>
+
+
+    <!-- Icon menu -->
+	  <a id="nav-menu">
+	  	<div id="menu"></div>
+	  </a>
+
+      <!-- Header -->
+      
+        <header id="header" class="parent justify-spaceBetween">
+  <div class="inner w100 relative">
+    <span class="f-left">
+      <a href="http://localhost:4000/">
+        <h1>
+          <span>Song </span>Yikun
+        </h1>
+      </a>
+    </span>
+    <span id="nav-links" class="absolute right bottom">
+      <!-- Nav pages -->
+	    
+	      
+	    
+	      
+	    
+	      
+	    
+	      
+	    
+	      
+	        <a href="/movie" title="Movie">Movie</a>
+	      
+	    
+	      
+	        <a href="/programming" title="Programming">Programming</a>
+	      
+	    
+	      
+	        <a href="/statistics" title="Statistics">Statistics</a>
+	      
+	    
+	      
+	    
+	      
+	    
+    </span>
+  </div>
+</header>
+
+      
+
+    <!-- Main content -->
+	  <div id="container">
+
+		<main>
+
+			<article id="post-page">
+	<h2>Data Structure</h2>
+	<time datetime="2017-05-18T00:00:00+08:00" class="by-line">18 May 2017</time>
+	<div class="content">
+
+		<h3 id="--classification-of-data-structure--">- Classification of Data Structure -</h3>
+
+<p>Container vs Flat - homogeneous element type in the same data structure</p>
+
+<p>Mutable vs Immutable - (as I understand it) length of data structure can be modified based on the difference in special Methods.</p>
+
+<h3 id="--list-comprehensions-listcomps--">- List Comprehensions (listcomps) -</h3>
+<p>The goal of a listcomp is to build a new list, but it could be used as a short-handed loop, like:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</code></pre>
+</div>
+
+<p>But this is very <strong>unpythonic</strong>, because</p>
+
+<ul>
+  <li>
+    <p>reduce the readability as compared to a normal for loop by trying to squeeze a complicate function in a listcomp</p>
+  </li>
+  <li>
+    <p>produce a potentially large list that is useless - waste space</p>
+  </li>
+</ul>
+
+<p>So the rule should be:</p>
+<ol>
+  <li>if the goal is not producing a list, do not use this syntax</li>
+  <li>the entire statement should be kept short and readable</li>
+  <li>use linebreak to make compound listcomps more readable</li>
+</ol>
+
+<p><em><a href="http://stackoverflow.com/questions/5753597/is-it-pythonic-to-use-list-comprehensions-for-just-side-effects">Reference on StackOverflow</a></em></p>
+
+<h3 id="--list-comprehensions-vs-generator-expressions--">- List Comprehensions vs Generator Expressions -</h3>
+<p>In terms iteration effect they are similar, the main difference lies:</p>
+<ul>
+  <li>listcomp will create the list first while genex will create the items on the go</li>
+</ul>
+
+<p>So …</p>
+<ul>
+  <li>listcomp is good for creating reusable list, using list methods</li>
+  <li>genex is good for very large and infinite sequences</li>
+</ul>
+
+<p><em><a href="http://stackoverflow.com/questions/47789/generator-expressions-vs-list-comprehension">Reference on StackOverflow</a></em></p>
+
+<h3 id="--tuple-unpacking--">- Tuple Unpacking -</h3>
+
+<p><code class="highlighter-rouge">_</code> should be used for ignoring unwanted elements during unpacking</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c"># does not care about the value stored in _</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="mi">0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span>
+<span class="mi">1</span>
+</code></pre>
+</div>
+
+<p>Unpacking as arguments (extended unpacking)</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Unpacking to capture</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">rest</span>
+<span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">rest</span>
+<span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">rest</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">rest</span>
+<span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">[])</span>
+</code></pre>
+</div>
+
+<p>(examples are taken from Fluent Python by Luciano Ramalho)</p>
+
+		
+	</div>
+</article>
+
+
+	  </main>
+		  <!-- Pagination links
+      -->
+
+	  </div>
+
+	    <!-- Footer -->
+	    <footer><span>@2017 - Song Yikun | <b>yikun.song@u.nus.edu</b></span></footer>
+
+
+	    <!-- Script -->
+      <script src="/js/main.js"></script>
+
+
+	</div>
+</body>
+</html>

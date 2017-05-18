@@ -135,7 +135,21 @@
 	<time datetime="2017-05-18T00:00:00+08:00" class="by-line">18 May 2017</time>
 	<div class="content">
 
-		
+		<h3 id="--magic-method--">- Magic Method -</h3>
+
+<ol>
+  <li>
+    <p><code class="highlighter-rouge">len()</code> and <code class="highlighter-rouge">__len__</code> instead of OO-styled <code class="highlighter-rouge">.length()</code></p>
+
+    <p>Generic APIs at the highest level. Every Class that implements <code class="highlighter-rouge">__len__</code> would be able to use <code class="highlighter-rouge">len()</code> - pythonic</p>
+
+    <p>By overriding special methods, common operators can be used for user-defined class.
+ e.g. <code class="highlighter-rouge">__getitem</code> with list indexes</p>
+  </li>
+  <li>
+    <p>List of special methods can be found <a href="https://docs.python.org/3/reference/datamodel.html#special-method-names">here</a></p>
+  </li>
+</ol>
 
 		
 	</div>

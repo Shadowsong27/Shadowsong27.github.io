@@ -4,7 +4,7 @@
  <title>Song Yikun</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <id>http://localhost:4000</id>
- <updated>2017-05-18T10:42:35+08:00</updated>
+ <updated>2017-05-18T16:37:12+08:00</updated>
  <author>
    <name>Song Yikun</name>
    <uri>*</uri>
@@ -18,14 +18,7 @@
    <link href="http://localhost:4000/dig-deeper-in-python-unsorted"/>
    <id>http://localhost:4000/dig-deeper-in-python-unsorted</id>
    <updated>2017-05-18T00:00:00+08:00</updated>
-   <content type="html">&lt;h3 id=&quot;overview&quot;&gt;Overview&lt;/h3&gt;
-
-&lt;p&gt;Things that I have yet to classify or think deeper.&lt;/p&gt;
-
-&lt;h3 id=&quot;none&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;None&lt;/code&gt;&lt;/h3&gt;
-
-&lt;p&gt;There&lt;/p&gt;
-</content>
+   <content type="html">&lt;h3 id=&quot;--overview--&quot;&gt;- Overview -&lt;/h3&gt; &lt;p&gt;Things that I have yet to classify or think deeper.&lt;/p&gt; &lt;h3 id=&quot;none&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;None&lt;/code&gt;&lt;/h3&gt; &lt;p&gt;A python function returns &lt;code class=&quot;highlighter-rouge&quot;&gt;None&lt;/code&gt;:&lt;/p&gt; &lt;p&gt;This is an important Python API convention: functions or methods that change an object in place should return None to make it clear to the caller that...</content>
  </entry>
 
  
@@ -35,18 +28,17 @@
    <link href="http://localhost:4000/dig-deeper-in-python-magic-methods"/>
    <id>http://localhost:4000/dig-deeper-in-python-magic-methods</id>
    <updated>2017-05-18T00:00:00+08:00</updated>
-   <content type="html">
-</content>
+   <content type="html">&lt;h3 id=&quot;--magic-method--&quot;&gt;- Magic Method -&lt;/h3&gt; &lt;ol&gt; &lt;li&gt; &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;len()&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;__len__&lt;/code&gt; instead of OO-styled &lt;code class=&quot;highlighter-rouge&quot;&gt;.length()&lt;/code&gt;&lt;/p&gt; &lt;p&gt;Generic APIs at the highest level. Every Class that implements &lt;code class=&quot;highlighter-rouge&quot;&gt;__len__&lt;/code&gt; would be able to use &lt;code class=&quot;highlighter-rouge&quot;&gt;len()&lt;/code&gt; - pythonic&lt;/p&gt; &lt;p&gt;By overriding special methods, common operators can be used for user-defined class....</content>
  </entry>
 
  
 
  <entry>
-   <title>Introduction</title>
-   <link href="http://localhost:4000/dig-deeper-in-python-introduction"/>
-   <id>http://localhost:4000/dig-deeper-in-python-introduction</id>
+   <title>Data Structure</title>
+   <link href="http://localhost:4000/dig-deeper-in-python-data-structure"/>
+   <id>http://localhost:4000/dig-deeper-in-python-data-structure</id>
    <updated>2017-05-18T00:00:00+08:00</updated>
-   <content type="html">&lt;p&gt;&lt;strong&gt;18 May, 2017&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;I have never considered myself a solid software developer, nor a data scientist. After the first fruitful internship I had last year, I decided to change my work environment. That decision prompted me to apply for an internship in China and that particular technical phone call interview,...</content>
+   <content type="html">&lt;h3 id=&quot;--classification-of-data-structure--&quot;&gt;- Classification of Data Structure -&lt;/h3&gt; &lt;p&gt;Container vs Flat - homogeneous element type in the same data structure&lt;/p&gt; &lt;p&gt;Mutable vs Immutable - (as I understand it) length of data structure can be modified based on the difference in special Methods.&lt;/p&gt; &lt;h3 id=&quot;--list-comprehensions-listcomps--&quot;&gt;- List Comprehensions (listcomps) -&lt;/h3&gt; &lt;p&gt;The goal of...</content>
  </entry>
 
  
