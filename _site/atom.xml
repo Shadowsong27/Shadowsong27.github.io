@@ -4,12 +4,22 @@
  <title>Song Yikun</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <id>http://localhost:4000</id>
- <updated>2017-05-18T16:39:31+08:00</updated>
+ <updated>2017-07-17T10:33:56+08:00</updated>
  <author>
    <name>Song Yikun</name>
    <uri>*</uri>
    <email>yikun.song@u.nus.edu</email>
  </author>
+
+ 
+
+ <entry>
+   <title>Proxy Pool</title>
+   <link href="http://localhost:4000/data-extraction-proxy-pool"/>
+   <id>http://localhost:4000/data-extraction-proxy-pool</id>
+   <updated>2017-07-15T00:00:00+08:00</updated>
+   <content type="html">&lt;p&gt;In a typical web crawling process, a proxy is required for various reasons. Replacing a hardcoded proxy connection string is troublesome if your crawling process scales up to a certain extent. That is why we need a micro service internally to help us manage these proxies we found online, a...</content>
+ </entry>
 
  
 
@@ -128,16 +138,6 @@
    <id>http://localhost:4000/code-example</id>
    <updated>2017-02-12T00:00:00+08:00</updated>
    <content type="html">&lt;p&gt;To insert highlight code inside of a post, it’s enough to use some specific tags, has directly described into the &lt;a href=&quot;http://jekyllrb.com/docs/templates/#code-snippet-highlighting&quot;&gt;Jekyll documentation&lt;/a&gt;. In this way the code will be included into a &lt;code class=&quot;highlighter-rouge&quot;&gt;.highlight&lt;/code&gt; CSS class and will be highlight according to the &lt;a href=&quot;https://github.com/mojombo/tpw/blob/master/css/syntax.css&quot;&gt;syntax.scss&lt;/a&gt; file. This is the...</content>
- </entry>
-
- 
-
- <entry>
-   <title>This is the eigth test post.</title>
-   <link href="http://localhost:4000/test-post-8"/>
-   <id>http://localhost:4000/test-post-8</id>
-   <updated>2017-02-11T00:00:00+08:00</updated>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est optio ut impedit architecto iusto tempore rem, voluptates sed magni nisi corrupti praesentium voluptatum harum expedita temporibus ipsam, odit ad distinctio! Labore cupiditate distinctio facere earum, iste! Reiciendis possimus voluptatum explicabo corporis ab. Ex adipisci laudantium mollitia vel optio deserunt...</content>
  </entry>
 
  
