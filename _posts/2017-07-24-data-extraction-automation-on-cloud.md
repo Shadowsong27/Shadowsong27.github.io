@@ -31,12 +31,15 @@ of generic commands or English description.
 Just FYI, the environment and tools I was using are:
 
 Scripting language: Python 3 - honestly I don't really know how to use other scripting language
+
 Tools: Selenium 3.4.3 + Firefox 54.0.1
+
 Server: CentOS 7
 
-Wanted to discuss something here:
+### Some notes
 
 1. Dynamic Loading
+
 Many websites are not static, you can't just use a simple `urllib.request.urlopen()` to get everything you want.
 selenium simulates the browser's behavior, e.g. login, input keys and loading javascript. There are more advanced 
 way to load javascript, or even hijack the request so that you don't even have to touch the boring HTML, 
@@ -57,15 +60,20 @@ virtual_display = Xvfb()
 virtual_display.start()
 ```
 
+This means you will have less effort switching from local to cloud if previously you are using Firefox. It is
+easier than PhantomJS as well.
 
-1. Choice of selenium + firefox
-
-In fact there are a lot of combination
-1. The new selenium + firefox stack would require a thing called `geckodriver`, which is not required when
+The new selenium + firefox stack would require a thing called `geckodriver`, which is not required when
 Firefox is still at version 47. Simply specify it in the executable path:
 
 ```python
 driver = webdriver.Firefox(executable_path='/path/to/your/geckodriver')
 ```
 
-2. Choice
+### Steps
+
+Say you have this script `scrape.py`
+
+1. Connect to remote server
+
+It is fine to start without SSH, 
