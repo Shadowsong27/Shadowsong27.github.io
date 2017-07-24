@@ -51,7 +51,7 @@ try PhantomJS, so I tried, it works sometime, I do not have the time to dive dee
 I know it is powerful. Then I realise that PhantomJS is not the only way, there is a thing
 called virtual display, so we could run the same Firefox setup on cloud, with just additional three lines of code.
 
-```{python}
+```python
 from xvfbwrapper import Xvfb
 virtual_display = Xvfb()
 virtual_display.start()
@@ -64,7 +64,7 @@ In fact there are a lot of combination
 1. The new selenium + firefox stack would require a thing called `geckodriver`, which is not required when
 Firefox is still at version 47. Simply specify it in the executable path:
 
-```{python}
+```python
 driver = webdriver.Firefox(executable_path='/path/to/your/geckodriver')
 ```
 

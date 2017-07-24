@@ -32,22 +32,22 @@ description: Posts related to programming
 	<h2>E T L</h2>
 
 	{% for post in site.posts %}
-	{% if post.description contains "ETL" %}
-	  <li class="post">
-	  	<h3><a href="
+		{% if post.description contains "ETL" %}
+			<li class="post">
+				<h3><a href="
 				{% if site.baseurl == "/" %}
-				{{ post.url }}
-				{% else %}
-				{{ post.url | prepend: site.baseurl }}
-				{% endif %}">
-      {% if post.title %}
-        {{ post.title }}
-      {% else %}
-        {{ post.header }}
-      {% endif %}
-  		</a></h3>
-      <time datetime="{{ post.date | date_to_xmlschema }}" class="by-line"> <i>{{ post.date | date_to_string }}</i> </time>
-	  </li>
-    {% endif %}
+					{{ post.url }}
+					{% else %}
+					{{ post.url | prepend: site.baseurl }}
+					{% endif %}">
+					{% if post.title %}
+					{{ post.title }}
+					{% else %}
+					{{ post.header }}
+				{% endif %}
+				</a></h3>
+				<time datetime="{{ post.date | date_to_xmlschema }}" class="by-line"> <i>{{ post.date | date_to_string }}</i> </time>
+			</li>
+		{% endif %}
 	{% endfor %}
 </ul>
