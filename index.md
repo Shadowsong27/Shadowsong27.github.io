@@ -8,6 +8,11 @@ title: Song Yikun's Personal Blog
 B.Sc. (Hons) in *Business Analytics*, National University of Singapore
 
 
-## Skills
+## Hobby
 ---
-Not sure which one should I put ...
+* listening to Classical music
+* playing musical instruments
+* watching others playing instruments
+* strategic games on PC
+* read books, watch movies and tv shows
+
