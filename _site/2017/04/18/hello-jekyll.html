@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello Jekyll - 廖柯宇的独立博客</title>
-    <meta name="author"  content="廖柯宇">
+    <meta name="author"  content="Song Yikun">
     <meta name="description" content="Hello Jekyll">
     <meta name="keywords"  content="jekyll">
     <!-- Open Graph -->
@@ -91,7 +91,7 @@ Author: Ray-Eldath
   <!--[if lt IE 10]>
 <div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
 <![endif]-->
-  <input id="nm-switch" type="hidden" value="true"> <header class="g-header">
+  <input id="nm-switch" type="hidden" value="false"> <header class="g-header">
     <div class="g-logo">
       <a href="/"></a>
     </div>
@@ -156,93 +156,6 @@ Author: Ray-Eldath
     </article>
 
     
-      <!--
-Author: Ray-Eldath
-refer to:
- - https://github.com/theme-next/hexo-theme-next/blob/4bfbd67b3edc6f11b00357da6e509e5281a896f1/layout/_macro/reward.swig and
- - https://github.com/theme-next/hexo-theme-next/blob/e12bb0b27e16072eb82baa4c7dda1c41c8de7264/source/css/_common/components/post/post-reward.styl
--->
-<style media="screen">
-  .reward {
-    padding: 5px 0;
-    margin: 20px auto;
-    width: 90%;
-    text-align: center;
-  }
-
-  .rewardButton {
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
-    border-radius: 8px;
-    display: inline-block;
-    cursor: pointer;
-    color: #ffffff;
-    font-family: '微软雅黑';
-    font-size: 18px;
-    padding: 5px 25px;
-    text-decoration: none;
-    opacity: 0.8;
-  }
-    
-  .rewardButton:hover{
-    opacity: 1
-  }
-    
-  .QR {
-    padding-top: 20px;
-    display: none;
-  }
-
-  .QR a {
-    border: 0;
-  }
-
-  .QR img {
-    width: 180px;
-    max-width: 100%;
-    display: inline-block;
-    margin: 0.8em 2em 0 2em;
-  }
-</style>
-
-<div class="reward">
-  <a class="rewardButton bgcolor-default" title="请廖柯宇喝杯咖啡？">赞 赏</a>
-
-  <div class="QR">
-    
-    <div>
-      <span style="font-family: '微软雅黑'; font-size: 18px; ">真诚赞赏 手有余香</span>
-    </div>
-    
-
-    <div class="reward-outer">
-        
-        <div class="wechat" style="display: inline-block">
-            <img class="wechat_qr" src="http://ray-eldath.image.alimmdn.com/basic/wechatpay.jpg" title="用微信请廖柯宇喝杯咖啡？" alt="用微信请廖柯宇喝杯咖啡？" />
-            <p>微信支付</p>
-        </div>
-        
-
-        
-        <div class="alipay" style="display: inline-block">
-            <img class="alipay_qr" src="http://ray-eldath.image.alimmdn.com/basic/alipay.jpg" title="用支付宝请廖柯宇喝杯咖啡？" alt="用支付宝请廖柯宇喝杯咖啡？" />
-            <p>支付宝</p>
-        </div>
-        
-    </div>
-      
-  </div>
-</div>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    $("a.rewardButton").click(function() {
-      $("div.QR").slideToggle()
-    });
-  });
-</script>
-
-    
 
     
     <div class="social-share-wrapper">
@@ -254,11 +167,11 @@ refer to:
   <section class="author-detail">
     <section class="post-footer-item author-card">
       <div class="avatar">
-        <img src="http://localhost:4000/assets/img/profile.png" alt="">
+        <img src="http://localhost:4000/assets/img/profile.jpeg" alt="">
       </div>
-      <div class="author-name" rel="author">廖柯宇</div>
+      <div class="author-name" rel="author">Song Yikun</div>
       <div class="bio">
-        <p>前端开发者，热爱技术&设计，简单乐观爱创造</p>
+        <p>Data Engineer</p>
       </div>
       
       <ul class="sns-links">
@@ -316,58 +229,14 @@ refer to:
       
     <section class="post-footer-item comment">
         
-        <button class="comment-button" type="button">
-            <i class="fa fa-commenting" aria-hidden="true"></i>
-            <span class="comment-button-span">展开评论</span>
-        </button>
-        
         
         <div class="comment-inner">
             
         
             
-            <div id="lv-container" data-id="city" data-uid="MTAyMC8yODEwMC80Njcz"></div>
-            
         </div>
     </section>
       
-    
-    <style>
-        .comment button{
-            margin-bottom: 40px;
-            width: 100%;
-            background: none;
-            border-style: solid hidden solid hidden;
-            font-size: 18px;
-            height: 40px;
-            opacity: 0.5;
-        }
-        
-        .comment button:hover{
-            opacity: 0.9
-        }
-        
-        .comment button span{
-            padding-left: 5px;
-            letter-spacing: 20px;
-            line-height: 40px;
-        }
-        
-        .comment-inner {
-            display: none
-        }
-    </style>
-      
-    <script>
-    $(document).ready(function() {
-        let clicked = false
-        $(".comment-button").click(function() {
-            $(".comment-inner").slideToggle()
-            clicked = !clicked
-            $(".comment-button-span").html(clicked ? "收起评论" : "展开评论")
-        })
-    })
-    </script>
     
     
   </section>
@@ -475,20 +344,6 @@ refer to:
   <script>
     
     
-    
-    (function(d, s) {
-      var j, e = d.getElementsByTagName(s)[0];
-
-      if (typeof LivereTower === 'function') {
-        return;
-      }
-
-      j = d.createElement(s);
-      j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-      j.async = true;
-
-      e.parentNode.insertBefore(j, e);
-    })(document, 'script');
     
 </script>
 

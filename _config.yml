@@ -17,33 +17,33 @@ footer:
   since: 2017
 
 # Author 配置博主信息
-author: '廖柯宇'
-nickname: '悟空'
-bio: '前端开发者，热爱技术&设计，简单乐观爱创造'
-avatar: '/assets/img/profile.png'
+author: 'Song Yikun'
+nickname: 'Shadowsong'
+bio: 'Data Engineer'
+avatar: '/assets/img/profile.jpeg'
 
 # Search
 search: true
 
 # Night mode
-nightMode: true
+nightMode: false
 
 # Comments 评论功能
 #   default_hidden：是否默认隐藏评论。若是则需要点击一按钮后才显示。 by Ray-Eldath
 comments:
-  default_hidden: true
+  default_hidden: false
   disqus: false
-  disqus_url: 'https://liaokeyu.disqus.com/embed.js'
+  disqus_url: ''
 
-  livere: true
+  livere: false
   livere_uid: MTAyMC8yODEwMC80Njcz
 
 # Reward 赞赏功能 by Ray-Eldath
 reward:
-  enable: true
-  reward_comment: '真诚赞赏 手有余香'
-  wechatpay: 'http://ray-eldath.image.alimmdn.com/basic/wechatpay.jpg'
-  alipay: 'http://ray-eldath.image.alimmdn.com/basic/alipay.jpg'
+  enable: false
+  reward_comment: '#comment for reward'
+  wechatpay: '#barcode'
+  alipay: '#barcode'
 
 # b2t 回到顶部 by Ray-Eldath
 b2t: true
