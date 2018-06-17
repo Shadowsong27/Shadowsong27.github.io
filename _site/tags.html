@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tags - Shadowsong's Blog</title>
+    <meta name="author"  content="Song Yikun">
+    <meta name="description" content="对生活充满兴趣和好奇">
+    <meta name="keywords"  content="Data, Automation, Classic Music, Movie">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Tags - Shadowsong's Blog">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:4000/tags">
+    <meta property="og:description" content="对生活充满兴趣和好奇">
+    <meta property="og:site_name" content="Shadowsong's Blog">
+    <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_roc50gemkxpw4s4i.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    <link rel="stylesheet" href="/assets/css/share.min.css">
+    <link rel="stylesheet" href="/assets/css/app.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+    <input id="nm-switch" type="hidden" value="true">
+    <div class="visible">
+      <header class="g-header">
+    <div class="g-logo">
+      <a href="/"></a>
+    </div>
+    <i id="menu-toggle" class="iconfont icon-menu"></i>
+    <nav class="g-nav">
+        <ul>
+            
+            <li><a href="/">home</a></li>
+            
+            <li><a href="/tags.html">tags</a></li>
+            
+        </ul>
+    </nav>
+</header>
+
+
+<div class="g-banner tags-banner post-pattern-circuitBoard bgcolor-default" data-theme="default">
+    <h2>TAGS</h2>
+</div>
+
+<main class="tags-content">
+
+    <ul class="tags-list">
+        <li>
+        
+            
+            <a href="#TV-Drama" class="tag">TV-Drama</a>
+            
+            <a href="#movie" class="tag">movie</a>
+            
+        
+        </li>
+        
+        
+        <li>
+            <span class="tag-name" id="TV-Drama">「TV-Drama」</span>
+            
+            <a class="tag-post" href="/2018/06/04/bull.html" title="Thoughts - Bull">Thoughts - Bull</a>
+            
+        </li>
+        
+        <li>
+            <span class="tag-name" id="movie">「movie」</span>
+            
+            <a class="tag-post" href="/2018/06/11/annihilation.html" title="观后感 - Annihilation">观后感 - Annihilation</a>
+            
+        </li>
+        
+    </ul>
+</main>
+    
+
+  <!--
+Author: Ray-Eldath
+refer to:
+ - https://github.com/theme-next/hexo-theme-next/blob/master/source/js/src/utils.js
+ - https://jingyan.baidu.com/article/b2c186c83ec846c46ef6ff80.html
+ - http://www.bkjia.com/jQuery/449205.html
+-->
+<style media="screen">
+  .scroll {
+    opacity: 0.8;
+    z-index: 10000;
+    display: none;
+    color: #fff;
+    line-height: 22px;
+    text-align: center;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    cursor: pointer;
+    font-size: 13px;
+    padding-bottom: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+</style>
+<div class="scroll bgcolor-default">
+  <i class="fa fa-arrow-up" aria-hidden="true"></i>
+  <span class="scrollpercent">
+      <span class="inner"></span>
+      %
+    </span>
+</div>
+
+<script src="/assets/js/util.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    if (utils.isMobile()) {
+      $('.scroll').hide();
+      return;
+    }
+    $(window).scroll(function() {
+      let scrollValue = $(window).scrollTop();
+
+      var scrollPercentRounded = Math.round((scrollValue / utils.getContentVisibilityHeight()) * 100);
+      var scrollPercentMaxed = (scrollPercentRounded > 100) ? 100 : scrollPercentRounded;
+
+      $('.scrollpercent .inner').html(scrollPercentMaxed);
+      scrollValue > 100 ? $('.scroll').fadeIn() : $('.scroll').fadeOut();
+    });
+
+    $('.scroll').click(function() {
+      $('html, body').animate({
+        scrollTop: 0
+      }, 300);
+    })
+  })
+</script>
+
+
+
+<footer class="g-footer">
+  <section>Shadowsong's Blog ©
+  
+  
+  2018
+  </section>
+  <section>Powered by <a href="//jekyllrb.com">Jekyll</a> | <a href="https://github.com/kaeyleo/jekyll-theme-H2O">Theme H2O</a></section>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/assets/js/prism.js"></script>
+    <script src="/assets/js/index.min.js"></script>
+</body>
+</html>
