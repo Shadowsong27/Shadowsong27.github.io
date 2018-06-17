@@ -1,9 +1,15 @@
 [
   
     {
-      "title"    : "Movie Thoughts - Annihilation",
+      "title"    : "观后感 - Annihilation",
       "tags"     : "movie",
       "url"      : "/2018/06/11/annihilation.html"
+    } ,
+  
+    {
+      "title"    : "Thoughts - Bull",
+      "tags"     : "TV-Drama",
+      "url"      : "/2018/06/04/bull.html"
     } 
   
 ]
