@@ -1,14 +1,20 @@
 [
   
     {
+      "title"    : "Swift and iOS App Development Learning Notes",
+      "tags"     : "English Programming iOS Swift",
+      "url"      : "/2018/06/17/swift-and-ios-notes.html"
+    } ,
+  
+    {
       "title"    : "观后感 - Annihilation",
-      "tags"     : "movie",
+      "tags"     : "中文 Movie",
       "url"      : "/2018/06/11/annihilation.html"
     } ,
   
     {
       "title"    : "Thoughts - Bull",
-      "tags"     : "TV-Drama",
+      "tags"     : "English TV-Drama",
       "url"      : "/2018/06/04/bull.html"
     } 
   

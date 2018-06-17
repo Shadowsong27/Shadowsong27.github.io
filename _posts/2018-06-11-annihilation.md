@@ -3,7 +3,7 @@ layout: post
 title: '观后感 - Annihilation'
 date: 2018-06-11
 cover: 'https://pbs.twimg.com/media/DS0lKq9WAAAuu1C.jpg'
-tags: movie
+tags: 中文 Movie
 ---
 
 本来我想着明早起来再写这篇文章，不过我感觉到那时候可能就忘的差不多了。还是趁热写吧，这倒不能算影评，只能算是感想了（应该还没有到写影评的水平）。
