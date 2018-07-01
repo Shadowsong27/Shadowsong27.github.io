@@ -26,4 +26,107 @@ Lastly regarding TestFlight, I would probably try HockeyApp first, but that is t
 ### Chapter 2 - Programming with Swift
 
 
-to be continued ...
+The second Chapter covers the language in greater detail. It first introduces the features of Swift in comparison to other programming languages, which includes:
+
+1. safety - strongly typed, usually no null object and of course you have `let` to safeguard your variables, which feels pretty `safe` as a Python engineer previously.
+2. modernity - includes modern design features like `Switches`, `Closures` and `Extensions`, though I do not know what they are yet, sounds like something I would like, readability
+is really important to me
+3. power - talks about the language's relationship and "seamlessly bridged" to Objective-C
+
+
+The general naming conventions so far seems to follow lower camel case.
+
+
+#### Variables and Constants
+
+- use as much constants as possible
+- variables are allowed not to have values during declaration, but cannot be accessed unless assigned a value
+- constants must have values
+
+
+#### Types
+
+1. `nil` to represent no value
+2. `optional variable` is defined to stored both the original data type and a `nil`
+3. `unwrap` - since you have the `optional variable` concept, you need to access the real value, instead of type casting directly, swift introduces `!`
+
+
+Some features for different data structures:
+
+- The tuples in Swift behaves somewhat similar the tuples and dictionaries in Python. but instead of accessing it using string slicing, tuple contents are accessed using `keys`, defined
+explicitly or implicitly.
+
+- The arrays usually holds homogeneous data types. This is safer I guess, unlike Python's list, though sometimes you will find a flexible list structure is quite
+handy. However, it is possible to mix different types of data in one array. It requires an explicit declaration of type `Any` for the array.
+
+```
+var myArray : [Any] = [1, 2, "3"]
+```
+
+- Dictionaries function basically the same as the one in Python, and they are unordered like always.
+
+- Control flows are normal so far, perhaps the only thing that excites me so far is the `if-let` statement, functions as a normal `if` and an special `try` clause
+
+- Switches are really good, I have not been using switches for a very long time because there is simply no switch statement in Python,
+and the last time I wrote Java was probably one year ago, and I always forgot about the `break;`. No more `break;` thank you.
+
+- concept of functionLabel
+
+- concept of variable number of arguments
+
+```
+func sumNumbers(numbers: Int...) ...
+```
+
+#### Classes and Inheritance
+
+- generally similar to other languages
+
+- no multiple inheritance
+
+- deinitialiser for "memory management"
+
+- computed properties, getter and (optional) setter: adding computational statements in the getter/setter clauses of
+properties to save one step (supposedly achievable by declaring a separate method)
+
+- observers: additional execution block before and after setting the value of a property
+
+- lazy property: useful for expensive declaration in initialisation
+
+- protocols: basically interfaces in java, a detailed differences is [here](https://stackoverflow.com/questions/30859334/compare-protocol-in-swift-vs-interface-in-java)
+
+- extensions: similar to inheritance but do not have to know the original source code, plus increase readability
+
+- possible to extend a TYPE to comform a protocol
+
+- implementation of customized operators is also possible ("+")
+
+
+#### Access Control
+
+- three level access control: public, private plus (default) internal
+
+- internal: application, library/framework level
+
+- read-only access for properties
+
+
+#### Others
+
+- Generics is similar in Java
+
+- retain cycles are tackled by weak reference
+
+
+#### Design Patterns
+
+- Model-View-Controller
+
+- Delegation: A class acts as a delegate of another (or many others)
+
+- Notifications
+
+
+## Chapter 3: What
+
+
