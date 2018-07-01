@@ -10,6 +10,7 @@ tags: English Programming iOS Swift
 
 After I left my last company, I feel it is the time for me to do something I’d always want to do — build the movie App I like. Being an iPhone and MacBook user for years,  it is natural for me to study Swift and iOS development. Luckily, I kinda find a book in my office when I left, it was left there, perhaps one year ago to lift up monitors. So it starts, the notes and thoughts about Swift programming.
 
+
 ### Chapter 1 - Cocoa Development Tools
 
 This chapter covers the brief history of Cocoa Tools, and some general concepts regarding Xcode and iOS App development in general such  as distribution, which could be found in Apple’s Developer Website in greater details, plus some really really basic hand’s on practice, and of course a tour around the Xcode.
@@ -59,7 +60,7 @@ explicitly or implicitly.
 - The arrays usually holds homogeneous data types. This is safer I guess, unlike Python's list, though sometimes you will find a flexible list structure is quite
 handy. However, it is possible to mix different types of data in one array. It requires an explicit declaration of type `Any` for the array.
 
-```
+```{swift}
 var myArray : [Any] = [1, 2, "3"]
 ```
 
@@ -74,7 +75,7 @@ and the last time I wrote Java was probably one year ago, and I always forgot ab
 
 - concept of variable number of arguments
 
-```
+```{swift}
 func sumNumbers(numbers: Int...) ...
 ```
 
@@ -127,6 +128,8 @@ properties to save one step (supposedly achievable by declaring a separate metho
 - Notifications
 
 
-## Chapter 3: What
+### Chapter 3 - What is an Application
+
+
 
 
