@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Swift and iOS App Development Learning Notes'
+title: 'Swift and iOS App Development Learning Notes (in Progress)'
 date: 2018-06-17
 cover: 'https://raw.githubusercontent.com/ServiceStack/Assets/master/img/release-notes/swift-logo-banner.jpg'
 tags: English Programming iOS Swift
@@ -8,7 +8,8 @@ tags: English Programming iOS Swift
 
 ### Introduction and Background
 
-After I left my last company, I feel it is the time for me to do something I’d always want to do — build the movie App I like. Being an iPhone and MacBook user for years,  it is natural for me to study Swift and iOS development. Luckily, I kinda find a book in my office when I left, it was left there, perhaps one year ago to lift up monitors. So it starts, the notes and thoughts about Swift programming.
+After I left my last company, I feel it is the time for me to do something I’d always want to do — build the movie App
+I like. Being an iPhone and MacBook user for years,  it is natural for me to study Swift and iOS development. Luckily, I kinda find a book in my office when I left, it was left there, perhaps one year ago to lift up monitors. So it starts, the notes and thoughts about Swift programming.
 
 
 ### Chapter 1 - Cocoa Development Tools
@@ -129,6 +130,20 @@ properties to save one step (supposedly achievable by declaring a separate metho
 
 
 ### Chapter 3 - What is an Application
+
+- different conventions in shipping out Apps
+- composition of Apps
+- the Application Life Cycle are largely similar for iOS Apps and OS X Apps
+- except multitasking because of the memory constraints of the mobile devices
+
+- foreground vs background
+- foreground vs inactive (phone call example)
+- when the application exits (user hit the home button), the app is suspended (not executing code, remained in memory, but stops consuming other resources)
+- App in the background could be terminated without notice when memory is not enough, data must be saved before moving into background state
+- background fetching and background notifications
+
+- The Application Sandbox
+
 
 
 

@@ -1,7 +1,13 @@
 [
   
     {
-      "title"    : "Swift and iOS App Development Learning Notes",
+      "title"    : "Big Data Engineer Collection (in Progress)",
+      "tags"     : "English Programming Data-Engineer Big-Data",
+      "url"      : "/2018/07/05/hadoop-learning-collection.html"
+    } ,
+  
+    {
+      "title"    : "Swift and iOS App Development Learning Notes (in Progress)",
       "tags"     : "English Programming iOS Swift",
       "url"      : "/2018/06/17/swift-and-ios-notes.html"
     } ,
