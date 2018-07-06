@@ -75,5 +75,97 @@ So after setting up the framework, I should get started.
 
 # Table of Contents
 
+### Part I: Hadoop Fundamentals
+
+
+# Hadoop Fundamentals
+
+### assume formatted and cleaned data, we have two problems: storage and analysis
+
+### Challenges exists in Distributed File System
+
+1. Hardware failure - a comparison between conventional RAID and HDFS
+2. Combining data during query process - MapReduce
+
+### RAID vs HDFS
+
+https://en.wikipedia.org/wiki/RAID
+
+
+### The Term - Hadoop
+
+> The term "Hadoop" is sometimes used to refer to a larger ecosystem of projects, not just HDFS and MapReduce, that
+> that fall under the umbrella of infrastructure for distributed computing and large-scale data processing
+>
+> -- Hadoop The Definitive Guide
+
+YARN - resource management system which allows any distributed program to run in a Hadoop cluster
+
+1. Interactive SQL - low latency
+2. Iterative processing - Spark
+3. Stream processing - Storm, Spark Streaming, Samza
+4. Search - Solr
+
+### Comparison with other System
+
+- RDMS (Storage)
+
+1. the data access pattern is crucial - determines the bottleneck: the seeking time or the transfer rate
+2. Conventional use B-Tree, which works well if the data updated is small in amount, but for a large-scale update,
+MapReduce is more efficent because it uses Sort/Merge to rebuild the database
+3. amount of structure in the dataset - structured data, semi-structured data (excel), unstructured data
+4. normalisation makes reading a nonlocal operation, which is not suitable for Hadoop as it affects reading and writing speed
+5. scales linearly - doubles no of clusters -> doubles the time for read and write
+
+- Grid Computing (Analysis)
+
+Grid computing is the collection of computer resources from multiple locations to reach a common goal.
+The grid can be thought of as a distributed system with non-interactive workloads that involve a large number of files.
+Grid computing is distinguished from conventional high-performance computing systems such as cluster computing in that
+grid computers have each node set to perform a different task/application. Grid computers also tend to be more
+heterogeneous and geographically dispersed (thus not physically coupled) than cluster computers.[1]
+Although a single grid can be dedicated to a particular application, commonly a grid is used for a variety
+of purposes. Grids are often constructed with general-purpose grid middleware software libraries. Grid sizes
+can be quite large.[2]
+
+HPC and Grid Computing are limited by a storage area network.
+
+In Hadoop, data locality ensures the performance in data processing.
+
+shared-nothing architecture - handle failures in processing vs MPI which needs to control by hand
+
+- Volunteer Computing
+
+MapReduce vs volunteering projects such as SETI@home
+
+(How about coin mining?)
+
+### History of Hadoop
+
+1. name
+2. relationship with lucene and nutch
+3. Today
+
+
+# MapReduce
+
+# The Hadoop Distributed Filesystem, particularly on HDFS
+
+# YARN
+
+# Hadoop I/O
+
+# Data Formats - Avro, Parquet
+
+# Data Ingestion - Flume, Sqoop
+
+# Data Processing - Pig, Hive, Crunch, Spark
+
+# Storage - HBase
+
+# Coordination - ZooKeeper
+
+
+
 
 
