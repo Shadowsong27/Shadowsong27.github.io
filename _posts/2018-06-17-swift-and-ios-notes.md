@@ -16,7 +16,7 @@ I like. Being an iPhone and MacBook user for years,  it is natural for me to stu
 
 This chapter covers the brief history of Cocoa Tools, and some general concepts regarding Xcode and iOS App development in general such  as distribution, which could be found in Apple’s Developer Website in greater details, plus some really really basic hand’s on practice, and of course a tour around the Xcode.
 
-One bad thing about learning programming from book is that you could not simply copy and paste the example codes into the editor, but it is making me to get used to the IDE. Different IDEs have different code competition style and being familiar with that would tremendously increase your productivity, so I am definitely not complaining that. Plus, it always feels good to write in new languages.
+One bad thing about learning programming from book is that you could not simply copy and paste the example codes into the editor, but it is making me to get used to the IDE. Different IDEs have different code completion style and being familiar with that would tremendously increase your productivity, so I am definitely not complaining that. Plus, it always feels good to write in new languages.
 
 With my current understanding, it seems like that the design of iOS App could be separated into two components, the `interface` and the `connections`, which can be then further divided into `outlets` (and a `outlet collections`) and `actions`
 
