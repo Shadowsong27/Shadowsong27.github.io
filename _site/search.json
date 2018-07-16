@@ -1,6 +1,12 @@
 [
   
     {
+      "title"    : "重温《芳华》",
+      "tags"     : "中文 Movie Reading",
+      "url"      : "/2018/07/17/fang-hua.html"
+    } ,
+  
+    {
       "title"    : "Big Data Engineer Collection (in Progress)",
       "tags"     : "English Programming Data-Engineer Big-Data",
       "url"      : "/2018/07/05/hadoop-learning-collection.html"

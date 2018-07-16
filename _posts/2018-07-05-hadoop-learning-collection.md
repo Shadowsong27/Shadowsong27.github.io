@@ -149,6 +149,11 @@ MapReduce vs volunteering projects such as SETI@home
 
 # MapReduce
 
+- MapReduce breaks the process into two phases: the map phase and the reduce phase, subsequently the map function
+and the reduce function. Each phase/function takes in key-value pairs
+
+-
+
 # The Hadoop Distributed Filesystem, particularly on HDFS
 
 # YARN
