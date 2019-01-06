@@ -9,12 +9,13 @@ I had watched this movie some years ago in the cinema, together with my friends.
 We learned one phrase that day - “Old sport”. I remembered enjoying watching the 
 movie on that day, perhaps I’ve always had this undiscovered soft spot for these 
 classy movies. *Pride and Prejudice*, which I had never thought I would love, 
-and *the Anonymous*, played by Rhys Ifans, whom lately become one of my favourite actor. 
+and *the Anonymous*, played by Rhys Ifans, whom lately become one of my favourite actors. 
 
-The phrase “The Great Something” reminded me of this movie again today, and 
-I started my second view on this movie, and I stopped halfway after Gatsby 
-told Nick that the past could be fixed. It occurs to me now that, with such 
-a comfortable atmosphere in the dark back then, I was deeply drained into 
+The phrase “The Great Something” mentioned in our telegram group chat
+reminded me of this movie again today, and I started my second run on this 
+movie, and I stopped halfway after Gatsby 
+told Nick that "the past could be fixed". It occurs to me now that, with such 
+comfortable atmosphere in the dark back then, I was deeply drawn into 
 the world of the portrayed prosperous American Dream in the early twenties. 
 However, right at this moment, I am sitting in my bedroom, with the bright 
 white light on, I feel much less impressed. 
