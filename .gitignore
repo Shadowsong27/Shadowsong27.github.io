@@ -1,4 +1,5 @@
 .idea/
+public/
 *~
 .DS_Store
 .sass-cache
