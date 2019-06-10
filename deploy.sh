@@ -26,3 +26,9 @@ cp README.md public/README.md
 
 echo "Updating master branch"
 cd public && git add --all && git commit -m "Publishing to github personal page master branch"
+
+git push
+
+echo "Updating builder branch"
+cd ../
+git push
