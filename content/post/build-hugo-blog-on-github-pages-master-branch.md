@@ -15,13 +15,13 @@ tags:
 - notes
 ---
 
-This short article aims to address the issue of hosting personal static blogs 
+This short article aims to address issues I encountered during hosting personal static blog 
 on Github Page.
 <!--more-->
 
 # Problem Description
 
-Github Page provides three different ways to host a static personal website for free.
+Github Page provides three different ways to host a static personal website, for free.
 
 - host in `/docs` folder
 - host in `gh-pages` branch
@@ -30,8 +30,8 @@ Github Page provides three different ways to host a static personal website for 
 However, in the case of personal blogs, i.e. using repo `<github_username>.github.io` 
 limits the option to just build the website on `master` branch.
 
-It did causes me some minor issue on publishing flow and setup when I switched from `jekyll` 
-to `hugo`, and it is not that obvious on the official docs, hence this article
+It indeed created some minor issues on publishing flow and setup when I switched from `jekyll` 
+to `hugo`, and it is not that straight-forward on the official docs (they are great docs), hence this article.
 
 # Solution
 
@@ -63,9 +63,9 @@ stored in `public` folder by default.
  
 In the official instructions, they `git worktree add` 
 the `gh-pages` to make it become a linked worktree to the main git worktree, and then hosted the
-content of `public` folder there. This is just like having a mini-repo in a repo (not accurate at all!).
+content of `public` folder there. This is just like having a mini-repo in a repo (not accurate at all but you get the idea).
 
-In order to have the static content in `public` at the project root on master branch, we
+In order to have the static content in `public` at the project root on `master` branch, we
 first switch to a separate branch, called `builder`. 
 
 Then we build the project by running `hugo`, by adapting the command in the docs, we could make 
@@ -79,10 +79,10 @@ Checkout to local `master` branch by simply `cd public`, and do `git push`, use 
 
 Remember to push your changes in `builder` branch to remote as well.
 
-Summary: A `builder` branch to write, build and publish the static content, a `master` branch to host 
+In summary, use `builder` branch to write, build and publish the static content, use `master` branch to host 
 on Github Pages
 
-### 3. for people who are lazy 
+### 3. For people who are lazy 
 
 For those who are lazy to read, or for lazy publication, I have the following deployment script, I copy-paste
 the entire thing here because I want to see how it looks like when a large chunk of code
@@ -127,6 +127,8 @@ git push
 
 Create a `deploy.sh` file at project root and copy paste the above code in.
 
+Check the original script in [my repo](https://github.com/Shadowsong27/Shadowsong27.github.io).
+
 Then follow the steps below:
 
 - always work on `builder` branch locally
@@ -136,6 +138,18 @@ Then follow the steps below:
 - commit your changes on local `builder branch`
 
 - run `bash deploy.sh` 
+
+# Side Note
+
+I originally wanted to write a detailed comparison and user experience between `hugo` and `jekyll`, but 
+I think similar articles are all over the Internet, so never mind.
+
+In short, `hugo` is more **architecturally-pleasing** to me, 
+but requires some __simple__ tweaks. I also learned `git worktree` because of this, it is pretty cool.
+
+`jekyll` is easier to setup, and to publish as well, but it is slow to build, 
+it does not really matter to me at this point because I only have one aritcle, but I do not like 
+to see a long list of red/green `git status` result (weirdo alert!).
 
 
 
