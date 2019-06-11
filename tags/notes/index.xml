@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Shadowsong&#39;s Personal Website</title>
-    <link>https://shadowsong27.github.io/post/</link>
-    <description>Recent content in Posts on Shadowsong&#39;s Personal Website</description>
+    <title>notes on Shadowsong&#39;s Personal Website</title>
+    <link>https://shadowsong27.github.io/tags/notes/</link>
+    <description>Recent content in notes on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 11 Jun 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://shadowsong27.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://shadowsong27.github.io/tags/notes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

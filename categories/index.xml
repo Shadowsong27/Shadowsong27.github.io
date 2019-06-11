@@ -1,67 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Hugo tranquilpeak theme</title>
+    <title>Categories on Shadowsong&#39;s Personal Website</title>
     <link>https://shadowsong27.github.io/categories/</link>
-    <description>Recent content in Categories on Hugo tranquilpeak theme</description>
+    <description>Recent content in Categories on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Jun 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 11 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://shadowsong27.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>releases</title>
-      <link>https://shadowsong27.github.io/categories/releases/</link>
-      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
+      <title>miscellaneous</title>
+      <link>https://shadowsong27.github.io/categories/miscellaneous/</link>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://shadowsong27.github.io/categories/releases/</guid>
+      <guid>https://shadowsong27.github.io/categories/miscellaneous/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>tranquilpeak</title>
-      <link>https://shadowsong27.github.io/categories/tranquilpeak/</link>
-      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
+      <title>programming</title>
+      <link>https://shadowsong27.github.io/categories/programming/</link>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://shadowsong27.github.io/categories/tranquilpeak/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>showcase appliquée</title>
-      <link>https://shadowsong27.github.io/categories/showcase-appliqu%C3%A9e/</link>
-      <pubDate>Sun, 14 Jun 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://shadowsong27.github.io/categories/showcase-appliqu%C3%A9e/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>features</title>
-      <link>https://shadowsong27.github.io/categories/features/</link>
-      <pubDate>Thu, 28 May 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://shadowsong27.github.io/categories/features/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>new categories</title>
-      <link>https://shadowsong27.github.io/categories/new-categories/</link>
-      <pubDate>Wed, 13 May 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://shadowsong27.github.io/categories/new-categories/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tranquilpeak test</title>
-      <link>https://shadowsong27.github.io/categories/tranquilpeak-test/</link>
-      <pubDate>Wed, 13 May 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://shadowsong27.github.io/categories/tranquilpeak-test/</guid>
+      <guid>https://shadowsong27.github.io/categories/programming/</guid>
       <description></description>
     </item>
     
