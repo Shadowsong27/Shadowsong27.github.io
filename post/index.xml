@@ -21,5 +21,14 @@
 on Github Page.&lt;/p&gt;</description>
     </item>
     
+    <item>
+      <title>Rescheduling of Airflow DAGs</title>
+      <link>https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/</link>
+      <pubDate>Sat, 22 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/</guid>
+      <description>&lt;p&gt;This article briefly records the step to reschedule a DAG on Apache Airflow&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>

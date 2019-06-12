@@ -8,43 +8,37 @@
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
-<meta name="description" content="This short article aims to address issues I encountered during hosting personal static blog
-on Github Page.">
+<meta name="description" content="This article briefly records the step to reschedule a DAG on Apache Airflow">
 
 
-<meta property="og:description" content="This short article aims to address issues I encountered during hosting personal static blog
-on Github Page.">
+<meta property="og:description" content="This article briefly records the step to reschedule a DAG on Apache Airflow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Build Hugo Blog on Github Pages Master Branch">
-<meta name="twitter:title" content="Build Hugo Blog on Github Pages Master Branch">
-<meta property="og:url" content="https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/">
-<meta property="twitter:url" content="https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/">
+<meta property="og:title" content="Rescheduling of Airflow DAGs">
+<meta name="twitter:title" content="Rescheduling of Airflow DAGs">
+<meta property="og:url" content="https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/">
+<meta property="twitter:url" content="https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/">
 <meta property="og:site_name" content="Shadowsong&#39;s Personal Website">
-<meta property="og:description" content="This short article aims to address issues I encountered during hosting personal static blog
-on Github Page.">
-<meta name="twitter:description" content="This short article aims to address issues I encountered during hosting personal static blog
-on Github Page.">
+<meta property="og:description" content="This article briefly records the step to reschedule a DAG on Apache Airflow">
+<meta name="twitter:description" content="This article briefly records the step to reschedule a DAG on Apache Airflow">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2019-06-11T00:00:00">
+    <meta property="article:published_time" content="2018-09-22T00:00:00">
   
   
-    <meta property="article:modified_time" content="2019-06-11T00:00:00">
+    <meta property="article:modified_time" content="2018-09-22T00:00:00">
   
   
   
     
       <meta property="article:section" content="programming">
     
-      <meta property="article:section" content="miscellaneous">
+      <meta property="article:section" content="data engineering">
     
   
   
     
-      <meta property="article:tag" content="hugo">
-    
-      <meta property="article:tag" content="static website">
+      <meta property="article:tag" content="airflow">
     
       <meta property="article:tag" content="notes">
     
@@ -59,12 +53,12 @@ on Github Page.">
 
 
 
-  <meta property="og:image" content="https://blog.jscrambler.com/content/images/2018/08/jscrambler-blog-hugo-static-site-generator-720px.jpg">
-  <meta property="twitter:image" content="https://blog.jscrambler.com/content/images/2018/08/jscrambler-blog-hugo-static-site-generator-720px.jpg">
+  <meta property="og:image" content="https://cdn-images-1.medium.com/max/1200/1*6jjSw8IqGbsPZp7L_43YyQ.png">
+  <meta property="twitter:image" content="https://cdn-images-1.medium.com/max/1200/1*6jjSw8IqGbsPZp7L_43YyQ.png">
 
 
-  <meta property="og:image" content="https://www.codexguides.com/wp-content/uploads/2019/03/Static-site-generator-hugo.png">
-  <meta property="twitter:image" content="https://www.codexguides.com/wp-content/uploads/2019/03/Static-site-generator-hugo.png">
+  <meta property="og:image" content="https://cdn-images-1.medium.com/max/2000/1*w4M-7X85wNNYx6WAFA-K5Q.png">
+  <meta property="twitter:image" content="https://cdn-images-1.medium.com/max/2000/1*w4M-7X85wNNYx6WAFA-K5Q.png">
 
 
 
@@ -73,14 +67,14 @@ on Github Page.">
   <meta property="twitter:image" content="https://avatars3.githubusercontent.com/u/12522657?s=400&u=ccfcf050a757c6a49241737eefe4386064400b5e&v=4">
 
 
-    <title>Build Hugo Blog on Github Pages Master Branch</title>
+    <title>Rescheduling of Airflow DAGs</title>
 
     <link rel="icon" href="https://shadowsong27.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/">
+    <link rel="canonical" href="https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -245,7 +239,7 @@ if (!doNotTrack) {
   <div class="post-header-cover
               text-center
               "
-       style="background-image:url('https://www.codexguides.com/wp-content/uploads/2019/03/Static-site-generator-hugo.png')"
+       style="background-image:url('https://cdn-images-1.medium.com/max/2000/1*w4M-7X85wNNYx6WAFA-K5Q.png')"
        data-behavior="5">
     
   </div>
@@ -261,15 +255,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      Build Hugo Blog on Github Pages Master Branch
+      Rescheduling of Airflow DAGs
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-06-11T00:00:00Z">
+      <time itemprop="datePublished" datetime="2018-09-22T00:00:00Z">
         
-  June 11, 2019
+  September 22, 2018
 
       </time>
     
@@ -280,7 +274,7 @@ if (!doNotTrack) {
     
       <a class="category-link" href="https://shadowsong27.github.io/categories/programming">programming</a>, 
     
-      <a class="category-link" href="https://shadowsong27.github.io/categories/miscellaneous">miscellaneous</a>
+      <a class="category-link" href="https://shadowsong27.github.io/categories/data-engineering">data engineering</a>
     
   
 
@@ -290,144 +284,64 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>This short article aims to address issues I encountered during hosting personal static blog
-on Github Page.</p>
+              <p>This article briefly records the step to reschedule a DAG on Apache Airflow</p>
 
-<h1 id="problem-description">Problem Description</h1>
+<p>So this week one of my tasks is to reschedule some DAGs in our current data pipelines on Airflow.</p>
 
-<p>Github Page provides three different ways to host a static personal website, for free.</p>
+<p>It all started with a complain made by my colleague, “Why is this query taking 30 minutes to complete, is there a DAG running?”</p>
 
-<ul>
-<li>host in <code>/docs</code> folder</li>
-<li>host in <code>gh-pages</code> branch</li>
-<li>host in <code>master</code> branch</li>
-</ul>
+<p>You get my point, scheduling a DAG, particularly a massive DAG that often involves many crucial data transformation and transportation during the office hour is not something desirable. It happens to us not long ago, when one of us is testing a complex query and it ended up jamming both Airflow tasks and other manual executions.</p>
 
-<p>However, in the case of personal blogs, i.e. using repo <code>&lt;github_username&gt;.github.io</code>
-limits the option to just build the website on <code>master</code> branch.</p>
+<p>As a data engineer, at some point of time you will need to be very familiar with the DAGs. They are like your babies, please take good care of them.</p>
 
-<p>It indeed created some minor issues on publishing flow and setup when I switched from <code>jekyll</code>
-to <code>hugo</code>, and it is not that straight-forward on the official docs (they are great docs), hence this article.</p>
+<h3 id="time-range">Time Range</h3>
 
-<h1 id="solution">Solution</h1>
+<p>Let’s say we work from 9 am to 10 pm (because somebody likes work or run some queries at night) SGT, we will need to schedule DAGs outside of this period, which is 1 am to 2 pm UTC.</p>
 
-<h3 id="1-install-hugo-and-necessary-notes">1. Install Hugo and necessary notes</h3>
+<h3 id="types-of-dag">Types of DAG</h3>
 
-<p><a href="https://gohugo.io/documentation/">Click to view offical docs.</a></p>
+<p>We are dealing with time, therefore it is important to identify first whether the DAG is temporal related - you kinda use the <code>execution_date</code> in your query / python jinja templating / or other stuff.</p>
 
-<p>Docs are pretty good, and IMHO Hugo has the most UI friendly
-and comprehensive docs among its competitors.</p>
+<p>You would probably like to keep the historical DAG run of this particular DAG as well, or perhaps you are using the <code>backfill</code> feature provided by Airflow, which is a great feature by the way. The following steps describe how to handle both of them.</p>
 
-<p><a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">More docs here on hosting.</a></p>
+<h3 id="steps">Steps</h3>
 
-<p>Note in the second last section, build and publish on <code>master</code> branch is omitted because</p>
+<h5 id="step-1-identify-scheduled-time-and-actual-execuion-time-of-dags">Step 1. Identify scheduled time and actual execuion time of DAGs</h5>
 
-<blockquote>
-<p>Steps should be similar to that of the gh-pages branch,
-with the exception that you will create your GitHub
-repository with the public directory as the root.</p>
-</blockquote>
+<p>It is important to actually go to airflow metadata database (the name …) to checkout the actual execution time of the DAG. Sometimes, for some unknown reason, your DAG does not start at the time designated. So to avoid further confusion, make sure check the actual execution time.</p>
 
-<p>Not cool! Especially inconvenient for people like me, who often enjoys blindly following
-instructions in a tutorial or documentation.</p>
+<p>Now you need to decide whether you should reschedule a DAG based on the actual execution time.</p>
 
-<p>So I have to read the <code>gh-pages</code> section carefully, and made some tweaks.</p>
+<p>If the actual execution time is acceptable, what you really need to do is just correct the start date, if not you will need to make some other changes.</p>
 
-<h3 id="2-understand-the-structure">2. Understand the structure</h3>
+<h5 id="step-2-identify-temporal-relevant-dags">Step 2.  Identify temporal relevant DAGs</h5>
 
-<p>The website is built when we run the command <code>hugo</code>  at project root, the project
-root initiated from <code>hugo new site &lt;project_name&gt;</code>, all the static content are automatically
-stored in <code>public</code> folder by default.</p>
+<p>Decide whether the DAG you want to move is dependent on time, as mentioned in previous section.</p>
 
-<p>In the official instructions, they <code>git worktree add</code>
-the <code>gh-pages</code> to make it become a linked worktree to the main git worktree, and then hosted the
-content of <code>public</code> folder there. This is just like having a mini-repo in a repo (not accurate at all but you get the idea).</p>
-
-<p>In order to have the static content in <code>public</code> at the project root on <code>master</code> branch, we
-first switch to a separate branch, called <code>builder</code>.</p>
-
-<p>Then we build the project by running <code>hugo</code>, by adapting the command in the docs, we could make
-the <code>master</code> branch become the mini-repo we want, set up stream to <code>master</code> as well.</p>
-
-<pre><code>git worktree add -B master public origin/master
-</code></pre>
-
-<p>Checkout to local <code>master</code> branch by simply <code>cd public</code>, and do <code>git push</code>, use <code>--force</code> if necessary.</p>
-
-<p>Remember to push your changes in <code>builder</code> branch to remote as well.</p>
-
-<p>In summary, use <code>builder</code> branch to write, build and publish the static content, use <code>master</code> branch to host
-on Github Pages</p>
-
-<h3 id="3-for-people-who-are-lazy">3. For people who are lazy</h3>
-
-<p>For those who are lazy to read, or for lazy publication, I have the following deployment script, I copy-paste
-the entire thing here because I want to see how it looks like when a large chunk of code
-is rendered using this Hugo Theme.</p>
-
-<pre><code>#!/bin/sh
-
-if [[ $(git status -s) ]]
-then
-    echo &quot;The working directory is dirty. Please commit any pending changes.&quot;
-    exit 1;
-fi
-
-echo &quot;Deleting old publication&quot;
-rm -rf public
-mkdir public
-git worktree prune
-rm -rf .git/worktrees/public/
-
-echo &quot;Checking out gh-pages branch into public&quot;
-git worktree add -B master public origin/master
-
-echo &quot;Removing existing files&quot;
-rm -rf public/*
-
-echo &quot;Generating site&quot;
-hugo
-
-echo &quot;Copy README.md&quot;
-cp README.md public/README.md
-
-echo &quot;Updating master branch&quot;
-cd public &amp;&amp; git add --all &amp;&amp; git commit -m &quot;Publishing to github personal page master branch&quot;
-
-git push
-
-echo &quot;Updating builder branch&quot;
-cd ../
-git push
-</code></pre>
-
-<p>Create a <code>deploy.sh</code> file at project root and copy paste the above code in.</p>
-
-<p>Check the original script in <a href="https://github.com/Shadowsong27/Shadowsong27.github.io">my repo</a>.</p>
-
-<p>Then follow the steps below:</p>
+<h5 id="step-3-1-if-not">Step 3.1 If Not</h5>
 
 <ul>
-<li><p>always work on <code>builder</code> branch locally</p></li>
-
-<li><p>preview blogs with <code>hugo serve</code></p></li>
-
-<li><p>commit your changes on local <code>builder branch</code></p></li>
-
-<li><p>run <code>bash deploy.sh</code></p></li>
+<li>Rename (usually use a <code>_v*</code> suffix)</li>
+<li>Change Start Date</li>
+<li>Deploy and unpause your DAG</li>
+<li>If everything is great, delete your old DAG in metadata database (optional, somebody may find the disabled DAG disturbing)</li>
 </ul>
 
-<h1 id="side-note">Side Note</h1>
+<h5 id="step-3-2-if-unfortunately-yes">Step 3.2 If unfortunately yes</h5>
 
-<p>I originally wanted to write a detailed comparison and user experience between <code>hugo</code> and <code>jekyll</code>, but
-I think similar articles are all over the Internet, so never mind.</p>
+<ul>
+<li><p>Change the last execution time in metadata DB to the desired starting time,  one <code>scheduled_interval</code> before.  (I might remember the wrong column name)</p>
 
-<p>In short, <code>hugo</code> is more <strong>architecturally-pleasing</strong> to me,
-but requires some <strong>simple</strong> tweaks. I also learned <code>git worktree</code> because of this, it is pretty cool.</p>
+<pre><code>UPDATE dag_run SET execution_date = ...
+WHERE dag_id = ...
+</code></pre></li>
 
-<p><code>jekyll</code> is easier to setup, and to publish as well, but it is slow to build,
-it does not really matter to me at this point because I only have one aritcle, but I do not like
-to see a long list of red/green <code>git status</code> result (weirdo alert!).</p>
+<li><p>e.g. you have a daily DAG at 2am, now it is running every at 1am. So you change your latest DAG run to 1am.</p></li>
+
+<li><p>Change your start date</p></li>
+</ul>
+
+<p>And that is it. You can relax and enjoy every successful slack notification when you get up in the morning, knowing everything is running fine at night.</p>
               
             </div>
           </div>
@@ -439,9 +353,7 @@ to see a long list of red/green <code>git status</code> result (weirdo alert!).<
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://shadowsong27.github.io/tags/hugo/">hugo</a>
-
-  <a class="tag tag--primary tag--small" href="https://shadowsong27.github.io/tags/static-website/">static website</a>
+  <a class="tag tag--primary tag--small" href="https://shadowsong27.github.io/tags/airflow/">airflow</a>
 
   <a class="tag tag--primary tag--small" href="https://shadowsong27.github.io/tags/notes/">notes</a>
 
@@ -456,7 +368,7 @@ to see a long list of red/green <code>git status</code> result (weirdo alert!).<
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/" data-tooltip="Build Hugo Blog on Github Pages Master Branch">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -464,7 +376,7 @@ to see a long list of red/green <code>git status</code> result (weirdo alert!).<
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/" data-tooltip="Rescheduling of Airflow DAGs">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -482,19 +394,19 @@ to see a long list of red/green <code>git status</code> result (weirdo alert!).<
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -542,7 +454,7 @@ to see a long list of red/green <code>git status</code> result (weirdo alert!).<
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/" data-tooltip="Build Hugo Blog on Github Pages Master Branch">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -550,7 +462,7 @@ to see a long list of red/green <code>git status</code> result (weirdo alert!).<
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/" data-tooltip="Rescheduling of Airflow DAGs">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -568,19 +480,19 @@ to see a long list of red/green <code>git status</code> result (weirdo alert!).<
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -610,19 +522,19 @@ to see a long list of red/green <code>git status</code> result (weirdo alert!).<
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F06%2Fbuild-hugo-blog-on-github-pages-master-branch%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2018%2F09%2Frescheduling-of-airflow-dags%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F06%2Fbuild-hugo-blog-on-github-pages-master-branch%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2018%2F09%2Frescheduling-of-airflow-dags%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F06%2Fbuild-hugo-blog-on-github-pages-master-branch%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2018%2F09%2Frescheduling-of-airflow-dags%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -777,9 +689,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/shadowsong27.github.io\/2019\/06\/build-hugo-blog-on-github-pages-master-branch\/';
+          this.page.url = 'https:\/\/shadowsong27.github.io\/2018\/09\/rescheduling-of-airflow-dags\/';
           
-            this.page.identifier = '\/2019\/06\/build-hugo-blog-on-github-pages-master-branch\/'
+            this.page.identifier = '\/2018\/09\/rescheduling-of-airflow-dags\/'
           
         };
         (function() {

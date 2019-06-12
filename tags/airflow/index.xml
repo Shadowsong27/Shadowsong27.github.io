@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>airflow on Shadowsong&#39;s Personal Website</title>
+    <link>https://shadowsong27.github.io/tags/airflow/</link>
+    <description>Recent content in airflow on Shadowsong&#39;s Personal Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 22 Sep 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://shadowsong27.github.io/tags/airflow/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rescheduling of Airflow DAGs</title>
+      <link>https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/</link>
+      <pubDate>Sat, 22 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/</guid>
+      <description>&lt;p&gt;This article briefly records the step to reschedule a DAG on Apache Airflow&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
