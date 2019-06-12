@@ -18,7 +18,7 @@ defaultContentLanguage = "en-us"
 title = "Shadowsong's Personal Website"
 theme = "hugo-tranquilpeak-theme"
 disqusShortname = "hugo-tranquilpeak-theme"
-# googleAnalytics = "UA-123-45"
+googleAnalytics = "UA-104611639-1"
 paginate = 7
 canonifyurls = true
 
