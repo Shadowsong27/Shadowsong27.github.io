@@ -30,11 +30,38 @@
     </item>
     
     <item>
+      <title>movie</title>
+      <link>https://shadowsong27.github.io/categories/movie/</link>
+      <pubDate>Mon, 07 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/categories/movie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reviews &amp; thoughts</title>
+      <link>https://shadowsong27.github.io/categories/reviews-thoughts/</link>
+      <pubDate>Mon, 07 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/categories/reviews-thoughts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>data engineering</title>
       <link>https://shadowsong27.github.io/categories/data-engineering/</link>
       <pubDate>Sat, 22 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://shadowsong27.github.io/categories/data-engineering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>drama</title>
+      <link>https://shadowsong27.github.io/categories/drama/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/categories/drama/</guid>
       <description></description>
     </item>
     
