@@ -52,7 +52,7 @@ It is stated in the official docs that:
 
 Basically this means we need to have at least two containers in the Task Definition setup.
 
-![pic](/static/img/aws-fargate-datadog-1.png)
+![pic](/img/aws-fargate-datadog-1.png)
 
 ### Configure DataDog Agent Container
 

@@ -1,6 +1,6 @@
 ---
 title: "Build Hugo Blog on Github Pages Master Branch"
-thumbnailImagePosition: "top"
+thumbnailImagePosition: "left"
 thumbnailImage: https://blog.jscrambler.com/content/images/2018/08/jscrambler-blog-hugo-static-site-generator-720px.jpg
 coverImage: https://www.codexguides.com/wp-content/uploads/2019/03/Static-site-generator-hugo.png
 metaAlignment: center
