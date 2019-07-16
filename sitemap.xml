@@ -3,32 +3,67 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/</loc>
-    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
+    <loc>https://shadowsong27.github.io/tags/aws/</loc>
+    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://shadowsong27.github.io/categories/</loc>
-    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
+    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/categories/devops/</loc>
+    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/tags/fargate/</loc>
+    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/tags/monitoring/</loc>
+    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://shadowsong27.github.io/post/</loc>
-    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
+    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://shadowsong27.github.io/2019/07/setup-datadog-and-apm-in-aws-fargate/</loc>
+    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://shadowsong27.github.io/</loc>
-    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
+    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://shadowsong27.github.io/tags/</loc>
-    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
+    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/categories/programming/</loc>
+    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/</loc>
+    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -45,12 +80,6 @@
   
   <url>
     <loc>https://shadowsong27.github.io/tags/notes/</loc>
-    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://shadowsong27.github.io/categories/programming/</loc>
     <lastmod>2019-06-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
