@@ -3,19 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://shadowsong27.github.io/tags/aws/</loc>
-    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://shadowsong27.github.io/categories/</loc>
-    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
+    <lastmod>2019-08-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://shadowsong27.github.io/categories/devops/</loc>
+    <loc>https://shadowsong27.github.io/2019/08/dramas-checklist/</loc>
+    <lastmod>2019-08-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/post/</loc>
+    <lastmod>2019-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/</loc>
+    <lastmod>2019-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/categories/reviews-thoughts/</loc>
+    <lastmod>2019-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/categories/tv-series/</loc>
+    <lastmod>2019-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/tags/aws/</loc>
     <lastmod>2019-07-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -33,24 +56,18 @@
   </url>
   
   <url>
-    <loc>https://shadowsong27.github.io/post/</loc>
-    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://shadowsong27.github.io/2019/07/setup-datadog-and-apm-in-aws-fargate/</loc>
     <lastmod>2019-07-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://shadowsong27.github.io/</loc>
+    <loc>https://shadowsong27.github.io/tags/</loc>
     <lastmod>2019-07-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://shadowsong27.github.io/tags/</loc>
+    <loc>https://shadowsong27.github.io/categories/dev-ops/</loc>
     <lastmod>2019-07-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -108,12 +125,6 @@
   </url>
   
   <url>
-    <loc>https://shadowsong27.github.io/categories/reviews-thoughts/</loc>
-    <lastmod>2019-01-07T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/</loc>
     <lastmod>2018-09-22T00:00:00+00:00</lastmod>
   </url>
@@ -153,32 +164,8 @@
   </url>
   
   <url>
-    <loc>https://shadowsong27.github.io/tags/6/</loc>
-    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://shadowsong27.github.io/2018/06/drama-thoughts-bull/</loc>
     <lastmod>2018-06-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://shadowsong27.github.io/tags/crime/</loc>
-    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://shadowsong27.github.io/categories/drama/</loc>
-    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://shadowsong27.github.io/tags/trial-science/</loc>
-    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

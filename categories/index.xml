@@ -6,17 +6,35 @@
     <description>Recent content in Categories on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://shadowsong27.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>DevOps</title>
-      <link>https://shadowsong27.github.io/categories/devops/</link>
+      <title>reviews &amp; thoughts</title>
+      <link>https://shadowsong27.github.io/categories/reviews-thoughts/</link>
+      <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/categories/reviews-thoughts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tv-series</title>
+      <link>https://shadowsong27.github.io/categories/tv-series/</link>
+      <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/categories/tv-series/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dev-ops</title>
+      <link>https://shadowsong27.github.io/categories/dev-ops/</link>
       <pubDate>Tue, 16 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://shadowsong27.github.io/categories/devops/</guid>
+      <guid>https://shadowsong27.github.io/categories/dev-ops/</guid>
       <description></description>
     </item>
     
@@ -48,29 +66,11 @@
     </item>
     
     <item>
-      <title>reviews &amp; thoughts</title>
-      <link>https://shadowsong27.github.io/categories/reviews-thoughts/</link>
-      <pubDate>Mon, 07 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://shadowsong27.github.io/categories/reviews-thoughts/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>data engineering</title>
       <link>https://shadowsong27.github.io/categories/data-engineering/</link>
       <pubDate>Sat, 22 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://shadowsong27.github.io/categories/data-engineering/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>drama</title>
-      <link>https://shadowsong27.github.io/categories/drama/</link>
-      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://shadowsong27.github.io/categories/drama/</guid>
       <description></description>
     </item>
     

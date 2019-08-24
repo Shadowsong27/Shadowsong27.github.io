@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>DevOps on Shadowsong&#39;s Personal Website</title>
-    <link>https://shadowsong27.github.io/categories/devops/</link>
-    <description>Recent content in DevOps on Shadowsong&#39;s Personal Website</description>
+    <title>dev-ops on Shadowsong&#39;s Personal Website</title>
+    <link>https://shadowsong27.github.io/categories/dev-ops/</link>
+    <description>Recent content in dev-ops on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 16 Jul 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://shadowsong27.github.io/categories/devops/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://shadowsong27.github.io/categories/dev-ops/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
