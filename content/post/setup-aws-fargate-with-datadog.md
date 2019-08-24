@@ -8,7 +8,7 @@ coverMeta: out
 date: 2019-07-16
 categories:
 - programming
-- DevOps
+- dev-ops
 tags:
 - AWS
 - Fargate
