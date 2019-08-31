@@ -4,25 +4,42 @@
   
   <url>
     <loc>https://shadowsong27.github.io/categories/</loc>
-    <lastmod>2019-08-24T00:00:00+00:00</lastmod>
+    <lastmod>2019-08-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/2019/08/de-log-1-idempotency/</loc>
+    <lastmod>2019-08-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/post/</loc>
+    <lastmod>2019-08-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/</loc>
+    <lastmod>2019-08-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/categories/data-engineering/</loc>
+    <lastmod>2019-08-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/categories/programming/</loc>
+    <lastmod>2019-08-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://shadowsong27.github.io/2019/08/dramas-checklist/</loc>
     <lastmod>2019-08-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://shadowsong27.github.io/post/</loc>
-    <lastmod>2019-08-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://shadowsong27.github.io/</loc>
-    <lastmod>2019-08-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -68,12 +85,6 @@
   
   <url>
     <loc>https://shadowsong27.github.io/categories/dev-ops/</loc>
-    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://shadowsong27.github.io/categories/programming/</loc>
     <lastmod>2019-07-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -131,12 +142,6 @@
   
   <url>
     <loc>https://shadowsong27.github.io/tags/airflow/</loc>
-    <lastmod>2018-09-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://shadowsong27.github.io/categories/data-engineering/</loc>
     <lastmod>2018-09-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

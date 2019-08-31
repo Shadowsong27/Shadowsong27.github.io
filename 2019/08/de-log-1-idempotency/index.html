@@ -9,59 +9,39 @@
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
 <meta name="description" content="
-Bull is an American drama television series starring Michael Weatherly. CBS ordered the program to series on May 13,
-2016, and it premiered on September 20, 2016. The show is based on the early days of talk show host
-Dr. Phil McGraw&rsquo;s career, when he was a trial consultant.
-——— Wikipedia
-
-
-Yes I am lazy I know.">
+In linear algebra, an idempotent matrix is a matrix which, when multiplied by itself, yields itself.
+">
 
 
 <meta property="og:description" content="
-Bull is an American drama television series starring Michael Weatherly. CBS ordered the program to series on May 13,
-2016, and it premiered on September 20, 2016. The show is based on the early days of talk show host
-Dr. Phil McGraw&rsquo;s career, when he was a trial consultant.
-——— Wikipedia
-
-
-Yes I am lazy I know.">
+In linear algebra, an idempotent matrix is a matrix which, when multiplied by itself, yields itself.
+">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Drama Thoughts - Bull">
-<meta name="twitter:title" content="Drama Thoughts - Bull">
-<meta property="og:url" content="https://shadowsong27.github.io/2018/06/drama-thoughts-bull/">
-<meta property="twitter:url" content="https://shadowsong27.github.io/2018/06/drama-thoughts-bull/">
+<meta property="og:title" content="DE Log 1: Idempotency">
+<meta name="twitter:title" content="DE Log 1: Idempotency">
+<meta property="og:url" content="https://shadowsong27.github.io/2019/08/de-log-1-idempotency/">
+<meta property="twitter:url" content="https://shadowsong27.github.io/2019/08/de-log-1-idempotency/">
 <meta property="og:site_name" content="Shadowsong&#39;s Personal Website">
 <meta property="og:description" content="
-Bull is an American drama television series starring Michael Weatherly. CBS ordered the program to series on May 13,
-2016, and it premiered on September 20, 2016. The show is based on the early days of talk show host
-Dr. Phil McGraw&rsquo;s career, when he was a trial consultant.
-——— Wikipedia
-
-
-Yes I am lazy I know.">
+In linear algebra, an idempotent matrix is a matrix which, when multiplied by itself, yields itself.
+">
 <meta name="twitter:description" content="
-Bull is an American drama television series starring Michael Weatherly. CBS ordered the program to series on May 13,
-2016, and it premiered on September 20, 2016. The show is based on the early days of talk show host
-Dr. Phil McGraw&rsquo;s career, when he was a trial consultant.
-——— Wikipedia
-
-
-Yes I am lazy I know.">
+In linear algebra, an idempotent matrix is a matrix which, when multiplied by itself, yields itself.
+">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2018-06-04T00:00:00">
+    <meta property="article:published_time" content="2019-08-31T00:00:00">
   
   
-    <meta property="article:modified_time" content="2018-06-04T00:00:00">
+    <meta property="article:modified_time" content="2019-08-31T00:00:00">
   
   
   
     
-      <meta property="article:section" content="reviews &amp; thoughts">
+      <meta property="article:section" content="programming">
     
-      <meta property="article:section" content="tv-series">
+      <meta property="article:section" content="data-engineering">
     
   
   
@@ -75,12 +55,12 @@ Yes I am lazy I know.">
 
 
 
-  <meta property="og:image" content="https://images-na.ssl-images-amazon.com/images/I/915h9Q3ds-L._RI_.jpg">
-  <meta property="twitter:image" content="https://images-na.ssl-images-amazon.com/images/I/915h9Q3ds-L._RI_.jpg">
+  <meta property="og:image" content="https://www.mistrasgroup.com/media/1540/steel-pipeline.jpg?center=0.4425,0.49&mode=crop&width=1500&height=600&rnd=131921218510000000">
+  <meta property="twitter:image" content="https://www.mistrasgroup.com/media/1540/steel-pipeline.jpg?center=0.4425,0.49&mode=crop&width=1500&height=600&rnd=131921218510000000">
 
 
-  <meta property="og:image" content="https://images-na.ssl-images-amazon.com/images/I/915h9Q3ds-L._RI_.jpg">
-  <meta property="twitter:image" content="https://images-na.ssl-images-amazon.com/images/I/915h9Q3ds-L._RI_.jpg">
+  <meta property="og:image" content="https://www.mistrasgroup.com/media/1540/steel-pipeline.jpg?center=0.4425,0.49&mode=crop&width=1500&height=600&rnd=131921218510000000">
+  <meta property="twitter:image" content="https://www.mistrasgroup.com/media/1540/steel-pipeline.jpg?center=0.4425,0.49&mode=crop&width=1500&height=600&rnd=131921218510000000">
 
 
 
@@ -89,14 +69,14 @@ Yes I am lazy I know.">
   <meta property="twitter:image" content="https://avatars3.githubusercontent.com/u/12522657?s=400&u=ccfcf050a757c6a49241737eefe4386064400b5e&v=4">
 
 
-    <title>Drama Thoughts - Bull</title>
+    <title>DE Log 1: Idempotency</title>
 
     <link rel="icon" href="https://shadowsong27.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://shadowsong27.github.io/2018/06/drama-thoughts-bull/">
+    <link rel="canonical" href="https://shadowsong27.github.io/2019/08/de-log-1-idempotency/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -241,7 +221,7 @@ if (!doNotTrack) {
   <div class="post-header-cover
               text-center
               "
-       style="background-image:url('https://images-na.ssl-images-amazon.com/images/I/915h9Q3ds-L._RI_.jpg')"
+       style="background-image:url('https://www.mistrasgroup.com/media/1540/steel-pipeline.jpg?center=0.4425,0.49&amp;mode=crop&amp;width=1500&amp;height=600&amp;rnd=131921218510000000')"
        data-behavior="5">
     
   </div>
@@ -257,15 +237,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      Drama Thoughts - Bull
+      DE Log 1: Idempotency
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-06-04T00:00:00Z">
+      <time itemprop="datePublished" datetime="2019-08-31T00:00:00Z">
         
-  June 4, 2018
+  August 31, 2019
 
       </time>
     
@@ -274,9 +254,9 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="https://shadowsong27.github.io/categories/reviews-thoughts">reviews &amp; thoughts</a>, 
+      <a class="category-link" href="https://shadowsong27.github.io/categories/programming">programming</a>, 
     
-      <a class="category-link" href="https://shadowsong27.github.io/categories/tv-series">tv-series</a>
+      <a class="category-link" href="https://shadowsong27.github.io/categories/data-engineering">data-engineering</a>
     
   
 
@@ -287,46 +267,102 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <blockquote>
-<p>Bull is an American drama television series starring Michael Weatherly. CBS ordered the program to series on May 13,
-2016, and it premiered on September 20, 2016. The show is based on the early days of talk show host
-Dr. Phil McGraw&rsquo;s career, when he was a trial consultant.
-——— Wikipedia</p>
+<p>In linear algebra, an idempotent matrix is a matrix which, when multiplied by itself, yields itself.</p>
 </blockquote>
 
-<p>Yes I am lazy I know.</p>
+<h1 id="overview">Overview</h1>
 
-<h3 id="general-feedback">General Feedback</h3>
+<p>Today I would like to talk about idempotency in Data Engineering.</p>
 
-<p>All in all it is still a satisfying experience to watch the series because of the diverse topics and categories of the
-cases presented and the charming in-house council Benjamin Colon. I am strangely less attracted to  the tech guy -
-in this case a rather beautiful girl “Cable”, probably due to my some knowledge in the related fields. Since I know really nothing about
-trials and laws, I find the attorney super cool.</p>
+<p>I first learnt this word in Year 1 Uni, an intro Linear Algebra course (probably my best Maths module ever in the entire uni life).</p>
 
-<h3 id="comments-on-the-last-episode-in-season-2">Comments on the last episode in Season 2</h3>
+<p>The term <code>idempotent matrix</code> means:</p>
 
-<p>It is certainly heavy and worthy enough to conclude the entire season with a death penalty case, and as an audience I am more than delighted to see a happy ending. However, I would like to point out some flaws in the narrative.</p>
+<blockquote>
+<p>In linear algebra, an idempotent matrix is a matrix which, when multiplied by itself, yields itself.</p>
+</blockquote>
+
+<p>Well in data engineering, it most likely means no matter how many times you execute a ETL job,
+it will return you the same transformation result, provided the source data is unchanged.</p>
+
+<p>I have known this concept and the benefits of it at the early stage of my career,
+ but only recently (after working on the Data Warehouse migration to Redshift) I have start to appreciate its importance.</p>
+
+<h3 id="incremental-vs-idempotent">Incremental vs Idempotent</h3>
+
+<p>Before describing the benefits, I would like to definite the following two types of ETL jobs:</p>
 
 <ol>
-<li><p>Another deus ex machina ending.</p>
-
-<p>I could see that the writer is trying to create a drastic reverse in the plot - convicted guilty first, and overruled the entire verdict. However, it is not handled very delicately. Despite some preparation such as “cigarettes” and “limping” in the expansion of the case, as an audience, it is not enough for me to accept the existence of another suspect, let alone acquitted the current one.</p></li>
-
-<li><p>Mrs O’Neil’s confusing testimony.</p>
-
-<p>It is rather strange for her in the first scene to testify with such confidence, which was shown to be wrong in later development of the show. By her confession, she did not wear the glasses during the witnessing of the crime. Let’s imagine she as a normal person (probably not so normal since she was emotionally related to the victims), I always feel that identifying a person as a murderer requires certain courages, not because of the potential vengeance and danger, but the moral burden it might have on you if it is a false identification. I would not dare to make such testimony with uncertainty.</p></li>
-
-<li><p>Cheesy move on the defendant’s girlfriend.</p>
-
-<p>As an audience again I do not present professional opinion on trials or legal matters alike, but I feel the plaintiff should have a higher winning chance even without attempting to influence the defendant’s girl friend. To me it looks like a sloppy move, and it should not have been done in the first place.</p></li>
+<li>Incremental job, ETL jobs that require an incremental changes to a table or data storage, e.g. <code>append</code> or <code>update</code> mode</li>
+<li>Idempotent job, or I often call it refresh job for naming convention (easier to spell), it is something that I have explained above.</li>
 </ol>
 
-<h3 id="conclusion">Conclusion</h3>
+<h1 id="benefits">Benefits</h1>
 
-<p>The entire show are generally satisfying and recommended for people if you want to watch something during dinner. It is definitely not hardcore enough for legal drama, unlike “the Practice”, yet I could not finish the latter due to its less dramatic way of narrative (yes I am this shallow), it focuses more on the small people and subsequently the conscience of the audiences, as compared to another popular legal drama “Suits”.</p>
+<p>Basically, when you have an idempotent ETL job:</p>
 
-<p>On the emotional storyline, it is rather less developed and I wonder why.  It could be turned into a good relationship and then stories could be spun off with conflicting of interests, thus the growth of characters and etc. Probably the writer has something to offer in the next season. It is a good show and many well built characters so far, please do not waste it.</p>
+<h3 id="minimal-maintenance">Minimal maintenance</h3>
 
-<p>Looking forward to season 3.</p>
+<p>No backfill required, no need to worry about discontinuity in data during execution,
+and you know exactly what data you are transforming during re-execution.</p>
+
+<p>This is the most important thing, despite it might take a longer time in the process
+compared to incremental task (not necessarily, and if it is too long it means you should look for
+an alternative solution, e.g. move your Python Operator to Spark),
+but the cost and trouble saved is much more crucial here.</p>
+
+<p>The cost here could refer to debugging time, data validation and patching time etc.</p>
+
+<h3 id="easier-to-debug">Easier to debug</h3>
+
+<p>It is easier to debug since everything can be refreshed as many times as you like, any time you want as
+long as dependencies are fulfilled. Normally data debugging is different from functionality debugging
+because of the data is often dynamic, and that posts some challenges to even locate the bugs.</p>
+
+<h3 id="less-temporal-dependency">Less temporal dependency</h3>
+
+<p>One of the common incremental job is the building of a time series table, e.g DAU MAU computation.
+They often require certain level of data quality because they are used frequently in making business decisions.</p>
+
+<p>However, sometimes we have data arrived later than the execution date (it could be a few days late), that
+requires you recompute and update the data if you want a more accurate result or the portion of delayed data
+is too significant.</p>
+
+<p>One way to approach is to setup another pipeline to adjust the numbers after the first execution, or
+simply delayed the execution by a few days (which is fine because honestly you can&rsquo;t do anything since
+you do not have the data in data warehouse yet).</p>
+
+<p>An idempotent job would save you the trouble to maintain two separate pipeline, and the dependencies in between,
+it makes sure every newly arrived data are considered during daily transformation.</p>
+
+<h3 id="less-bug-prone">Less bug-prone</h3>
+
+<p>A bit similar to point 2. This means there will not be confounding
+factors contribute to your problematic transformation result, leaves you only the transformation logic to debug.</p>
+
+<p>Otherwise you might think &hellip; hmmmm I remember two days ago some guy just manually updated
+a static table, when was it, let me ask him / check logs first (if you do not want to disturb others),
+ and ahhhhhhhhhhh it’s right before the execution time that&rsquo;s why! I have wasted two hours of my life again &hellip;</p>
+
+<h3 id="works-better-with-modern-data-warehouse">Works better with modern Data Warehouse</h3>
+
+<p>We used to have a lot of update statements, getting only the latest data chunks,
+update the necessary columns when we were still using Postgres as our Data Warehouse.
+Over time the data quality starts to drop because of accidentally failed ETLs.
+It was apparently a trade off between performance and data quality.</p>
+
+<p>After we shift to Redshift, single <code>insert</code> or <code>update</code> start to become costly,
+I am forced to rethink and redesign many of our jobs and I am so happy that I eventually got rid of all the <code>update</code> statements.</p>
+
+<h1 id="final-comment">Final comment</h1>
+
+<p>I did not mean we should always do idempotent jobs
+(sometimes we will have to use incremental jobs, they are great too but they require much higher maintenance),
+ we have deadlines, we have legacy codes, it all depends on priorities. If the data quality is slightly off,
+  it might not have an impact at all. So think twice before actually start to refactoring pipelines.</p>
+
+<p>The ultimate goal is of course, to walk into the office every morning
+without worrying about something / somebody is breaking the pipelines again, thank you very much.</p>
               
             </div>
           </div>
@@ -341,7 +377,7 @@ trials and laws, I find the attorney super cool.</p>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2018/06/%E8%A7%82%E5%90%8E%E6%84%9F-annihilation/" data-tooltip="观后感 - Annihilation">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -349,7 +385,7 @@ trials and laws, I find the attorney super cool.</p>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/08/dramas-checklist/" data-tooltip="Dramas Checklist">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -367,19 +403,19 @@ trials and laws, I find the attorney super cool.</p>
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2018/06/drama-thoughts-bull/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2019/08/de-log-1-idempotency/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2018/06/drama-thoughts-bull/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2019/08/de-log-1-idempotency/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2018/06/drama-thoughts-bull/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2019/08/de-log-1-idempotency/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -427,7 +463,7 @@ trials and laws, I find the attorney super cool.</p>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2018/06/%E8%A7%82%E5%90%8E%E6%84%9F-annihilation/" data-tooltip="观后感 - Annihilation">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -435,7 +471,7 @@ trials and laws, I find the attorney super cool.</p>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/08/dramas-checklist/" data-tooltip="Dramas Checklist">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -453,19 +489,19 @@ trials and laws, I find the attorney super cool.</p>
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2018/06/drama-thoughts-bull/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2019/08/de-log-1-idempotency/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2018/06/drama-thoughts-bull/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2019/08/de-log-1-idempotency/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2018/06/drama-thoughts-bull/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2019/08/de-log-1-idempotency/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -495,19 +531,19 @@ trials and laws, I find the attorney super cool.</p>
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2018%2F06%2Fdrama-thoughts-bull%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F08%2Fde-log-1-idempotency%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2018%2F06%2Fdrama-thoughts-bull%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F08%2Fde-log-1-idempotency%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2018%2F06%2Fdrama-thoughts-bull%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F08%2Fde-log-1-idempotency%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -795,9 +831,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/shadowsong27.github.io\/2018\/06\/drama-thoughts-bull\/';
+          this.page.url = 'https:\/\/shadowsong27.github.io\/2019\/08\/de-log-1-idempotency\/';
           
-            this.page.identifier = '\/2018\/06\/drama-thoughts-bull\/'
+            this.page.identifier = '\/2019\/08\/de-log-1-idempotency\/'
           
         };
         (function() {
