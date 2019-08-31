@@ -31,9 +31,9 @@ I have known this concept and the benefits of it at the early stage of my career
  but only recently (after working on the Data Warehouse migration to Redshift) I have start to appreciate its importance.
 
 ### Incremental vs Idempotent
-Before describing the benefits, I would like to definite the following two types of ETL jobs:
+Before describing the benefits, I would like to define the following two types of ETL jobs:
 
-1. Incremental job, ETL jobs that require an incremental changes to a table or data storage, e.g. `append` or `update` mode
+1. Incremental job, ETL jobs that require incremental changes to a table or data storage, e.g. `append` or `update` mode
 2. Idempotent job, or I often call it refresh job for naming convention (easier to spell), it is something that I have explained above.
 
 # Benefits
@@ -43,36 +43,36 @@ Basically, when you have an idempotent ETL job:
 No backfill required, no need to worry about discontinuity in data during execution, 
 and you know exactly what data you are transforming during re-execution. 
 
-This is the most important thing, despite it might take a longer time in the process 
+This is the most important thing, though it might take a longer time in the process 
 compared to incremental task (not necessarily, and if it is too long it means you should look for 
 an alternative solution, e.g. move your Python Operator to Spark), 
-but the cost and trouble saved is much more crucial here. 
+but the cost and trouble saved are much more crucial here. 
 
 The cost here could refer to debugging time, data validation and patching time etc.
 
 ### Easier to debug 
 It is easier to debug since everything can be refreshed as many times as you like, any time you want as 
 long as dependencies are fulfilled. Normally data debugging is different from functionality debugging 
-because of the data is often dynamic, and that posts some challenges to even locate the bugs.
+because the data is often dynamic, and that posts some challenges to even locate the bugs.
 
 ### Less temporal dependency
-One of the common incremental job is the building of a time series table, e.g DAU MAU computation.
+One of the common incremental jobs is the building of a time series table, e.g DAU MAU computation.
 They often require certain level of data quality because they are used frequently in making business decisions.
  
 However, sometimes we have data arrived later than the execution date (it could be a few days late), that 
-requires you recompute and update the data if you want a more accurate result or the portion of delayed data
+requires you to recompute and update the data if you want a more accurate result or the portion of delayed data
 is too significant.
 
 One way to approach is to setup another pipeline to adjust the numbers after the first execution, or 
 simply delayed the execution by a few days (which is fine because honestly you can't do anything since
 you do not have the data in data warehouse yet).
 
-An idempotent job would save you the trouble to maintain two separate pipeline, and the dependencies in between,
+An idempotent job would save you the trouble to maintain two separate pipelines, and the dependencies in between,
 it makes sure every newly arrived data are considered during daily transformation.
 
 ### Less bug-prone
-A bit similar to point 2. This means there will not be confounding 
-factors contribute to your problematic transformation result, leaves you only the transformation logic to debug.
+A bit similar to point 2. This means there will not be any confounding 
+factors contribute to your problematic transformation result, leaving you only the transformation logic to debug.
 
 Otherwise you might think ... hmmmm I remember two days ago some guy just manually updated 
 a static table, when was it, let me ask him / check logs first (if you do not want to disturb others),
