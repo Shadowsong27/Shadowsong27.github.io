@@ -4,25 +4,42 @@
   
   <url>
     <loc>https://shadowsong27.github.io/categories/</loc>
-    <lastmod>2019-08-31T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/2019/09/movie-log-3-ad-astra/</loc>
+    <lastmod>2019-09-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/post/</loc>
+    <lastmod>2019-09-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/</loc>
+    <lastmod>2019-09-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/categories/movie/</loc>
+    <lastmod>2019-09-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/categories/reviews-thoughts/</loc>
+    <lastmod>2019-09-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://shadowsong27.github.io/2019/08/de-log-1-idempotency/</loc>
     <lastmod>2019-08-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://shadowsong27.github.io/post/</loc>
-    <lastmod>2019-08-31T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://shadowsong27.github.io/</loc>
-    <lastmod>2019-08-31T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -40,12 +57,6 @@
   <url>
     <loc>https://shadowsong27.github.io/2019/08/dramas-checklist/</loc>
     <lastmod>2019-08-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://shadowsong27.github.io/categories/reviews-thoughts/</loc>
-    <lastmod>2019-08-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -125,14 +136,8 @@
   </url>
   
   <url>
-    <loc>https://shadowsong27.github.io/2019/01/from-admiration-to-sympathy-the-great-gatsby/</loc>
+    <loc>https://shadowsong27.github.io/2019/01/movie-log-2-from-admiration-to-sympathy-the-great-gatsby/</loc>
     <lastmod>2019-01-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://shadowsong27.github.io/categories/movie/</loc>
-    <lastmod>2019-01-07T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -158,14 +163,14 @@
   </url>
   
   <url>
-    <loc>https://shadowsong27.github.io/tags/%E4%B8%AD%E6%96%87/</loc>
+    <loc>https://shadowsong27.github.io/2018/06/movie-log-1-annihilation/</loc>
     <lastmod>2018-06-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://shadowsong27.github.io/2018/06/%E8%A7%82%E5%90%8E%E6%84%9F-annihilation/</loc>
+    <loc>https://shadowsong27.github.io/tags/%E4%B8%AD%E6%96%87/</loc>
     <lastmod>2018-06-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
