@@ -1,5 +1,5 @@
 ---
-title: "From Admiration to Sympathy - The Great Gatsby"
+title: "Movie Log 2 - From Admiration to Sympathy - The Great Gatsby"
 thumbnailImagePosition: "left"
 thumbnailImage: https://i.ytimg.com/vi/8ud6haTTfFY/maxresdefault.jpg
 coverImage: https://i.ytimg.com/vi/8ud6haTTfFY/maxresdefault.jpg

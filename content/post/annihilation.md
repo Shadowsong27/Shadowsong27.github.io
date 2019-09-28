@@ -1,5 +1,5 @@
 ---
-title: "观后感 - Annihilation"
+title: "Movie Log 1 - Annihilation"
 thumbnailImagePosition: "left"
 thumbnailImage: https://pbs.twimg.com/media/DS0lKq9WAAAuu1C.jpg
 coverImage: https://pbs.twimg.com/media/DS0lKq9WAAAuu1C.jpg
