@@ -32,7 +32,9 @@ canonifyurls = true
 
 [author]
   name = "Shadowsong27"
-  bio = "I just want to sit in my garden and tend my pipelines. "
+  bio = """
+  I just want to sit in my garden and tend my pipelines.
+  """
   job = "Data Engineer"
   location = "Singapore"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog

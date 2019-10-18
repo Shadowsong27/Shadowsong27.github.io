@@ -42,9 +42,9 @@ As illustrated by the diagram above, we are mainly doing
 
 
 ### Model Preparation
-It is pretty straight straight forward, politely ask your data scientist colleague to organized the commands to prepare, train the model. If your dear friend and valued colleague does not know how to do that, help them by wrapping the code with a CLI command interface.
+It is pretty straight forward, politely ask your data scientist colleague to organize the commands to prepare, train the model. If your dear friend and valued colleague does not know how to do that, help them by wrapping the code with a CLI command interface.
 
-One very important thing note:
+One very important thing to note:
 Some parts of the data science project such as prediction function or other data processing functions will inevitably be reused in the backend service. While preparing the commands for scheduling, I would package those necessary tools into a separate folder, decoupled from memory intensive libs such as  `pandas` (still in the same repo), and later on built by running `pip install git+ssh`. 
 
 ```
