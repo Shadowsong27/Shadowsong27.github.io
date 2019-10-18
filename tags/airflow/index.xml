@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>Rescheduling of Airflow DAGs</title>
-      <link>https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/</link>
+      <title>DE Log 0.1: Rescheduling of Airflow DAGs</title>
+      <link>https://shadowsong27.github.io/2018/09/de-log-0.1-rescheduling-of-airflow-dags/</link>
       <pubDate>Sat, 22 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/</guid>
+      <guid>https://shadowsong27.github.io/2018/09/de-log-0.1-rescheduling-of-airflow-dags/</guid>
       <description>&lt;p&gt;This article briefly records the step to reschedule a DAG on Apache Airflow&lt;/p&gt;</description>
     </item>
     

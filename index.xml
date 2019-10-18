@@ -6,10 +6,21 @@
     <description>Recent content on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 27 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 17 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://shadowsong27.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DE Log 2.1: Develop Data Science Project in Production</title>
+      <link>https://shadowsong27.github.io/2019/10/de-log-2.1-develop-data-science-project-in-production/</link>
+      <pubDate>Thu, 17 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/2019/10/de-log-2.1-develop-data-science-project-in-production/</guid>
+      <description>&lt;p&gt;Recently I was working on the deployment of a predictive model built by my dear
+friend valued ex-colleague. Here I will share some thoughts and challenges
+I have encountered during its production deployment.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Movie Log 3 - Ad Astra</title>
@@ -73,11 +84,11 @@ We learned one phrase that day - “Old sport”.&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Rescheduling of Airflow DAGs</title>
-      <link>https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/</link>
+      <title>DE Log 0.1: Rescheduling of Airflow DAGs</title>
+      <link>https://shadowsong27.github.io/2018/09/de-log-0.1-rescheduling-of-airflow-dags/</link>
       <pubDate>Sat, 22 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/</guid>
+      <guid>https://shadowsong27.github.io/2018/09/de-log-0.1-rescheduling-of-airflow-dags/</guid>
       <description>&lt;p&gt;This article briefly records the step to reschedule a DAG on Apache Airflow&lt;/p&gt;</description>
     </item>
     

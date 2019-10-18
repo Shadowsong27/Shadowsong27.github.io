@@ -8,40 +8,42 @@
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
-<meta name="description" content="This article briefly records the step to reschedule a DAG on Apache Airflow">
+<meta name="description" content="Recently I was working on the deployment of a predictive model built by my dear
+friend valued ex-colleague. Here I will share some thoughts and challenges
+I have encountered during its production deployment.">
 
 
-<meta property="og:description" content="This article briefly records the step to reschedule a DAG on Apache Airflow">
+<meta property="og:description" content="Recently I was working on the deployment of a predictive model built by my dear
+friend valued ex-colleague. Here I will share some thoughts and challenges
+I have encountered during its production deployment.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Rescheduling of Airflow DAGs">
-<meta name="twitter:title" content="Rescheduling of Airflow DAGs">
-<meta property="og:url" content="https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/">
-<meta property="twitter:url" content="https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/">
+<meta property="og:title" content="DE Log 2.1: Develop Data Science Project in Production">
+<meta name="twitter:title" content="DE Log 2.1: Develop Data Science Project in Production">
+<meta property="og:url" content="https://shadowsong27.github.io/2019/10/de-log-2.1-develop-data-science-project-in-production/">
+<meta property="twitter:url" content="https://shadowsong27.github.io/2019/10/de-log-2.1-develop-data-science-project-in-production/">
 <meta property="og:site_name" content="Shadowsong&#39;s Personal Website">
-<meta property="og:description" content="This article briefly records the step to reschedule a DAG on Apache Airflow">
-<meta name="twitter:description" content="This article briefly records the step to reschedule a DAG on Apache Airflow">
+<meta property="og:description" content="Recently I was working on the deployment of a predictive model built by my dear
+friend valued ex-colleague. Here I will share some thoughts and challenges
+I have encountered during its production deployment.">
+<meta name="twitter:description" content="Recently I was working on the deployment of a predictive model built by my dear
+friend valued ex-colleague. Here I will share some thoughts and challenges
+I have encountered during its production deployment.">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2018-09-22T00:00:00">
+    <meta property="article:published_time" content="2019-10-17T00:00:00">
   
   
-    <meta property="article:modified_time" content="2018-09-22T00:00:00">
+    <meta property="article:modified_time" content="2019-10-17T00:00:00">
   
   
   
     
       <meta property="article:section" content="programming">
     
-      <meta property="article:section" content="data engineering">
+      <meta property="article:section" content="data-engineering">
     
   
-  
-    
-      <meta property="article:tag" content="airflow">
-    
-      <meta property="article:tag" content="notes">
-    
   
 
 
@@ -53,12 +55,9 @@
 
 
 
-  <meta property="og:image" content="https://cdn-images-1.medium.com/max/1200/1*6jjSw8IqGbsPZp7L_43YyQ.png">
-  <meta property="twitter:image" content="https://cdn-images-1.medium.com/max/1200/1*6jjSw8IqGbsPZp7L_43YyQ.png">
+  <meta property="og:image" content="https://miro.medium.com/max/2400/1*c_fiB-YgbnMl6nntYGBMHQ.jpeg">
+  <meta property="twitter:image" content="https://miro.medium.com/max/2400/1*c_fiB-YgbnMl6nntYGBMHQ.jpeg">
 
-
-  <meta property="og:image" content="https://cdn-images-1.medium.com/max/2000/1*w4M-7X85wNNYx6WAFA-K5Q.png">
-  <meta property="twitter:image" content="https://cdn-images-1.medium.com/max/2000/1*w4M-7X85wNNYx6WAFA-K5Q.png">
 
 
 
@@ -67,14 +66,14 @@
   <meta property="twitter:image" content="https://avatars3.githubusercontent.com/u/12522657?s=400&u=ccfcf050a757c6a49241737eefe4386064400b5e&v=4">
 
 
-    <title>Rescheduling of Airflow DAGs</title>
+    <title>DE Log 2.1: Develop Data Science Project in Production</title>
 
     <link rel="icon" href="https://shadowsong27.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/">
+    <link rel="canonical" href="https://shadowsong27.github.io/2019/10/de-log-2.1-develop-data-science-project-in-production/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -216,17 +215,9 @@ if (!doNotTrack) {
 </nav>
 
       
-  <div class="post-header-cover
-              text-center
-              "
-       style="background-image:url('https://cdn-images-1.medium.com/max/2000/1*w4M-7X85wNNYx6WAFA-K5Q.png')"
-       data-behavior="5">
-    
-  </div>
-
 
       <div id="main" data-behavior="5"
-        class="hasCover
+        class="
                hasCoverMetaOut
                ">
         <article class="post" itemscope itemType="http://schema.org/BlogPosting">
@@ -235,15 +226,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      Rescheduling of Airflow DAGs
+      DE Log 2.1: Develop Data Science Project in Production
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-09-22T00:00:00Z">
+      <time itemprop="datePublished" datetime="2019-10-17T00:00:00Z">
         
-  September 22, 2018
+  October 17, 2019
 
       </time>
     
@@ -254,7 +245,7 @@ if (!doNotTrack) {
     
       <a class="category-link" href="https://shadowsong27.github.io/categories/programming">programming</a>, 
     
-      <a class="category-link" href="https://shadowsong27.github.io/categories/data-engineering">data engineering</a>
+      <a class="category-link" href="https://shadowsong27.github.io/categories/data-engineering">data-engineering</a>
     
   
 
@@ -264,81 +255,110 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>This article briefly records the step to reschedule a DAG on Apache Airflow</p>
+              <p>Recently I was working on the deployment of a predictive model built by my dear
+friend valued ex-colleague. Here I will share some thoughts and challenges
+I have encountered during its production deployment.</p>
 
-<p>So this week one of my tasks is to reschedule some DAGs in our current data pipelines on Airflow.</p>
+<p>This topic will be discussed over at least two blog posts, as I do not write a super long article and then give up before I can finish it (Heck I almost did not finish this one). I will discuss the entire system, from the preparation of data and model artifacts to the deployment of the actual service.</p>
 
-<p>It all started with a complain made by my colleague, “Why is this query taking 30 minutes to complete, is there a DAG running?”</p>
+<p>Essentially, the service itself will load the artifacts and doing real time prediction based on information posted by the frontend, and the update of the models/other datasets is done at a scheduled interval.</p>
 
-<p>You get my point, scheduling a DAG, particularly a massive DAG that often involves many crucial data transformation and transportation during the office hour is not something desirable. It happens to us not long ago, when one of us is testing a complex query and it ended up jamming both Airflow tasks and other manual executions.</p>
+<p>Disclaimer: I am working in a startup, that means the size of data is not as huge as Facebook or Twitter, some strategies adopted here may not be realistic in your context, and I am sure I have not yet encountered every problem in the field so this is not a guide, it’s just to share some thoughts.</p>
 
-<p>As a data engineer, at some point of time you will need to be very familiar with the DAGs. They are like your babies, please take good care of them.</p>
+<h1 id="architecture">Architecture</h1>
 
-<h3 id="time-range">Time Range</h3>
+<p>The development generally could be divided into two big parts:</p>
 
-<p>Let’s say we work from 9 am to 10 pm (because somebody likes work or run some queries at night) SGT, we will need to schedule DAGs outside of this period, which is 1 am to 2 pm UTC.</p>
+<ol>
+<li><p>Data and model preparation pipelines</p></li>
 
-<h3 id="types-of-dag">Types of DAG</h3>
+<li><p>Service Development</p></li>
+</ol>
 
-<p>We are dealing with time, therefore it is important to identify first whether the DAG is temporal related - you kinda use the <code>execution_date</code> in your query / python jinja templating / or other stuff.</p>
+<p>This preparation step is done at a scheduled interval.</p>
 
-<p>You would probably like to keep the historical DAG run of this particular DAG as well, or perhaps you are using the <code>backfill</code> feature provided by Airflow, which is a great feature by the way. The following steps describe how to handle both of them.</p>
+<p><img src="https://shadowsong27.github.io/img/de-log-2-img1.png" alt="pic" /></p>
 
-<h3 id="steps">Steps</h3>
+<p>As illustrated by the diagram above, we are mainly doing</p>
 
-<h5 id="step-1-identify-scheduled-time-and-actual-execuion-time-of-dags">Step 1. Identify scheduled time and actual execuion time of DAGs</h5>
+<ol>
+<li><p>At the start of each month (or week or day depend on the business need and marginal gain of incremental learning), prepare the data -&gt; train the models -&gt; save the model artifacts for future use.</p></li>
 
-<p>It is important to actually go to airflow metadata database (the name …) to checkout the actual execution time of the DAG. Sometimes, for some unknown reason, your DAG does not start at the time designated. So to avoid further confusion, make sure check the actual execution time.</p>
+<li><p>At an independent but often much shorter interval, prepare the additional data sets needed for prediction from Data Warehouse, and then they would be further replicated to the service backend for later use.</p></li>
+</ol>
 
-<p>Now you need to decide whether you should reschedule a DAG based on the actual execution time.</p>
+<h3 id="model-preparation">Model Preparation</h3>
 
-<p>If the actual execution time is acceptable, what you really need to do is just correct the start date, if not you will need to make some other changes.</p>
+<p>It is pretty straight straight forward, politely ask your data scientist colleague to organized the commands to prepare, train the model. If your dear friend and valued colleague does not know how to do that, help them by wrapping the code with a CLI command interface.</p>
 
-<h5 id="step-2-identify-temporal-relevant-dags">Step 2.  Identify temporal relevant DAGs</h5>
+<p>One very important thing note:
+Some parts of the data science project such as prediction function or other data processing functions will inevitably be reused in the backend service. While preparing the commands for scheduling, I would package those necessary tools into a separate folder, decoupled from memory intensive libs such as  <code>pandas</code> (still in the same repo), and later on built by running <code>pip install git+ssh</code>.</p>
 
-<p>Decide whether the DAG you want to move is dependent on time, as mentioned in previous section.</p>
+<pre><code>root
+|____prediction_model
+| |____stuff for model training
+| |______init__.py
+|____prediction_model_tools
+| |______init__.py
+| |___ stuff for production use
+|____README.md
+|___ setup.py (setup for prediction_model_tools folder)
+</code></pre>
 
-<h5 id="step-3-1-if-not">Step 3.1 If Not</h5>
+<p>People who are improving the model might forget to update the production tools, it is vital to setup tests for those production tools, mainly on the shape of input. The accuracy test of the model should also be installed so that we do not deploy a worse model into production (if not using incremental learning). More details will be discussed during the deployment phase.</p>
 
-<ul>
-<li>Rename (usually use a <code>_v*</code> suffix)</li>
-<li>Change Start Date</li>
-<li>Deploy and unpause your DAG</li>
-<li>If everything is great, delete your old DAG in metadata database (optional, somebody may find the disabled DAG disturbing)</li>
-</ul>
+<h3 id="data-preparation">Data Preparation</h3>
 
-<h5 id="step-3-2-if-unfortunately-yes">Step 3.2 If unfortunately yes</h5>
+<p>Normally it is just data transformation, within Data Warehouse, nothing much to talk about.  Complexity might vary depends on your usage and source data. However, we do need to think about the feasibility of TRANSACTIONAL queries in a production environment. Let’s say we prepared an analytical table prejoined that has 1 billion rows, which is easily handled by any modern data warehouse. However, when you want to serve them in a standard Postgres instance, you will need to think about the tradeoffs. Will a normal select be slow? How should we index it (Data replication does not usually handle indexin)? Should we prepare everything in one table and simplify the ORM layer / raw SQL layer or should we do custom joins on a needed basis. Anyway, the core idea is to think about the feasibility when replicating the data. It would be easier if the data engineer has some background in transactional queries, or even the optimization of the service databases.</p>
 
-<ul>
-<li><p>Change the last execution time in metadata DB to the desired starting time,  one <code>scheduled_interval</code> before.  (I might remember the wrong column name)</p>
+<h4 id="a-note-on-data-replication">A Note on Data Replication</h4>
 
-<pre><code>UPDATE dag_run SET execution_date = ...
-WHERE dag_id = ...
-</code></pre></li>
+<p>We do not serve data directly from data warehouse as it is brittle, not ACID (Redshift and many File System based Data Warehouse), this should be a common understanding so I will not further explain the need to replicate data.</p>
 
-<li><p>e.g. you have a daily DAG at 2am, now it is running every at 1am. So you change your latest DAG run to 1am.</p></li>
+<p>However, I would like to stress the importance of having the same data set being replicated to both the TEST and PROD environment. It ensures the reproducibility of certain data bugs.</p>
 
-<li><p>Change your start date</p></li>
-</ul>
+<p>In development environment, I would suggest a direct connection to data warehouse if your service is not crazy at opening connections.</p>
 
-<p>And that is it. You can relax and enjoy every successful slack notification when you get up in the morning, knowing everything is running fine at night.</p>
+<p>Anyway, now I always prepare two separate books for similar projects. One for the actual application backend DB, one for the replicated data in a separate schema.</p>
+
+<p>Data bugs are often considered hard to catch because we can only tell whether it is a bug by examining the final results - the prediction result (or intermediate results if optimisation is done correctly.)</p>
+
+<h3 id="service">Service</h3>
+
+<p>In my case I did not really spend much time on the development of the service itself, due to the simplicity of our need for the current iteration. Thus, I will not and could not go very deep into the subject. With such a simplistic setup, I feel there is not much difference from setting up a conventional web backend.</p>
+
+<p>Architecture is simple:</p>
+
+<p><img src="https://shadowsong27.github.io/img/de-log-2-img2.png" alt="pic" /></p>
+
+<p>Personally I did not like ORM in simple projects so I have not yet tried integrating ORM with this dual-schema database setup.</p>
+
+<h4 id="request-rate">Request rate</h4>
+
+<p>One thing I have to agree with the platform backend engineers (they are my users yes) is rate of requests, subsequently the responsibility of validating changes in the raw input. Ideally, we want to make a new prediction when there is a change in the raw input. In my case, I managed to persuade my colleagues to verify the input updates before calling my service, but it might not be appropriate for every scenario.</p>
+
+<h4 id="model-pre-loading">Model (Pre)Loading</h4>
+
+<p>Model artefacts could be huge in terms of size, so it is crucial (and common knowledge I guess?) to preload the artefacts as global and accessible by the service workers.</p>
+
+<p>In the specific case of <code>gunicorn</code> , use the <code>—preload</code> option.</p>
+
+<h4 id="docker-image-preparation">Docker image preparation</h4>
+
+<p>This should probably be discussed Part II, but personally I usually develop using docker directly. Some people prefer to develop outside of the containers, and then later on dockerize it. There are pros and cons for both approaches, but they will not be discussed here.</p>
+
+<p>Assuming taking approach one (develop with containers directly), we often need to rebuild the image several times. That means if not carefully planned, we will waste a lot of time waiting for libraries to be built, which results in a discontinuity in thoughts as we switch to other projects. Thus, build a common machine learning base image seems a sensible choice. Of course there are several popular existing pre-built images for machine learning, but I have to decide to build everything either from source or <code>pip</code>, and it is definitely a good learning experience but a chaotic nightmare. Anyway I only recommend you to do it once and only once.</p>
+
+<h1 id="summary">Summary</h1>
+
+<p>This is my favourite project  as it was completely built by me - of course you get attached to our own work don’t you? :). I could image that the complexity and the size of the modules will grow when there are more requirements / data sets, and hope I had the chance to work on such projects in the future. Ultimately, I feel quite a few problems could be successfully addressed using established approaches from the conventional software engineering, with a touch of data sense to handle the potential variants.</p>
+
+<p>More discussion on deployment for Part II, if I am not too lazy to write it, and I have only finished this post now because I started to forget what I have done one week ago (feeling old man).</p>
               
             </div>
           </div>
           <div id="post-footer" class="post-footer main-content-wrap">
             
-              
-                
-                
-                  <div class="post-footer-tags">
-                    <span class="text-color-light text-small">TAGGED IN</span><br/>
-                    
-  <a class="tag tag--primary tag--small" href="https://shadowsong27.github.io/tags/airflow/">airflow</a>
-
-  <a class="tag tag--primary tag--small" href="https://shadowsong27.github.io/tags/notes/">notes</a>
-
-                  </div>
-                
               
             
             <div class="post-actions-wrap">
@@ -348,7 +368,7 @@ WHERE dag_id = ...
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/01/movie-log-2-from-admiration-to-sympathy-the-great-gatsby/" data-tooltip="Movie Log 2 - From Admiration to Sympathy - The Great Gatsby">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -356,7 +376,7 @@ WHERE dag_id = ...
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2018/07/%E9%87%8D%E6%B8%A9%E8%8A%B3%E5%8D%8E/" data-tooltip="重温《芳华》">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/09/movie-log-3-ad-astra/" data-tooltip="Movie Log 3 - Ad Astra">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -374,19 +394,19 @@ WHERE dag_id = ...
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2019/10/de-log-2.1-develop-data-science-project-in-production/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2019/10/de-log-2.1-develop-data-science-project-in-production/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2019/10/de-log-2.1-develop-data-science-project-in-production/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -434,7 +454,7 @@ WHERE dag_id = ...
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/01/movie-log-2-from-admiration-to-sympathy-the-great-gatsby/" data-tooltip="Movie Log 2 - From Admiration to Sympathy - The Great Gatsby">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -442,7 +462,7 @@ WHERE dag_id = ...
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2018/07/%E9%87%8D%E6%B8%A9%E8%8A%B3%E5%8D%8E/" data-tooltip="重温《芳华》">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/09/movie-log-3-ad-astra/" data-tooltip="Movie Log 3 - Ad Astra">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -460,19 +480,19 @@ WHERE dag_id = ...
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2019/10/de-log-2.1-develop-data-science-project-in-production/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2019/10/de-log-2.1-develop-data-science-project-in-production/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2019/10/de-log-2.1-develop-data-science-project-in-production/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -502,19 +522,19 @@ WHERE dag_id = ...
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2018%2F09%2Frescheduling-of-airflow-dags%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F10%2Fde-log-2.1-develop-data-science-project-in-production%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2018%2F09%2Frescheduling-of-airflow-dags%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F10%2Fde-log-2.1-develop-data-science-project-in-production%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2018%2F09%2Frescheduling-of-airflow-dags%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F10%2Fde-log-2.1-develop-data-science-project-in-production%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -571,6 +591,25 @@ WHERE dag_id = ...
       <div class="no-result text-color-light text-center">no post found</div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://shadowsong27.github.io/2019/10/de-log-2.1-develop-data-science-project-in-production/">
+                <h3 class="media-heading">DE Log 2.1: Develop Data Science Project in Production</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>Recently I was working on the deployment of a predictive model built by my dear
+friend valued ex-colleague. Here I will share some thoughts and challenges
+I have encountered during its production deployment.</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -684,8 +723,8 @@ We learned one phrase that day - “Old sport”.</p></div>
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2018/09/rescheduling-of-airflow-dags/">
-                <h3 class="media-heading">Rescheduling of Airflow DAGs</h3>
+              <a class="link-unstyled" href="https://shadowsong27.github.io/2018/09/de-log-0.1-rescheduling-of-airflow-dags/">
+                <h3 class="media-heading">DE Log 0.1: Rescheduling of Airflow DAGs</h3>
               </a>
               <span class="media-meta">
                 <span class="media-date text-small">
@@ -734,30 +773,6 @@ We learned one phrase that day - “Old sport”.</p></div>
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2018/06/drama-thoughts-bull/">
-                <h3 class="media-heading">Drama Thoughts - Bull</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jun 6, 2018
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><blockquote>
-<p>Bull is an American drama television series starring Michael Weatherly. CBS ordered the program to series on May 13,
-2016, and it premiered on September 20, 2016. The show is based on the early days of talk show host
-Dr. Phil McGraw&rsquo;s career, when he was a trial consultant.
-——— Wikipedia</p>
-</blockquote>
-
-<p>Yes I am lazy I know.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -765,7 +780,7 @@ Dr. Phil McGraw&rsquo;s career, when he was a trial consultant.
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} post found">
-         10 posts found
+         11 posts found
       </p>
     </div>
   </div>
@@ -820,9 +835,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/shadowsong27.github.io\/2018\/09\/rescheduling-of-airflow-dags\/';
+          this.page.url = 'https:\/\/shadowsong27.github.io\/2019\/10\/de-log-2.1-develop-data-science-project-in-production\/';
           
-            this.page.identifier = '\/2018\/09\/rescheduling-of-airflow-dags\/'
+            this.page.identifier = '\/2019\/10\/de-log-2.1-develop-data-science-project-in-production\/'
           
         };
         (function() {

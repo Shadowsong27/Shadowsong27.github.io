@@ -8,19 +8,41 @@
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
-<meta name="description" content="Shadowsong&#39;s personal website">
+<meta name="description" content="This article briefly records the step to reschedule a DAG on Apache Airflow">
 
 
-<meta property="og:description" content="Shadowsong&#39;s personal website">
-<meta property="og:type" content="website">
-<meta property="og:title" content="7">
-<meta name="twitter:title" content="7">
-<meta property="og:url" content="https://shadowsong27.github.io/tags/7/">
-<meta property="twitter:url" content="https://shadowsong27.github.io/tags/7/">
+<meta property="og:description" content="This article briefly records the step to reschedule a DAG on Apache Airflow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DE Log 0.1: Rescheduling of Airflow DAGs">
+<meta name="twitter:title" content="DE Log 0.1: Rescheduling of Airflow DAGs">
+<meta property="og:url" content="https://shadowsong27.github.io/2018/09/de-log-0.1-rescheduling-of-airflow-dags/">
+<meta property="twitter:url" content="https://shadowsong27.github.io/2018/09/de-log-0.1-rescheduling-of-airflow-dags/">
 <meta property="og:site_name" content="Shadowsong&#39;s Personal Website">
-<meta property="og:description" content="Shadowsong&#39;s personal website">
-<meta name="twitter:description" content="Shadowsong&#39;s personal website">
+<meta property="og:description" content="This article briefly records the step to reschedule a DAG on Apache Airflow">
+<meta name="twitter:description" content="This article briefly records the step to reschedule a DAG on Apache Airflow">
 <meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2018-09-22T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2018-09-22T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="programming">
+    
+      <meta property="article:section" content="data engineering">
+    
+  
+  
+    
+      <meta property="article:tag" content="airflow">
+    
+      <meta property="article:tag" content="notes">
+    
+  
 
 
 <meta name="twitter:card" content="summary">
@@ -31,6 +53,12 @@
 
 
 
+  <meta property="og:image" content="https://cdn-images-1.medium.com/max/1200/1*6jjSw8IqGbsPZp7L_43YyQ.png">
+  <meta property="twitter:image" content="https://cdn-images-1.medium.com/max/1200/1*6jjSw8IqGbsPZp7L_43YyQ.png">
+
+
+  <meta property="og:image" content="https://cdn-images-1.medium.com/max/2000/1*w4M-7X85wNNYx6WAFA-K5Q.png">
+  <meta property="twitter:image" content="https://cdn-images-1.medium.com/max/2000/1*w4M-7X85wNNYx6WAFA-K5Q.png">
 
 
 
@@ -39,16 +67,14 @@
   <meta property="twitter:image" content="https://avatars3.githubusercontent.com/u/12522657?s=400&u=ccfcf050a757c6a49241737eefe4386064400b5e&v=4">
 
 
-    <title>7</title>
+    <title>DE Log 0.1: Rescheduling of Airflow DAGs</title>
 
     <link rel="icon" href="https://shadowsong27.github.io/favicon.png">
     
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://shadowsong27.github.io/tags/7/index.xml">
-    
 
     
 
-    <link rel="canonical" href="https://shadowsong27.github.io/tags/7/">
+    <link rel="canonical" href="https://shadowsong27.github.io/2018/09/de-log-0.1-rescheduling-of-airflow-dags/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -81,7 +107,7 @@ if (!doNotTrack) {
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="2">
+      <header id="header" data-behavior="5">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="https://shadowsong27.github.io/">Shadowsong&#39;s Personal Website</a>
@@ -101,7 +127,7 @@ if (!doNotTrack) {
   
 </header>
 
-      <nav id="sidebar" data-behavior="2">
+      <nav id="sidebar" data-behavior="5">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -190,40 +216,34 @@ if (!doNotTrack) {
 </nav>
 
       
-        
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('https://cdn-images-1.medium.com/max/2000/1*w4M-7X85wNNYx6WAFA-K5Q.png')"
+       data-behavior="5">
+    
+  </div>
 
-      
-      <div id="main" data-behavior="2"
-        class="
-               hasCoverMetaIn
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaOut
                ">
-        
-          <section class="postShorten-group main-content-wrap">
-            
-            
-              
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-center">
   
-    
+    <h1 class="post-title" itemprop="headline">
+      DE Log 0.1: Rescheduling of Airflow DAGs
+    </h1>
   
-
-
   
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://shadowsong27.github.io/2019/01/movie-log-2-from-admiration-to-sympathy-the-great-gatsby/">
-          Movie Log 2 - From Admiration to Sympathy - The Great Gatsby
-        </a>
-      </h1>
-      
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-01-07T00:00:00Z">
+      <time itemprop="datePublished" datetime="2018-09-22T00:00:00Z">
         
-  January 7, 2019
+  September 22, 2018
 
       </time>
     
@@ -232,102 +252,173 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="https://shadowsong27.github.io/categories/reviews-thoughts">reviews &amp; thoughts</a>, 
+      <a class="category-link" href="https://shadowsong27.github.io/categories/programming">programming</a>, 
     
-      <a class="category-link" href="https://shadowsong27.github.io/categories/movie">movie</a>
+      <a class="category-link" href="https://shadowsong27.github.io/categories/data-engineering">data engineering</a>
     
   
 
   </div>
 
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>This article briefly records the step to reschedule a DAG on Apache Airflow</p>
+
+<p>So this week one of my tasks is to reschedule some DAGs in our current data pipelines on Airflow.</p>
+
+<p>It all started with a complain made by my colleague, “Why is this query taking 30 minutes to complete, is there a DAG running?”</p>
+
+<p>You get my point, scheduling a DAG, particularly a massive DAG that often involves many crucial data transformation and transportation during the office hour is not something desirable. It happens to us not long ago, when one of us is testing a complex query and it ended up jamming both Airflow tasks and other manual executions.</p>
+
+<p>As a data engineer, at some point of time you will need to be very familiar with the DAGs. They are like your babies, please take good care of them.</p>
+
+<h3 id="time-range">Time Range</h3>
+
+<p>Let’s say we work from 9 am to 10 pm (because somebody likes work or run some queries at night) SGT, we will need to schedule DAGs outside of this period, which is 1 am to 2 pm UTC.</p>
+
+<h3 id="types-of-dag">Types of DAG</h3>
+
+<p>We are dealing with time, therefore it is important to identify first whether the DAG is temporal related - you kinda use the <code>execution_date</code> in your query / python jinja templating / or other stuff.</p>
+
+<p>You would probably like to keep the historical DAG run of this particular DAG as well, or perhaps you are using the <code>backfill</code> feature provided by Airflow, which is a great feature by the way. The following steps describe how to handle both of them.</p>
+
+<h3 id="steps">Steps</h3>
+
+<h5 id="step-1-identify-scheduled-time-and-actual-execuion-time-of-dags">Step 1. Identify scheduled time and actual execuion time of DAGs</h5>
+
+<p>It is important to actually go to airflow metadata database (the name …) to checkout the actual execution time of the DAG. Sometimes, for some unknown reason, your DAG does not start at the time designated. So to avoid further confusion, make sure check the actual execution time.</p>
+
+<p>Now you need to decide whether you should reschedule a DAG based on the actual execution time.</p>
+
+<p>If the actual execution time is acceptable, what you really need to do is just correct the start date, if not you will need to make some other changes.</p>
+
+<h5 id="step-2-identify-temporal-relevant-dags">Step 2.  Identify temporal relevant DAGs</h5>
+
+<p>Decide whether the DAG you want to move is dependent on time, as mentioned in previous section.</p>
+
+<h5 id="step-3-1-if-not">Step 3.1 If Not</h5>
+
+<ul>
+<li>Rename (usually use a <code>_v*</code> suffix)</li>
+<li>Change Start Date</li>
+<li>Deploy and unpause your DAG</li>
+<li>If everything is great, delete your old DAG in metadata database (optional, somebody may find the disabled DAG disturbing)</li>
+</ul>
+
+<h5 id="step-3-2-if-unfortunately-yes">Step 3.2 If unfortunately yes</h5>
+
+<ul>
+<li><p>Change the last execution time in metadata DB to the desired starting time,  one <code>scheduled_interval</code> before.  (I might remember the wrong column name)</p>
+
+<pre><code>UPDATE dag_run SET execution_date = ...
+WHERE dag_id = ...
+</code></pre></li>
+
+<li><p>e.g. you have a daily DAG at 2am, now it is running every at 1am. So you change your latest DAG run to 1am.</p></li>
+
+<li><p>Change your start date</p></li>
+</ul>
+
+<p>And that is it. You can relax and enjoy every successful slack notification when you get up in the morning, knowing everything is running fine at night.</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://shadowsong27.github.io/tags/airflow/">airflow</a>
+
+  <a class="tag tag--primary tag--small" href="https://shadowsong27.github.io/tags/notes/">notes</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/01/movie-log-2-from-admiration-to-sympathy-the-great-gatsby/" data-tooltip="Movie Log 2 - From Admiration to Sympathy - The Great Gatsby">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2018/07/%E9%87%8D%E6%B8%A9%E8%8A%B3%E5%8D%8E/" data-tooltip="重温《芳华》">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
       
-        <p>I had watched this movie some years ago in the cinema, together with my friends.
-We learned one phrase that day - “Old sport”.</p>
-      
-      <p>
-        <a href="https://shadowsong27.github.io/2019/01/movie-log-2-from-admiration-to-sympathy-the-great-gatsby/" class="postShorten-excerpt_link link">Continue reading</a>
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
         
-      </p>
-    </div>
-  </div>
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2018/09/de-log-0.1-rescheduling-of-airflow-dags/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2018/09/de-log-0.1-rescheduling-of-airflow-dags/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2018/09/de-log-0.1-rescheduling-of-airflow-dags/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
   
-    <a href="https://shadowsong27.github.io/2019/01/movie-log-2-from-admiration-to-sympathy-the-great-gatsby/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://i.ytimg.com/vi/8ud6haTTfFY/maxresdefault.jpg"/>
-      </div>
-    </a>
-  
-</article>
+</div>
 
             
               
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://shadowsong27.github.io/2018/07/%E9%87%8D%E6%B8%A9%E8%8A%B3%E5%8D%8E/">
-          重温《芳华》
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-07-17T00:00:00Z">
-        
-  July 17, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://shadowsong27.github.io/categories/reviews-thoughts">reviews &amp; thoughts</a>, 
-    
-      <a class="category-link" href="https://shadowsong27.github.io/categories/movie">movie</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <p>这几天读书时间不太固定，心情也比较浮躁，生活中事情也比较多。觉得《芳华》这本书的厚度也比较好欺负，
-所以最终还是一头扎进了那个年代的想象。其实本来只想写一个朋友圈的，但是觉得，反正也闲着这段时间，
-多写点东西也是好的，至少能动一下脑子。</p>
-      
-      <p>
-        <a href="https://shadowsong27.github.io/2018/07/%E9%87%8D%E6%B8%A9%E8%8A%B3%E5%8D%8E/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://shadowsong27.github.io/2018/07/%E9%87%8D%E6%B8%A9%E8%8A%B3%E5%8D%8E/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="http://img5.mtime.cn/mg/2017/12/15/093023.98906608.jpg"/>
-      </div>
-    </a>
-  
-</article>
-
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
             
-            
-
-          </section>
-        
+          </div>
+        </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2019 Shadowsong27. All Rights Reserved
@@ -335,6 +426,102 @@ We learned one phrase that day - “Old sport”.</p>
 </footer>
 
       </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/01/movie-log-2-from-admiration-to-sympathy-the-great-gatsby/" data-tooltip="Movie Log 2 - From Admiration to Sympathy - The Great Gatsby">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2018/07/%E9%87%8D%E6%B8%A9%E8%8A%B3%E5%8D%8E/" data-tooltip="重温《芳华》">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2018/09/de-log-0.1-rescheduling-of-airflow-dags/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2018/09/de-log-0.1-rescheduling-of-airflow-dags/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2018/09/de-log-0.1-rescheduling-of-airflow-dags/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2018%2F09%2Fde-log-0.1-rescheduling-of-airflow-dags%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2018%2F09%2Fde-log-0.1-rescheduling-of-airflow-dags%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2018%2F09%2Fde-log-0.1-rescheduling-of-airflow-dags%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
     </div>
     
     <div id="about">
@@ -623,6 +810,32 @@ $(document).ready(function() {
 });
 </script>
 
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/shadowsong27.github.io\/2018\/09\/de-log-0.1-rescheduling-of-airflow-dags\/';
+          
+            this.page.identifier = '\/2018\/09\/de-log-0.1-rescheduling-of-airflow-dags\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugo-tranquilpeak-theme';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
 
 
 
