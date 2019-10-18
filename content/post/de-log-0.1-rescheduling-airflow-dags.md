@@ -1,5 +1,5 @@
 ---
-title: "Rescheduling of Airflow DAGs"
+title: "DE Log 0.1: Rescheduling of Airflow DAGs"
 thumbnailImagePosition: "left"
 thumbnailImage: https://cdn-images-1.medium.com/max/1200/1*6jjSw8IqGbsPZp7L_43YyQ.png
 coverImage: https://cdn-images-1.medium.com/max/2000/1*w4M-7X85wNNYx6WAFA-K5Q.png
