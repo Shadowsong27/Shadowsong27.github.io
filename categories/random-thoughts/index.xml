@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>random thoughts on Shadowsong&#39;s Personal Website</title>
+    <link>https://shadowsong27.github.io/categories/random-thoughts/</link>
+    <description>Recent content in random thoughts on Shadowsong&#39;s Personal Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 23 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://shadowsong27.github.io/categories/random-thoughts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RT Log 1: About Automation</title>
+      <link>https://shadowsong27.github.io/2019/10/rt-log-1-about-automation/</link>
+      <pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/2019/10/rt-log-1-about-automation/</guid>
+      <description>&lt;p&gt;I will have some random thoughts here and there. This is a new series of logs, which will be short.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

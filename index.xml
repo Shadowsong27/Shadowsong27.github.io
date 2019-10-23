@@ -6,10 +6,19 @@
     <description>Recent content on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 23 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://shadowsong27.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>RT Log 1: About Automation</title>
+      <link>https://shadowsong27.github.io/2019/10/rt-log-1-about-automation/</link>
+      <pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/2019/10/rt-log-1-about-automation/</guid>
+      <description>&lt;p&gt;I will have some random thoughts here and there. This is a new series of logs, which will be short.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>DE Log 2.1: Develop Data Science Project in Production</title>
