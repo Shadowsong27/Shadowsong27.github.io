@@ -4,25 +4,42 @@
   
   <url>
     <loc>https://shadowsong27.github.io/categories/</loc>
-    <lastmod>2019-10-23T00:00:00+00:00</lastmod>
+    <lastmod>2019-11-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://shadowsong27.github.io/2019/11/de-log-3-amazon-redshift-disk-space-saving-tips/</loc>
+    <lastmod>2019-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://shadowsong27.github.io/post/</loc>
-    <lastmod>2019-10-23T00:00:00+00:00</lastmod>
+    <lastmod>2019-11-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/</loc>
+    <lastmod>2019-11-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/categories/data-engineering/</loc>
+    <lastmod>2019-11-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/categories/programming/</loc>
+    <lastmod>2019-11-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://shadowsong27.github.io/2019/10/rt-log-1-about-automation/</loc>
     <lastmod>2019-10-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://shadowsong27.github.io/</loc>
-    <lastmod>2019-10-23T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -34,18 +51,6 @@
   <url>
     <loc>https://shadowsong27.github.io/2019/10/de-log-2.1-develop-data-science-project-in-production/</loc>
     <lastmod>2019-10-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://shadowsong27.github.io/categories/data-engineering/</loc>
-    <lastmod>2019-10-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://shadowsong27.github.io/categories/programming/</loc>
-    <lastmod>2019-10-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

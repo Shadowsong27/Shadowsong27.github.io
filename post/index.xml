@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://shadowsong27.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DE Log 3: Amazon Redshift disk space saving tips</title>
+      <link>https://shadowsong27.github.io/2019/11/de-log-3-amazon-redshift-disk-space-saving-tips/</link>
+      <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/2019/11/de-log-3-amazon-redshift-disk-space-saving-tips/</guid>
+      <description>&lt;p&gt;Recently Amazon Redshift launched a new console interface, which is pretty nice. It actually gives some valuable optimisation tips. A data warehouse is like a sword, you need to constantly sharpen it so it won’t lose its edge.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>RT Log 1: About Automation</title>
