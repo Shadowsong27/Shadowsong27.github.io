@@ -5,7 +5,7 @@ metaAlignment: center
 thumbnailImage: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA6b5Q1aWwI4R6xbMtiAH821mBwCWn1IVSxT2yjodNfeXvihNP&s
 coverImage: https://www.blazeclan.com/wp-content/uploads/2013/08/Amazon-Redshift-%E2%80%93-11-Key-Points-to-Remember.png
 coverMeta: out
-date: 2019-11-05
+date: 2019-11-04
 categories:
 - programming
 - data-engineering
