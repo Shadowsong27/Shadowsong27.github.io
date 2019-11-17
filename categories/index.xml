@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 16 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://shadowsong27.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>reviews &amp; thoughts</title>
+      <link>https://shadowsong27.github.io/categories/reviews-thoughts/</link>
+      <pubDate>Sat, 16 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/categories/reviews-thoughts/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>data-engineering</title>
@@ -44,15 +53,6 @@
       <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://shadowsong27.github.io/categories/movie/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>reviews &amp; thoughts</title>
-      <link>https://shadowsong27.github.io/categories/reviews-thoughts/</link>
-      <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://shadowsong27.github.io/categories/reviews-thoughts/</guid>
       <description></description>
     </item>
     
