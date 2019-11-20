@@ -3,6 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://shadowsong27.github.io/career/</loc>
+    <lastmod>2019-11-20T23:38:52+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/</loc>
+    <lastmod>2019-11-20T23:38:52+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://shadowsong27.github.io/categories/</loc>
     <lastmod>2019-11-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -10,12 +21,6 @@
   
   <url>
     <loc>https://shadowsong27.github.io/post/</loc>
-    <lastmod>2019-11-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://shadowsong27.github.io/</loc>
     <lastmod>2019-11-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

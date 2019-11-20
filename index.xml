@@ -6,10 +6,22 @@
     <description>Recent content on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 16 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 20 Nov 2019 23:38:52 +0800</lastBuildDate>
     
 	<atom:link href="https://shadowsong27.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Career</title>
+      <link>https://shadowsong27.github.io/career/</link>
+      <pubDate>Wed, 20 Nov 2019 23:38:52 +0800</pubDate>
+      
+      <guid>https://shadowsong27.github.io/career/</guid>
+      <description>I am a data engineer, I tend data pipelines and make data flows efficiently.
+You should only notice me when something is broken.
+Education Background National University of Singapore - Aug 2014 to May 2018  Bachelor of Science in Business Analytics Science &amp;amp; Tech Scholarship  Professional Skills legend:
+ Basic understanding: Never used in production environment but have tried it in playground familiar: able to design, implement solutions proficient: able to design, implement and optimized solutions, workflow  Engineering Skills Programming language</description>
+    </item>
     
     <item>
       <title>《房思琪的初恋乐园》- 文学成瘾</title>
