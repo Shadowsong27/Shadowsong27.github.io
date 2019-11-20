@@ -74,10 +74,10 @@ canonifyurls = true
   url = "/archives"
 [[menu.main]]
   weight = 5
-  identifier = "about"
-  name = "About"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-question\"></i>"
-  url = "/about"
+  identifier = "Career"
+  name = "Career"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-suitcase\"></i>"
+  url = "/career"
 
 [[menu.links]]
   weight = 1

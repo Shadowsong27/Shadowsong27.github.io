@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "Career"
 date: 2019-11-20T23:38:52+08:00
 comments:       false
 showMeta:       false
@@ -17,7 +17,7 @@ You should only notice me when something is broken.
 - Bachelor of Science in Business Analytics
 - Science & Tech Scholarship
 
-# Skills
+# Professional Skills
 
 legend:
 
@@ -84,4 +84,3 @@ Key achievements:
 - deployed first data science project in production
 - implement in-house data health check solution
 - implement internal Python toolings
-
