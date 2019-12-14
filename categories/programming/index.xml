@@ -6,10 +6,19 @@
     <description>Recent content in programming on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://shadowsong27.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Customize Terminal and IDE</title>
+      <link>https://shadowsong27.github.io/2019/12/customize-terminal-and-ide/</link>
+      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/2019/12/customize-terminal-and-ide/</guid>
+      <description>&lt;p&gt;This short article aims to reproduce my current workbench, using color plattes of my choice.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>DE Log 3: Amazon Redshift disk space saving tips</title>
