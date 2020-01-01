@@ -8,19 +8,35 @@
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
-<meta name="description" content="Shadowsong&#39;s personal website">
+<meta name="description" content="We have all heard of the term ETL. If you are working in the data field, you might have been asked to do some sort of ETL work regardless of your actual job description.">
 
 
-<meta property="og:description" content="Shadowsong&#39;s personal website">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Shadowsong&#39;s Personal Website">
-<meta name="twitter:title" content="Shadowsong&#39;s Personal Website">
-<meta property="og:url" content="https://shadowsong27.github.io/">
-<meta property="twitter:url" content="https://shadowsong27.github.io/">
+<meta property="og:description" content="We have all heard of the term ETL. If you are working in the data field, you might have been asked to do some sort of ETL work regardless of your actual job description.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DE Log 4: ETL vs ELT">
+<meta name="twitter:title" content="DE Log 4: ETL vs ELT">
+<meta property="og:url" content="https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/">
+<meta property="twitter:url" content="https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/">
 <meta property="og:site_name" content="Shadowsong&#39;s Personal Website">
-<meta property="og:description" content="Shadowsong&#39;s personal website">
-<meta name="twitter:description" content="Shadowsong&#39;s personal website">
+<meta property="og:description" content="We have all heard of the term ETL. If you are working in the data field, you might have been asked to do some sort of ETL work regardless of your actual job description.">
+<meta name="twitter:description" content="We have all heard of the term ETL. If you are working in the data field, you might have been asked to do some sort of ETL work regardless of your actual job description.">
 <meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-01-01T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2020-01-01T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="programming">
+    
+      <meta property="article:section" content="data-engineering">
+    
+  
+  
 
 
 <meta name="twitter:card" content="summary">
@@ -31,6 +47,12 @@
 
 
 
+  <meta property="og:image" content="https://panoply.io/uploads/versions/diagram4---x----750-328x---.jpg">
+  <meta property="twitter:image" content="https://panoply.io/uploads/versions/diagram4---x----750-328x---.jpg">
+
+
+  <meta property="og:image" content="https://panoply.io/uploads/versions/diagram4---x----750-328x---.jpg">
+  <meta property="twitter:image" content="https://panoply.io/uploads/versions/diagram4---x----750-328x---.jpg">
 
 
 
@@ -39,16 +61,14 @@
   <meta property="twitter:image" content="https://avatars3.githubusercontent.com/u/12522657?s=400&u=ccfcf050a757c6a49241737eefe4386064400b5e&v=4">
 
 
-    <title>Shadowsong&#39;s Personal Website</title>
+    <title>DE Log 4: ETL vs ELT</title>
 
     <link rel="icon" href="https://shadowsong27.github.io/favicon.png">
     
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://shadowsong27.github.io/index.xml">
-    
 
     
 
-    <link rel="canonical" href="https://shadowsong27.github.io/">
+    <link rel="canonical" href="https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -81,7 +101,7 @@ if (!doNotTrack) {
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="2">
+      <header id="header" data-behavior="5">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="https://shadowsong27.github.io/">Shadowsong&#39;s Personal Website</a>
@@ -101,7 +121,7 @@ if (!doNotTrack) {
   
 </header>
 
-      <nav id="sidebar" data-behavior="2">
+      <nav id="sidebar" data-behavior="5">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -190,37 +210,34 @@ if (!doNotTrack) {
 </nav>
 
       
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('https://panoply.io/uploads/versions/diagram4---x----750-328x---.jpg')"
+       data-behavior="5">
+    
+  </div>
 
-      <div id="main" data-behavior="2"
-        class="
-               hasCoverMetaIn
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaOut
                ">
-        <section class="postShorten-group main-content-wrap">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
           
           
-            
+            <div class="post-header main-content-wrap text-center">
   
-    
+    <h1 class="post-title" itemprop="headline">
+      DE Log 4: ETL vs ELT
+    </h1>
   
-
-
   
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://shadowsong27.github.io/2019/08/de-log-1-idempotency/">
-          DE Log 1: Idempotency
-        </a>
-      </h1>
-      
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-08-31T00:00:00Z">
+      <time itemprop="datePublished" datetime="2020-01-01T00:00:00Z">
         
-  August 31, 2019
+  January 1, 2020
 
       </time>
     
@@ -237,422 +254,140 @@ if (!doNotTrack) {
 
   </div>
 
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <blockquote>
-<p>In linear algebra, an idempotent matrix is a matrix which, when multiplied by itself, yields itself.</p>
-</blockquote>
-      
-      <p>
-        <a href="https://shadowsong27.github.io/2019/08/de-log-1-idempotency/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://shadowsong27.github.io/2019/08/de-log-1-idempotency/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://www.mistrasgroup.com/media/1540/steel-pipeline.jpg?center=0.4425,0.49&amp;mode=crop&amp;width=1500&amp;height=600&amp;rnd=131921218510000000"/>
-      </div>
-    </a>
-  
-</article>
-
+</div>
           
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>We have all heard of the term ETL. If you are working in the data field, you might have been asked to do some sort of ETL work regardless of your actual job description.</p>
+
+<p>However, if we think it from a slightly different perspective, we could “invent” a different methodology in harvesting analytical data sets - we load raw / intermediate data into data warehouse first, and then transform it <code>in-place</code> in the data warehouse.</p>
+
+<p>I believe both approaches are useful and I would further argue that ELT approach is more advantageous under certain business contexts. In this blog post, I am going to first describe the fundamental difference between the aforementioned approaches, and then present three advantages that the ELT approach may possess over the other.</p>
+
+<h1 id="overview">Overview</h1>
+
+<p>By examining and reducing the problem further, we could see that the fundamental difference between ETL and ELT is a result of the uneven distribution of provisioned computational (data transformation and aggregation) power. The traditional ETL approach emphasizes more on the transformations outside of the data warehouse, such as Spark jobs or even simple Python scripts using various libraries. ELT approach on the hand invests much more resources on the data warehouse itself, and transformations of data sets often occur within the data warehouse in the form of SQL scripts. Transformation that are not executable solely within a database engine will not be discussed here and should ideally followed a traditional ETL approach.</p>
+
+<p>In my limited experience, I believe ELT tends to work better in a versatile, flexible and bootstrap environment, where a break from workflow is commonly acceptable to achieve the goals with minimum cost. While ETL works better in the more resourceful, stable business lines, where strict workflows are respected (for good reasons).</p>
+
+<p>We must also recognize that eventually as the business grows, more budget hence more computational power will be provisioned on both ends, and the problem that was originally choosing one of the two approaches will then inevitably evolve into: For any particular transformation job, where  should I put it? I do not want to dive too deep on the issue mentioned above because that deviates too much from the original discussion. Let’s come back and focus again on the choice between ETL and ELT, and here are my two (three) coins:</p>
+
+<h3 id="elt-has-a-lower-development-cost-but-the-marginal-gain-is-diminishing-as-the-company-grows">ELT has a lower development cost, but the marginal gain is diminishing as the company grows</h3>
+
+<p>Transformation jobs tend to be just SQL scripts at the beginning. By relying the strong computational power within the data warehouse, data analysts or data engineers could easily implement the pipelines by testing complex SQL scripts directly against the pre-loaded raw data within data warehouse, provided that the employees know SQL, which is commonly required in the job description. This allows new startups to distribute data pipeline building workload within the entire data team.</p>
+
+<p>Besides development, debugging is also much easier as you could directly query against intermediate CTE/tables to check the validity of data. You could even automate data healthchecks simply using SQLs, again achievable by analysts which is great for smaller teams.</p>
+
+<p>As the data size grows and the analytical data layers in your data warehouse becomes deeper, one will have to shift the stable (less susceptible to changes) transformations and those cold (less frequently accessed) intermediate data sets outside of the data warehouse, thus slowly balance the distribution of transformation jobs and the usage of ETL/ELT approaches.</p>
+
+<h3 id="elt-has-a-lower-operational-cost-but-it-requires-a-rather-big-refactoring-once-things-start-to-get-too-slow">ELT has a lower operational cost,  but it requires a rather big refactoring once things start to get too slow</h3>
+
+<p>Let’s be honest, which one is easier? To hire a decent SQL guy/girl or Python/Java guy/girl? Ok you may say that’s not a fair and meaningful comparison at all. Then how about the Ops work involved during coding deployments. At the initial phase of your data warehouse, an ELT approach could save a large amount of operational costs which could then translate to less salary expense and debugging hours. Ask the tech lead or the CTO to setup an auto-deployed SQL repo for your scheduler. Steps that a person worked on pipeline should only involved</p>
+
+<ul>
+<li>Developing new SQL script (pipeline node)</li>
+<li>Testing SQL in DW</li>
+<li>Committed to repo and submit PR</li>
+</ul>
+
+<p>Once the reviewer merges the PR, the pipeline should be automatically updated. Codes in this way is much more isolated (only in SQL) and again easier to involve people who are not originally trained in the software engineering field.</p>
+
+<p>However, once the size of intermediate data becomes too big to store in data warehouse, a big refactoring is needed to transform those SQL scripts into something similar to spark job and save them in S3.</p>
+
+<h3 id="elt-has-a-lower-exploration-cost">ELT has a lower exploration cost</h3>
+
+<p>I guess this point is a relatively weak because it is of course easier to explore when you have less data and everything is querable within the same database. But imagine if we only load the final data sets required by internal reports / external data products into the DW, left those intermediate tables in S3, we won’t be able to easily check some random idea, validate some random hypothesis and do all kinds of experiments with just one SQL script. Sure I guess one could build a view and query against all Parquet files in S3, but LBH it’s not that realistic for smaller team  to setup this (other priorities always cut in the line).</p>
+
+<p>Again we need to acknowledge one thing, that the connenvience ELT provides comes with a cost, once intermediate data and pipelines are shifted outside of DW, the visibility and the accessibility of raw data would inevitably decrease, or in a well managed situation, not the visibility but mostly the accessibility. However, one could also argue that the visibility of such vast data sets may be overwhelming and not meaningful for everyone, a concrete point of which I would concede to. Personally I am trying to perfect the methodology that allows analytical data to be built layer by layer so that access rights will not be granted excessively.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>I just came up with this post on the train, by knowing myself so well that most likely I would not revisit this article in the future even if my thoughts above has changed. What I can say is I have practiced the ELT approach (thanks to my Boss) for more than a year in a very small team with just one data engineer, I kinda of feel this is the reason why I am still able to get everything to flow even I am the only data engineer in the team. It works pretty nice with small teams, especially if you would like to save the money for your Spark cluster until when you really need it.</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
             
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://shadowsong27.github.io/2019/08/dramas-checklist/">
-          Dramas Checklist
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2019-08-24T00:00:00Z">
-        
-  August 24, 2019
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://shadowsong27.github.io/categories/reviews-thoughts">reviews &amp; thoughts</a>, 
-    
-      <a class="category-link" href="https://shadowsong27.github.io/categories/tv-series">tv-series</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <p>A list of TV series I would like to watch / have watched, and a short comments on them, by category.</p>
-      
-      <p>
-        <a href="https://shadowsong27.github.io/2019/08/dramas-checklist/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://shadowsong27.github.io/2019/08/dramas-checklist/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://img.maximummedia.ie/her_ie/eyJkYXRhIjoie1widXJsXCI6XCJodHRwOlxcXC9cXFwvbWVkaWEtaGVyLm1heGltdW1tZWRpYS5pZS5zMy5hbWF6b25hd3MuY29tXFxcL3dwLWNvbnRlbnRcXFwvdXBsb2Fkc1xcXC8yMDE4XFxcLzAzXFxcLzE1MTc0MjQyXFxcL25ldGZsaXgtLTEwMjR4NTM4LmpwZ1wiLFwid2lkdGhcIjo3NjcsXCJoZWlnaHRcIjo0MzEsXCJkZWZhdWx0XCI6XCJodHRwczpcXFwvXFxcL3d3dy5oZXIuaWVcXFwvYXNzZXRzXFxcL2ltYWdlc1xcXC9oZXJcXFwvbm8taW1hZ2UucG5nP2lkPTBkMmQ2MjdjMDU5YjllZGNhYjBkXCIsXCJvcHRpb25zXCI6W119IiwiaGFzaCI6ImIxZTAyNTAxMjIxNDI5OThjZjlkNjZlYzE0NGNkODBjMzgzNWUxYzMifQ==/netflix-1024x538.jpg"/>
-      </div>
-    </a>
-  
-</article>
-
-          
+              
             
+            <div class="post-actions-wrap">
   
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-top" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-      <a href="https://shadowsong27.github.io/2019/07/setup-datadog-and-apm-in-aws-fargate/">
-        <div class="postShorten-thumbnailimg">
-          <img alt="" itemprop="image" src="https://cdn.aimconsulting.com/wp-content/uploads/2018/07/aws-fargate-v2.png"/>
-        </div>
-      </a>
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://shadowsong27.github.io/2019/07/setup-datadog-and-apm-in-aws-fargate/">
-          Setup DataDog and APM in AWS Fargate
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2019-07-16T00:00:00Z">
-        
-  July 16, 2019
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://shadowsong27.github.io/categories/programming">programming</a>, 
-    
-      <a class="category-link" href="https://shadowsong27.github.io/categories/dev-ops">dev-ops</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <p>Recently I am migrating some microservices and streaming pipelines to AWS Fargate.
-This article mainly covers the issues, pitfalls and other useful notes
-when I was deploying a web backend with DataDog.</p>
-      
-      <p>
-        <a href="https://shadowsong27.github.io/2019/07/setup-datadog-and-apm-in-aws-fargate/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
+      <nav >
+        <ul class="post-actions post-action-nav">
           
-            
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/">
-          Build Hugo Blog on Github Pages Master Branch
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2019-06-11T00:00:00Z">
-        
-  June 11, 2019
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://shadowsong27.github.io/categories/programming">programming</a>, 
-    
-      <a class="category-link" href="https://shadowsong27.github.io/categories/miscellaneous">miscellaneous</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <p>This short article aims to address issues I encountered during hosting personal static blog
-on Github Page.</p>
-      
-      <p>
-        <a href="https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://blog.jscrambler.com/content/images/2018/08/jscrambler-blog-hugo-static-site-generator-720px.jpg"/>
-      </div>
-    </a>
-  
-</article>
-
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/12/customize-terminal-and-ide/" data-tooltip="Customize Terminal and IDE">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
           
-            
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://shadowsong27.github.io/2019/01/movie-log-2-from-admiration-to-sympathy-the-great-gatsby/">
-          Movie Log 2 - From Admiration to Sympathy - The Great Gatsby
-        </a>
-      </h1>
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
       
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2019-01-07T00:00:00Z">
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
         
-  January 7, 2019
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://shadowsong27.github.io/categories/reviews-thoughts">reviews &amp; thoughts</a>, 
-    
-      <a class="category-link" href="https://shadowsong27.github.io/categories/movie">movie</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <p>I had watched this movie some years ago in the cinema, together with my friends.
-We learned one phrase that day - “Old sport”.</p>
-      
-      <p>
-        <a href="https://shadowsong27.github.io/2019/01/movie-log-2-from-admiration-to-sympathy-the-great-gatsby/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://shadowsong27.github.io/2019/01/movie-log-2-from-admiration-to-sympathy-the-great-gatsby/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://i.ytimg.com/vi/8ud6haTTfFY/maxresdefault.jpg"/>
-      </div>
-    </a>
-  
-</article>
-
-          
-            
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://shadowsong27.github.io/2018/09/de-log-0.1-rescheduling-of-airflow-dags/">
-          DE Log 0.1: Rescheduling of Airflow DAGs
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-09-22T00:00:00Z">
-        
-  September 22, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://shadowsong27.github.io/categories/programming">programming</a>, 
-    
-      <a class="category-link" href="https://shadowsong27.github.io/categories/data-engineering">data engineering</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <p>This article briefly records the step to reschedule a DAG on Apache Airflow</p>
-      
-      <p>
-        <a href="https://shadowsong27.github.io/2018/09/de-log-0.1-rescheduling-of-airflow-dags/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://shadowsong27.github.io/2018/09/de-log-0.1-rescheduling-of-airflow-dags/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://cdn-images-1.medium.com/max/1200/1*6jjSw8IqGbsPZp7L_43YyQ.png"/>
-      </div>
-    </a>
-  
-</article>
-
-          
-            
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://shadowsong27.github.io/2018/07/%E9%87%8D%E6%B8%A9%E8%8A%B3%E5%8D%8E/">
-          重温《芳华》
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-07-17T00:00:00Z">
-        
-  July 17, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://shadowsong27.github.io/categories/reviews-thoughts">reviews &amp; thoughts</a>, 
-    
-      <a class="category-link" href="https://shadowsong27.github.io/categories/movie">movie</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <p>这几天读书时间不太固定，心情也比较浮躁，生活中事情也比较多。觉得《芳华》这本书的厚度也比较好欺负，
-所以最终还是一头扎进了那个年代的想象。其实本来只想写一个朋友圈的，但是觉得，反正也闲着这段时间，
-多写点东西也是好的，至少能动一下脑子。</p>
-      
-      <p>
-        <a href="https://shadowsong27.github.io/2018/07/%E9%87%8D%E6%B8%A9%E8%8A%B3%E5%8D%8E/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://shadowsong27.github.io/2018/07/%E9%87%8D%E6%B8%A9%E8%8A%B3%E5%8D%8E/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="http://img5.mtime.cn/mg/2017/12/15/093023.98906608.jpg"/>
-      </div>
-    </a>
-  
-</article>
-
-          
-          
-  <div class="pagination-bar">
-    <ul class="pagination">
-      
-        
-          <li class="pagination-prev">
-            <a class="btn btn--default btn--small" href="https://shadowsong27.github.io/">
-              <i class="fa fa-angle-left text-base icon-mr"></i>
-              <span>NEWER POSTS</span>
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/">
+              <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
         
-          <li class="pagination-next">
-            <a class="btn btn--default btn--small" href="https://shadowsong27.github.io/page/3/">
-              <span>OLDER POSTS</span>
-              <i class="fa fa-angle-right text-base icon-ml"></i>
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/">
+              <i class="fa fa-google-plus"></i>
             </a>
           </li>
         
       
-      <li class="pagination-number">page 2 of 3</li>
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
     </ul>
-  </div>
+  
+</div>
 
-
-        </section>
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2020 Shadowsong27. All Rights Reserved
@@ -660,6 +395,102 @@ We learned one phrase that day - “Old sport”.</p>
 </footer>
 
       </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/12/customize-terminal-and-ide/" data-tooltip="Customize Terminal and IDE">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F01%2Fde-log-4-etl-vs-elt%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F01%2Fde-log-4-etl-vs-elt%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F01%2Fde-log-4-etl-vs-elt%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
     </div>
     
     <div id="about">
@@ -945,9 +776,36 @@ $(document).ready(function() {
 </script>
 
 
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/shadowsong27.github.io\/2020\/01\/de-log-4-etl-vs-elt\/';
+          
+            this.page.identifier = '\/2020\/01\/de-log-4-etl-vs-elt\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugo-tranquilpeak-theme';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
 
 
 
     
   </body>
 </html>
+

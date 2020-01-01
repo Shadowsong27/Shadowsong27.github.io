@@ -6,10 +6,19 @@
     <description>Recent content in programming on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://shadowsong27.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DE Log 4: ETL vs ELT</title>
+      <link>https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/</guid>
+      <description>&lt;p&gt;We have all heard of the term ETL. If you are working in the data field, you might have been asked to do some sort of ETL work regardless of your actual job description.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Customize Terminal and IDE</title>
