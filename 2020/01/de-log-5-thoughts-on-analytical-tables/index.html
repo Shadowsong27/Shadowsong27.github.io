@@ -8,25 +8,25 @@
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
-<meta name="description" content="We have all heard of the term ETL. If you are working in the data field, you might have been asked to do some sort of ETL work regardless of your actual job description.">
+<meta name="description" content="I have taken some Database design course back in university days, though I have skipped almost all of the lectures as I was also self-learning during my first internship on the same matter, in a much more practical manner. I did not even know the word OLAP  back then. However, I am not dismissing the importance of data modelling in data engineering. On the contrary, data modelling is one of the important skills if you want to be a data engineer.">
 
 
-<meta property="og:description" content="We have all heard of the term ETL. If you are working in the data field, you might have been asked to do some sort of ETL work regardless of your actual job description.">
+<meta property="og:description" content="I have taken some Database design course back in university days, though I have skipped almost all of the lectures as I was also self-learning during my first internship on the same matter, in a much more practical manner. I did not even know the word OLAP  back then. However, I am not dismissing the importance of data modelling in data engineering. On the contrary, data modelling is one of the important skills if you want to be a data engineer.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DE Log 4: ETL vs ELT">
-<meta name="twitter:title" content="DE Log 4: ETL vs ELT">
-<meta property="og:url" content="https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/">
-<meta property="twitter:url" content="https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/">
+<meta property="og:title" content="DE Log 5: Thoughts on Analytical Tables">
+<meta name="twitter:title" content="DE Log 5: Thoughts on Analytical Tables">
+<meta property="og:url" content="https://shadowsong27.github.io/2020/01/de-log-5-thoughts-on-analytical-tables/">
+<meta property="twitter:url" content="https://shadowsong27.github.io/2020/01/de-log-5-thoughts-on-analytical-tables/">
 <meta property="og:site_name" content="Shadowsong&#39;s Personal Website">
-<meta property="og:description" content="We have all heard of the term ETL. If you are working in the data field, you might have been asked to do some sort of ETL work regardless of your actual job description.">
-<meta name="twitter:description" content="We have all heard of the term ETL. If you are working in the data field, you might have been asked to do some sort of ETL work regardless of your actual job description.">
+<meta property="og:description" content="I have taken some Database design course back in university days, though I have skipped almost all of the lectures as I was also self-learning during my first internship on the same matter, in a much more practical manner. I did not even know the word OLAP  back then. However, I am not dismissing the importance of data modelling in data engineering. On the contrary, data modelling is one of the important skills if you want to be a data engineer.">
+<meta name="twitter:description" content="I have taken some Database design course back in university days, though I have skipped almost all of the lectures as I was also self-learning during my first internship on the same matter, in a much more practical manner. I did not even know the word OLAP  back then. However, I am not dismissing the importance of data modelling in data engineering. On the contrary, data modelling is one of the important skills if you want to be a data engineer.">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-01-01T00:00:00">
+    <meta property="article:published_time" content="2020-01-09T00:00:00">
   
   
-    <meta property="article:modified_time" content="2020-01-01T00:00:00">
+    <meta property="article:modified_time" content="2020-01-09T00:00:00">
   
   
   
@@ -47,12 +47,12 @@
 
 
 
-  <meta property="og:image" content="https://panoply.io/uploads/versions/diagram4---x----750-328x---.jpg">
-  <meta property="twitter:image" content="https://panoply.io/uploads/versions/diagram4---x----750-328x---.jpg">
+  <meta property="og:image" content="http://www.jetbrains.com/datagrip/img/screenshots/query-console.png">
+  <meta property="twitter:image" content="http://www.jetbrains.com/datagrip/img/screenshots/query-console.png">
 
 
-  <meta property="og:image" content="https://panoply.io/uploads/versions/diagram4---x----750-328x---.jpg">
-  <meta property="twitter:image" content="https://panoply.io/uploads/versions/diagram4---x----750-328x---.jpg">
+  <meta property="og:image" content="http://www.jetbrains.com/datagrip/img/screenshots/query-console.png">
+  <meta property="twitter:image" content="http://www.jetbrains.com/datagrip/img/screenshots/query-console.png">
 
 
 
@@ -61,14 +61,14 @@
   <meta property="twitter:image" content="https://avatars3.githubusercontent.com/u/12522657?s=400&u=ccfcf050a757c6a49241737eefe4386064400b5e&v=4">
 
 
-    <title>DE Log 4: ETL vs ELT</title>
+    <title>DE Log 5: Thoughts on Analytical Tables</title>
 
     <link rel="icon" href="https://shadowsong27.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/">
+    <link rel="canonical" href="https://shadowsong27.github.io/2020/01/de-log-5-thoughts-on-analytical-tables/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -213,7 +213,7 @@ if (!doNotTrack) {
   <div class="post-header-cover
               text-center
               "
-       style="background-image:url('https://panoply.io/uploads/versions/diagram4---x----750-328x---.jpg')"
+       style="background-image:url('http://www.jetbrains.com/datagrip/img/screenshots/query-console.png')"
        data-behavior="5">
     
   </div>
@@ -229,15 +229,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      DE Log 4: ETL vs ELT
+      DE Log 5: Thoughts on Analytical Tables
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-01-01T00:00:00Z">
+      <time itemprop="datePublished" datetime="2020-01-09T00:00:00Z">
         
-  January 1, 2020
+  January 9, 2020
 
       </time>
     
@@ -258,51 +258,184 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>We have all heard of the term ETL. If you are working in the data field, you might have been asked to do some sort of ETL work regardless of your actual job description.</p>
+              <p>I have taken some Database design course back in university days, though I have skipped almost all of the lectures as I was also self-learning during my first internship on the same matter, in a much more practical manner. I did not even know the word <code>OLAP</code>  back then. However, I am not dismissing the importance of data modelling in data engineering. On the contrary, data modelling is one of the important skills if you want to be a data engineer.</p>
 
-<p>However, if we think it from a slightly different perspective, we could “invent” a different methodology in harvesting analytical data sets - we load raw / intermediate data into data warehouse first, and then transform it <code>in-place</code> in the data warehouse.</p>
+<p>This article aims to address some common problems in the following types of column found in analytical tables</p>
 
-<p>I believe both approaches are useful and I would further argue that ELT approach is more advantageous under certain business contexts. In this blog post, I am going to first describe the fundamental difference between the aforementioned approaches, and then present three advantages that the ELT approach may possess over the other.</p>
+<ol>
+<li><p>Metric Column</p></li>
 
-<h1 id="overview">Overview</h1>
+<li><p>Filters / Segmentations Column</p></li>
 
-<p>By examining and reducing the problem further, we could see that the fundamental difference between ETL and ELT is a result of the uneven distribution of provisioned computational (data transformation and aggregation) power. The traditional ETL approach emphasizes more on the transformations outside of the data warehouse, such as Spark jobs or even simple Python scripts using various libraries. ELT approach on the hand invests much more resources on the data warehouse itself, and transformations of data sets often occur within the data warehouse in the form of SQL scripts. Transformation that are not executable solely within a database engine will not be discussed here and should ideally followed a traditional ETL approach.</p>
+<li><p>Time Column</p></li>
+</ol>
 
-<p>In my limited experience, I believe ELT tends to work better in a versatile, flexible and bootstrap environment, where a break from workflow is commonly acceptable to achieve the goals with minimum cost. While ETL works better in the more resourceful, stable business lines, where strict workflows are respected (for good reasons).</p>
+<h1 id="analytical-table-types">Analytical Table Types</h1>
 
-<p>We must also recognize that eventually as the business grows, more budget hence more computational power will be provisioned on both ends, and the problem that was originally choosing one of the two approaches will then inevitably evolve into: For any particular transformation job, where  should I put it? I do not want to dive too deep on the issue mentioned above because that deviates too much from the original discussion. Let’s come back and focus again on the choice between ETL and ELT, and here are my two (three) coins:</p>
-
-<h3 id="elt-has-a-lower-development-cost-but-the-marginal-gain-is-diminishing-as-the-company-grows">ELT has a lower development cost, but the marginal gain is diminishing as the company grows</h3>
-
-<p>Transformation jobs tend to be just SQL scripts at the beginning. By relying the strong computational power within the data warehouse, data analysts or data engineers could easily implement the pipelines by testing complex SQL scripts directly against the pre-loaded raw data within data warehouse, provided that the employees know SQL, which is commonly required in the job description. This allows new startups to distribute data pipeline building workload within the entire data team.</p>
-
-<p>Besides development, debugging is also much easier as you could directly query against intermediate CTE/tables to check the validity of data. You could even automate data healthchecks simply using SQLs, again achievable by analysts which is great for smaller teams.</p>
-
-<p>As the data size grows and the analytical data layers in your data warehouse becomes deeper, one will have to shift the stable (less susceptible to changes) transformations and those cold (less frequently accessed) intermediate data sets outside of the data warehouse, thus slowly balance the distribution of transformation jobs and the usage of ETL/ELT approaches.</p>
-
-<h3 id="elt-has-a-lower-operational-cost-but-it-requires-a-rather-big-refactoring-once-things-start-to-get-too-slow">ELT has a lower operational cost,  but it requires a rather big refactoring once things start to get too slow</h3>
-
-<p>Let’s be honest, which one is easier? To hire a decent SQL guy/girl or Python/Java guy/girl? Ok you may say that’s not a fair and meaningful comparison at all. Then how about the Ops work involved during coding deployments. At the initial phase of your data warehouse, an ELT approach could save a large amount of operational costs which could then translate to less salary expense and debugging hours. Ask the tech lead or the CTO to setup an auto-deployed SQL repo for your scheduler. Steps that a person worked on pipeline should only involved</p>
+<p>The word <code>analytical</code> suggests that this article will not talk about ER diagram or transactional type, normalised data modelling. In fact, there are in my opinion two broad types of analytical tables in general.</p>
 
 <ul>
-<li>Developing new SQL script (pipeline node)</li>
-<li>Testing SQL in DW</li>
-<li>Committed to repo and submit PR</li>
+<li><p>Snapshot</p></li>
+
+<li><p>Historical</p></li>
 </ul>
 
-<p>Once the reviewer merges the PR, the pipeline should be automatically updated. Codes in this way is much more isolated (only in SQL) and again easier to involve people who are not originally trained in the software engineering field.</p>
+<h3 id="snapshot-tables">Snapshot Tables</h3>
 
-<p>However, once the size of intermediate data becomes too big to store in data warehouse, a big refactoring is needed to transform those SQL scripts into something similar to spark job and save them in S3.</p>
+<p>Snapshot tables are refreshed during each pipeline runs, making them up to date with the raw data. Any changes in data made by users would safely be included into such tables without much implementation work.</p>
 
-<h3 id="elt-has-a-lower-exploration-cost">ELT has a lower exploration cost</h3>
+<h3 id="historical-tables">Historical Tables</h3>
 
-<p>I guess this point is a relatively weak because it is of course easier to explore when you have less data and everything is querable within the same database. But imagine if we only load the final data sets required by internal reports / external data products into the DW, left those intermediate tables in S3, we won’t be able to easily check some random idea, validate some random hypothesis and do all kinds of experiments with just one SQL script. Sure I guess one could build a view and query against all Parquet files in S3, but LBH it’s not that realistic for smaller team  to setup this (other priorities always cut in the line).</p>
+<p>Historical tables are rather nasty, but extremely important and common for monitoring and time dependent reporting. The word <code>historical</code> suggests that it preserves certain attributes of the raw data.</p>
 
-<p>Again we need to acknowledge one thing, that the connenvience ELT provides comes with a cost, once intermediate data and pipelines are shifted outside of DW, the visibility and the accessibility of raw data would inevitably decrease, or in a well managed situation, not the visibility but mostly the accessibility. However, one could also argue that the visibility of such vast data sets may be overwhelming and not meaningful for everyone, a concrete point of which I would concede to. Personally I am trying to perfect the methodology that allows analytical data to be built layer by layer so that access rights will not be granted excessively.</p>
+<p>For example, if you are producing a report for a client, and you have computed some important numbers. On the next reporting period, your user base grew a little  and that important number inevitably changed if you are using <code>Snapshot</code> type of table. Of course this might be ok and understandable for some clients, especially when they were train in engineering, but sometimes it’s just easier for everybody if we abstract the complex but unnecessary aspect of data preparation away from the valuable and respectful clients.</p>
+
+<p>They are happy, we are happy. Data engineers need to do work.</p>
+
+<p>This is an example, of course there are use cases for this which I don’t really want to spend my brain power on, you get the point.</p>
+
+<h3 id="other-types">Other types</h3>
+
+<p>There are more than just these two types of tables in a typical data warehouse. You could have</p>
+
+<ol>
+<li><p>Lookup Tables - static tables that does not often get updated or updated manually. e.g. hard to extract data, categorical hierarchy</p></li>
+
+<li><p>Exploration Tables - temp tables created by your dear friends and value colleagues</p></li>
+</ol>
+
+<h1 id="time-related-columns">Time related Columns</h1>
+
+<p>This is very straight forward, a date / timestamp column in the table, usually will be converted into the x-axis for times-series visualisations, or act as an attribute waiting for further aggregations. Not much to talk about but there are some few traps and tricks.</p>
+
+<p>However, depending on the purpose of the columns, we should treat them differently.</p>
+
+<h3 id="used-as-a-metric-localisation">Used as a metric - Localisation</h3>
+
+<p>It is convention that all timestamps stored in database, if not specified should be treated as UTC timezone. In fact, many of the columns in raw data would be often in the format of <code>BIGINT</code>, the epoch. Since time data comes in different format, we need to standardise for analytical use.</p>
+
+<p>Also depending on the analytical usage, one should consider whether to include UTC timestamp or Localised timestamp.</p>
+
+<p>For example, in the immediate downstream after the extraction of raw data, we would normally prepare some big analytical that does not contains much aggregation, but normally transformation and cleaning for columns. This table, which serves as a foundation for other analytical tables, should contain both time columns.</p>
+
+<p>However, if you are building analytical tables for monitoring purpose, ideally you should use the UTC time and omit the other. This is because monitoring is often associated with your infrastructure, to identify when a bug might cause a drastic drop in MAU, you linked the UTC timestamp in the table and your system log time, or converted once more to YOUR (not users) local time and link with your git commits timestamp.</p>
+
+<p>When building dashboards to answer a time dependent question, say when does people sleep normally, you should obviously use local time. This is important but often neglected during practice.</p>
+
+<h3 id="used-as-a-label-weekly-and-monthly">Used as a label - Weekly and Monthly</h3>
+
+<p>Using time a label is too common that I would not go too deep in example. Here it is more about a convention in a company, there are people in the world view the start of the week as Sunday, where others as Monday. So I guess you should pick one and stick to it when creating weekly labels. Monday is more likely the default choice by database <code>date_trunc</code> functions.</p>
+
+<p>As for monthly label, it makes more sense to show the first date of each month as on the chart you definitely do not want to see 30th Sept as your label. However, the interpretation of <code>2019-06-01</code> within the dashboard needs to be clarified, does it mean metrics generated based on data before <code>2019-06-01</code> or <code>2019-07-01</code>?</p>
+
+<h1 id="filters-segmentations">Filters / Segmentations</h1>
+
+<p>Filters / Segmentation columns such as countries and languages play a crucial role in making the table more explorable. The difficult part of this is to anticipate the filters that make sense to your business, very much similar to set <code>distkey</code> and <code>sortkey</code> in AWS Redshift - because if you want to change it later, it won’t be so easy. You will need to recreate the table by changing a few column selections and downstream tables if needed.</p>
+
+<p>If the <code>recreation</code> is not yet explained clearly, think about an analytical tables that has three columns - (DATE | COUNTRY | DAU). This allows you to explore DAU numbers by country. Now your boss would like to see a distribution according to languages simultaneously , you will need to recreate the table by adding a new column, which is troublesome.</p>
+
+<p>Note the phrase <code>simultaneously</code>, here we are actually talking about a combinational usage for filters, it has always been the case for me during work too. However, recently I start to wonder do we really need a combinational filters in some cases? Does the information `users who are active in French (FR) also uses language Chinese (zh) matter for your business, because without considering this edge cases that, in some business context insignificant, could save the engineers some work by transforming the table into something like - (DATE | FILTER NAME | FILTER VALUE | DAU)</p>
+
+<p>and do</p>
+
+<pre><code>SELECT
+    date
+    , dau
+FROM table
+WHERE filter_name = 'country'
+    AND filter_value = 'US'
+</code></pre>
+
+<p>Less engineering work in the long run, easier to scale.</p>
+
+<p>It’s really dependant on the business usage.</p>
+
+<h1 id="metric-column">Metric Column</h1>
+
+<p>This is your precious insight. By working every hard in gathering raw data, you finally have your processed / aggregated / transformed (whatever you would like to call) insights, or intermediates before the final insights.</p>
+
+<p>I would like to examine it from two different angles.</p>
+
+<h3 id="data-window-size">Data Window size</h3>
+
+<p>I use the term data window because of <code>window functions</code>, frequently used in aggregating operations.</p>
+
+<h3 id="case-when-size-0">CASE WHEN size = 0</h3>
+
+<p>This is static data, simply inherited table by table, CTE by CTE into the final data set. However, exactly since they are static, you should consider abstract them into a lookup table if possible and logical.</p>
+
+<h3 id="case-when-size-all">CASE WHEN size = all</h3>
+
+<p>This is computed base on the entire raw data sets. Not much to talk about to except if you want to be strict, truncate the head of your raw data during initial selection because Replication of Raw data does not happen all at UTC 0 o clock.</p>
+
+<p>(You could argue that my extraction pipeline will make sure no trailing data is imported into DW, but lets just ignore tiny details ok?)</p>
+
+<h3 id="case-when-size-other-time-interval">CASE WHEN size = other time interval</h3>
+
+<p>You could also compute metrics based on sole on the previous complete
+day / week / month, for this you will need to specify the time range in the WHERE clause.</p>
+
+<p>Personally, I prefer to use something like the following for daily. It’s more readable in my opinion, but other people use <code>INTERVAL</code> , <code>DATEDIFF</code> (which is an absolute value!) and others. Be careful with the inclusion and exclusion on each side of the time interval. Do not recommend <code>BETWEEN</code> because it’s both inclusion.</p>
+
+<pre><code>WHERE creationtime &gt;= 'STRING_DATE'::DATE
+	AND creationtime &lt; 'STRING_DATE'::DATE + 1
+</code></pre>
+
+<p>For week and monthly, <code>date_trunc</code> or a variation of it is good enough.</p>
+
+<h3 id="case-when-you-need-window-functions">CASE WHEN you need window functions</h3>
+
+<p>There are quite a few window functions so I won’t try to categorise them and list them one by one (not really helpful). It’s just for these computations, it could be slow + memory intensive. So you might need to consider create temp tables if needed, and dropped them alter.</p>
+
+<h3 id="maturity">Maturity</h3>
+
+<p>I would like to talk about the maturity of the computed data. I define <code>maturity</code> as how close it is to be used in final presentation (BI dashboards). For example, we would like to compute some ratios, probably we are going to compute a denominator and a numerator separately then use a <code>/</code> to compute within the same SQL clause.</p>
+
+<p>Yes you have finished your task, with filters, say <code>DAU / MAU</code> ratio in US.</p>
+
+<p>How about now I ask you, can you tell me the global <code>DAU / MAU</code> ratio, and  how does it different from the one in US?</p>
+
+<p>That’s when I realise I should probably not aggregated them to be fully mature. So instead of saving the ratio, I would like to choose to save <code>DAU</code> and <code>MAU</code> count separately, which are integers and can be further aggregated if I want a global count (using a <code>SUM()</code> in the next CTE).</p>
+
+<p>This step could even be done in the Dashboard view level, depending on how power your data warehouse engine is. It is usually pretty fast, but if unfortunately that’s slow then I would say save both the ratio and intermediate columns in the table.</p>
+
+<h3 id="orientation">Orientation</h3>
+
+<p>Finally, about how to save those columns. (This post is really long and I got very tired mentally at this point. )</p>
+
+<p>There are two obvious way to save it:
+1. Horizonally - each metric takes a column</p>
+
+<p>Pros: intuitive, this make the read query pretty readable, easier to access more features within a query
+Cons: less scalable as every additional feature requires a new column on the table</p>
+
+<pre><code>SELECT
+    metric_name
+FROM table
+WHERE …
+</code></pre>
+
+<ol>
+<li>Vertically - each metric is stored in row by row as a key-value pair, like a python dictionary</li>
+</ol>
+
+<p>Pros: easier to scale
+Cons: one extra WHERE clause, troublesome to computations among the metrics stored within a query, needs to use either CTE / Subquery or other operation to transform first.</p>
+
+<pre><code>SELECT
+    generic_value
+FROM table
+WHERE generic_name = ‘&lt;METRIC_NAME&gt;’
+    AND …
+</code></pre>
+
+<p>In practice, I generally prefer the second approach as I believe writing separate CTEs is much much more easier than regenerate the table from an engineering’s point of view. However, if let’s say the metric requirement is really really static, then by all means use the first approach.</p>
+
+<p>The above discussion only consider the usage of pure SQL. If we want to go one step further and include other scripting language, we could dynamically generate the the feature in a columnar format. That would be another post I guess.</p>
 
 <h1 id="conclusion">Conclusion</h1>
 
-<p>I just came up with this post on the train, by knowing myself so well that most likely I would not revisit this article in the future even if my thoughts above has changed. What I can say is I have practiced the ELT approach (thanks to my Boss) for more than a year in a very small team with just one data engineer, I kinda of feel this is the reason why I am still able to get everything to flow even I am the only data engineer in the team. It works pretty nice with small teams, especially if you would like to save the money for your Spark cluster until you really need it.</p>
+<p>I don&rsquo;t want to conclude anything, see you next time.</p>
               
             </div>
           </div>
@@ -317,7 +450,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2020/01/de-log-5-thoughts-on-analytical-tables/" data-tooltip="DE Log 5: Thoughts on Analytical Tables">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -325,7 +458,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/12/customize-terminal-and-ide/" data-tooltip="Customize Terminal and IDE">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/" data-tooltip="DE Log 4: ETL vs ELT">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -343,19 +476,19 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2020/01/de-log-5-thoughts-on-analytical-tables/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2020/01/de-log-5-thoughts-on-analytical-tables/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2020/01/de-log-5-thoughts-on-analytical-tables/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -403,7 +536,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2020/01/de-log-5-thoughts-on-analytical-tables/" data-tooltip="DE Log 5: Thoughts on Analytical Tables">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -411,7 +544,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/12/customize-terminal-and-ide/" data-tooltip="Customize Terminal and IDE">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/" data-tooltip="DE Log 4: ETL vs ELT">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -429,19 +562,19 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2020/01/de-log-5-thoughts-on-analytical-tables/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2020/01/de-log-5-thoughts-on-analytical-tables/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2020/01/de-log-5-thoughts-on-analytical-tables/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -471,19 +604,19 @@ if (!doNotTrack) {
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F01%2Fde-log-4-etl-vs-elt%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F01%2Fde-log-5-thoughts-on-analytical-tables%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F01%2Fde-log-4-etl-vs-elt%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F01%2Fde-log-5-thoughts-on-analytical-tables%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F01%2Fde-log-4-etl-vs-elt%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F01%2Fde-log-5-thoughts-on-analytical-tables%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -778,9 +911,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/shadowsong27.github.io\/2020\/01\/de-log-4-etl-vs-elt\/';
+          this.page.url = 'https:\/\/shadowsong27.github.io\/2020\/01\/de-log-5-thoughts-on-analytical-tables\/';
           
-            this.page.identifier = '\/2020\/01\/de-log-4-etl-vs-elt\/'
+            this.page.identifier = '\/2020\/01\/de-log-5-thoughts-on-analytical-tables\/'
           
         };
         (function() {

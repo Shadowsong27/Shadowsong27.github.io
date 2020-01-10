@@ -6,10 +6,19 @@
     <description>Recent content on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://shadowsong27.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DE Log 5: Thoughts on Analytical Tables</title>
+      <link>https://shadowsong27.github.io/2020/01/de-log-5-thoughts-on-analytical-tables/</link>
+      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/2020/01/de-log-5-thoughts-on-analytical-tables/</guid>
+      <description>&lt;p&gt;I have taken some Database design course back in university days, though I have skipped almost all of the lectures as I was also self-learning during my first internship on the same matter, in a much more practical manner. I did not even know the word &lt;code&gt;OLAP&lt;/code&gt;  back then. However, I am not dismissing the importance of data modelling in data engineering. On the contrary, data modelling is one of the important skills if you want to be a data engineer.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>DE Log 4: ETL vs ELT</title>
