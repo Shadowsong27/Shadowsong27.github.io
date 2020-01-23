@@ -4,25 +4,36 @@
   
   <url>
     <loc>https://shadowsong27.github.io/categories/</loc>
-    <lastmod>2020-01-09T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/post/</loc>
+    <lastmod>2020-01-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/2020/01/rt-log-2-about-wuhan-virus/</loc>
+    <lastmod>2020-01-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/</loc>
+    <lastmod>2020-01-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/categories/random-thoughts/</loc>
+    <lastmod>2020-01-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://shadowsong27.github.io/2020/01/de-log-5-thoughts-on-analytical-tables/</loc>
     <lastmod>2020-01-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://shadowsong27.github.io/post/</loc>
-    <lastmod>2020-01-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://shadowsong27.github.io/</loc>
-    <lastmod>2020-01-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -77,12 +88,6 @@
   <url>
     <loc>https://shadowsong27.github.io/2019/10/rt-log-1-about-automation/</loc>
     <lastmod>2019-10-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://shadowsong27.github.io/categories/random-thoughts/</loc>
-    <lastmod>2019-10-23T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
