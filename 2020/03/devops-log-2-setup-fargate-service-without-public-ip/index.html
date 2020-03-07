@@ -8,33 +8,25 @@
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
-<meta name="description" content="Recently I am migrating some microservices and streaming pipelines to AWS Fargate.
-This article mainly covers the issues, pitfalls and other useful notes
-when I was deploying a web backend with DataDog.">
+<meta name="description" content="This article will describe the process to setup Fargate tasks with only private IP, using images stored in a private registry.">
 
 
-<meta property="og:description" content="Recently I am migrating some microservices and streaming pipelines to AWS Fargate.
-This article mainly covers the issues, pitfalls and other useful notes
-when I was deploying a web backend with DataDog.">
+<meta property="og:description" content="This article will describe the process to setup Fargate tasks with only private IP, using images stored in a private registry.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Setup DataDog and APM in AWS Fargate">
-<meta name="twitter:title" content="Setup DataDog and APM in AWS Fargate">
-<meta property="og:url" content="https://shadowsong27.github.io/2019/07/setup-datadog-and-apm-in-aws-fargate/">
-<meta property="twitter:url" content="https://shadowsong27.github.io/2019/07/setup-datadog-and-apm-in-aws-fargate/">
+<meta property="og:title" content="DevOps Log 2: Setup Fargate Service without Public IP">
+<meta name="twitter:title" content="DevOps Log 2: Setup Fargate Service without Public IP">
+<meta property="og:url" content="https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
+<meta property="twitter:url" content="https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
 <meta property="og:site_name" content="Shadowsong&#39;s Personal Website">
-<meta property="og:description" content="Recently I am migrating some microservices and streaming pipelines to AWS Fargate.
-This article mainly covers the issues, pitfalls and other useful notes
-when I was deploying a web backend with DataDog.">
-<meta name="twitter:description" content="Recently I am migrating some microservices and streaming pipelines to AWS Fargate.
-This article mainly covers the issues, pitfalls and other useful notes
-when I was deploying a web backend with DataDog.">
+<meta property="og:description" content="This article will describe the process to setup Fargate tasks with only private IP, using images stored in a private registry.">
+<meta name="twitter:description" content="This article will describe the process to setup Fargate tasks with only private IP, using images stored in a private registry.">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2019-07-16T00:00:00">
+    <meta property="article:published_time" content="2020-03-07T00:00:00">
   
   
-    <meta property="article:modified_time" content="2019-07-16T00:00:00">
+    <meta property="article:modified_time" content="2020-03-07T00:00:00">
   
   
   
@@ -49,8 +41,6 @@ when I was deploying a web backend with DataDog.">
       <meta property="article:tag" content="AWS">
     
       <meta property="article:tag" content="Fargate">
-    
-      <meta property="article:tag" content="Monitoring">
     
   
 
@@ -77,14 +67,14 @@ when I was deploying a web backend with DataDog.">
   <meta property="twitter:image" content="https://avatars3.githubusercontent.com/u/12522657?s=400&u=ccfcf050a757c6a49241737eefe4386064400b5e&v=4">
 
 
-    <title>Setup DataDog and APM in AWS Fargate</title>
+    <title>DevOps Log 2: Setup Fargate Service without Public IP</title>
 
     <link rel="icon" href="https://shadowsong27.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://shadowsong27.github.io/2019/07/setup-datadog-and-apm-in-aws-fargate/">
+    <link rel="canonical" href="https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -245,15 +235,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      Setup DataDog and APM in AWS Fargate
+      DevOps Log 2: Setup Fargate Service without Public IP
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-07-16T00:00:00Z">
+      <time itemprop="datePublished" datetime="2020-03-07T00:00:00Z">
         
-  July 16, 2019
+  March 7, 2020
 
       </time>
     
@@ -274,196 +264,82 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>Recently I am migrating some microservices and streaming pipelines to AWS Fargate.
-This article mainly covers the issues, pitfalls and other useful notes
-when I was deploying a web backend with DataDog.</p>
+              <p>This article will describe the process to setup Fargate tasks with only private IP, using images stored in a private registry.</p>
 
-<p>Previously we set up DataDog on a standard EC2 machine, together with the  web application.</p>
+<p>Disclaimer: I am not a security expert, in fact my computer network knowledge was even picked up during work. I realized as the need of designing your own architecture grows, I will inevitably fill in the holes in my computer science theory. I merely receive a goal, research the tools and theories behind, and execute it to the best of my ability.</p>
 
-<p>This article would omit stuff that are clearly mentioned and explained in the official
-DataDog documentations. It would only annotate on the issues I encountered during setup.</p>
-
-<h1 id="resources-terms-explanation">Resources/Terms Explanation</h1>
-
-<p>AWS Fargate: AWS managed container service, allows you to run your docker
-without worrying about underlying infrastructure.</p>
-
-<p>DataDog: A monitoring tool for application, supports tracing of requests
-and calls in various resources</p>
-
-<h1 id="breakdown-steps">Breakdown Steps</h1>
-
-<h3 id="preparation">Preparation</h3>
+<p>Before covering the main steps, there are some important concepts one needs to know in the AWS, besides Fargate related concept.</p>
 
 <ol>
-<li>Push your application container(s) into ECR or any container registry (if you have not done so)</li>
-<li>Generate API Key in DataDog</li>
-<li>Understand the basics of docker, how docker communicate with each other in a network</li>
+<li><p>VPC</p></li>
+
+<li><p>Subnet</p></li>
+
+<li><p>Route table</p></li>
+
+<li><p>Internet Gateway</p></li>
+
+<li><p>NAT Gateway</p></li>
 </ol>
 
-<h3 id="create-task-definition">Create Task Definition</h3>
+<p>All related concepts could be found in the official <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">AWS documentations</a></p>
 
-<p>Setup the Task Definition normally, configure your Task Execution Role
-based on your application’s need. The tricky part is the container setup,
-since we want to have the DataDog Agent and application in different containers,
-we need to configure both of them so that they could talk to each other.</p>
+<h3 id="overview">Overview</h3>
 
-<p>It is stated in the official docs that:</p>
+<p>For Fargate to pull images from private registry, it needs Internet access. I initially would think that ECR, the private registry provided by AWS, would provide some sort of intranet access so we don’t have to go through Internet, but I did not find such route.</p>
 
-<blockquote>
-<p>To monitor your ECS Fargate tasks with Datadog, run the Agent as a container in same task definition as your application. To collect metrics with Datadog, each task definition should include a Datadog Agent container in addition to the application containers.</p>
-</blockquote>
+<p>For a task running in Fargate to access the Internet, it either needs a public IP, which could be enabled during service configuration, or more securely, resides in a private subnet that routes outbound Internet request to the etwork address translation (NAT) gateway, and then the Internet Gateway (IGW).</p>
 
-<p>Basically this means we need to have at least two containers in the Task Definition setup.</p>
+<p>This approach obviously provides better network control, monitoring and security protection.</p>
 
-<p><img src="https://shadowsong27.github.io/img/aws-fargate-datadog-1.png" alt="pic" /></p>
+<h3 id="configure-your-network-optional">Configure your network (Optional)</h3>
 
-<h3 id="configure-datadog-agent-container">Configure DataDog Agent Container</h3>
-
-<p>This is technically similar to set up the <code>datadog-agent.yaml</code> config file on a EC2 instance for DataDog, except on EC2 everything is filled with many options and you just need to uncomment stuff on a need basis. Here we need to configure everything using Environment Variable and Docker Label.</p>
-
-<p>Integration Setup tutorial could be found here: <a href="https://docs.datadoghq.com/integrations/faq/integration-setup-ecs-fargate/?tab=rediswebui">Integration Setup for ECS Fargate</a></p>
-
-<p>Environment Variable configurations:
-Details of each ENVs used to configure the agent could be checked here:
-<a href="https://docs.datadoghq.com/agent/docker/?tab=standard">Docker Agent</a></p>
-
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Value</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>DD_API_KEY</td>
-<td>YOUR_API_KEY</td>
-</tr>
-
-<tr>
-<td>DD_APM_ENABLED</td>
-<td>true</td>
-</tr>
-
-<tr>
-<td>DD_APM_IGNORE_RESOURCES</td>
-<td>YOUR_IGNORED_RESOURCES</td>
-</tr>
-
-<tr>
-<td>DD_APM_NON_LOCAL_TRAFFIC</td>
-<td>true</td>
-</tr>
-
-<tr>
-<td>DD_APM_RECEIVER_PORT</td>
-<td>8126</td>
-</tr>
-
-<tr>
-<td>DD_DOGSTATSD_NON_LOCAL_TRAFFIC</td>
-<td>true</td>
-</tr>
-
-<tr>
-<td>DD_DOGSTATSD_PORT</td>
-<td>8125</td>
-</tr>
-
-<tr>
-<td>ECS_FARGATE</td>
-<td>true</td>
-</tr>
-</tbody>
-</table>
-
-<p>You will also need to open the ports configurations in containers, by default it is using <code>8126</code> to receive traces. Since we are not running the agent and the application on the same machine, <code>NON_LOCAL_TRAFFIC</code> related ENVs needs to be set as <code>true</code>.</p>
-
-<p><a href="https://docs.datadoghq.com/tracing/#setting-up-apm">APM &amp; Distributed Tracing</a></p>
-
-<p>Open the following ports as stated in docs:</p>
-
-<table>
-<thead>
-<tr>
-<th>Port</th>
-<th>Protocol</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>8126</td>
-<td>TCP</td>
-</tr>
-
-<tr>
-<td>8125</td>
-<td>UDP</td>
-</tr>
-</tbody>
-</table>
-
-<h3 id="configure-application-container">Configure Application Container</h3>
-
-<p>The configuration on the application container is much simpler. It will need to be able to send traces to the agent container. So we need to define two extra ENVs:</p>
-
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Value</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>DD_AGENT_HOST</td>
-<td>localhost</td>
-</tr>
-
-<tr>
-<td>DD_TRACE_AGENT_PORT</td>
-<td>8126</td>
-</tr>
-</tbody>
-</table>
-
-<p>The <code>localhost</code> is not written anywhere on official docs. I originally use <code>datadog-agent</code> , the name of the agent container, after that I see the logs saying:</p>
-
-<pre><code>2019-07-16 07:57:03,286 : ERROR : Failed to send traces to Datadog Agent at datadog-agent:8126: [Errno -2] Name does not resolve
-</code></pre>
-
-<p>This tells us that the hostname in this case is not <code>datadog-agent</code>, which should work if we are using <code>docker-compose</code> by just stating the <code>service</code> name. Because of this I start to read more deeply in the Fargate docs and I found this here:  <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html</a></p>
+<p>This step is optional if you have already did it. According to <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-configure-network.html">AWS docs here</a></p>
 
 <blockquote>
-<p>When a task is started with the <code>awsvpc</code> network mode, … This means that all containers in a task are addressable by the IP addresses of the ENI, and they can communicate with each other over the <code>localhost</code>interface.</p>
+<p>If you are using Fargate tasks, in order for the task to pull the container image it must either use a public subnet and be assigned a public IP address or a private subnet that has a route to the internet or a NAT gateway that can route requests to the internet</p>
 </blockquote>
 
-<p>Well then I tried <code>localhost</code> and it worked.</p>
+<p>So configure this setup, you need to do the following:</p>
 
-<p>When I go back and try to understand the whole thing, I associated this with my effort to setup a docker Postgres Together with other applications. The IP address of the database to the application is never <code>localhost</code>, it is rather the assigned IP address by the docker host, but in Fargate because of ENI they seem to solve this problem.</p>
+<p>The following is just a steps paraphrasing of the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html">AWS docs</a> here
+<img src="https://shadowsong27.github.io/img/devops-log-2-img-1.png" alt="alt" /></p>
 
-<h3 id="configure-application-code">Configure Application Code</h3>
+<ol>
+<li><p>Choose (or create) a VPC, everything after will be down within this VPC</p></li>
 
-<p>I am using Python, so basically it is configure the tracer during application initialisation, nothing much to be elaborated here. Something similar to the following code would do:</p>
+<li><p>Create a subnet, name it xxx-public to indicate this will be your public subnet</p></li>
 
-<pre><code>import os
-from ddtrace import tracer
+<li><p>Create another subnet, name it xxx-private</p></li>
 
-tracer.configure(
-    hostname=os.environ['DD_AGENT_HOST'],
-    port=os.environ['DD_TRACE_AGENT_PORT'],
-)
-</code></pre>
+<li><p>Create a NAT gateway, attach it with an elastic IP</p></li>
+
+<li><p>Create an Internet gateway</p></li>
+
+<li><p>Create two route table, one routes internal requests to the NAT gateway (RT 1), one routes internal requests to the Internet gateway (RT2)</p></li>
+
+<li><p>Associate (In <code>Route Tables</code>  side tab, <code>Subnets Association</code>) xxx-private subnet to RT1 (Bottom subnet in the diagram above, where private servers reside in)</p></li>
+
+<li><p>Associate xxx-public to RT2 (Top subnet in the diagram, where Internet facing servers reside)</p></li>
+</ol>
+
+<h3 id="launch-applications-in-fargate">Launch applications in Fargate</h3>
+
+<p>After this is successfully setup, you can start to configure your Fargate SERVICE, yes once again the network layer is configured at service level, not task level.</p>
+
+<p>There are three things in particular that require some attention if we want to disable the public IP, the rest is going to be as usual.</p>
+
+<ol>
+<li><p>Selecting the appropriate subnets: Instead of randomly select your subnets or select across availability zones, you need to select the subnets that are attached to NAT, so you could</p></li>
+
+<li><p>Disable your <code>Auto-assign Public IP</code> option in the settings, this will make your Fargate Task inaccessible and receive calls from the Internet</p></li>
+
+<li><p>Configure your ALB / NLB - This has to be in the public subnet and facing the IGW, so you load balancer could take receive HTTP requests and route them to the private Fargate instance</p></li>
+</ol>
 
 <h1 id="conclusion">Conclusion</h1>
 
-<p>Enable logs for the DataDog agents help with the debugging. It is advised to leave it on for the first few times, and disabled it later on if you find it unnecessary.</p>
-
-<p>I would consider myself pretty weak when it comes networks (never studied in an academic sense), but with constant exposure to things like docker-compose and managed services, you focus much more on the connection of resources rather than the provision of them. This is pretty useful.</p>
+<p>This is actually pretty easy if one understands how network works in AWS, and for those are not familiar with computing networks (like me), reading the AWS docs is enough to complete all these setups too.</p>
               
             </div>
           </div>
@@ -479,8 +355,6 @@ tracer.configure(
 
   <a class="tag tag--primary tag--small" href="https://shadowsong27.github.io/tags/fargate/">Fargate</a>
 
-  <a class="tag tag--primary tag--small" href="https://shadowsong27.github.io/tags/monitoring/">Monitoring</a>
-
                   </div>
                 
               
@@ -492,7 +366,7 @@ tracer.configure(
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/08/dramas-checklist/" data-tooltip="Dramas Checklist">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -500,7 +374,7 @@ tracer.configure(
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/" data-tooltip="Build Hugo Blog on Github Pages Master Branch">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2020/01/rt-log-2-about-wuhan-virus/" data-tooltip="RT Log 2: About Wuhan Virus">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -518,19 +392,19 @@ tracer.configure(
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2019/07/setup-datadog-and-apm-in-aws-fargate/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2019/07/setup-datadog-and-apm-in-aws-fargate/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2019/07/setup-datadog-and-apm-in-aws-fargate/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -578,7 +452,7 @@ tracer.configure(
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/08/dramas-checklist/" data-tooltip="Dramas Checklist">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -586,7 +460,7 @@ tracer.configure(
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/" data-tooltip="Build Hugo Blog on Github Pages Master Branch">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2020/01/rt-log-2-about-wuhan-virus/" data-tooltip="RT Log 2: About Wuhan Virus">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -604,19 +478,19 @@ tracer.configure(
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2019/07/setup-datadog-and-apm-in-aws-fargate/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2019/07/setup-datadog-and-apm-in-aws-fargate/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2019/07/setup-datadog-and-apm-in-aws-fargate/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -646,19 +520,19 @@ tracer.configure(
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F07%2Fsetup-datadog-and-apm-in-aws-fargate%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F03%2Fdevops-log-2-setup-fargate-service-without-public-ip%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F07%2Fsetup-datadog-and-apm-in-aws-fargate%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F03%2Fdevops-log-2-setup-fargate-service-without-public-ip%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F07%2Fsetup-datadog-and-apm-in-aws-fargate%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F03%2Fdevops-log-2-setup-fargate-service-without-public-ip%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -715,6 +589,23 @@ tracer.configure(
       <div class="no-result text-color-light text-center">no post found</div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
+                <h3 class="media-heading">DevOps Log 2: Setup Fargate Service without Public IP</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2020
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>This article will describe the process to setup Fargate tasks with only private IP, using images stored in a private registry.</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -872,25 +763,6 @@ I have encountered during its production deployment.</p></div>
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2019/08/de-log-1-idempotency/">
-                <h3 class="media-heading">DE Log 1: Idempotency</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2019
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><blockquote>
-<p>In linear algebra, an idempotent matrix is a matrix which, when multiplied by itself, yields itself.</p>
-</blockquote></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -898,7 +770,7 @@ I have encountered during its production deployment.</p></div>
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} post found">
-         18 posts found
+         19 posts found
       </p>
     </div>
   </div>
@@ -953,9 +825,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/shadowsong27.github.io\/2019\/07\/setup-datadog-and-apm-in-aws-fargate\/';
+          this.page.url = 'https:\/\/shadowsong27.github.io\/2020\/03\/devops-log-2-setup-fargate-service-without-public-ip\/';
           
-            this.page.identifier = '\/2019\/07\/setup-datadog-and-apm-in-aws-fargate\/'
+            this.page.identifier = '\/2020\/03\/devops-log-2-setup-fargate-service-without-public-ip\/'
           
         };
         (function() {

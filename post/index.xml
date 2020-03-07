@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://shadowsong27.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DevOps Log 2: Setup Fargate Service without Public IP</title>
+      <link>https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/</link>
+      <pubDate>Sat, 07 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/</guid>
+      <description>&lt;p&gt;This article will describe the process to setup Fargate tasks with only private IP, using images stored in a private registry.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>RT Log 2: About Wuhan Virus</title>
@@ -116,11 +125,11 @@ I have encountered during its production deployment.&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Setup DataDog and APM in AWS Fargate</title>
-      <link>https://shadowsong27.github.io/2019/07/setup-datadog-and-apm-in-aws-fargate/</link>
+      <title>DevOps Log 1: Setup DataDog and APM in AWS Fargate</title>
+      <link>https://shadowsong27.github.io/2019/07/devops-log-1-setup-datadog-and-apm-in-aws-fargate/</link>
       <pubDate>Tue, 16 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://shadowsong27.github.io/2019/07/setup-datadog-and-apm-in-aws-fargate/</guid>
+      <guid>https://shadowsong27.github.io/2019/07/devops-log-1-setup-datadog-and-apm-in-aws-fargate/</guid>
       <description>&lt;p&gt;Recently I am migrating some microservices and streaming pipelines to AWS Fargate.
 This article mainly covers the issues, pitfalls and other useful notes
 when I was deploying a web backend with DataDog.&lt;/p&gt;</description>
