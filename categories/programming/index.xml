@@ -100,6 +100,15 @@ on Github Page.&lt;/p&gt;</description>
     </item>
     
     <item>
+      <title>DevOps Log 0.1: Setup Cloudwatch on EC2 Instance</title>
+      <link>https://shadowsong27.github.io/2019/03/devops-log-0.1-setup-cloudwatch-on-ec2-instance/</link>
+      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/2019/03/devops-log-0.1-setup-cloudwatch-on-ec2-instance/</guid>
+      <description>&lt;p&gt;I wrote this initially in our internal documentation website, so this is a very short note on how to setup Cloudwatch on AWS EC2.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>DE Log 0.1: Rescheduling of Airflow DAGs</title>
       <link>https://shadowsong27.github.io/2018/09/de-log-0.1-rescheduling-of-airflow-dags/</link>
       <pubDate>Sat, 22 Sep 2018 00:00:00 +0000</pubDate>

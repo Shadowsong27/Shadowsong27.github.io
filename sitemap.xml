@@ -186,6 +186,23 @@
   </url>
   
   <url>
+    <loc>https://shadowsong27.github.io/tags/cloudwatch/</loc>
+    <lastmod>2019-03-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/2019/03/devops-log-0.1-setup-cloudwatch-on-ec2-instance/</loc>
+    <lastmod>2019-03-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/tags/ec2/</loc>
+    <lastmod>2019-03-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://shadowsong27.github.io/tags/7/</loc>
     <lastmod>2019-01-07T00:00:00+00:00</lastmod>
     <priority>0</priority>

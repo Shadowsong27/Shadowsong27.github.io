@@ -158,6 +158,15 @@ on Github Page.&lt;/p&gt;</description>
     </item>
     
     <item>
+      <title>DevOps Log 0.1: Setup Cloudwatch on EC2 Instance</title>
+      <link>https://shadowsong27.github.io/2019/03/devops-log-0.1-setup-cloudwatch-on-ec2-instance/</link>
+      <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/2019/03/devops-log-0.1-setup-cloudwatch-on-ec2-instance/</guid>
+      <description>&lt;p&gt;I wrote this initially in our internal documentation website, so this is a very short note on how to setup Cloudwatch on AWS EC2.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Movie Log 2 - From Admiration to Sympathy - The Great Gatsby</title>
       <link>https://shadowsong27.github.io/2019/01/movie-log-2-from-admiration-to-sympathy-the-great-gatsby/</link>
       <pubDate>Mon, 07 Jan 2019 00:00:00 +0000</pubDate>

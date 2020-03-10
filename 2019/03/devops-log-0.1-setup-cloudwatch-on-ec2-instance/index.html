@@ -8,42 +8,42 @@
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
-<meta name="description" content="
-In linear algebra, an idempotent matrix is a matrix which, when multiplied by itself, yields itself.
-">
+<meta name="description" content="I wrote this initially in our internal documentation website, so this is a very short note on how to setup Cloudwatch on AWS EC2.">
 
 
-<meta property="og:description" content="
-In linear algebra, an idempotent matrix is a matrix which, when multiplied by itself, yields itself.
-">
+<meta property="og:description" content="I wrote this initially in our internal documentation website, so this is a very short note on how to setup Cloudwatch on AWS EC2.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DE Log 1: Idempotency">
-<meta name="twitter:title" content="DE Log 1: Idempotency">
-<meta property="og:url" content="https://shadowsong27.github.io/2019/08/de-log-1-idempotency/">
-<meta property="twitter:url" content="https://shadowsong27.github.io/2019/08/de-log-1-idempotency/">
+<meta property="og:title" content="DevOps Log 0.1: Setup Cloudwatch on EC2 Instance">
+<meta name="twitter:title" content="DevOps Log 0.1: Setup Cloudwatch on EC2 Instance">
+<meta property="og:url" content="https://shadowsong27.github.io/2019/03/devops-log-0.1-setup-cloudwatch-on-ec2-instance/">
+<meta property="twitter:url" content="https://shadowsong27.github.io/2019/03/devops-log-0.1-setup-cloudwatch-on-ec2-instance/">
 <meta property="og:site_name" content="Shadowsong&#39;s Personal Website">
-<meta property="og:description" content="
-In linear algebra, an idempotent matrix is a matrix which, when multiplied by itself, yields itself.
-">
-<meta name="twitter:description" content="
-In linear algebra, an idempotent matrix is a matrix which, when multiplied by itself, yields itself.
-">
+<meta property="og:description" content="I wrote this initially in our internal documentation website, so this is a very short note on how to setup Cloudwatch on AWS EC2.">
+<meta name="twitter:description" content="I wrote this initially in our internal documentation website, so this is a very short note on how to setup Cloudwatch on AWS EC2.">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2019-08-31T00:00:00">
+    <meta property="article:published_time" content="2019-03-28T00:00:00">
   
   
-    <meta property="article:modified_time" content="2019-08-31T00:00:00">
+    <meta property="article:modified_time" content="2019-03-28T00:00:00">
   
   
   
     
       <meta property="article:section" content="programming">
     
-      <meta property="article:section" content="data-engineering">
+      <meta property="article:section" content="dev-ops">
     
   
+  
+    
+      <meta property="article:tag" content="AWS">
+    
+      <meta property="article:tag" content="Cloudwatch">
+    
+      <meta property="article:tag" content="EC2">
+    
   
 
 
@@ -55,12 +55,12 @@ In linear algebra, an idempotent matrix is a matrix which, when multiplied by it
 
 
 
-  <meta property="og:image" content="https://www.mistrasgroup.com/media/1540/steel-pipeline.jpg?center=0.4425,0.49&mode=crop&width=1500&height=600&rnd=131921218510000000">
-  <meta property="twitter:image" content="https://www.mistrasgroup.com/media/1540/steel-pipeline.jpg?center=0.4425,0.49&mode=crop&width=1500&height=600&rnd=131921218510000000">
+  <meta property="og:image" content="https://www.sysonion.de/wp-content/uploads/2018/09/cloudwatch.png">
+  <meta property="twitter:image" content="https://www.sysonion.de/wp-content/uploads/2018/09/cloudwatch.png">
 
 
-  <meta property="og:image" content="https://www.mistrasgroup.com/media/1540/steel-pipeline.jpg?center=0.4425,0.49&mode=crop&width=1500&height=600&rnd=131921218510000000">
-  <meta property="twitter:image" content="https://www.mistrasgroup.com/media/1540/steel-pipeline.jpg?center=0.4425,0.49&mode=crop&width=1500&height=600&rnd=131921218510000000">
+  <meta property="og:image" content="https://miro.medium.com/max/800/1*ffbynFsxn43lPdne2kaHMQ.png">
+  <meta property="twitter:image" content="https://miro.medium.com/max/800/1*ffbynFsxn43lPdne2kaHMQ.png">
 
 
 
@@ -69,14 +69,14 @@ In linear algebra, an idempotent matrix is a matrix which, when multiplied by it
   <meta property="twitter:image" content="https://avatars3.githubusercontent.com/u/12522657?s=400&u=ccfcf050a757c6a49241737eefe4386064400b5e&v=4">
 
 
-    <title>DE Log 1: Idempotency</title>
+    <title>DevOps Log 0.1: Setup Cloudwatch on EC2 Instance</title>
 
     <link rel="icon" href="https://shadowsong27.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://shadowsong27.github.io/2019/08/de-log-1-idempotency/">
+    <link rel="canonical" href="https://shadowsong27.github.io/2019/03/devops-log-0.1-setup-cloudwatch-on-ec2-instance/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -219,9 +219,9 @@ if (!doNotTrack) {
 
       
   <div class="post-header-cover
-              text-center
+              text-left
               "
-       style="background-image:url('https://www.mistrasgroup.com/media/1540/steel-pipeline.jpg?center=0.4425,0.49&amp;mode=crop&amp;width=1500&amp;height=600&amp;rnd=131921218510000000')"
+       style="background-image:url('https://miro.medium.com/max/800/1*ffbynFsxn43lPdne2kaHMQ.png')"
        data-behavior="5">
     
   </div>
@@ -234,18 +234,18 @@ if (!doNotTrack) {
         <article class="post" itemscope itemType="http://schema.org/BlogPosting">
           
           
-            <div class="post-header main-content-wrap text-center">
+            <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      DE Log 1: Idempotency
+      DevOps Log 0.1: Setup Cloudwatch on EC2 Instance
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-08-31T00:00:00Z">
+      <time itemprop="datePublished" datetime="2019-03-28T00:00:00Z">
         
-  August 31, 2019
+  March 28, 2019
 
       </time>
     
@@ -256,7 +256,7 @@ if (!doNotTrack) {
     
       <a class="category-link" href="https://shadowsong27.github.io/categories/programming">programming</a>, 
     
-      <a class="category-link" href="https://shadowsong27.github.io/categories/data-engineering">data-engineering</a>
+      <a class="category-link" href="https://shadowsong27.github.io/categories/dev-ops">dev-ops</a>
     
   
 
@@ -266,108 +266,113 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <blockquote>
-<p>In linear algebra, an idempotent matrix is a matrix which, when multiplied by itself, yields itself.</p>
-</blockquote>
+              <p>I wrote this initially in our internal documentation website, so this is a very short note on how to setup Cloudwatch on AWS EC2.</p>
 
-<h1 id="overview">Overview</h1>
+<p>I have not touched EC2 deployment for a very long time since I switched to Fargate, but I guess it’s good to keep a notebook of what I have tried and experienced.</p>
 
-<p>Today I would like to talk about idempotency in Data Engineering.</p>
-
-<p>I first learnt this word in Year 1 Uni, an intro Linear Algebra course (probably my best Maths module ever in the entire uni life).</p>
-
-<p>The term <code>idempotent matrix</code> means:</p>
-
-<blockquote>
-<p>In linear algebra, an idempotent matrix is a matrix which, when multiplied by itself, yields itself.</p>
-</blockquote>
-
-<p>Well in data engineering, it most likely means no matter how many times you execute a ETL job,
-it will return you the same transformation result, provided the source data is unchanged.</p>
-
-<p>I have known this concept and the benefits of it at the early stage of my career,
- but only recently (after working on the Data Warehouse migration to Redshift) I have start to appreciate its importance.</p>
-
-<h3 id="incremental-vs-idempotent">Incremental vs Idempotent</h3>
-
-<p>Before describing the benefits, I would like to define the following two types of ETL jobs:</p>
+<p>Note: this was written more than one year ago, some of the things may be updated / outdated.  Reference with care.</p>
 
 <ol>
-<li>Incremental job, ETL jobs that require incremental changes to a table or data storage, e.g. <code>append</code> or <code>update</code> mode</li>
-<li>Idempotent job, or I often call it refresh job for naming convention (easier to spell), it is something that I have explained above.</li>
+<li><p>Download the agent package</p>
+
+<pre><code>wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb
+</code></pre></li>
+
+<li><p>Install package</p>
+
+<pre><code>sudo dpkg -i -E ./amazon-cloudwatch-agent.deb
+</code></pre></li>
+
+<li><p>Configuration using wizard</p>
+
+<pre><code>sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
+</code></pre></li>
+
+<li><p>Check the EC2 instance is attached with an IAM role that has Cloudwatch rights</p></li>
+
+<li><p>Install <code>collectd</code> if not done so (most likely you are not)</p>
+
+<pre><code>sudo apt-get install collectd
+</code></pre></li>
+
+<li><p>Start the Agent with the latest configuration</p>
+
+<pre><code>sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
+</code></pre></li>
 </ol>
 
-<h1 id="benefits">Benefits</h1>
+<p>To check the status:</p>
 
-<p>Basically, when you have an idempotent ETL job:</p>
+<pre><code>sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a status
+</code></pre>
 
-<h3 id="minimal-maintenance">Minimal maintenance</h3>
+<p>Response should be something like</p>
 
-<p>No backfill required, no need to worry about discontinuity in data during execution,
-and you know exactly what data you are transforming during re-execution.</p>
+<pre><code>{
+  &quot;status&quot;: &quot;running&quot;,
+  &quot;starttime&quot;: &quot;2019-03-28T04:36:52+00:00&quot;,
+  &quot;version&quot;: &quot;1.208036.0&quot;
+}
+</code></pre>
 
-<p>This is the most important thing, though it might take a longer time in the process
-compared to incremental task (not necessarily, and if it is too long it means you should look for
-an alternative solution, e.g. move your Python Operator to Spark),
-but the cost and trouble saved are much more crucial here.</p>
+<p>Note a few things:</p>
 
-<p>The cost here could refer to debugging time, data validation and patching time etc.</p>
+<ol>
+<li><p>we enable the usage of <code>statsd</code> and <code>collectd</code></p></li>
 
-<h3 id="easier-to-debug">Easier to debug</h3>
+<li><p>Port of <code>statsd</code> should be set to <code>8127</code> instead of the default <code>8125</code>, which is commonly used by <code>datadog</code>  - modern note: If you do not use Datadog I think it is fine, but conflicting ports could be one of the problem one encounters during setup, it is crucial to check the agent logs</p></li>
+</ol>
 
-<p>It is easier to debug since everything can be refreshed as many times as you like, any time you want as
-long as dependencies are fulfilled. Normally data debugging is different from functionality debugging
-because the data is often dynamic, and that posts some challenges to even locate the bugs.</p>
+<p>Naming convention I use for log group and log stream:</p>
 
-<h3 id="less-temporal-dependency">Less temporal dependency</h3>
+<ol>
+<li><p>Log group name should be the name of the service / ec2 instance</p></li>
 
-<p>One of the common incremental jobs is the building of a time series table, e.g DAU MAU computation.
-They often require certain level of data quality because they are used frequently in making business decisions.</p>
+<li><p>Log stream name should be the functionality of the instance (or logger if you have multiple loggers configured and running in the same instance)</p></li>
+</ol>
 
-<p>However, sometimes we have data arrived later than the execution date (it could be a few days late), that
-requires you to recompute and update the data if you want a more accurate result or the portion of delayed data
-is too significant.</p>
+<h1 id="troubleshooting">Troubleshooting</h1>
 
-<p>One way to approach is to setup another pipeline to adjust the numbers after the first execution, or
-simply delayed the execution by a few days (which is fine because honestly you can&rsquo;t do anything since
-you do not have the data in data warehouse yet).</p>
+<ul>
+<li><p>If the agent is not running for some reason, first thing check the agent log at:</p>
 
-<p>An idempotent job would save you the trouble to maintain two separate pipelines, and the dependencies in between,
-it makes sure every newly arrived data are considered during daily transformation.</p>
+<pre><code>sudo tail /opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log
+</code></pre>
 
-<h3 id="less-bug-prone">Less bug-prone</h3>
+<p>Usually it provides you with the necessary error message (This is not included in the AWS guide)</p></li>
 
-<p>A bit similar to point 2. This means there will not be any confounding
-factors contribute to your problematic transformation result, leaving you only the transformation logic to debug.</p>
+<li><p>Potential problems</p>
 
-<p>Otherwise you might think &hellip; hmmmm I remember two days ago some guy just manually updated
-a static table, when was it, let me ask him / check logs first (if you do not want to disturb others),
- and ahhhhhhhhhhh it’s right before the execution time that&rsquo;s why! I have wasted two hours of my life again &hellip;</p>
+<ol>
+<li><p>Port usage: other services might have taken the spot, check carefully for the port usage</p></li>
 
-<h3 id="works-better-with-modern-data-warehouse">Works better with modern Data Warehouse</h3>
+<li><p>IAM role is invalid or wrong</p></li>
 
-<p>We used to have a lot of update statements, getting only the latest data chunks,
-update the necessary columns when we were still using Postgres as our Data Warehouse.
-Over time the data quality starts to drop because of accidentally failed ETLs.
-It was apparently a trade off between performance and data quality.</p>
+<li><p>Have two running awslog agent: this guide accounts for the newer <code>Cloudwatch</code> agent, so stop the current <code>awslogs</code> service using</p>
 
-<p>After we shift to Redshift, single <code>insert</code> or <code>update</code> start to become costly,
-I am forced to rethink and redesign many of our jobs and I am so happy that I eventually got rid of all the <code>update</code> statements.</p>
-
-<h1 id="final-comment">Final comment</h1>
-
-<p>I did not mean we should always do idempotent jobs
-(sometimes we will have to use incremental jobs, they are great too but they require much higher maintenance),
- we have deadlines, we have legacy codes, it all depends on priorities. If the data quality is slightly off,
-  it might not have an impact at all. So think twice before actually start to refactoring pipelines.</p>
-
-<p>The ultimate goal is of course, to walk into the office every morning
-without worrying about something / somebody is breaking the pipelines again, thank you very much.</p>
+<pre><code>sudo service awslogs stop
+</code></pre></li>
+</ol></li>
+</ul>
               
             </div>
           </div>
           <div id="post-footer" class="post-footer main-content-wrap">
             
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://shadowsong27.github.io/tags/aws/">AWS</a>
+
+  <a class="tag tag--primary tag--small" href="https://shadowsong27.github.io/tags/cloudwatch/">Cloudwatch</a>
+
+  <a class="tag tag--primary tag--small" href="https://shadowsong27.github.io/tags/ec2/">EC2</a>
+
+                  </div>
+                
               
             
             <div class="post-actions-wrap">
@@ -377,7 +382,7 @@ without worrying about something / somebody is breaking the pipelines again, tha
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/09/movie-log-3-ad-astra/" data-tooltip="Movie Log 3 - Ad Astra">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/" data-tooltip="Build Hugo Blog on Github Pages Master Branch">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -385,7 +390,7 @@ without worrying about something / somebody is breaking the pipelines again, tha
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/08/dramas-checklist/" data-tooltip="Dramas Checklist">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/01/movie-log-2-from-admiration-to-sympathy-the-great-gatsby/" data-tooltip="Movie Log 2 - From Admiration to Sympathy - The Great Gatsby">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -403,19 +408,19 @@ without worrying about something / somebody is breaking the pipelines again, tha
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2019/08/de-log-1-idempotency/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2019/03/devops-log-0.1-setup-cloudwatch-on-ec2-instance/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2019/08/de-log-1-idempotency/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2019/03/devops-log-0.1-setup-cloudwatch-on-ec2-instance/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2019/08/de-log-1-idempotency/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2019/03/devops-log-0.1-setup-cloudwatch-on-ec2-instance/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -463,7 +468,7 @@ without worrying about something / somebody is breaking the pipelines again, tha
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/09/movie-log-3-ad-astra/" data-tooltip="Movie Log 3 - Ad Astra">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/" data-tooltip="Build Hugo Blog on Github Pages Master Branch">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -471,7 +476,7 @@ without worrying about something / somebody is breaking the pipelines again, tha
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/08/dramas-checklist/" data-tooltip="Dramas Checklist">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/01/movie-log-2-from-admiration-to-sympathy-the-great-gatsby/" data-tooltip="Movie Log 2 - From Admiration to Sympathy - The Great Gatsby">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -489,19 +494,19 @@ without worrying about something / somebody is breaking the pipelines again, tha
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2019/08/de-log-1-idempotency/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2019/03/devops-log-0.1-setup-cloudwatch-on-ec2-instance/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2019/08/de-log-1-idempotency/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2019/03/devops-log-0.1-setup-cloudwatch-on-ec2-instance/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2019/08/de-log-1-idempotency/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2019/03/devops-log-0.1-setup-cloudwatch-on-ec2-instance/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -531,19 +536,19 @@ without worrying about something / somebody is breaking the pipelines again, tha
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F08%2Fde-log-1-idempotency%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F03%2Fdevops-log-0.1-setup-cloudwatch-on-ec2-instance%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F08%2Fde-log-1-idempotency%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F03%2Fdevops-log-0.1-setup-cloudwatch-on-ec2-instance%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F08%2Fde-log-1-idempotency%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F03%2Fdevops-log-0.1-setup-cloudwatch-on-ec2-instance%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -836,9 +841,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/shadowsong27.github.io\/2019\/08\/de-log-1-idempotency\/';
+          this.page.url = 'https:\/\/shadowsong27.github.io\/2019\/03\/devops-log-0.1-setup-cloudwatch-on-ec2-instance\/';
           
-            this.page.identifier = '\/2019\/08\/de-log-1-idempotency\/'
+            this.page.identifier = '\/2019\/03\/devops-log-0.1-setup-cloudwatch-on-ec2-instance\/'
           
         };
         (function() {
