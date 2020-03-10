@@ -1,9 +1,9 @@
 ---
 title: "DevOps Log 2: Setup Fargate Service without Public IP"
-thumbnailImagePosition: "top"
+thumbnailImagePosition: "left"
 thumbnailImage: https://cdn.aimconsulting.com/wp-content/uploads/2018/07/aws-fargate-v2.png
 coverImage: https://cdn.aimconsulting.com/wp-content/uploads/2018/07/aws-fargate-v2.png
-metaAlignment: center
+metaAlignment: left
 coverMeta: out
 date: 2020-03-07
 categories:

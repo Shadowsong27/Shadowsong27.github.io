@@ -1,6 +1,6 @@
 ---
 title: "DevOps Log 1: Setup DataDog and APM in AWS Fargate"
-thumbnailImagePosition: "top"
+thumbnailImagePosition: "left"
 thumbnailImage: https://cdn.aimconsulting.com/wp-content/uploads/2018/07/aws-fargate-v2.png
 coverImage: https://cdn.aimconsulting.com/wp-content/uploads/2018/07/aws-fargate-v2.png
 metaAlignment: center
