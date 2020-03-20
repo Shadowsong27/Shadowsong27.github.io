@@ -6,7 +6,8 @@ showMeta:       false
 showActions:    false
 ---
 
-I am a data engineer, I tend data pipelines and make data flows efficiently.
+I am a data engineer, I tend data pipelines and make data flows efficiently for my
+fellow data analysts and data scientists.
 
 You should only notice me when something is broken.
 
@@ -17,11 +18,49 @@ You should only notice me when something is broken.
 - Bachelor of Science in Business Analytics
 - Science & Tech Scholarship
 
+# Work Experience
+
+### Data Engineer - Aug 2018 to now
+
+This role requires me to work both as a backend developer and a data engineer, 
+it also requires me to communicate a lot with different stakeholders in 
+different functional teams.
+
+Main responsibilities:
+
+Data Engineering
+
+- Maintain (Python, SQL, AWS ECS) batch/stream data pipelines using Apache Airflow 
+- Mgrated Data Warehouse from legacy Postgres RDS into AWS Redshift
+- Design Data Warehouse (AWS Redshift) architecture, data health check and alerts (Emails and Slack) to speed up data analysis, validation, exploration & hypothesis testing
+- Data modelling and design optimised analytical tables to speed up B2B data deliveries and data science iteration
+- Enable safe automated data deployment into production environment and validation 
+
+Backend & DevOps
+
+- Handle several (Python Falcon and Django) backend services, including data science projects and internal services, deployed in containers (AWS Fargate)
+- Implement a data back office to augment automatically processed data with manually cleaned data
+- Setup CI/CD processes
+- Build a few internal Python libraries shared across projects
+
+Data Analysis
+
+- Build and maintain monitoring dashboards (Metabase, Mode Analytics) for in-app usage, data quality and service performances
+- Investigate data anomalies to help the team theorise  / make decisions
+- Support marketing and product team with data insights
+
+Data Science
+
+- Maintain, refactor and debug existing data science projects
+- Brainstorm improvements / implement based on user inputs and other data metrics
+
+
 # Professional Skills
 
-legend:
+legend (being as accurate as I can):
 
-- `Basic understanding`: Never used in production environment but have tried it in playground
+- `Basic understanding`: Never used in production environment 
+    but has a general idea on how a solution should be like, able to build POCs
 - `familiar`: able to design, implement solutions
 - `proficient`: able to design, implement and optimized solutions, workflow
 
@@ -29,8 +68,11 @@ legend:
 
 Programming language
 
-- Main programming language is Python 3, familiar with Python coding standard, common practices and design patterns
-- Familiar with Python web backend frameworks (Falcon and Django), familiar with RESTful API design
+- Main programming language is Python 3, 
+    familiar with Python coding standard, common practices and design patterns
+    
+- Familiar with Python web backend frameworks 
+    (Falcon and Django), familiar with RESTful API design
 
 Data
 
@@ -62,25 +104,3 @@ General
 - Able to communicate with non-data, non-technical team members (marketing, sales, upper management) 
 - Experience with Team and Project Management (managed interns, managed JIRA boards)
 
-# Work Experience
-
-### Data Engineer - Aug 2018 to now
-
-Main responsibilities:
-
-- Design, implement and maintain data pipelines, denormalised reporting tables preparation
-- Design, implement and maintain data quality measures
-- Design (schema architecture, ETL strategies), manage (access control, user groups) 
-and maintain (optimization, tuning and upgrading) an Amazon Redshift cluster
-- Design various business oriented or internal tooling solutions
-- Data visualisation using Mode Analytics and Metabase
-- Handle ad hoc data related requests and design workflow for improvements
-- Other DevOps work
-
-Key achievements:
-
-- migrate a legacy Postgres RDS data warehouse to an Amazon Redshift cluster, including related associated pipelines
-- migrate Python micro services into Docker for CI/CD process and production hosting
-- deployed first data science project in production
-- implement in-house data health check solution
-- implement internal Python toolings
