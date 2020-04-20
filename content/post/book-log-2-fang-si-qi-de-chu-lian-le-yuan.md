@@ -1,5 +1,5 @@
 ---
-title: "《房思琪的初恋乐园》- 文学成瘾"
+title: "Book Log 2:《房思琪的初恋乐园》- 文学成瘾"
 thumbnailImagePosition: "left"
 thumbnailImage: http://i966.photobucket.com/albums/ae145/ockoala/Taiwan%20News/zda4.jpg
 metaAlignment: center

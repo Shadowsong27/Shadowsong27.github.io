@@ -1,5 +1,5 @@
 ---
-title: "重温《芳华》"
+title: "Book Log 1: 重温《芳华》"
 thumbnailImagePosition: "left"
 thumbnailImage: http://img5.mtime.cn/mg/2017/12/15/093023.98906608.jpg
 coverImage: http://img5.mtime.cn/mg/2017/12/15/093023.98906608.jpg
