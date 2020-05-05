@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://shadowsong27.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>random thoughts</title>
+      <link>https://shadowsong27.github.io/categories/random-thoughts/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/categories/random-thoughts/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>movie</title>
@@ -44,15 +53,6 @@
       <pubDate>Sat, 07 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://shadowsong27.github.io/categories/programming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>random thoughts</title>
-      <link>https://shadowsong27.github.io/categories/random-thoughts/</link>
-      <pubDate>Wed, 22 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://shadowsong27.github.io/categories/random-thoughts/</guid>
       <description></description>
     </item>
     
