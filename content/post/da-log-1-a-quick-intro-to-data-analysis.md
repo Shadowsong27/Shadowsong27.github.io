@@ -21,8 +21,8 @@ So I think probably I should also write articles on analytics, just to make this
 
 This article will cover many high level concepts in data analysis, instead of how to actually calculate the average of a column. 
 In my opinion, the technical requirements in data analysis are not as high as other data related jobs
-and the value of data analysis lies in the analysis, not the technical difficulty, 
-To extract the correct, accurate insights and present it in a understandable way is far more meaningful than
+and in fact the value of data analysis lies in the analysis, not the technical difficulty.
+To extract useful, accurate insights and present it in a understandable way is far more meaningful than
 optimizing a query or find a fancy way to calculate.
 
 Data analysis can be generally categorised to descriptive data analysis (like getting the average, 25th percentile) and inferential data analysis (like forecasting the trends of sales). In this article, I will be ONLY cover the descriptive type.
