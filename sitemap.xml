@@ -4,25 +4,48 @@
   
   <url>
     <loc>https://shadowsong27.github.io/categories/</loc>
-    <lastmod>2020-05-05T00:00:00+00:00</lastmod>
+    <lastmod>2020-05-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://shadowsong27.github.io/2020/05/da-log-1-a-quick-introduction-to-data-analysis/</loc>
+    <lastmod>2020-05-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://shadowsong27.github.io/post/</loc>
-    <lastmod>2020-05-05T00:00:00+00:00</lastmod>
+    <lastmod>2020-05-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/</loc>
+    <lastmod>2020-05-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/tags/</loc>
+    <lastmod>2020-05-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/categories/data-analysis/</loc>
+    <lastmod>2020-05-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://shadowsong27.github.io/tags/notes/</loc>
+    <lastmod>2020-05-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://shadowsong27.github.io/2020/05/rt-log-3-%E5%8F%88%E4%B8%80%E4%B8%AA%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2020-05-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://shadowsong27.github.io/</loc>
-    <lastmod>2020-05-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -61,12 +84,6 @@
   
   <url>
     <loc>https://shadowsong27.github.io/tags/fargate/</loc>
-    <lastmod>2020-03-07T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://shadowsong27.github.io/tags/</loc>
     <lastmod>2020-03-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -179,12 +196,6 @@
   
   <url>
     <loc>https://shadowsong27.github.io/tags/hugo/</loc>
-    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://shadowsong27.github.io/tags/notes/</loc>
     <lastmod>2019-06-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
