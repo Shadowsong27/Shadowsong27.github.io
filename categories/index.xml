@@ -6,10 +6,28 @@
     <description>Recent content in Categories on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://shadowsong27.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>movie</title>
+      <link>https://shadowsong27.github.io/categories/movie/</link>
+      <pubDate>Thu, 09 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/categories/movie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reviews &amp; thoughts</title>
+      <link>https://shadowsong27.github.io/categories/reviews-thoughts/</link>
+      <pubDate>Thu, 09 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/categories/reviews-thoughts/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>data analysis</title>
@@ -26,24 +44,6 @@
       <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://shadowsong27.github.io/categories/random-thoughts/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>movie</title>
-      <link>https://shadowsong27.github.io/categories/movie/</link>
-      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://shadowsong27.github.io/categories/movie/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>reviews &amp; thoughts</title>
-      <link>https://shadowsong27.github.io/categories/reviews-thoughts/</link>
-      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://shadowsong27.github.io/categories/reviews-thoughts/</guid>
       <description></description>
     </item>
     
