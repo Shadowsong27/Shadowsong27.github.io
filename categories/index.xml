@@ -6,7 +6,7 @@
     <description>Recent content in Categories on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 10 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://shadowsong27.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>music</title>
       <link>https://shadowsong27.github.io/categories/music/</link>
-      <pubDate>Sat, 25 Jul 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://shadowsong27.github.io/categories/music/</guid>
       <description></description>
@@ -23,7 +23,7 @@
     <item>
       <title>piano</title>
       <link>https://shadowsong27.github.io/categories/piano/</link>
-      <pubDate>Sat, 25 Jul 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://shadowsong27.github.io/categories/piano/</guid>
       <description></description>
@@ -84,7 +84,7 @@
     </item>
     
     <item>
-      <title>data-engineering</title>
+      <title>data engineering</title>
       <link>https://shadowsong27.github.io/categories/data-engineering/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
