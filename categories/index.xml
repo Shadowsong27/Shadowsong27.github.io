@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://shadowsong27.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>random thoughts</title>
+      <link>https://shadowsong27.github.io/categories/random-thoughts/</link>
+      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/categories/random-thoughts/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>music</title>
@@ -57,15 +66,6 @@
     </item>
     
     <item>
-      <title>random thoughts</title>
-      <link>https://shadowsong27.github.io/categories/random-thoughts/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://shadowsong27.github.io/categories/random-thoughts/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>dev-ops</title>
       <link>https://shadowsong27.github.io/categories/dev-ops/</link>
       <pubDate>Sat, 07 Mar 2020 00:00:00 +0000</pubDate>
@@ -98,6 +98,15 @@
       <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://shadowsong27.github.io/categories/miscellaneous/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>book</title>
+      <link>https://shadowsong27.github.io/categories/book/</link>
+      <pubDate>Sat, 16 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/categories/book/</guid>
       <description></description>
     </item>
     

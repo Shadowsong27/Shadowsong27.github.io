@@ -8,40 +8,32 @@
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
-<meta name="description" content="This article will describe the process to setup Fargate tasks with only private IP, using images stored in a private registry.">
+<meta name="description" content="I just reached Diamond 3 on American server in Starcraft 2. Yeah yeah I know NA server is easier compared to Asian but it is still a diamond, and I am pretty happy. For this particular season I have not played a single game of cheese, but I have, sadly to say, counter cheesed opponents. Most of my games are played with heavy reliance on macro.">
 
 
-<meta property="og:description" content="This article will describe the process to setup Fargate tasks with only private IP, using images stored in a private registry.">
+<meta property="og:description" content="I just reached Diamond 3 on American server in Starcraft 2. Yeah yeah I know NA server is easier compared to Asian but it is still a diamond, and I am pretty happy. For this particular season I have not played a single game of cheese, but I have, sadly to say, counter cheesed opponents. Most of my games are played with heavy reliance on macro.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DevOps Log 2: Setup Fargate Service without Public IP">
-<meta name="twitter:title" content="DevOps Log 2: Setup Fargate Service without Public IP">
-<meta property="og:url" content="https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
-<meta property="twitter:url" content="https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
+<meta property="og:title" content="RT Log 4: About Starcraft 2">
+<meta name="twitter:title" content="RT Log 4: About Starcraft 2">
+<meta property="og:url" content="https://shadowsong27.github.io/2020/08/rt-log-4-about-starcraft-2/">
+<meta property="twitter:url" content="https://shadowsong27.github.io/2020/08/rt-log-4-about-starcraft-2/">
 <meta property="og:site_name" content="Shadowsong&#39;s Personal Website">
-<meta property="og:description" content="This article will describe the process to setup Fargate tasks with only private IP, using images stored in a private registry.">
-<meta name="twitter:description" content="This article will describe the process to setup Fargate tasks with only private IP, using images stored in a private registry.">
+<meta property="og:description" content="I just reached Diamond 3 on American server in Starcraft 2. Yeah yeah I know NA server is easier compared to Asian but it is still a diamond, and I am pretty happy. For this particular season I have not played a single game of cheese, but I have, sadly to say, counter cheesed opponents. Most of my games are played with heavy reliance on macro.">
+<meta name="twitter:description" content="I just reached Diamond 3 on American server in Starcraft 2. Yeah yeah I know NA server is easier compared to Asian but it is still a diamond, and I am pretty happy. For this particular season I have not played a single game of cheese, but I have, sadly to say, counter cheesed opponents. Most of my games are played with heavy reliance on macro.">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-03-07T00:00:00">
+    <meta property="article:published_time" content="2020-08-13T00:00:00">
   
   
-    <meta property="article:modified_time" content="2020-03-07T00:00:00">
+    <meta property="article:modified_time" content="2020-08-13T00:00:00">
   
-  
-  
-    
-      <meta property="article:section" content="programming">
-    
-      <meta property="article:section" content="dev-ops">
-    
   
   
     
-      <meta property="article:tag" content="AWS">
+      <meta property="article:section" content="random thoughts">
     
-      <meta property="article:tag" content="Fargate">
-    
+  
   
 
 
@@ -53,12 +45,12 @@
 
 
 
-  <meta property="og:image" content="https://cdn.aimconsulting.com/wp-content/uploads/2018/07/aws-fargate-v2.png">
-  <meta property="twitter:image" content="https://cdn.aimconsulting.com/wp-content/uploads/2018/07/aws-fargate-v2.png">
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/en/7/77/StarCraft_II_-_Legacy_of_the_Void_cover.jpg">
+  <meta property="twitter:image" content="https://upload.wikimedia.org/wikipedia/en/7/77/StarCraft_II_-_Legacy_of_the_Void_cover.jpg">
 
 
-  <meta property="og:image" content="https://cdn.aimconsulting.com/wp-content/uploads/2018/07/aws-fargate-v2.png">
-  <meta property="twitter:image" content="https://cdn.aimconsulting.com/wp-content/uploads/2018/07/aws-fargate-v2.png">
+  <meta property="og:image" content="https://res.cloudinary.com/lmn/image/upload/e_sharpen:150,f_auto,fl_lossy,q_80/v1/gameskinnyc/s/t/a/starcraft2-2010-0adfa.jpg">
+  <meta property="twitter:image" content="https://res.cloudinary.com/lmn/image/upload/e_sharpen:150,f_auto,fl_lossy,q_80/v1/gameskinnyc/s/t/a/starcraft2-2010-0adfa.jpg">
 
 
 
@@ -67,14 +59,14 @@
   <meta property="twitter:image" content="https://avatars3.githubusercontent.com/u/12522657?s=400&u=ccfcf050a757c6a49241737eefe4386064400b5e&v=4">
 
 
-    <title>DevOps Log 2: Setup Fargate Service without Public IP</title>
+    <title>RT Log 4: About Starcraft 2</title>
 
     <link rel="icon" href="https://shadowsong27.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
+    <link rel="canonical" href="https://shadowsong27.github.io/2020/08/rt-log-4-about-starcraft-2/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -217,9 +209,9 @@ if (!doNotTrack) {
 
       
   <div class="post-header-cover
-              text-left
+              text-center
               "
-       style="background-image:url('https://cdn.aimconsulting.com/wp-content/uploads/2018/07/aws-fargate-v2.png')"
+       style="background-image:url('https://res.cloudinary.com/lmn/image/upload/e_sharpen:150,f_auto,fl_lossy,q_80/v1/gameskinnyc/s/t/a/starcraft2-2010-0adfa.jpg')"
        data-behavior="5">
     
   </div>
@@ -232,18 +224,18 @@ if (!doNotTrack) {
         <article class="post" itemscope itemType="http://schema.org/BlogPosting">
           
           
-            <div class="post-header main-content-wrap text-left">
+            <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      DevOps Log 2: Setup Fargate Service without Public IP
+      RT Log 4: About Starcraft 2
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-03-07T00:00:00Z">
+      <time itemprop="datePublished" datetime="2020-08-13T00:00:00Z">
         
-  March 7, 2020
+  August 13, 2020
 
       </time>
     
@@ -252,9 +244,7 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="https://shadowsong27.github.io/categories/programming">programming</a>, 
-    
-      <a class="category-link" href="https://shadowsong27.github.io/categories/dev-ops">dev-ops</a>
+      <a class="category-link" href="https://shadowsong27.github.io/categories/random-thoughts">random thoughts</a>
     
   
 
@@ -264,99 +254,47 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>This article will describe the process to setup Fargate tasks with only private IP, using images stored in a private registry.</p>
+              <p>I just reached Diamond 3 on American server in Starcraft 2. Yeah yeah I know NA server is easier compared to Asian but it is still a diamond, and I am pretty happy. For this particular season I have not played a single game of cheese, but I have, sadly to say, counter cheesed opponents. Most of my games are played with heavy reliance on macro.</p>
 
-<p>Disclaimer: I am not a security expert, in fact my computer network knowledge was even picked up during work. I realized as the need of designing your own architecture grows, I will inevitably fill in the holes in my computer science theory. I merely receive a goal, research the tools and theories behind, and execute it to the best of my ability.</p>
+<p>So in this log I would like to record down some of the stuff I have learnt in the process, I believe the entire duration is about 2 months, with probably 200 Protoss games and 250 Zerg games (I reached diamond using Protoss).</p>
 
-<p>Before covering the main steps, there are some important concepts one needs to know in the AWS, besides Fargate related concept.</p>
+<h3 id="learn-to-not-panic">Learn to not panic</h3>
 
-<ol>
-<li><p>VPC</p></li>
+<p>This is the most important lesson to me to be honest, and I believe it helps me a lot in decision making. In Platinum rank there are just so many cheese plays from Terran and my fellow Protoss players. Cannon rushes followed by cannon rushes, bunkers and proxy barracks, however the proud Zerg army seldom 12 pooled me (approval nodding). I used to play a lot of proxy Stargate when I was in Uni 1, that&rsquo;s also the last time when I heavily invested my time in Starcraft 2, but then I realise it&rsquo;s not the right way to play it. You need to know how to macro and how to win on the frontline.</p>
 
-<li><p>Subnet</p></li>
+<p>Anyway back to the topic, when people Cannon rush you, the least thing you want to do is panic. You make decisions, quickly get batteries and Stalkers and robos, do not build zealots if the cannon is up. If you are lucky and you have discovered it earlier, pull your probes immediately. All I am trying to say is, I used to have a shaky hand when I saw people cannon rush me, now I am completely numbed. Worst case? You lost, then learn to scout earlier the next game. Panic does not help at all.</p>
 
-<li><p>Route table</p></li>
+<p>In fact to avoid this cheese, I scout really really early, like immediately after I built the first pylon. So sometimes I can even fake a cannon rush to make the opponent pull away a bunch of workers from the mineral line (mind game is not really cheesy right?)</p>
 
-<li><p>Internet Gateway</p></li>
+<h3 id="knowing-what-to-do-next">Knowing what to do next</h3>
 
-<li><p>NAT Gateway</p></li>
-</ol>
+<p>Despite I am practicing Beethoven Sonata Op.31 No.2 1st movement with insanely fast moving triplets as accompaniment on the right hand, my actual APM could not increase for a very long time because I realise I do not know what to do exactly at some given time in the game. Yes I know the build order for the first 3 mins, and then I am completely lost.</p>
 
-<p>All related concepts could be found in the official <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">AWS documentations</a></p>
+<p>So I watched some videos online, and I watched with somewhat serious attitude, especially on the prism harassment. I then quickly realise how badly Platinum players could handle multiple battlefields. That&rsquo;s how I get my MMR up in the last few days. You quickly expand to 4th base, 70+ probes, making a combo thats either colossi and gates unit, or archon and immortal, and start to build Stargates too. It becomes intuitive for me over time. Essentially I have a better sense knowing what to do next, is it to open my 4th base, or wrap in 8 units and move for an attack.</p>
 
-<h3 id="overview">Overview</h3>
+<p>Another important thing about this is information gathering. You need to scout, you need to constantly scout your opponents&rsquo; next play to anticipate the army combo, otherwise it&rsquo;s like going to an exam without doing any revision.</p>
 
-<p>For Fargate to pull images from private registry, it needs Internet access. I initially would think that ECR, the private registry provided by AWS, would provide some sort of intranet access so we don’t have to go through Internet, but I did not find such route.</p>
+<h3 id="learn-to-prioritise">Learn to prioritise</h3>
 
-<p>For a task running in Fargate to access the Internet, it either needs a public IP, which could be enabled during service configuration, or more securely, resides in a private subnet that routes outbound Internet request to the etwork address translation (NAT) gateway, and then the Internet Gateway (IGW).</p>
+<p>So Starcraft is all about prioritise your resources - your pathetically limited APM, and turning them into a good army combo so that you just need to right click through the map. You just simply could not control everything in the game, just like life. So, make simple moves that frees up your APM, e.g.</p>
 
-<p>This approach obviously provides better network control, monitoring and security protection.</p>
+<ul>
+<li>build batteries and cannons - you are not pro players, spend your money so that you could use your APM on more important things</li>
+<li>constantly use prism zealot harassments to throw away floating minerals - reduce the actual amount of APM your opponent could spend in the frontline</li>
+<li>optimize your hotkeys</li>
+<li>harass with shift actions, pick the most important battle and micro it - it&rsquo;s just life, you do what matters most to you</li>
+</ul>
 
-<h3 id="configure-your-network-optional">Configure your network (Optional)</h3>
+<h3 id="practice-is-important">Practice is important</h3>
 
-<p>This step is optional if you have already did it. According to <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-configure-network.html">AWS docs here</a></p>
+<p>I have actually known this quite a while ago. Funny thing is I did not really take it seriously until I earned diamond in Overwatch a few years ago. I was playing 3 hours every night, just free standard multiplayer games, and I eventually got to diamond. I was thinking then, hmmmm, practices (even without systematic exercises) do help a lot, though I should have known this when I was doing my past year papers in Junior College. This kind of makes me feel better when practicing piano too, because I kind of feel I am making progress everyday, which is a good thing I guess.</p>
 
-<blockquote>
-<p>If you are using Fargate tasks, in order for the task to pull the container image it must either use a public subnet and be assigned a public IP address or a private subnet that has a route to the internet or a NAT gateway that can route requests to the internet</p>
-</blockquote>
-
-<p>So configure this setup, you need to do the following:</p>
-
-<p>The following is just a steps paraphrasing of the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html">AWS docs</a> here
-<img src="https://shadowsong27.github.io/img/devops-log-2-img-1.png" alt="alt" /></p>
-
-<ol>
-<li><p>Choose (or create) a VPC, everything after will be down within this VPC</p></li>
-
-<li><p>Create a subnet, name it xxx-public to indicate this will be your public subnet</p></li>
-
-<li><p>Create another subnet, name it xxx-private</p></li>
-
-<li><p>Create a NAT gateway, attach it with an elastic IP</p></li>
-
-<li><p>Create an Internet gateway</p></li>
-
-<li><p>Create two route table, one routes internal requests to the NAT gateway (RT 1), one routes internal requests to the Internet gateway (RT2)</p></li>
-
-<li><p>Associate (In <code>Route Tables</code>  side tab, <code>Subnets Association</code>) xxx-private subnet to RT1 (Bottom subnet in the diagram above, where private servers reside in)</p></li>
-
-<li><p>Associate xxx-public to RT2 (Top subnet in the diagram, where Internet facing servers reside)</p></li>
-</ol>
-
-<h3 id="launch-applications-in-fargate">Launch applications in Fargate</h3>
-
-<p>After this is successfully setup, you can start to configure your Fargate SERVICE, yes once again the network layer is configured at service level, not task level.</p>
-
-<p>There are three things in particular that require some attention if we want to disable the public IP, the rest is going to be as usual.</p>
-
-<ol>
-<li><p>Selecting the appropriate subnets: Instead of randomly select your subnets or select across availability zones, you need to select the subnets that are attached to NAT, so you could</p></li>
-
-<li><p>Disable your <code>Auto-assign Public IP</code> option in the settings, this will make your Fargate Task inaccessible and receive calls from the Internet</p></li>
-
-<li><p>Configure your ALB / NLB - This has to be in the public subnet and facing the IGW, so you load balancer could take receive HTTP requests and route them to the private Fargate instance</p></li>
-</ol>
-
-<h1 id="conclusion">Conclusion</h1>
-
-<p>This is actually pretty easy if one understands how network works in AWS, and for those are not familiar with computing networks (like me), reading the AWS docs is enough to complete all these setups too.</p>
+<p>So I have just conjured up some bullshit life lessons gained from playing this old dead game - Starcraft 2. With this fermented chicken soup, I bid you farewell and good night.</p>
               
             </div>
           </div>
           <div id="post-footer" class="post-footer main-content-wrap">
             
-              
-                
-                
-                  <div class="post-footer-tags">
-                    <span class="text-color-light text-small">TAGGED IN</span><br/>
-                    
-  <a class="tag tag--primary tag--small" href="https://shadowsong27.github.io/tags/aws/">AWS</a>
-
-  <a class="tag tag--primary tag--small" href="https://shadowsong27.github.io/tags/fargate/">Fargate</a>
-
-                  </div>
-                
               
             
             <div class="post-actions-wrap">
@@ -366,7 +304,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2020/04/movie-log-4-the-day-after-tomorrow/" data-tooltip="Movie Log 4: The Day After Tomorrow">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -374,7 +312,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2020/01/rt-log-2-about-wuhan-virus/" data-tooltip="RT Log 2: About Wuhan Virus">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2020/08/music-log-2-about-music-practices-and-flat-fingerings/" data-tooltip="Music Log 2: About music practices and flat fingerings">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -392,19 +330,19 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2020/08/rt-log-4-about-starcraft-2/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2020/08/rt-log-4-about-starcraft-2/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2020/08/rt-log-4-about-starcraft-2/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -452,7 +390,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2020/04/movie-log-4-the-day-after-tomorrow/" data-tooltip="Movie Log 4: The Day After Tomorrow">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -460,7 +398,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2020/01/rt-log-2-about-wuhan-virus/" data-tooltip="RT Log 2: About Wuhan Virus">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2020/08/music-log-2-about-music-practices-and-flat-fingerings/" data-tooltip="Music Log 2: About music practices and flat fingerings">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -478,19 +416,19 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2020/08/rt-log-4-about-starcraft-2/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2020/08/rt-log-4-about-starcraft-2/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2020/08/rt-log-4-about-starcraft-2/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -520,19 +458,19 @@ if (!doNotTrack) {
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F03%2Fdevops-log-2-setup-fargate-service-without-public-ip%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F08%2Frt-log-4-about-starcraft-2%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F03%2Fdevops-log-2-setup-fargate-service-without-public-ip%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F08%2Frt-log-4-about-starcraft-2%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F03%2Fdevops-log-2-setup-fargate-service-without-public-ip%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F08%2Frt-log-4-about-starcraft-2%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -822,9 +760,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/shadowsong27.github.io\/2020\/03\/devops-log-2-setup-fargate-service-without-public-ip\/';
+          this.page.url = 'https:\/\/shadowsong27.github.io\/2020\/08\/rt-log-4-about-starcraft-2\/';
           
-            this.page.identifier = '\/2020\/03\/devops-log-2-setup-fargate-service-without-public-ip\/'
+            this.page.identifier = '\/2020\/08\/rt-log-4-about-starcraft-2\/'
           
         };
         (function() {
