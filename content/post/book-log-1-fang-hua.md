@@ -8,7 +8,7 @@ coverMeta: out
 date: 2018-07-17
 categories:
 - reviews & thoughts
-- movie
+- book
 tags:
 - 7
 ---
