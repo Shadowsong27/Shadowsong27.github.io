@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>data engineering on Shadowsong&#39;s Personal Website</title>
+    <title>data-engineering on Shadowsong&#39;s Personal Website</title>
     <link>https://shadowsong27.github.io/categories/data-engineering/</link>
-    <description>Recent content in data engineering on Shadowsong&#39;s Personal Website</description>
+    <description>Recent content in data-engineering on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://shadowsong27.github.io/categories/data-engineering/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DE Log 6: From Data Engineering to Meta Data Engineering - the future of Data Engineering</title>
+      <link>https://shadowsong27.github.io/2020/08/de-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering/</link>
+      <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/2020/08/de-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering/</guid>
+      <description>&lt;p&gt;Data engineering jobs are really popular nowadays, mostly contributed by the rising demand of data insights and data driven decision making.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>DE Log 5: Thoughts on Analytical Tables</title>
