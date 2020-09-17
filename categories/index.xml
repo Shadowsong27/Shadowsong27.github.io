@@ -6,10 +6,37 @@
     <description>Recent content in Categories on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://shadowsong27.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>diary</title>
+      <link>https://shadowsong27.github.io/categories/diary/</link>
+      <pubDate>Thu, 17 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/categories/diary/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>music</title>
+      <link>https://shadowsong27.github.io/categories/music/</link>
+      <pubDate>Thu, 17 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/categories/music/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>piano</title>
+      <link>https://shadowsong27.github.io/categories/piano/</link>
+      <pubDate>Thu, 17 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/categories/piano/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>data-engineering</title>
@@ -35,24 +62,6 @@
       <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://shadowsong27.github.io/categories/random-thoughts/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>music</title>
-      <link>https://shadowsong27.github.io/categories/music/</link>
-      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://shadowsong27.github.io/categories/music/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>piano</title>
-      <link>https://shadowsong27.github.io/categories/piano/</link>
-      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://shadowsong27.github.io/categories/piano/</guid>
       <description></description>
     </item>
     
