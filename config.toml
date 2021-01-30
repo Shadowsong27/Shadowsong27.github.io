@@ -78,6 +78,12 @@ canonifyurls = true
   name = "Career"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-suitcase\"></i>"
   url = "/career"
+[[menu.main]]
+  weight = 6
+  identifier = "Food"
+  name = "Food"
+  pre = "<i class=\"sidebar-button-icon fa fa-cutlery\"></i>"
+  url = "/food"
 
 [[menu.links]]
   weight = 1
