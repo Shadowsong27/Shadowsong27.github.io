@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.79.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
 <meta name="description" content="We have all heard of the term ETL. If you are working in the data field, you might have been asked to do some sort of ETL work regardless of your actual job description.">
@@ -76,7 +76,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://shadowsong27.github.io/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
+    <link rel="stylesheet" href="https://shadowsong27.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
     
     
 
@@ -186,6 +186,16 @@ if (!doNotTrack) {
     </a>
   </li>
 
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/food">
+    
+      <i class="sidebar-button-icon fa fa-cutlery"></i>
+      
+      <span class="sidebar-button-desc">Food</span>
+    </a>
+  </li>
+
 
     </ul>
     <ul class="sidebar-buttons">
@@ -259,49 +269,29 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>We have all heard of the term ETL. If you are working in the data field, you might have been asked to do some sort of ETL work regardless of your actual job description.</p>
-
 <p>However, if we think it from a slightly different perspective, we could “invent” a different methodology in harvesting analytical data sets - we load raw / intermediate data into data warehouse first, and then transform it <code>in-place</code> in the data warehouse.</p>
-
 <p>I believe both approaches are useful and I would further argue that ELT approach is more advantageous under certain business contexts. In this blog post, I am going to first describe the fundamental difference between the aforementioned approaches, and then present three advantages that the ELT approach may possess over the other.</p>
-
 <h1 id="overview">Overview</h1>
-
 <p>By examining and reducing the problem further, we could see that the fundamental difference between ETL and ELT is a result of the uneven distribution of provisioned computational (data transformation and aggregation) power. The traditional ETL approach emphasizes more on the transformations outside of the data warehouse, such as Spark jobs or even simple Python scripts using various libraries. ELT approach on the hand invests much more resources on the data warehouse itself, and transformations of data sets often occur within the data warehouse in the form of SQL scripts. Transformation that are not executable solely within a database engine will not be discussed here and should ideally followed a traditional ETL approach.</p>
-
 <p>In my limited experience, I believe ELT tends to work better in a versatile, flexible and bootstrap environment, where a break from workflow is commonly acceptable to achieve the goals with minimum cost. While ETL works better in the more resourceful, stable business lines, where strict workflows are respected (for good reasons).</p>
-
 <p>We must also recognize that eventually as the business grows, more budget hence more computational power will be provisioned on both ends, and the problem that was originally choosing one of the two approaches will then inevitably evolve into: For any particular transformation job, where  should I put it? I do not want to dive too deep on the issue mentioned above because that deviates too much from the original discussion. Let’s come back and focus again on the choice between ETL and ELT, and here are my two (three) coins:</p>
-
 <h3 id="elt-has-a-lower-development-cost-but-the-marginal-gain-is-diminishing-as-the-company-grows">ELT has a lower development cost, but the marginal gain is diminishing as the company grows</h3>
-
 <p>Transformation jobs tend to be just SQL scripts at the beginning. By relying the strong computational power within the data warehouse, data analysts or data engineers could easily implement the pipelines by testing complex SQL scripts directly against the pre-loaded raw data within data warehouse, provided that the employees know SQL, which is commonly required in the job description. This allows new startups to distribute data pipeline building workload within the entire data team.</p>
-
 <p>Besides development, debugging is also much easier as you could directly query against intermediate CTE/tables to check the validity of data. You could even automate data healthchecks simply using SQLs, again achievable by analysts which is great for smaller teams.</p>
-
 <p>As the data size grows and the analytical data layers in your data warehouse becomes deeper, one will have to shift the stable (less susceptible to changes) transformations and those cold (less frequently accessed) intermediate data sets outside of the data warehouse, thus slowly balance the distribution of transformation jobs and the usage of ETL/ELT approaches.</p>
-
-<h3 id="elt-has-a-lower-operational-cost-but-it-requires-a-rather-big-refactoring-once-things-start-to-get-too-slow">ELT has a lower operational cost,  but it requires a rather big refactoring once things start to get too slow</h3>
-
+<h3 id="elt-has-a-lower-operational-cost--but-it-requires-a-rather-big-refactoring-once-things-start-to-get-too-slow">ELT has a lower operational cost,  but it requires a rather big refactoring once things start to get too slow</h3>
 <p>Let’s be honest, which one is easier? To hire a decent SQL guy/girl or Python/Java guy/girl? Ok you may say that’s not a fair and meaningful comparison at all. Then how about the Ops work involved during coding deployments. At the initial phase of your data warehouse, an ELT approach could save a large amount of operational costs which could then translate to less salary expense and debugging hours. Ask the tech lead or the CTO to setup an auto-deployed SQL repo for your scheduler. Steps that a person worked on pipeline should only involved</p>
-
 <ul>
 <li>Developing new SQL script (pipeline node)</li>
 <li>Testing SQL in DW</li>
 <li>Committed to repo and submit PR</li>
 </ul>
-
 <p>Once the reviewer merges the PR, the pipeline should be automatically updated. Codes in this way is much more isolated (only in SQL) and again easier to involve people who are not originally trained in the software engineering field.</p>
-
 <p>However, once the size of intermediate data becomes too big to store in data warehouse, a big refactoring is needed to transform those SQL scripts into something similar to spark job and save them in S3.</p>
-
 <h3 id="elt-has-a-lower-exploration-cost">ELT has a lower exploration cost</h3>
-
 <p>I guess this point is a relatively weak because it is of course easier to explore when you have less data and everything is querable within the same database. But imagine if we only load the final data sets required by internal reports / external data products into the DW, left those intermediate tables in S3, we won’t be able to easily check some random idea, validate some random hypothesis and do all kinds of experiments with just one SQL script. Sure I guess one could build a view and query against all Parquet files in S3, but LBH it’s not that realistic for smaller team  to setup this (other priorities always cut in the line).</p>
-
 <p>Again we need to acknowledge one thing, that the connenvience ELT provides comes with a cost, once intermediate data and pipelines are shifted outside of DW, the visibility and the accessibility of raw data would inevitably decrease, or in a well managed situation, not the visibility but mostly the accessibility. However, one could also argue that the visibility of such vast data sets may be overwhelming and not meaningful for everyone, a concrete point of which I would concede to. Personally I am trying to perfect the methodology that allows analytical data to be built layer by layer so that access rights will not be granted excessively.</p>
-
 <h1 id="conclusion">Conclusion</h1>
-
 <p>I just came up with this post on the train, by knowing myself so well that most likely I would not revisit this article in the future even if my thoughts above has changed. What I can say is I have practiced the ELT approach (thanks to my Boss) for more than a year in a very small team with just one data engineer, I kinda of feel this is the reason why I am still able to get everything to flow even I am the only data engineer in the team. It works pretty nice with small teams, especially if you would like to save the money for your Spark cluster until you really need it.</p>
               
             </div>
@@ -390,7 +380,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2020 Shadowsong27. All Rights Reserved
+    &copy; 2021 Shadowsong27. All Rights Reserved
   </span>
 </footer>
 
@@ -522,210 +512,10 @@ if (!doNotTrack) {
   </div>
 </div>
 
-    <div id="algolia-search-modal" class="modal-container">
-  <div class="modal">
-    <div class="modal-header">
-      <span class="close-button"><i class="fa fa-close"></i></span>
-      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
-        <span class="searchby-algolia-text text-color-light text-small">by</span>
-        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
-      </a>
-      <i class="search-icon fa fa-search"></i>
-      <form id="algolia-search-form">
-        <input type="text" id="algolia-search-input" name="search"
-          class="form-control input--large search-input" placeholder="Search" />
-      </form>
-    </div>
-    <div class="modal-body">
-      <div class="no-result text-color-light text-center">no post found</div>
-      <div class="results">
-        
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/09/music-practice-diary-27th-sept-2020/">
-                <h3 class="media-heading">Music Practice Diary - 27th Sept 2020</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Sep 9, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>This week is on K310 1st movement (progressing) and the Tempest sonata.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/09/music-practice-diary-14th-sept-2020/">
-                <h3 class="media-heading">Music Practice Diary - 14th Sept 2020</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Sep 9, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>这周依旧Mozart Sonata in A minor, K310. 1st Movement</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/08/de-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering/">
-                <h3 class="media-heading">DE Log 6: From Data Engineering to Meta Data Engineering - the future of Data Engineering</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>Data engineering jobs are really popular nowadays, mostly contributed by the rising demand of data insights and data driven decision making.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/08/rt-log-4-about-starcraft-2/">
-                <h3 class="media-heading">RT Log 4: About Starcraft 2</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>I just reached Diamond 3 on American server in Starcraft 2. Yeah yeah I know NA server is easier compared to Asian but it is still a diamond, and I am pretty happy. For this particular season I have not played a single game of cheese, but I have, sadly to say, counter cheesed opponents. Most of my games are played with heavy reliance on macro.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/08/music-log-2-about-music-practices-and-flat-fingerings/">
-                <h3 class="media-heading">Music Log 2: About music practices and flat fingerings</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>So I am trying out <code>Notion</code>, so far it looks ok. With all the fancy templates it looks like it can do much more than Bear, but I have also heard rumors about how it can get pretty messy after you have a lot of stuff. It&rsquo;s free for personal use anyway so I thought I want to give it a try, at least the table structure is pretty useful for me.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/07/music-log-1-about-my-recent-obsession-with-chopin-etude-op.10-no.1/">
-                <h3 class="media-heading">Music Log 1: About my recent obsession with Chopin Etude Op.10 No.1</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jul 7, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>So this week I was pretty serious in my piano practices, played for one hour everyday except on Friday, it has become an important part of my daily routine.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/07/movie-log-5-knives-out/">
-                <h3 class="media-heading">Movie Log 5: Knives Out</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jul 7, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>I have been on some sort of movie spree for a few nights in a row, without dropping my piano practices of course, and I ran into this movie called <strong>Knives Out</strong> a few hours ago.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/05/da-log-1-a-quick-introduction-to-data-analysis/">
-                <h3 class="media-heading">DA Log 1: A Quick Introduction to Data Analysis</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  May 5, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>This is a bold title I know, and I am not even a data analyst.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/05/rt-log-3-%E5%8F%88%E4%B8%80%E4%B8%AA%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">
-                <h3 class="media-heading">RT Log 3: 又一个工作总结</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  May 5, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>还有不到两周的时间就要换工作了，时隔两年再打算写一个总结。</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/04/movie-log-4-the-day-after-tomorrow/">
-                <h3 class="media-heading">Movie Log 4: The Day After Tomorrow</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Apr 4, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>估摸着约是我初二那年，也就是二零零八年，本来跟往常一样趁爸妈不在家准备偷偷玩电脑，结果误打误撞开始看电影，那也是我第一次在电脑上看电影，看的就是《后天》。记得在那之前，电影对我来说只是偶尔学校组织去厂放映厅看一些红色电影，多动症的年纪自然是无法沉浸其中。</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-      </div>
-    </div>
-    <div class="modal-footer">
-      <p class="results-count text-medium"
-         data-message-zero="no post found"
-         data-message-one="1 post found"
-         data-message-other="{n} post found">
-         30 posts found
-      </p>
-    </div>
-  </div>
-</div>
+    
+
     
   
-    
     <div id="cover" style="background-image:url('https://i.pinimg.com/originals/00/93/9d/00939dff0059e823658afe98bb6d87a4.jpg');"></div>
   
 
@@ -738,7 +528,7 @@ if (!doNotTrack) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
-<script src="https://shadowsong27.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+<script src="https://shadowsong27.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
 
 
 <script lang="javascript">

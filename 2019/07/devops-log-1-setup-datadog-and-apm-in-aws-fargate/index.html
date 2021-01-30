@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.79.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
 <meta name="description" content="Recently I am migrating some microservices and streaming pipelines to AWS Fargate.
@@ -92,7 +92,7 @@ when I was deploying a web backend with DataDog.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://shadowsong27.github.io/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
+    <link rel="stylesheet" href="https://shadowsong27.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
     
     
 
@@ -202,6 +202,16 @@ if (!doNotTrack) {
     </a>
   </li>
 
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/food">
+    
+      <i class="sidebar-button-icon fa fa-cutlery"></i>
+      
+      <span class="sidebar-button-desc">Food</span>
+    </a>
+  </li>
+
 
     </ul>
     <ul class="sidebar-buttons">
@@ -277,57 +287,38 @@ if (!doNotTrack) {
               <p>Recently I am migrating some microservices and streaming pipelines to AWS Fargate.
 This article mainly covers the issues, pitfalls and other useful notes
 when I was deploying a web backend with DataDog.</p>
-
 <p>Previously we set up DataDog on a standard EC2 machine, together with the  web application.</p>
-
 <p>This article would omit stuff that are clearly mentioned and explained in the official
 DataDog documentations. It would only annotate on the issues I encountered during setup.</p>
-
-<h1 id="resources-terms-explanation">Resources/Terms Explanation</h1>
-
+<h1 id="resourcesterms-explanation">Resources/Terms Explanation</h1>
 <p>AWS Fargate: AWS managed container service, allows you to run your docker
 without worrying about underlying infrastructure.</p>
-
 <p>DataDog: A monitoring tool for application, supports tracing of requests
 and calls in various resources</p>
-
 <h1 id="breakdown-steps">Breakdown Steps</h1>
-
 <h3 id="preparation">Preparation</h3>
-
 <ol>
 <li>Push your application container(s) into ECR or any container registry (if you have not done so)</li>
 <li>Generate API Key in DataDog</li>
 <li>Understand the basics of docker, how docker communicate with each other in a network</li>
 </ol>
-
 <h3 id="create-task-definition">Create Task Definition</h3>
-
 <p>Setup the Task Definition normally, configure your Task Execution Role
 based on your application’s need. The tricky part is the container setup,
 since we want to have the DataDog Agent and application in different containers,
 we need to configure both of them so that they could talk to each other.</p>
-
 <p>It is stated in the official docs that:</p>
-
 <blockquote>
 <p>To monitor your ECS Fargate tasks with Datadog, run the Agent as a container in same task definition as your application. To collect metrics with Datadog, each task definition should include a Datadog Agent container in addition to the application containers.</p>
 </blockquote>
-
 <p>Basically this means we need to have at least two containers in the Task Definition setup.</p>
-
-<p><img src="https://shadowsong27.github.io/img/aws-fargate-datadog-1.png" alt="pic" /></p>
-
+<p><img src="https://shadowsong27.github.io/img/aws-fargate-datadog-1.png" alt="pic"></p>
 <h3 id="configure-datadog-agent-container">Configure DataDog Agent Container</h3>
-
 <p>This is technically similar to set up the <code>datadog-agent.yaml</code> config file on a EC2 instance for DataDog, except on EC2 everything is filled with many options and you just need to uncomment stuff on a need basis. Here we need to configure everything using Environment Variable and Docker Label.</p>
-
 <p>Integration Setup tutorial could be found here: <a href="https://docs.datadoghq.com/integrations/faq/integration-setup-ecs-fargate/?tab=rediswebui">Integration Setup for ECS Fargate</a></p>
-
 <p>Environment Variable configurations:
 Details of each ENVs used to configure the agent could be checked here:
 <a href="https://docs.datadoghq.com/agent/docker/?tab=standard">Docker Agent</a></p>
-
 <table>
 <thead>
 <tr>
@@ -335,56 +326,44 @@ Details of each ENVs used to configure the agent could be checked here:
 <th>Value</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>DD_API_KEY</td>
 <td>YOUR_API_KEY</td>
 </tr>
-
 <tr>
 <td>DD_APM_ENABLED</td>
 <td>true</td>
 </tr>
-
 <tr>
 <td>DD_APM_IGNORE_RESOURCES</td>
 <td>YOUR_IGNORED_RESOURCES</td>
 </tr>
-
 <tr>
 <td>DD_APM_NON_LOCAL_TRAFFIC</td>
 <td>true</td>
 </tr>
-
 <tr>
 <td>DD_APM_RECEIVER_PORT</td>
 <td>8126</td>
 </tr>
-
 <tr>
 <td>DD_DOGSTATSD_NON_LOCAL_TRAFFIC</td>
 <td>true</td>
 </tr>
-
 <tr>
 <td>DD_DOGSTATSD_PORT</td>
 <td>8125</td>
 </tr>
-
 <tr>
 <td>ECS_FARGATE</td>
 <td>true</td>
 </tr>
 </tbody>
 </table>
-
 <p>You will also need to open the ports configurations in containers, by default it is using <code>8126</code> to receive traces. Since we are not running the agent and the application on the same machine, <code>NON_LOCAL_TRAFFIC</code> related ENVs needs to be set as <code>true</code>.</p>
-
 <p><a href="https://docs.datadoghq.com/tracing/#setting-up-apm">APM &amp; Distributed Tracing</a></p>
-
 <p>Open the following ports as stated in docs:</p>
-
 <table>
 <thead>
 <tr>
@@ -392,24 +371,19 @@ Details of each ENVs used to configure the agent could be checked here:
 <th>Protocol</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>8126</td>
 <td>TCP</td>
 </tr>
-
 <tr>
 <td>8125</td>
 <td>UDP</td>
 </tr>
 </tbody>
 </table>
-
 <h3 id="configure-application-container">Configure Application Container</h3>
-
 <p>The configuration on the application container is much simpler. It will need to be able to send traces to the agent container. So we need to define two extra ENVs:</p>
-
 <table>
 <thead>
 <tr>
@@ -417,39 +391,27 @@ Details of each ENVs used to configure the agent could be checked here:
 <th>Value</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>DD_AGENT_HOST</td>
 <td>localhost</td>
 </tr>
-
 <tr>
 <td>DD_TRACE_AGENT_PORT</td>
 <td>8126</td>
 </tr>
 </tbody>
 </table>
-
 <p>The <code>localhost</code> is not written anywhere on official docs. I originally use <code>datadog-agent</code> , the name of the agent container, after that I see the logs saying:</p>
-
 <pre><code>2019-07-16 07:57:03,286 : ERROR : Failed to send traces to Datadog Agent at datadog-agent:8126: [Errno -2] Name does not resolve
-</code></pre>
-
-<p>This tells us that the hostname in this case is not <code>datadog-agent</code>, which should work if we are using <code>docker-compose</code> by just stating the <code>service</code> name. Because of this I start to read more deeply in the Fargate docs and I found this here:  <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html</a></p>
-
+</code></pre><p>This tells us that the hostname in this case is not <code>datadog-agent</code>, which should work if we are using <code>docker-compose</code> by just stating the <code>service</code> name. Because of this I start to read more deeply in the Fargate docs and I found this here:  <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html</a></p>
 <blockquote>
 <p>When a task is started with the <code>awsvpc</code> network mode, … This means that all containers in a task are addressable by the IP addresses of the ENI, and they can communicate with each other over the <code>localhost</code>interface.</p>
 </blockquote>
-
 <p>Well then I tried <code>localhost</code> and it worked.</p>
-
 <p>When I go back and try to understand the whole thing, I associated this with my effort to setup a docker Postgres Together with other applications. The IP address of the database to the application is never <code>localhost</code>, it is rather the assigned IP address by the docker host, but in Fargate because of ENI they seem to solve this problem.</p>
-
 <h3 id="configure-application-code">Configure Application Code</h3>
-
 <p>I am using Python, so basically it is configure the tracer during application initialisation, nothing much to be elaborated here. Something similar to the following code would do:</p>
-
 <pre><code>import os
 from ddtrace import tracer
 
@@ -457,12 +419,8 @@ tracer.configure(
     hostname=os.environ['DD_AGENT_HOST'],
     port=os.environ['DD_TRACE_AGENT_PORT'],
 )
-</code></pre>
-
-<h1 id="conclusion">Conclusion</h1>
-
+</code></pre><h1 id="conclusion">Conclusion</h1>
 <p>Enable logs for the DataDog agents help with the debugging. It is advised to leave it on for the first few times, and disabled it later on if you find it unnecessary.</p>
-
 <p>I would consider myself pretty weak when it comes networks (never studied in an academic sense), but with constant exposure to things like docker-compose and managed services, you focus much more on the connection of resources rather than the provision of them. This is pretty useful.</p>
               
             </div>
@@ -565,7 +523,7 @@ tracer.configure(
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2020 Shadowsong27. All Rights Reserved
+    &copy; 2021 Shadowsong27. All Rights Reserved
   </span>
 </footer>
 
@@ -697,210 +655,10 @@ tracer.configure(
   </div>
 </div>
 
-    <div id="algolia-search-modal" class="modal-container">
-  <div class="modal">
-    <div class="modal-header">
-      <span class="close-button"><i class="fa fa-close"></i></span>
-      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
-        <span class="searchby-algolia-text text-color-light text-small">by</span>
-        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
-      </a>
-      <i class="search-icon fa fa-search"></i>
-      <form id="algolia-search-form">
-        <input type="text" id="algolia-search-input" name="search"
-          class="form-control input--large search-input" placeholder="Search" />
-      </form>
-    </div>
-    <div class="modal-body">
-      <div class="no-result text-color-light text-center">no post found</div>
-      <div class="results">
-        
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/09/music-practice-diary-27th-sept-2020/">
-                <h3 class="media-heading">Music Practice Diary - 27th Sept 2020</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Sep 9, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>This week is on K310 1st movement (progressing) and the Tempest sonata.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/09/music-practice-diary-14th-sept-2020/">
-                <h3 class="media-heading">Music Practice Diary - 14th Sept 2020</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Sep 9, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>这周依旧Mozart Sonata in A minor, K310. 1st Movement</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/08/de-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering/">
-                <h3 class="media-heading">DE Log 6: From Data Engineering to Meta Data Engineering - the future of Data Engineering</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>Data engineering jobs are really popular nowadays, mostly contributed by the rising demand of data insights and data driven decision making.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/08/rt-log-4-about-starcraft-2/">
-                <h3 class="media-heading">RT Log 4: About Starcraft 2</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>I just reached Diamond 3 on American server in Starcraft 2. Yeah yeah I know NA server is easier compared to Asian but it is still a diamond, and I am pretty happy. For this particular season I have not played a single game of cheese, but I have, sadly to say, counter cheesed opponents. Most of my games are played with heavy reliance on macro.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/08/music-log-2-about-music-practices-and-flat-fingerings/">
-                <h3 class="media-heading">Music Log 2: About music practices and flat fingerings</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>So I am trying out <code>Notion</code>, so far it looks ok. With all the fancy templates it looks like it can do much more than Bear, but I have also heard rumors about how it can get pretty messy after you have a lot of stuff. It&rsquo;s free for personal use anyway so I thought I want to give it a try, at least the table structure is pretty useful for me.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/07/music-log-1-about-my-recent-obsession-with-chopin-etude-op.10-no.1/">
-                <h3 class="media-heading">Music Log 1: About my recent obsession with Chopin Etude Op.10 No.1</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jul 7, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>So this week I was pretty serious in my piano practices, played for one hour everyday except on Friday, it has become an important part of my daily routine.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/07/movie-log-5-knives-out/">
-                <h3 class="media-heading">Movie Log 5: Knives Out</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jul 7, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>I have been on some sort of movie spree for a few nights in a row, without dropping my piano practices of course, and I ran into this movie called <strong>Knives Out</strong> a few hours ago.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/05/da-log-1-a-quick-introduction-to-data-analysis/">
-                <h3 class="media-heading">DA Log 1: A Quick Introduction to Data Analysis</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  May 5, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>This is a bold title I know, and I am not even a data analyst.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/05/rt-log-3-%E5%8F%88%E4%B8%80%E4%B8%AA%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">
-                <h3 class="media-heading">RT Log 3: 又一个工作总结</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  May 5, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>还有不到两周的时间就要换工作了，时隔两年再打算写一个总结。</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/04/movie-log-4-the-day-after-tomorrow/">
-                <h3 class="media-heading">Movie Log 4: The Day After Tomorrow</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Apr 4, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>估摸着约是我初二那年，也就是二零零八年，本来跟往常一样趁爸妈不在家准备偷偷玩电脑，结果误打误撞开始看电影，那也是我第一次在电脑上看电影，看的就是《后天》。记得在那之前，电影对我来说只是偶尔学校组织去厂放映厅看一些红色电影，多动症的年纪自然是无法沉浸其中。</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-      </div>
-    </div>
-    <div class="modal-footer">
-      <p class="results-count text-medium"
-         data-message-zero="no post found"
-         data-message-one="1 post found"
-         data-message-other="{n} post found">
-         30 posts found
-      </p>
-    </div>
-  </div>
-</div>
+    
+
     
   
-    
     <div id="cover" style="background-image:url('https://i.pinimg.com/originals/00/93/9d/00939dff0059e823658afe98bb6d87a4.jpg');"></div>
   
 
@@ -913,7 +671,7 @@ tracer.configure(
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
-<script src="https://shadowsong27.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+<script src="https://shadowsong27.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
 
 
 <script lang="javascript">

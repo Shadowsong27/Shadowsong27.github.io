@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.79.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
 <meta name="description" content="还有不到两周的时间就要换工作了，时隔两年再打算写一个总结。">
@@ -71,7 +71,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://shadowsong27.github.io/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
+    <link rel="stylesheet" href="https://shadowsong27.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
     
     
 
@@ -181,6 +181,16 @@ if (!doNotTrack) {
     </a>
   </li>
 
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/food">
+    
+      <i class="sidebar-button-icon fa fa-cutlery"></i>
+      
+      <span class="sidebar-button-desc">Food</span>
+    </a>
+  </li>
+
 
     </ul>
     <ul class="sidebar-buttons">
@@ -244,41 +254,23 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>还有不到两周的时间就要换工作了，时隔两年再打算写一个总结。</p>
-
 <p>工作还是在做数据工程师，对这个角色的理解也自然更加深刻。不同场景下职责也是不同的，无法一概而论。故此文旨在讨论过去个人这两年的收获，成长和对未来的展望。</p>
-
 <h1 id="收获与成长">收获与成长</h1>
-
 <p>不得不说过去这两年在技术上有了很大的提升，一个很明显的感觉就是如今如果你跟我说任何一个开源项目，我第一反应是有没有兴趣去尝试，而不会像两年前那样害怕潜在的冗长的setup process。这大概是对自己自学和动手能力的自信又有加强吧。</p>
-
 <p>之前看到一个说法说现在的软件工程师其实写代码很少，我也同意。我认为软件工程师现在就是胶水工程师。很多东西你不需要写了，你用现成的服务或者开源项目就好，你要做的只是把他们粘起来。但是作为一个软件工程师，你得知道需要粘什么，怎么粘，这也是有一定门槛的。你如何评估一个服务的好坏，与你需求的契合度呢？我感觉目前来说大部分常见的架构问题我大概都能找到比较好的解决方案，AWS 里的常见使用也是比较熟悉了，哪怕poc一些新的东西也不是什么很难的事情。</p>
-
 <p>写Python开始有了比较稳定的一套代码结构，也接触了稍微深一些的语法比如async这种。除此之外，也能比较轻易的理解并作出一些常见代码结构上的决定，比如哪些东西放哪里怎么放为什么这么放这种问题。就效率来说哈哈想的更多写得更慢了，比原来写出来的废代码少很多。</p>
-
 <p>SQL或者数据库一套的话本身没有什么好说的，技术上的进步不是很多。写比较复杂的analytical queries可能会更熟练吧。window function的使用现在已经比较intuitive了不太需要花时间想，可能还是因为写多了。</p>
-
 <p>数仓这块还是有很多收获的，无论是底层原理的理解（其实也不是很强）还是实际操作。也有了自己一套关于数仓整理的经验和设计，也就还阔以吧。我相信这玩意随着时间的增长会慢慢进化变得更好的。只能说目前这个设计我还是很满意的，但是可能换了一个环境就不适用了，所以还是说要理解本质。</p>
-
 <h1 id="求职大环境">求职大环境</h1>
-
 <p>这段时间疫情WFH无论是面试还是跟猎头打电话都挺方便的，其实我是觉得如果可以的话要是以后面试都这样就好了，因为感觉能得到的信息跟去现场面试差别不大啊。</p>
-
 <p>总的来说数据工程师在新加坡最近还是火的，我觉得这很明显吧因为之前两年都在找Data scientist， 找多了发现一大半人要不在做dashboard要不在做pipelines，但是一些DS又不是engineering出身所以做出来的pipelines也可以进一步优化，DE 的需求起来我觉得一点都不意外。尤其在数据化是未来企业方向的情况下，基建还是得靠工程师们。所以估计一两年内在新加坡数据工程还是会很火的。</p>
-
 <p>薪资方向毕业生5k-6k甚至6.5k的我都听过。再往上这个差别就看个人能力和造化了。</p>
-
 <h1 id="大概的发展方向">大概的发展方向</h1>
-
 <p>中期内肯定是Head of data之类的位置。因为当你横跨了DE DA DS 之后那很自然就是要做这个，带一个data team去搭建公司的整个数据生态。实际上我新工作跟这个应该很类似，但毕竟还是小公司所以没有head不head的说法。可以预见的是我DS方面的薄弱在未来的一段时间内可能需要加强，除此之外还得晚上现代数据工具，Kafka 和 Spark这两个在接下来的工作中肯定是要尽量用的，不然一直没机会上生产不知道到底是咋回事，坑踩得不够多是学不到东西的。</p>
-
 <h1 id="被字节跳动刷掉之后的思考">被字节跳动刷掉之后的思考</h1>
-
 <p>前段时间面了几家公司，包括字节跳动。当然最后字节跳动是因为算法把我干掉了（至少面试官是这么说），所以我也在思考一个问题我到底喜欢的是纯粹的工程 - 也就是字节跳动的招聘方向，还是它在数据领域的应用。其实这个问题我现在还没有答案，我觉得我个人对工程是有一些热忱的不然我玩游戏可能也不会那么喜欢经营或者建设类，从无到有的实现过程本身就很令人激动吧。但数据也是一个很有意思的东西，我甚至觉得所谓的数据思维？应该是一种人生哲学，当你相信这个东西之后，你的行为规则就会具有一致性。好处就是你省下了很多精力去干其他事，减少了随机性；坏处就是减少了随机性，多了很多时间不知道干什么（取决于你的看法）。 所以当我从数据中证实/证伪一些想法的时候，还是很有趣的。</p>
-
 <p>当然了大公司会将分析和工程单独划分招两个人，我还没太想好到底应该着重往哪个方向发展，in the long run。小公司来说两者兼具肯定是有优势的，但是大公司的话其实是不需要。在我现在的层次来看分析这块在长远应该是能走的更远的，也从侧面证实了数据分析能力或许将在未来成为跟 office 一样的必要技能（其实我不会excel）。</p>
-
 <h1 id="总结">总结</h1>
-
 <p>本来打算从宏观角度讨论为啥数据化是未来所以数据相关的职业在未来一段时间还是会很吃香，但是我想这都快成共识了加上我也懒得打字所以就算了。就这样吧，下次跳槽再见。</p>
               
             </div>
@@ -367,7 +359,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2020 Shadowsong27. All Rights Reserved
+    &copy; 2021 Shadowsong27. All Rights Reserved
   </span>
 </footer>
 
@@ -499,210 +491,10 @@ if (!doNotTrack) {
   </div>
 </div>
 
-    <div id="algolia-search-modal" class="modal-container">
-  <div class="modal">
-    <div class="modal-header">
-      <span class="close-button"><i class="fa fa-close"></i></span>
-      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
-        <span class="searchby-algolia-text text-color-light text-small">by</span>
-        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
-      </a>
-      <i class="search-icon fa fa-search"></i>
-      <form id="algolia-search-form">
-        <input type="text" id="algolia-search-input" name="search"
-          class="form-control input--large search-input" placeholder="Search" />
-      </form>
-    </div>
-    <div class="modal-body">
-      <div class="no-result text-color-light text-center">no post found</div>
-      <div class="results">
-        
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/09/music-practice-diary-27th-sept-2020/">
-                <h3 class="media-heading">Music Practice Diary - 27th Sept 2020</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Sep 9, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>This week is on K310 1st movement (progressing) and the Tempest sonata.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/09/music-practice-diary-14th-sept-2020/">
-                <h3 class="media-heading">Music Practice Diary - 14th Sept 2020</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Sep 9, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>这周依旧Mozart Sonata in A minor, K310. 1st Movement</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/08/de-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering/">
-                <h3 class="media-heading">DE Log 6: From Data Engineering to Meta Data Engineering - the future of Data Engineering</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>Data engineering jobs are really popular nowadays, mostly contributed by the rising demand of data insights and data driven decision making.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/08/rt-log-4-about-starcraft-2/">
-                <h3 class="media-heading">RT Log 4: About Starcraft 2</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>I just reached Diamond 3 on American server in Starcraft 2. Yeah yeah I know NA server is easier compared to Asian but it is still a diamond, and I am pretty happy. For this particular season I have not played a single game of cheese, but I have, sadly to say, counter cheesed opponents. Most of my games are played with heavy reliance on macro.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/08/music-log-2-about-music-practices-and-flat-fingerings/">
-                <h3 class="media-heading">Music Log 2: About music practices and flat fingerings</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>So I am trying out <code>Notion</code>, so far it looks ok. With all the fancy templates it looks like it can do much more than Bear, but I have also heard rumors about how it can get pretty messy after you have a lot of stuff. It&rsquo;s free for personal use anyway so I thought I want to give it a try, at least the table structure is pretty useful for me.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/07/music-log-1-about-my-recent-obsession-with-chopin-etude-op.10-no.1/">
-                <h3 class="media-heading">Music Log 1: About my recent obsession with Chopin Etude Op.10 No.1</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jul 7, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>So this week I was pretty serious in my piano practices, played for one hour everyday except on Friday, it has become an important part of my daily routine.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/07/movie-log-5-knives-out/">
-                <h3 class="media-heading">Movie Log 5: Knives Out</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jul 7, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>I have been on some sort of movie spree for a few nights in a row, without dropping my piano practices of course, and I ran into this movie called <strong>Knives Out</strong> a few hours ago.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/05/da-log-1-a-quick-introduction-to-data-analysis/">
-                <h3 class="media-heading">DA Log 1: A Quick Introduction to Data Analysis</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  May 5, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>This is a bold title I know, and I am not even a data analyst.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/05/rt-log-3-%E5%8F%88%E4%B8%80%E4%B8%AA%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">
-                <h3 class="media-heading">RT Log 3: 又一个工作总结</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  May 5, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>还有不到两周的时间就要换工作了，时隔两年再打算写一个总结。</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/04/movie-log-4-the-day-after-tomorrow/">
-                <h3 class="media-heading">Movie Log 4: The Day After Tomorrow</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Apr 4, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>估摸着约是我初二那年，也就是二零零八年，本来跟往常一样趁爸妈不在家准备偷偷玩电脑，结果误打误撞开始看电影，那也是我第一次在电脑上看电影，看的就是《后天》。记得在那之前，电影对我来说只是偶尔学校组织去厂放映厅看一些红色电影，多动症的年纪自然是无法沉浸其中。</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-      </div>
-    </div>
-    <div class="modal-footer">
-      <p class="results-count text-medium"
-         data-message-zero="no post found"
-         data-message-one="1 post found"
-         data-message-other="{n} post found">
-         30 posts found
-      </p>
-    </div>
-  </div>
-</div>
+    
+
     
   
-    
     <div id="cover" style="background-image:url('https://i.pinimg.com/originals/00/93/9d/00939dff0059e823658afe98bb6d87a4.jpg');"></div>
   
 
@@ -715,7 +507,7 @@ if (!doNotTrack) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
-<script src="https://shadowsong27.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+<script src="https://shadowsong27.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
 
 
 <script lang="javascript">

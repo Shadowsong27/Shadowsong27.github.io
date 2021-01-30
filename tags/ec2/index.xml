@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>EC2 on Shadowsong&#39;s Personal Website</title>
@@ -6,11 +6,7 @@
     <description>Recent content in EC2 on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Mar 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://shadowsong27.github.io/tags/ec2/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 28 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://shadowsong27.github.io/tags/ec2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DevOps Log 0.1: Setup Cloudwatch on EC2 Instance</title>
       <link>https://shadowsong27.github.io/2019/03/devops-log-0.1-setup-cloudwatch-on-ec2-instance/</link>

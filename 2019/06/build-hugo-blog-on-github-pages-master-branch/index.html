@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.79.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
 <meta name="description" content="This short article aims to address issues I encountered during hosting personal static blog
@@ -88,7 +88,7 @@ on Github Page.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://shadowsong27.github.io/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
+    <link rel="stylesheet" href="https://shadowsong27.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
     
     
 
@@ -198,6 +198,16 @@ if (!doNotTrack) {
     </a>
   </li>
 
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/food">
+    
+      <i class="sidebar-button-icon fa fa-cutlery"></i>
+      
+      <span class="sidebar-button-desc">Food</span>
+    </a>
+  </li>
+
 
     </ul>
     <ul class="sidebar-buttons">
@@ -272,79 +282,52 @@ if (!doNotTrack) {
             <div class="main-content-wrap">
               <p>This short article aims to address issues I encountered during hosting personal static blog
 on Github Page.</p>
-
 <h1 id="problem-description">Problem Description</h1>
-
 <p>Github Page provides three different ways to host a static personal website, for free.</p>
-
 <ul>
 <li>host in <code>/docs</code> folder</li>
 <li>host in <code>gh-pages</code> branch</li>
 <li>host in <code>master</code> branch</li>
 </ul>
-
 <p>However, in the case of personal blogs, i.e. using repo <code>&lt;github_username&gt;.github.io</code>
 limits the option to just build the website on <code>master</code> branch.</p>
-
 <p>It indeed created some minor issues on publishing flow and setup when I switched from <code>jekyll</code>
 to <code>hugo</code>, and it is not that straight-forward on the official docs (they are great docs), hence this article.</p>
-
 <h1 id="solution">Solution</h1>
-
 <h3 id="1-install-hugo-and-necessary-notes">1. Install Hugo and necessary notes</h3>
-
 <p><a href="https://gohugo.io/documentation/">Click to view offical docs.</a></p>
-
 <p>Docs are pretty good, and IMHO Hugo has the most UI friendly
 and comprehensive docs among its competitors.</p>
-
 <p><a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">More docs here on hosting.</a></p>
-
 <p>Note in the second last section, build and publish on <code>master</code> branch is omitted because</p>
-
 <blockquote>
 <p>Steps should be similar to that of the gh-pages branch,
 with the exception that you will create your GitHub
 repository with the public directory as the root.</p>
 </blockquote>
-
 <p>Not cool! Especially inconvenient for people like me, who often enjoys blindly following
 instructions in a tutorial or documentation.</p>
-
 <p>So I have to read the <code>gh-pages</code> section carefully, and made some tweaks.</p>
-
 <h3 id="2-understand-the-structure">2. Understand the structure</h3>
-
 <p>The website is built when we run the command <code>hugo</code>  at project root, the project
 root initiated from <code>hugo new site &lt;project_name&gt;</code>, all the static content are automatically
 stored in <code>public</code> folder by default.</p>
-
 <p>In the official instructions, they <code>git worktree add</code>
 the <code>gh-pages</code> to make it become a linked worktree to the main git worktree, and then hosted the
 content of <code>public</code> folder there. This is just like having a mini-repo in a repo (not accurate at all but you get the idea).</p>
-
 <p>In order to have the static content in <code>public</code> at the project root on <code>master</code> branch, we
 first switch to a separate branch, called <code>builder</code>.</p>
-
 <p>Then we build the project by running <code>hugo</code>, by adapting the command in the docs, we could make
 the <code>master</code> branch become the mini-repo we want, set up stream to <code>master</code> as well.</p>
-
 <pre><code>git worktree add -B master public origin/master
-</code></pre>
-
-<p>Checkout to local <code>master</code> branch by simply <code>cd public</code>, and do <code>git push</code>, use <code>--force</code> if necessary.</p>
-
+</code></pre><p>Checkout to local <code>master</code> branch by simply <code>cd public</code>, and do <code>git push</code>, use <code>--force</code> if necessary.</p>
 <p>Remember to push your changes in <code>builder</code> branch to remote as well.</p>
-
 <p>In summary, use <code>builder</code> branch to write, build and publish the static content, use <code>master</code> branch to host
 on Github Pages</p>
-
 <h3 id="3-for-people-who-are-lazy">3. For people who are lazy</h3>
-
 <p>For those who are lazy to read, or for lazy publication, I have the following deployment script, I copy-paste
 the entire thing here because I want to see how it looks like when a large chunk of code
 is rendered using this Hugo Theme.</p>
-
 <pre><code>#!/bin/sh
 
 if [[ $(git status -s) ]]
@@ -379,32 +362,28 @@ git push
 echo &quot;Updating builder branch&quot;
 cd ../
 git push
-</code></pre>
-
-<p>Create a <code>deploy.sh</code> file at project root and copy paste the above code in.</p>
-
+</code></pre><p>Create a <code>deploy.sh</code> file at project root and copy paste the above code in.</p>
 <p>Check the original script in <a href="https://github.com/Shadowsong27/Shadowsong27.github.io">my repo</a>.</p>
-
 <p>Then follow the steps below:</p>
-
 <ul>
-<li><p>always work on <code>builder</code> branch locally</p></li>
-
-<li><p>preview blogs with <code>hugo serve</code></p></li>
-
-<li><p>commit your changes on local <code>builder branch</code></p></li>
-
-<li><p>run <code>bash deploy.sh</code></p></li>
+<li>
+<p>always work on <code>builder</code> branch locally</p>
+</li>
+<li>
+<p>preview blogs with <code>hugo serve</code></p>
+</li>
+<li>
+<p>commit your changes on local <code>builder branch</code></p>
+</li>
+<li>
+<p>run <code>bash deploy.sh</code></p>
+</li>
 </ul>
-
 <h1 id="side-note">Side Note</h1>
-
 <p>I originally wanted to write a detailed comparison and user experience between <code>hugo</code> and <code>jekyll</code>, but
 I think similar articles are all over the Internet, so never mind.</p>
-
 <p>In short, <code>hugo</code> is more <strong>architecturally-pleasing</strong> to me,
 but requires some <strong>simple</strong> tweaks. I also learned <code>git worktree</code> because of this, it is pretty cool.</p>
-
 <p><code>jekyll</code> is easier to setup, and to publish as well, but it is slow to build,
 it does not really matter to me at this point because I only have one aritcle, but I do not like
 to see a long list of red/green <code>git status</code> result (weirdo alert!).</p>
@@ -509,7 +488,7 @@ to see a long list of red/green <code>git status</code> result (weirdo alert!).<
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2020 Shadowsong27. All Rights Reserved
+    &copy; 2021 Shadowsong27. All Rights Reserved
   </span>
 </footer>
 
@@ -641,210 +620,10 @@ to see a long list of red/green <code>git status</code> result (weirdo alert!).<
   </div>
 </div>
 
-    <div id="algolia-search-modal" class="modal-container">
-  <div class="modal">
-    <div class="modal-header">
-      <span class="close-button"><i class="fa fa-close"></i></span>
-      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
-        <span class="searchby-algolia-text text-color-light text-small">by</span>
-        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
-      </a>
-      <i class="search-icon fa fa-search"></i>
-      <form id="algolia-search-form">
-        <input type="text" id="algolia-search-input" name="search"
-          class="form-control input--large search-input" placeholder="Search" />
-      </form>
-    </div>
-    <div class="modal-body">
-      <div class="no-result text-color-light text-center">no post found</div>
-      <div class="results">
-        
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/09/music-practice-diary-27th-sept-2020/">
-                <h3 class="media-heading">Music Practice Diary - 27th Sept 2020</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Sep 9, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>This week is on K310 1st movement (progressing) and the Tempest sonata.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/09/music-practice-diary-14th-sept-2020/">
-                <h3 class="media-heading">Music Practice Diary - 14th Sept 2020</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Sep 9, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>这周依旧Mozart Sonata in A minor, K310. 1st Movement</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/08/de-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering/">
-                <h3 class="media-heading">DE Log 6: From Data Engineering to Meta Data Engineering - the future of Data Engineering</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>Data engineering jobs are really popular nowadays, mostly contributed by the rising demand of data insights and data driven decision making.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/08/rt-log-4-about-starcraft-2/">
-                <h3 class="media-heading">RT Log 4: About Starcraft 2</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>I just reached Diamond 3 on American server in Starcraft 2. Yeah yeah I know NA server is easier compared to Asian but it is still a diamond, and I am pretty happy. For this particular season I have not played a single game of cheese, but I have, sadly to say, counter cheesed opponents. Most of my games are played with heavy reliance on macro.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/08/music-log-2-about-music-practices-and-flat-fingerings/">
-                <h3 class="media-heading">Music Log 2: About music practices and flat fingerings</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>So I am trying out <code>Notion</code>, so far it looks ok. With all the fancy templates it looks like it can do much more than Bear, but I have also heard rumors about how it can get pretty messy after you have a lot of stuff. It&rsquo;s free for personal use anyway so I thought I want to give it a try, at least the table structure is pretty useful for me.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/07/music-log-1-about-my-recent-obsession-with-chopin-etude-op.10-no.1/">
-                <h3 class="media-heading">Music Log 1: About my recent obsession with Chopin Etude Op.10 No.1</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jul 7, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>So this week I was pretty serious in my piano practices, played for one hour everyday except on Friday, it has become an important part of my daily routine.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/07/movie-log-5-knives-out/">
-                <h3 class="media-heading">Movie Log 5: Knives Out</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jul 7, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>I have been on some sort of movie spree for a few nights in a row, without dropping my piano practices of course, and I ran into this movie called <strong>Knives Out</strong> a few hours ago.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/05/da-log-1-a-quick-introduction-to-data-analysis/">
-                <h3 class="media-heading">DA Log 1: A Quick Introduction to Data Analysis</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  May 5, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>This is a bold title I know, and I am not even a data analyst.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/05/rt-log-3-%E5%8F%88%E4%B8%80%E4%B8%AA%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">
-                <h3 class="media-heading">RT Log 3: 又一个工作总结</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  May 5, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>还有不到两周的时间就要换工作了，时隔两年再打算写一个总结。</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/04/movie-log-4-the-day-after-tomorrow/">
-                <h3 class="media-heading">Movie Log 4: The Day After Tomorrow</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Apr 4, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>估摸着约是我初二那年，也就是二零零八年，本来跟往常一样趁爸妈不在家准备偷偷玩电脑，结果误打误撞开始看电影，那也是我第一次在电脑上看电影，看的就是《后天》。记得在那之前，电影对我来说只是偶尔学校组织去厂放映厅看一些红色电影，多动症的年纪自然是无法沉浸其中。</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-      </div>
-    </div>
-    <div class="modal-footer">
-      <p class="results-count text-medium"
-         data-message-zero="no post found"
-         data-message-one="1 post found"
-         data-message-other="{n} post found">
-         30 posts found
-      </p>
-    </div>
-  </div>
-</div>
+    
+
     
   
-    
     <div id="cover" style="background-image:url('https://i.pinimg.com/originals/00/93/9d/00939dff0059e823658afe98bb6d87a4.jpg');"></div>
   
 
@@ -857,7 +636,7 @@ to see a long list of red/green <code>git status</code> result (weirdo alert!).<
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
-<script src="https://shadowsong27.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+<script src="https://shadowsong27.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
 
 
 <script lang="javascript">

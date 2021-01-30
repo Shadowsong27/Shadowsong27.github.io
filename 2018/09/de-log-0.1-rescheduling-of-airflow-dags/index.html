@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.79.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
 <meta name="description" content="This article briefly records the step to reschedule a DAG on Apache Airflow">
@@ -82,7 +82,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://shadowsong27.github.io/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
+    <link rel="stylesheet" href="https://shadowsong27.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
     
     
 
@@ -192,6 +192,16 @@ if (!doNotTrack) {
     </a>
   </li>
 
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/food">
+    
+      <i class="sidebar-button-icon fa fa-cutlery"></i>
+      
+      <span class="sidebar-button-desc">Food</span>
+    </a>
+  </li>
+
 
     </ul>
     <ul class="sidebar-buttons">
@@ -265,62 +275,39 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>This article briefly records the step to reschedule a DAG on Apache Airflow</p>
-
 <p>So this week one of my tasks is to reschedule some DAGs in our current data pipelines on Airflow.</p>
-
 <p>It all started with a complain made by my colleague, “Why is this query taking 30 minutes to complete, is there a DAG running?”</p>
-
 <p>You get my point, scheduling a DAG, particularly a massive DAG that often involves many crucial data transformation and transportation during the office hour is not something desirable. It happens to us not long ago, when one of us is testing a complex query and it ended up jamming both Airflow tasks and other manual executions.</p>
-
 <p>As a data engineer, at some point of time you will need to be very familiar with the DAGs. They are like your babies, please take good care of them.</p>
-
 <h3 id="time-range">Time Range</h3>
-
 <p>Let’s say we work from 9 am to 10 pm (because somebody likes work or run some queries at night) SGT, we will need to schedule DAGs outside of this period, which is 1 am to 2 pm UTC.</p>
-
 <h3 id="types-of-dag">Types of DAG</h3>
-
 <p>We are dealing with time, therefore it is important to identify first whether the DAG is temporal related - you kinda use the <code>execution_date</code> in your query / python jinja templating / or other stuff.</p>
-
 <p>You would probably like to keep the historical DAG run of this particular DAG as well, or perhaps you are using the <code>backfill</code> feature provided by Airflow, which is a great feature by the way. The following steps describe how to handle both of them.</p>
-
 <h3 id="steps">Steps</h3>
-
 <h5 id="step-1-identify-scheduled-time-and-actual-execuion-time-of-dags">Step 1. Identify scheduled time and actual execuion time of DAGs</h5>
-
 <p>It is important to actually go to airflow metadata database (the name …) to checkout the actual execution time of the DAG. Sometimes, for some unknown reason, your DAG does not start at the time designated. So to avoid further confusion, make sure check the actual execution time.</p>
-
 <p>Now you need to decide whether you should reschedule a DAG based on the actual execution time.</p>
-
 <p>If the actual execution time is acceptable, what you really need to do is just correct the start date, if not you will need to make some other changes.</p>
-
-<h5 id="step-2-identify-temporal-relevant-dags">Step 2.  Identify temporal relevant DAGs</h5>
-
+<h5 id="step-2--identify-temporal-relevant-dags">Step 2.  Identify temporal relevant DAGs</h5>
 <p>Decide whether the DAG you want to move is dependent on time, as mentioned in previous section.</p>
-
-<h5 id="step-3-1-if-not">Step 3.1 If Not</h5>
-
+<h5 id="step-31-if-not">Step 3.1 If Not</h5>
 <ul>
 <li>Rename (usually use a <code>_v*</code> suffix)</li>
 <li>Change Start Date</li>
 <li>Deploy and unpause your DAG</li>
 <li>If everything is great, delete your old DAG in metadata database (optional, somebody may find the disabled DAG disturbing)</li>
 </ul>
-
-<h5 id="step-3-2-if-unfortunately-yes">Step 3.2 If unfortunately yes</h5>
-
+<h5 id="step-32-if-unfortunately-yes">Step 3.2 If unfortunately yes</h5>
 <ul>
-<li><p>Change the last execution time in metadata DB to the desired starting time,  one <code>scheduled_interval</code> before.  (I might remember the wrong column name)</p>
-
+<li>Change the last execution time in metadata DB to the desired starting time,  one <code>scheduled_interval</code> before.  (I might remember the wrong column name)</li>
+</ul>
 <pre><code>UPDATE dag_run SET execution_date = ...
 WHERE dag_id = ...
-</code></pre></li>
-
-<li><p>e.g. you have a daily DAG at 2am, now it is running every at 1am. So you change your latest DAG run to 1am.</p></li>
-
-<li><p>Change your start date</p></li>
+</code></pre><ul>
+<li>e.g. you have a daily DAG at 2am, now it is running every at 1am. So you change your latest DAG run to 1am.</li>
+<li>Change your start date</li>
 </ul>
-
 <p>And that is it. You can relax and enjoy every successful slack notification when you get up in the morning, knowing everything is running fine at night.</p>
               
             </div>
@@ -421,7 +408,7 @@ WHERE dag_id = ...
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2020 Shadowsong27. All Rights Reserved
+    &copy; 2021 Shadowsong27. All Rights Reserved
   </span>
 </footer>
 
@@ -553,210 +540,10 @@ WHERE dag_id = ...
   </div>
 </div>
 
-    <div id="algolia-search-modal" class="modal-container">
-  <div class="modal">
-    <div class="modal-header">
-      <span class="close-button"><i class="fa fa-close"></i></span>
-      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
-        <span class="searchby-algolia-text text-color-light text-small">by</span>
-        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
-      </a>
-      <i class="search-icon fa fa-search"></i>
-      <form id="algolia-search-form">
-        <input type="text" id="algolia-search-input" name="search"
-          class="form-control input--large search-input" placeholder="Search" />
-      </form>
-    </div>
-    <div class="modal-body">
-      <div class="no-result text-color-light text-center">no post found</div>
-      <div class="results">
-        
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/09/music-practice-diary-27th-sept-2020/">
-                <h3 class="media-heading">Music Practice Diary - 27th Sept 2020</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Sep 9, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>This week is on K310 1st movement (progressing) and the Tempest sonata.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/09/music-practice-diary-14th-sept-2020/">
-                <h3 class="media-heading">Music Practice Diary - 14th Sept 2020</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Sep 9, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>这周依旧Mozart Sonata in A minor, K310. 1st Movement</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/08/de-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering/">
-                <h3 class="media-heading">DE Log 6: From Data Engineering to Meta Data Engineering - the future of Data Engineering</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>Data engineering jobs are really popular nowadays, mostly contributed by the rising demand of data insights and data driven decision making.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/08/rt-log-4-about-starcraft-2/">
-                <h3 class="media-heading">RT Log 4: About Starcraft 2</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>I just reached Diamond 3 on American server in Starcraft 2. Yeah yeah I know NA server is easier compared to Asian but it is still a diamond, and I am pretty happy. For this particular season I have not played a single game of cheese, but I have, sadly to say, counter cheesed opponents. Most of my games are played with heavy reliance on macro.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/08/music-log-2-about-music-practices-and-flat-fingerings/">
-                <h3 class="media-heading">Music Log 2: About music practices and flat fingerings</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>So I am trying out <code>Notion</code>, so far it looks ok. With all the fancy templates it looks like it can do much more than Bear, but I have also heard rumors about how it can get pretty messy after you have a lot of stuff. It&rsquo;s free for personal use anyway so I thought I want to give it a try, at least the table structure is pretty useful for me.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/07/music-log-1-about-my-recent-obsession-with-chopin-etude-op.10-no.1/">
-                <h3 class="media-heading">Music Log 1: About my recent obsession with Chopin Etude Op.10 No.1</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jul 7, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>So this week I was pretty serious in my piano practices, played for one hour everyday except on Friday, it has become an important part of my daily routine.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/07/movie-log-5-knives-out/">
-                <h3 class="media-heading">Movie Log 5: Knives Out</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jul 7, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>I have been on some sort of movie spree for a few nights in a row, without dropping my piano practices of course, and I ran into this movie called <strong>Knives Out</strong> a few hours ago.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/05/da-log-1-a-quick-introduction-to-data-analysis/">
-                <h3 class="media-heading">DA Log 1: A Quick Introduction to Data Analysis</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  May 5, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>This is a bold title I know, and I am not even a data analyst.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/05/rt-log-3-%E5%8F%88%E4%B8%80%E4%B8%AA%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">
-                <h3 class="media-heading">RT Log 3: 又一个工作总结</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  May 5, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>还有不到两周的时间就要换工作了，时隔两年再打算写一个总结。</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/04/movie-log-4-the-day-after-tomorrow/">
-                <h3 class="media-heading">Movie Log 4: The Day After Tomorrow</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Apr 4, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>估摸着约是我初二那年，也就是二零零八年，本来跟往常一样趁爸妈不在家准备偷偷玩电脑，结果误打误撞开始看电影，那也是我第一次在电脑上看电影，看的就是《后天》。记得在那之前，电影对我来说只是偶尔学校组织去厂放映厅看一些红色电影，多动症的年纪自然是无法沉浸其中。</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-      </div>
-    </div>
-    <div class="modal-footer">
-      <p class="results-count text-medium"
-         data-message-zero="no post found"
-         data-message-one="1 post found"
-         data-message-other="{n} post found">
-         30 posts found
-      </p>
-    </div>
-  </div>
-</div>
+    
+
     
   
-    
     <div id="cover" style="background-image:url('https://i.pinimg.com/originals/00/93/9d/00939dff0059e823658afe98bb6d87a4.jpg');"></div>
   
 
@@ -769,7 +556,7 @@ WHERE dag_id = ...
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
-<script src="https://shadowsong27.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+<script src="https://shadowsong27.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
 
 
 <script lang="javascript">

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.79.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
 <meta name="description" content="This is a bold title I know, and I am not even a data analyst.">
@@ -78,7 +78,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://shadowsong27.github.io/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
+    <link rel="stylesheet" href="https://shadowsong27.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
     
     
 
@@ -188,6 +188,16 @@ if (!doNotTrack) {
     </a>
   </li>
 
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/food">
+    
+      <i class="sidebar-button-icon fa fa-cutlery"></i>
+      
+      <span class="sidebar-button-desc">Food</span>
+    </a>
+  </li>
+
 
     </ul>
     <ul class="sidebar-buttons">
@@ -259,99 +269,55 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>This is a bold title I know, and I am not even a data analyst.</p>
-
 <p>I am a data engineer, but I do wield my analytical skills frequently to solve both technical problems (reading a monitoring chart) and analytical problems (explain why MAU drops).</p>
-
 <p>So I think probably I should also write articles on analytics, just to make this skill less mysterious and keep refreshing my memory, of course, with my limited capabilities.</p>
-
 <p>This article will cover many high level concepts in data analysis, instead of how to actually calculate the average of a column.
 In my opinion, the technical requirements in data analysis are not as high as other data related jobs
 and in fact the value of data analysis lies in the analysis, not the technical difficulty.
 To extract useful, accurate insights and present it in a understandable way is far more meaningful than
 optimizing a query or find a fancy way to calculate.</p>
-
 <p>Data analysis can be generally categorised to descriptive data analysis (like getting the average, 25th percentile) and inferential data analysis (like forecasting the trends of sales). In this article, I will be ONLY cover the descriptive type.</p>
-
 <p>This article covers some common approaches to data analysis in the industry. I wrote this article because I feel data analytical skills will become an essential part of the skillset in future work forces. Product managers need to know how to read data, engineers in chemical plants need to know how to read charts too.</p>
-
 <p>This is purely based on my experience both from the university courses and working experience. It might not be exhaustive. Feel free to comment and  add on if you think something are important too.</p>
-
 <h1 id="overview">Overview</h1>
-
 <p>Data analysis is actually quite intuitive if you apply your logic frequently. It is simply some logical conclusions yielded naturally, when applying a series of templated logic on the data sets. This might sound confusing, but let’s get to this later on.</p>
-
 <p>A few very very very important things before we actually start to talk about data or data analysis, and what does these actually mean in practice</p>
-
 <h3 id="correlation-does-not-imply-causation">Correlation does not imply causation</h3>
-
 <p>The first part of this sentence is a very commonly heard phrase, it should act as a constant warning for you to keep doubting your conclusion until you think it is comprehensive and sound enough.</p>
-
 <p>For (the famous) example, Amazon data shows as the number of diapers sale went up among the 30-ish male adults,  the number of beers also went up.  So the most direct conclusion you can draw is,  diaper sales will help with the beer sales, which is very weird. This trend does not really tell you what is the causation behind this correlation, and you certainly can’t blindly report to your boss that “hey I think they have a magic correlation and we should just trust this and make decision based on this”.  Well worst case scenario, if you have no other insights to offer and you can actually reproduce this trend in other similar user cohorts (e.g. same age, same gender but different region in the same country), this might be regionally generic and can be used as advise for decision making.</p>
-
 <p>The main reason of this weird trend is 30-ish males feel can easily get bored when tending their babies, so they need beers.</p>
-
 <h3 id="data-is-never-perfectly-clean">Data is never perfectly clean</h3>
-
 <p>Real world data can be extremely dirty, it contains noise that you will find both hilarious and annoying. You could have typo in string field, you could have 105 years old in <code>age</code> or you could have missing data too. After a while you will get very used to the existence of dirty data.</p>
-
 <p>This can be attributed to the poorly designed collection process, or it can be an embedded attribute in your data.  (How can you prevent people from entering their age as 105?)</p>
-
 <p>However the handling is another big topic, as it depends on both the natural of your data and business context, and your analytical goal. For now let’s just remember that we need to do be aware of this, since this could lead disastrous conclusion.</p>
-
 <p>E.g. Let’s say 70% users did not really fill in their gender in Asian countries like Japan, Korea, and you realise the majority of the users who have filled their gender status in these countries are females (90%), which severely deviated from the normal value (say 60%). If you do know notice the missing 70%,  you would wrongly conclude that most of the asian users are females, where in fact, its really just that Asian people tend to hide their gender status.</p>
-
 <h3 id="ask-the-right-question">Ask the right question</h3>
-
 <p>The analytical goal should never be static, even it is given by your boss. Yes your boss might have given you a specific question like “what is the gender distribution of all users in Singapore, in the age between 25 to 35”. What your boss was actually trying answer is: “what is the best tag line to use in order to target the consumers?” He is trying to segment the user base to yield the largest segment, so the tagline could hit the majority of the user. Then you as an analyst should be able to understand your boss’ actual needs and start to perform your data magic to attend to these needs.</p>
-
 <p>Let’s say your product is a medium price lipstick,  you would definitely first try to cut out all males in your user, and then start to categorise the remaining females by other attributes, like age. However, if your product is a high end lipstick, you should consider including males who have strong purchasing power as it might be a very appropriate gift for their partners or friends. In this case, both products are similar in nature, but the strategies and the analytical goal is completely different.</p>
-
 <h1 id="developing-a-framework-first">Developing a Framework First</h1>
-
-<p>Like I mentioned before, analytical tasks are not just about writing SQLs and performing statistical calculations, in fact, they are just the last <code>implementation</code>step in the process.</p>
-
+<p>Like I mentioned before, analytical tasks are not just about writing SQLs and performing statistical calculations, in fact, they are just the last <code>implementation </code>step in the process.</p>
 <p>When I am doing analytical tasks, what typically going on in my mind is the following:</p>
-
 <h3 id="shape-of-the-data">Shape of the Data</h3>
-
 <p>What is the dimension of the data, the shape of the data, which granularity is this data set at?</p>
-
 <p>By knowing this, you will have a rough grasp of the data sets, and what potential meaningful metrics you can extract from this data sets eventually, especially after when you have performed many similar tasks.</p>
-
 <p>If you are constantly dealing with events like data, meaning every record has a timestamp attached to it, the analytical metrics you can think of commonly related to time window. e.g. the number of unique occurrences within the first seven days of signup, or 30 days, depending on the nature of the product.</p>
-
 <h3 id="metrics-selection">Metrics Selection</h3>
-
 <p>What kind of metrics / aggregates are interesting to the business context / stakeholders? Average number of sales over one year is not really useful if your product is seasonal.</p>
-
 <p>Here at this step you will need to select your metrics based on your understand of the domain, even the limitation of the data itself to provide meaningful support for decision making.</p>
-
 <h3 id="conclusion-validation">Conclusion validation</h3>
-
 <p>Is the conclusion sound enough? How can I verify it from other aspects?</p>
-
 <p>This is like solving mathematic problems when we are in middle school, we solve the equation using the formula we memorised in the book. However we know there are more than one way to solve this question. After I finished the entire paper, I would use that to verify the answer.</p>
-
 <p>Data analysis is the same, you will need to constantly verify your results even though they seem correct. A conversion rate of 5% seems normal because that’s probably the industrial average, but if your user retention is higher than the industrial average, meaning your user is pretty loyal, the conversion rate should probably more than 5% by intuition as the goodwill to pay is probably high too.</p>
-
 <p>A lot of these are based on intuition and experience in the field, that’s why you will need constantly repeat this hypothesis testing cycle, until you are pretty convinced that the result / conclusion you draw from the metrics are sound.</p>
-
 <h3 id="data-visualisation">Data Visualisation</h3>
-
 <p>If I am showing the result to somebody who are not really familiar with data, how should I present / explain it?</p>
-
 <p>This is technically not a data analysis step, but it is too important to be left unmentioned. And the reason is simple too: if you can’t get anyone to understand your results, or you can’t explain it in human words clearly, it’s either your results are wrong (overly complicated), or your results are wrong (just wrong).</p>
-
-<hr />
-
+<hr>
 <p>So in fact none of these is involving any technical details, e.g how to write the SQL for certain type of aggregations or what chart to use to visualise the result. This is because whether it is SQL, Python or Excel, they are simply tools and when you are approaching a data problem, I would definitely recommend using a top-down approach, meaning you should get the overall analytical framework right.</p>
-
 <p>If I really have to give a weight to the skills, I would say technical skills determined whether you can perform the job, even if like a robot. So maybe 40%, but what truly makes you a good data analyst and differentiating yourself from others is the remaining 60%, where you need know how to ask the right question, and tell an understandable story.</p>
-
 <h1 id="conclusion">Conclusion</h1>
-
 <p>I think that’s enough said. I have not really talked about anything technical, meaning how to actual write a query, do a group by or anything like that. Here we are only discussing methodologies. I will write a more detailed article for how to actually
-    how to actually execute your analysis with the previously mentioned framework if someone really wants to learn it in practice using either Python or SQL.</p>
+how to actually execute your analysis with the previously mentioned framework if someone really wants to learn it in practice using either Python or SQL.</p>
               
             </div>
           </div>
@@ -449,7 +415,7 @@ optimizing a query or find a fancy way to calculate.</p>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2020 Shadowsong27. All Rights Reserved
+    &copy; 2021 Shadowsong27. All Rights Reserved
   </span>
 </footer>
 
@@ -581,210 +547,10 @@ optimizing a query or find a fancy way to calculate.</p>
   </div>
 </div>
 
-    <div id="algolia-search-modal" class="modal-container">
-  <div class="modal">
-    <div class="modal-header">
-      <span class="close-button"><i class="fa fa-close"></i></span>
-      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
-        <span class="searchby-algolia-text text-color-light text-small">by</span>
-        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
-      </a>
-      <i class="search-icon fa fa-search"></i>
-      <form id="algolia-search-form">
-        <input type="text" id="algolia-search-input" name="search"
-          class="form-control input--large search-input" placeholder="Search" />
-      </form>
-    </div>
-    <div class="modal-body">
-      <div class="no-result text-color-light text-center">no post found</div>
-      <div class="results">
-        
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/09/music-practice-diary-27th-sept-2020/">
-                <h3 class="media-heading">Music Practice Diary - 27th Sept 2020</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Sep 9, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>This week is on K310 1st movement (progressing) and the Tempest sonata.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/09/music-practice-diary-14th-sept-2020/">
-                <h3 class="media-heading">Music Practice Diary - 14th Sept 2020</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Sep 9, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>这周依旧Mozart Sonata in A minor, K310. 1st Movement</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/08/de-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering/">
-                <h3 class="media-heading">DE Log 6: From Data Engineering to Meta Data Engineering - the future of Data Engineering</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>Data engineering jobs are really popular nowadays, mostly contributed by the rising demand of data insights and data driven decision making.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/08/rt-log-4-about-starcraft-2/">
-                <h3 class="media-heading">RT Log 4: About Starcraft 2</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>I just reached Diamond 3 on American server in Starcraft 2. Yeah yeah I know NA server is easier compared to Asian but it is still a diamond, and I am pretty happy. For this particular season I have not played a single game of cheese, but I have, sadly to say, counter cheesed opponents. Most of my games are played with heavy reliance on macro.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/08/music-log-2-about-music-practices-and-flat-fingerings/">
-                <h3 class="media-heading">Music Log 2: About music practices and flat fingerings</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>So I am trying out <code>Notion</code>, so far it looks ok. With all the fancy templates it looks like it can do much more than Bear, but I have also heard rumors about how it can get pretty messy after you have a lot of stuff. It&rsquo;s free for personal use anyway so I thought I want to give it a try, at least the table structure is pretty useful for me.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/07/music-log-1-about-my-recent-obsession-with-chopin-etude-op.10-no.1/">
-                <h3 class="media-heading">Music Log 1: About my recent obsession with Chopin Etude Op.10 No.1</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jul 7, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>So this week I was pretty serious in my piano practices, played for one hour everyday except on Friday, it has become an important part of my daily routine.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/07/movie-log-5-knives-out/">
-                <h3 class="media-heading">Movie Log 5: Knives Out</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jul 7, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>I have been on some sort of movie spree for a few nights in a row, without dropping my piano practices of course, and I ran into this movie called <strong>Knives Out</strong> a few hours ago.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/05/da-log-1-a-quick-introduction-to-data-analysis/">
-                <h3 class="media-heading">DA Log 1: A Quick Introduction to Data Analysis</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  May 5, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>This is a bold title I know, and I am not even a data analyst.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/05/rt-log-3-%E5%8F%88%E4%B8%80%E4%B8%AA%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">
-                <h3 class="media-heading">RT Log 3: 又一个工作总结</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  May 5, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>还有不到两周的时间就要换工作了，时隔两年再打算写一个总结。</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/04/movie-log-4-the-day-after-tomorrow/">
-                <h3 class="media-heading">Movie Log 4: The Day After Tomorrow</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Apr 4, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>估摸着约是我初二那年，也就是二零零八年，本来跟往常一样趁爸妈不在家准备偷偷玩电脑，结果误打误撞开始看电影，那也是我第一次在电脑上看电影，看的就是《后天》。记得在那之前，电影对我来说只是偶尔学校组织去厂放映厅看一些红色电影，多动症的年纪自然是无法沉浸其中。</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-      </div>
-    </div>
-    <div class="modal-footer">
-      <p class="results-count text-medium"
-         data-message-zero="no post found"
-         data-message-one="1 post found"
-         data-message-other="{n} post found">
-         30 posts found
-      </p>
-    </div>
-  </div>
-</div>
+    
+
     
   
-    
     <div id="cover" style="background-image:url('https://i.pinimg.com/originals/00/93/9d/00939dff0059e823658afe98bb6d87a4.jpg');"></div>
   
 
@@ -797,7 +563,7 @@ optimizing a query or find a fancy way to calculate.</p>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
-<script src="https://shadowsong27.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+<script src="https://shadowsong27.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
 
 
 <script lang="javascript">

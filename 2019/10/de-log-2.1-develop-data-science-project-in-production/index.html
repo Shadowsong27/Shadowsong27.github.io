@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="generator" content="Hugo 0.79.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
 <meta name="description" content="Recently I was working on the deployment of a predictive model built by my dear
@@ -81,7 +81,7 @@ I have encountered during its production deployment.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://shadowsong27.github.io/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
+    <link rel="stylesheet" href="https://shadowsong27.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
     
     
 
@@ -191,6 +191,16 @@ if (!doNotTrack) {
     </a>
   </li>
 
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/food">
+    
+      <i class="sidebar-button-icon fa fa-cutlery"></i>
+      
+      <span class="sidebar-button-desc">Food</span>
+    </a>
+  </li>
+
 
     </ul>
     <ul class="sidebar-buttons">
@@ -258,42 +268,34 @@ if (!doNotTrack) {
               <p>Recently I was working on the deployment of a predictive model built by my dear
 friend valued ex-colleague. Here I will share some thoughts and challenges
 I have encountered during its production deployment.</p>
-
 <p>This topic will be discussed over at least two blog posts, as I do not write a super long article and then give up before I can finish it (Heck I almost did not finish this one). I will discuss the entire system, from the preparation of data and model artifacts to the deployment of the actual service.</p>
-
 <p>Essentially, the service itself will load the artifacts and doing real time prediction based on information posted by the frontend, and the update of the models/other datasets is done at a scheduled interval.</p>
-
 <p>Disclaimer: I am working in a startup, that means the size of data is not as huge as Facebook or Twitter, some strategies adopted here may not be realistic in your context, and I am sure I have not yet encountered every problem in the field so this is not a guide, it’s just to share some thoughts.</p>
-
 <h1 id="architecture">Architecture</h1>
-
 <p>The development generally could be divided into two big parts:</p>
-
 <ol>
-<li><p>Data and model preparation pipelines</p></li>
-
-<li><p>Service Development</p></li>
+<li>
+<p>Data and model preparation pipelines</p>
+</li>
+<li>
+<p>Service Development</p>
+</li>
 </ol>
-
 <p>This preparation step is done at a scheduled interval.</p>
-
-<p><img src="https://shadowsong27.github.io/img/de-log-2-img1.png" alt="pic" /></p>
-
+<p><img src="https://shadowsong27.github.io/img/de-log-2-img1.png" alt="pic"></p>
 <p>As illustrated by the diagram above, we are mainly doing</p>
-
 <ol>
-<li><p>At the start of each month (or week or day depend on the business need and marginal gain of incremental learning), prepare the data -&gt; train the models -&gt; save the model artifacts for future use.</p></li>
-
-<li><p>At an independent but often much shorter interval, prepare the additional data sets needed for prediction from Data Warehouse, and then they would be further replicated to the service backend for later use.</p></li>
+<li>
+<p>At the start of each month (or week or day depend on the business need and marginal gain of incremental learning), prepare the data -&gt; train the models -&gt; save the model artifacts for future use.</p>
+</li>
+<li>
+<p>At an independent but often much shorter interval, prepare the additional data sets needed for prediction from Data Warehouse, and then they would be further replicated to the service backend for later use.</p>
+</li>
 </ol>
-
 <h3 id="model-preparation">Model Preparation</h3>
-
 <p>It is pretty straight forward, politely ask your data scientist colleague to organize the commands to prepare, train the model. If your dear friend and valued colleague does not know how to do that, help them by wrapping the code with a CLI command interface.</p>
-
 <p>One very important thing to note:
 Some parts of the data science project such as prediction function or other data processing functions will inevitably be reused in the backend service. While preparing the commands for scheduling, I would package those necessary tools into a separate folder, decoupled from memory intensive libs such as  <code>pandas</code> (still in the same repo), and later on built by running <code>pip install git+ssh</code>.</p>
-
 <pre><code>root
 |____prediction_model
 | |____stuff for model training
@@ -303,56 +305,30 @@ Some parts of the data science project such as prediction function or other data
 | |___ stuff for production use
 |____README.md
 |___ setup.py (setup for prediction_model_tools folder)
-</code></pre>
-
-<p>People who are improving the model might forget to update the production tools, it is vital to setup tests for those production tools, mainly on the shape of input. The accuracy test of the model should also be installed so that we do not deploy a worse model into production (if not using incremental learning). More details will be discussed during the deployment phase.</p>
-
+</code></pre><p>People who are improving the model might forget to update the production tools, it is vital to setup tests for those production tools, mainly on the shape of input. The accuracy test of the model should also be installed so that we do not deploy a worse model into production (if not using incremental learning). More details will be discussed during the deployment phase.</p>
 <h3 id="data-preparation">Data Preparation</h3>
-
 <p>Normally it is just data transformation, within Data Warehouse, nothing much to talk about.  Complexity might vary depends on your usage and source data. However, we do need to think about the feasibility of TRANSACTIONAL queries in a production environment. Let’s say we prepared an analytical table prejoined that has 1 billion rows, which is easily handled by any modern data warehouse. However, when you want to serve them in a standard Postgres instance, you will need to think about the tradeoffs. Will a normal select be slow? How should we index it (Data replication does not usually handle indexin)? Should we prepare everything in one table and simplify the ORM layer / raw SQL layer or should we do custom joins on a needed basis. Anyway, the core idea is to think about the feasibility when replicating the data. It would be easier if the data engineer has some background in transactional queries, or even the optimization of the service databases.</p>
-
 <h4 id="a-note-on-data-replication">A Note on Data Replication</h4>
-
 <p>We do not serve data directly from data warehouse as it is brittle, not ACID (Redshift and many File System based Data Warehouse), this should be a common understanding so I will not further explain the need to replicate data.</p>
-
 <p>However, I would like to stress the importance of having the same data set being replicated to both the TEST and PROD environment. It ensures the reproducibility of certain data bugs.</p>
-
 <p>In development environment, I would suggest a direct connection to data warehouse if your service is not crazy at opening connections.</p>
-
 <p>Anyway, now I always prepare two separate books for similar projects. One for the actual application backend DB, one for the replicated data in a separate schema.</p>
-
 <p>Data bugs are often considered hard to catch because we can only tell whether it is a bug by examining the final results - the prediction result (or intermediate results if optimisation is done correctly.)</p>
-
 <h3 id="service">Service</h3>
-
 <p>In my case I did not really spend much time on the development of the service itself, due to the simplicity of our need for the current iteration. Thus, I will not and could not go very deep into the subject. With such a simplistic setup, I feel there is not much difference from setting up a conventional web backend.</p>
-
 <p>Architecture is simple:</p>
-
-<p><img src="https://shadowsong27.github.io/img/de-log-2-img2.png" alt="pic" /></p>
-
+<p><img src="https://shadowsong27.github.io/img/de-log-2-img2.png" alt="pic"></p>
 <p>Personally I did not like ORM in simple projects so I have not yet tried integrating ORM with this dual-schema database setup.</p>
-
 <h4 id="request-rate">Request rate</h4>
-
 <p>One thing I have to agree with the platform backend engineers (they are my users yes) is rate of requests, subsequently the responsibility of validating changes in the raw input. Ideally, we want to make a new prediction when there is a change in the raw input. In my case, I managed to persuade my colleagues to verify the input updates before calling my service, but it might not be appropriate for every scenario.</p>
-
-<h4 id="model-pre-loading">Model (Pre)Loading</h4>
-
+<h4 id="model-preloading">Model (Pre)Loading</h4>
 <p>Model artefacts could be huge in terms of size, so it is crucial (and common knowledge I guess?) to preload the artefacts as global and accessible by the service workers.</p>
-
 <p>In the specific case of <code>gunicorn</code> , use the <code>—preload</code> option.</p>
-
 <h4 id="docker-image-preparation">Docker image preparation</h4>
-
 <p>This should probably be discussed Part II, but personally I usually develop using docker directly. Some people prefer to develop outside of the containers, and then later on dockerize it. There are pros and cons for both approaches, but they will not be discussed here.</p>
-
 <p>Assuming taking approach one (develop with containers directly), we often need to rebuild the image several times. That means if not carefully planned, we will waste a lot of time waiting for libraries to be built, which results in a discontinuity in thoughts as we switch to other projects. Thus, build a common machine learning base image seems a sensible choice. Of course there are several popular existing pre-built images for machine learning, but I have to decide to build everything either from source or <code>pip</code>, and it is definitely a good learning experience but a chaotic nightmare. Anyway I only recommend you to do it once and only once.</p>
-
 <h1 id="summary">Summary</h1>
-
 <p>This is my favourite project  as it was completely built by me - of course you get attached to our own work don’t you? :). I could image that the complexity and the size of the modules will grow when there are more requirements / data sets, and hope I had the chance to work on such projects in the future. Ultimately, I feel quite a few problems could be successfully addressed using established approaches from the conventional software engineering, with a touch of data sense to handle the potential variants.</p>
-
 <p>More discussion on deployment for Part II, if I am not too lazy to write it, and I have only finished this post now because I started to forget what I have done one week ago (feeling old man).</p>
               
             </div>
@@ -441,7 +417,7 @@ Some parts of the data science project such as prediction function or other data
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2020 Shadowsong27. All Rights Reserved
+    &copy; 2021 Shadowsong27. All Rights Reserved
   </span>
 </footer>
 
@@ -573,210 +549,10 @@ Some parts of the data science project such as prediction function or other data
   </div>
 </div>
 
-    <div id="algolia-search-modal" class="modal-container">
-  <div class="modal">
-    <div class="modal-header">
-      <span class="close-button"><i class="fa fa-close"></i></span>
-      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
-        <span class="searchby-algolia-text text-color-light text-small">by</span>
-        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
-      </a>
-      <i class="search-icon fa fa-search"></i>
-      <form id="algolia-search-form">
-        <input type="text" id="algolia-search-input" name="search"
-          class="form-control input--large search-input" placeholder="Search" />
-      </form>
-    </div>
-    <div class="modal-body">
-      <div class="no-result text-color-light text-center">no post found</div>
-      <div class="results">
-        
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/09/music-practice-diary-27th-sept-2020/">
-                <h3 class="media-heading">Music Practice Diary - 27th Sept 2020</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Sep 9, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>This week is on K310 1st movement (progressing) and the Tempest sonata.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/09/music-practice-diary-14th-sept-2020/">
-                <h3 class="media-heading">Music Practice Diary - 14th Sept 2020</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Sep 9, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>这周依旧Mozart Sonata in A minor, K310. 1st Movement</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/08/de-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering/">
-                <h3 class="media-heading">DE Log 6: From Data Engineering to Meta Data Engineering - the future of Data Engineering</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>Data engineering jobs are really popular nowadays, mostly contributed by the rising demand of data insights and data driven decision making.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/08/rt-log-4-about-starcraft-2/">
-                <h3 class="media-heading">RT Log 4: About Starcraft 2</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>I just reached Diamond 3 on American server in Starcraft 2. Yeah yeah I know NA server is easier compared to Asian but it is still a diamond, and I am pretty happy. For this particular season I have not played a single game of cheese, but I have, sadly to say, counter cheesed opponents. Most of my games are played with heavy reliance on macro.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/08/music-log-2-about-music-practices-and-flat-fingerings/">
-                <h3 class="media-heading">Music Log 2: About music practices and flat fingerings</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Aug 8, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>So I am trying out <code>Notion</code>, so far it looks ok. With all the fancy templates it looks like it can do much more than Bear, but I have also heard rumors about how it can get pretty messy after you have a lot of stuff. It&rsquo;s free for personal use anyway so I thought I want to give it a try, at least the table structure is pretty useful for me.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/07/music-log-1-about-my-recent-obsession-with-chopin-etude-op.10-no.1/">
-                <h3 class="media-heading">Music Log 1: About my recent obsession with Chopin Etude Op.10 No.1</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jul 7, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>So this week I was pretty serious in my piano practices, played for one hour everyday except on Friday, it has become an important part of my daily routine.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/07/movie-log-5-knives-out/">
-                <h3 class="media-heading">Movie Log 5: Knives Out</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jul 7, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>I have been on some sort of movie spree for a few nights in a row, without dropping my piano practices of course, and I ran into this movie called <strong>Knives Out</strong> a few hours ago.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/05/da-log-1-a-quick-introduction-to-data-analysis/">
-                <h3 class="media-heading">DA Log 1: A Quick Introduction to Data Analysis</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  May 5, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>This is a bold title I know, and I am not even a data analyst.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/05/rt-log-3-%E5%8F%88%E4%B8%80%E4%B8%AA%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">
-                <h3 class="media-heading">RT Log 3: 又一个工作总结</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  May 5, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>还有不到两周的时间就要换工作了，时隔两年再打算写一个总结。</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://shadowsong27.github.io/2020/04/movie-log-4-the-day-after-tomorrow/">
-                <h3 class="media-heading">Movie Log 4: The Day After Tomorrow</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Apr 4, 2020
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>估摸着约是我初二那年，也就是二零零八年，本来跟往常一样趁爸妈不在家准备偷偷玩电脑，结果误打误撞开始看电影，那也是我第一次在电脑上看电影，看的就是《后天》。记得在那之前，电影对我来说只是偶尔学校组织去厂放映厅看一些红色电影，多动症的年纪自然是无法沉浸其中。</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-      </div>
-    </div>
-    <div class="modal-footer">
-      <p class="results-count text-medium"
-         data-message-zero="no post found"
-         data-message-one="1 post found"
-         data-message-other="{n} post found">
-         30 posts found
-      </p>
-    </div>
-  </div>
-</div>
+    
+
     
   
-    
     <div id="cover" style="background-image:url('https://i.pinimg.com/originals/00/93/9d/00939dff0059e823658afe98bb6d87a4.jpg');"></div>
   
 
@@ -789,7 +565,7 @@ Some parts of the data science project such as prediction function or other data
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
-<script src="https://shadowsong27.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+<script src="https://shadowsong27.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
 
 
 <script lang="javascript">
