@@ -92,9 +92,9 @@ disableLanguages        = ['fr', 'pl', 'de', 'pt', 'es', 'zh-tw', 'ja', 'nl']
     weight            = 1
 
   [[menu.main]]
-    name              = "About"
+    name              = "Career"
     identifier        = "about"
-    url               = "/about/"
+    url               = "/career/"
     pre               = "<i class='far fa-id-card'></i>"
     weight            = 2
 

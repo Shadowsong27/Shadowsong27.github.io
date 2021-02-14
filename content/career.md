@@ -1,15 +1,21 @@
----
-title: "Career"
-date: 2019-11-20T23:38:52+08:00
-comments:       false
-showMeta:       false
-showActions:    false
----
++++
+title = "Career"
+date = "2021-02-14"
++++
+
+This page should serve more like an informal introduction in my profession career and skill sets, if you are 
+a recruiter, I would appreciate you to read this before you ask me for a CV.
 
 I am a data engineer, I tend data pipelines and make data flows efficiently for my
 fellow data analysts and data scientists.
 
 You should only notice me when something is broken.
+
+I am currently leading a team of three full time employees in building the data architecture for a startup. 
+
+Besides data engineering, I do cover an extensive amount of analytical work as well, you know what they say
+about wearing hats in startup.
+
 
 # Education Background
 
@@ -18,9 +24,27 @@ You should only notice me when something is broken.
 - Bachelor of Science in Business Analytics
 - Science & Tech Scholarship
 
+So I do hold a degree from a somewhat famous university in Asia, 
+but nothing else really stands out academically, just a normal PRC scholar. 
+
 # Work Experience
 
-### Data Engineer - Aug 2018 to now
+### Data Team Lead - May 2020 to now
+
+(To be updated in details when I am open for job opportunities ...)
+
+Main responsibilities:
+
+- Handle the overall architectural design and initial implementation of data projects, including
+data extraction in large scale, data processing and correction
+
+- Weekly sprint planning, detailing of tasks
+
+- Mentoring of teammates
+
+- conduct research and build POC when new frameworks, tools are needed
+
+### Data Engineer - Aug 2018 to May 2020
 
 This role requires me to work both as a backend developer and a data engineer, 
 it also requires me to communicate a lot with different stakeholders in 
