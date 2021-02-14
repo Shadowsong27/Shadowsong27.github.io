@@ -119,41 +119,31 @@ disableLanguages        = ['fr', 'pl', 'de', 'pt', 'es', 'zh-tw', 'ja', 'nl']
     LanguageName        = "English"
     weight              = 1
 
-  [Languages.zh-CN]
-    LanguageCode        = "zh-CN"
+  [Languages.zh]
+    LanguageCode        = "zh"
     LanguageName        = "中文"
     weight              = 7
 
-    [[Languages.zh-CN.menu.main]]
-      name              = "Início"
+    [[Languages.zh.menu.main]]
+      name              = "主页"
       identifier        = "home"
       url               = "/"
       pre               = "<i class='fas fa-home'></i>"
       weight            = 1
 
-    [[Languages.zh-CN.menu.main]]
-      name              = "Sobre"
+    [[Languages.zh.menu.main]]
+      name              = "职业"
       identifier        = "about"
       url               = "/about/"
       pre               = "<i class='far fa-id-card'></i>"
       weight            = 2
 
-    [[Languages.zh-CN.menu.main]]
-      name              = "Blog"
+    [[Languages.zh.menu.main]]
+      name              = "博客"
       identifier        = "blog"
       url               = "/blog/"
       pre               = "<i class='far fa-newspaper'></i>"
       weight            = 3
-
-  [Languages.zh-TW]
-    LanguageCode        = "zh-TW"
-    LanguageName        = "中文"
-    weight              = 8
-
-  [Languages.ja]
-    LanguageCode        = "ja"
-    LanguageName        = "日本語"
-    weight              = 9
 
 [social]
   # Coding Communities
