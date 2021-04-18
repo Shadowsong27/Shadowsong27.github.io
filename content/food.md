@@ -191,6 +191,8 @@ this page as a gallery.
 ## 西红柿蛋汤
 
 
+![pic](/img/food/西红柿蛋汤.png)
+
 # 其他
 
 ### 西餐
