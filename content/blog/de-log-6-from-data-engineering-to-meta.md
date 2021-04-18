@@ -1,15 +1,14 @@
----
-title: "DE Log 6: From Data Engineering to Meta Data Engineering - the future of Data Engineering"
-thumbnailImagePosition: "left"
-metaAlignment: center
-thumbnailImage: https://www.offshore-technology.com/wp-content/uploads/sites/6/2019/12/shutterstock_570368662.jpg
-coverImage: https://www.offshore-technology.com/wp-content/uploads/sites/6/2019/12/shutterstock_570368662.jpg
-coverMeta: out
-date: 2020-08-19
-categories:
-- programming
-- data-engineering
----
++++
+title = "DE Log 6: From Data Engineering to Meta Data Engineering - the future of Data Engineering"
+date = "2020-08-19"
+tags = ["data-engineering", "programming"]
+categories = ["de-log"]
+
+[[images]]
+  src = "https://www.offshore-technology.com/wp-content/uploads/sites/6/2019/12/shutterstock_570368662.jpg"
+  stretch = "vertical"
+
++++
 
 Data engineering jobs are really popular nowadays, mostly contributed by the rising demand of data insights and data driven decision making. 
 <!--more-->

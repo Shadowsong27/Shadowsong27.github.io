@@ -1,15 +1,14 @@
----
-title: "DE Log 5: Thoughts on Analytical Tables"
-thumbnailImagePosition: "left"
-metaAlignment: center
-thumbnailImage: http://www.jetbrains.com/datagrip/img/screenshots/query-console.png
-coverImage: http://www.jetbrains.com/datagrip/img/screenshots/query-console.png
-coverMeta: out
-date: 2020-01-09
-categories:
-- programming
-- data-engineering
----
++++
+title = "DE Log 5: Thoughts on Analytical Tables"
+date = "2020-01-09"
+tags = ["data-engineering", "programming"]
+categories = ["de-log"]
+
+[[images]]
+  src = "http://www.jetbrains.com/datagrip/img/screenshots/query-console.png"
+  stretch = "vertical"
+
++++
 
 I have taken some Database design course back in university days, though I have skipped almost all of the lectures as I was also self-learning during my first internship on the same matter, in a much more practical manner. I did not even know the word `OLAP`  back then. However, I am not dismissing the importance of data modelling in data engineering. On the contrary, data modelling is one of the important skills if you want to be a data engineer.
 <!--more-->
