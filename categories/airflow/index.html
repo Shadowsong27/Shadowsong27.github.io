@@ -13,10 +13,10 @@
 
 <meta property="og:description" content="Shadowsong&#39;s personal website">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Posts">
-<meta name="twitter:title" content="Posts">
-<meta property="og:url" content="https://shadowsong27.github.io/post/">
-<meta property="twitter:url" content="https://shadowsong27.github.io/post/">
+<meta property="og:title" content="airflow">
+<meta name="twitter:title" content="airflow">
+<meta property="og:url" content="https://shadowsong27.github.io/categories/airflow/">
+<meta property="twitter:url" content="https://shadowsong27.github.io/categories/airflow/">
 <meta property="og:site_name" content="Shadowsong&#39;s Personal Website">
 <meta property="og:description" content="Shadowsong&#39;s personal website">
 <meta name="twitter:description" content="Shadowsong&#39;s personal website">
@@ -39,16 +39,16 @@
   <meta property="twitter:image" content="https://avatars3.githubusercontent.com/u/12522657?s=400&u=ccfcf050a757c6a49241737eefe4386064400b5e&v=4">
 
 
-    <title>Posts</title>
+    <title>airflow</title>
 
     <link rel="icon" href="https://shadowsong27.github.io/favicon.png">
     
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://shadowsong27.github.io/post/index.xml">
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://shadowsong27.github.io/categories/airflow/index.xml">
     
 
     
 
-    <link rel="canonical" href="https://shadowsong27.github.io/post/">
+    <link rel="canonical" href="https://shadowsong27.github.io/categories/airflow/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -200,16 +200,18 @@ if (!doNotTrack) {
 </nav>
 
       
+        
 
+      
       <div id="main" data-behavior="2"
         class="
                hasCoverMetaIn
                ">
-        <section class="postShorten-group main-content-wrap">
-          
-          
-          
+        
+          <section class="postShorten-group main-content-wrap">
             
+            
+              
   
     
   
@@ -222,16 +224,16 @@ if (!doNotTrack) {
     
     <div class="postShorten-header">
       <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://shadowsong27.github.io/2018/07/book-log-1-%E9%87%8D%E6%B8%A9%E8%8A%B3%E5%8D%8E/">
-          Book Log 1: 重温《芳华》
+        <a class="link-unstyled" href="https://shadowsong27.github.io/2021/04/de-log-7-migrating-from-airflow-1-to-2/">
+          DE Log 7: Migrating from Airflow 1 to 2
         </a>
       </h1>
       
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-07-17T00:00:00Z">
+      <time itemprop="datePublished" datetime="2021-04-29T00:00:00Z">
         
-  July 17, 2018
+  April 29, 2021
 
       </time>
     
@@ -240,9 +242,11 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="https://shadowsong27.github.io/categories/reviews-thoughts">reviews &amp; thoughts</a>, 
+      <a class="category-link" href="https://shadowsong27.github.io/categories/programming">programming</a>, 
     
-      <a class="category-link" href="https://shadowsong27.github.io/categories/book">book</a>
+      <a class="category-link" href="https://shadowsong27.github.io/categories/data-engineering">data-engineering</a>, 
+    
+      <a class="category-link" href="https://shadowsong27.github.io/categories/airflow">airflow</a>
     
   
 
@@ -251,172 +255,28 @@ if (!doNotTrack) {
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
       
-        <p>这几天读书时间不太固定，心情也比较浮躁，生活中事情也比较多。觉得《芳华》这本书的厚度也比较好欺负，
-所以最终还是一头扎进了那个年代的想象。其实本来只想写一个朋友圈的，但是觉得，反正也闲着这段时间，
-多写点东西也是好的，至少能动一下脑子。</p>
+        <p>Today I have successfully migrated my current Airflow setup from v1.10.14 to v2.0.2. This article will not be a very detailed step by step guide for upgrading, instead I will introduce the general migration step worked very specifically for my setup, and share some of the problems I encountered during the process, and finally some general feelings with Airflow 2.</p>
       
       <p>
-        <a href="https://shadowsong27.github.io/2018/07/book-log-1-%E9%87%8D%E6%B8%A9%E8%8A%B3%E5%8D%8E/" class="postShorten-excerpt_link link">Continue reading</a>
+        <a href="https://shadowsong27.github.io/2021/04/de-log-7-migrating-from-airflow-1-to-2/" class="postShorten-excerpt_link link">Continue reading</a>
         
       </p>
     </div>
   </div>
   
-    <a href="https://shadowsong27.github.io/2018/07/book-log-1-%E9%87%8D%E6%B8%A9%E8%8A%B3%E5%8D%8E/">
+    <a href="https://shadowsong27.github.io/2021/04/de-log-7-migrating-from-airflow-1-to-2/">
       <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="http://img5.mtime.cn/mg/2017/12/15/093023.98906608.jpg"/>
+        <img alt="" itemprop="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfrNga0t02Y9d4NitnHpGSEmOWiXKE8v9lxVY1m5iejCrXP9LmlImHza0vkuy46iIOUaQ&amp;usqp=CAU"/>
       </div>
     </a>
   
 </article>
 
-          
             
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://shadowsong27.github.io/2018/06/movie-log-1-annihilation/">
-          Movie Log 1 - Annihilation
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-06-11T00:00:00Z">
-        
-  June 11, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://shadowsong27.github.io/categories/reviews-thoughts">reviews &amp; thoughts</a>, 
-    
-      <a class="category-link" href="https://shadowsong27.github.io/categories/movie">movie</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <p>本来我想着明早起来再写这篇文章，不过我感觉到那时候可能就忘的差不多了。还是趁热写吧，这倒不能算影评，只能算是感想了（应该还没有到写影评的水平）。</p>
-      
-      <p>
-        <a href="https://shadowsong27.github.io/2018/06/movie-log-1-annihilation/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://shadowsong27.github.io/2018/06/movie-log-1-annihilation/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://pbs.twimg.com/media/DS0lKq9WAAAuu1C.jpg"/>
-      </div>
-    </a>
-  
-</article>
-
-          
             
-  
-    
-  
 
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://shadowsong27.github.io/2018/06/drama-thoughts-bull/">
-          Drama Thoughts - Bull
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-06-04T00:00:00Z">
+          </section>
         
-  June 4, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://shadowsong27.github.io/categories/reviews-thoughts">reviews &amp; thoughts</a>, 
-    
-      <a class="category-link" href="https://shadowsong27.github.io/categories/tv-series">tv-series</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <blockquote>
-<p>Bull is an American drama television series starring Michael Weatherly. CBS ordered the program to series on May 13,
-2016, and it premiered on September 20, 2016. The show is based on the early days of talk show host
-Dr. Phil McGraw&rsquo;s career, when he was a trial consultant.
-——— Wikipedia</p>
-</blockquote>
-<p>Yes I am lazy I know.</p>
-      
-      <p>
-        <a href="https://shadowsong27.github.io/2018/06/drama-thoughts-bull/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://shadowsong27.github.io/2018/06/drama-thoughts-bull/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://images-na.ssl-images-amazon.com/images/I/915h9Q3ds-L._RI_.jpg"/>
-      </div>
-    </a>
-  
-</article>
-
-          
-          
-  <div class="pagination-bar">
-    <ul class="pagination">
-      
-        
-          <li class="pagination-prev">
-            <a class="btn btn--default btn--small" href="https://shadowsong27.github.io/post/page/4/">
-              <i class="fa fa-angle-left text-base icon-mr"></i>
-              <span>NEWER POSTS</span>
-            </a>
-          </li>
-        
-        
-      
-      <li class="pagination-number">page 5 of 5</li>
-    </ul>
-  </div>
-
-
-        </section>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2021 Shadowsong27. All Rights Reserved
