@@ -58,7 +58,11 @@ this page as a gallery.
 
 ![pic](/img/food/双椒鸡丁.jpeg)
 
-太麻烦，耗时太长。
+#### 炸鸡丁
+
+![pic](/img/food/炸鸡丁.jpeg)
+
+这个其实是半成品，可以加辣椒酱油，加椒盐，甚至咸蛋黄酱炒制。
 
 ## 猪肉
 
@@ -105,7 +109,7 @@ this page as a gallery.
 
 #### 蒸三文鱼
 
-![pic](/img/food/蒸三文鱼.JPG)
+![pic](/img/food/蒸三文鱼2.jpeg)
 
 很看三文鱼的品质只能说。
 
@@ -116,6 +120,12 @@ this page as a gallery.
 是个鱼就能这么烧
 
 # 素菜
+
+### 茄子
+
+![pic](/img/food/肉末茄子.jpeg)
+
+
 
 ### 鸡蛋
 
@@ -131,6 +141,13 @@ this page as a gallery.
 
 这里的是红烧版本，也可以炒
 
+#### 三文鱼蒸蛋
+
+![pic](/img/food/三文鱼蒸蛋.jpeg)
+
+同理除了三文鱼也可以蒸其他东西
+
+
 ### 豆腐
 
 #### 砂锅豆腐
@@ -143,6 +160,12 @@ this page as a gallery.
 
 ![pic](/img/food/麻婆豆腐.png)
 
+辣的
+
+![pic](/img/food/麻婆豆腐2.jpeg)
+
+不辣的
+
 ### 其他蔬菜 （我蔬菜吃的少所以会的也少）
 
 #### 手撕包菜系列
@@ -150,6 +173,12 @@ this page as a gallery.
 ![pic](/img/food/醋溜包菜.jpeg)
 
 为数不多吃的绿叶菜，可以做糖醋或者辣的版本。辣的更上手一些。
+
+#### 蚝油生菜
+
+![pic](/img/food/蚝油生菜.jpeg)
+
+another 为数不多吃的绿叶菜
 
 #### 干煸四季豆
 
@@ -187,17 +216,17 @@ this page as a gallery.
 
 # 汤
 
-## 鸡蛋肉饼汤
+#### 鸡蛋肉饼汤
 
 ![pic](/img/food/鸡蛋肉饼汤.JPG)
 
 按照江西瓦罐汤的玩法来的。
 
 
-## 西红柿蛋汤
-
+#### 西红柿蛋汤
 
 ![pic](/img/food/西红柿蛋汤.png)
+
 
 # 其他
 
