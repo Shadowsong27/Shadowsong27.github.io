@@ -8,30 +8,30 @@
 <meta name="generator" content="Hugo 0.79.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
-<meta name="description" content="这个问题说实话有点烦。">
+<meta name="description" content="I have been using SAXO for three years and Interactive Brokers for more than one year, and recently I have decided to switch from SAXO to IB completely, but I could not find a proper instruction on the Internet.">
 
 
-<meta property="og:description" content="这个问题说实话有点烦。">
+<meta property="og:description" content="I have been using SAXO for three years and Interactive Brokers for more than one year, and recently I have decided to switch from SAXO to IB completely, but I could not find a proper instruction on the Internet.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RT Log 5: 关于Mac系统中文打字卡顿问题">
-<meta name="twitter:title" content="RT Log 5: 关于Mac系统中文打字卡顿问题">
-<meta property="og:url" content="https://shadowsong27.github.io/2021/08/rt-log-5-%E5%85%B3%E4%BA%8Emac%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%96%87%E6%89%93%E5%AD%97%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/">
-<meta property="twitter:url" content="https://shadowsong27.github.io/2021/08/rt-log-5-%E5%85%B3%E4%BA%8Emac%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%96%87%E6%89%93%E5%AD%97%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/">
+<meta property="og:title" content="A guide to transfer securities from Saxo To Interactive Brokers">
+<meta name="twitter:title" content="A guide to transfer securities from Saxo To Interactive Brokers">
+<meta property="og:url" content="https://shadowsong27.github.io/2021/08/a-guide-to-transfer-securities-from-saxo-to-interactive-brokers/">
+<meta property="twitter:url" content="https://shadowsong27.github.io/2021/08/a-guide-to-transfer-securities-from-saxo-to-interactive-brokers/">
 <meta property="og:site_name" content="Shadowsong&#39;s Personal Website">
-<meta property="og:description" content="这个问题说实话有点烦。">
-<meta name="twitter:description" content="这个问题说实话有点烦。">
+<meta property="og:description" content="I have been using SAXO for three years and Interactive Brokers for more than one year, and recently I have decided to switch from SAXO to IB completely, but I could not find a proper instruction on the Internet.">
+<meta name="twitter:description" content="I have been using SAXO for three years and Interactive Brokers for more than one year, and recently I have decided to switch from SAXO to IB completely, but I could not find a proper instruction on the Internet.">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-08-13T00:00:00">
+    <meta property="article:published_time" content="2021-08-31T00:00:00">
   
   
-    <meta property="article:modified_time" content="2021-08-13T00:00:00">
+    <meta property="article:modified_time" content="2021-08-31T00:00:00">
   
   
   
     
-      <meta property="article:section" content="rt-log">
+      <meta property="article:section" content="toy-tip">
     
   
   
@@ -45,6 +45,12 @@
 
 
 
+  <meta property="og:image" content="https://download.logo.wine/logo/Interactive_Brokers/Interactive_Brokers-Logo.wine.png">
+  <meta property="twitter:image" content="https://download.logo.wine/logo/Interactive_Brokers/Interactive_Brokers-Logo.wine.png">
+
+
+  <meta property="og:image" content="https://mms.businesswire.com/media/20210128005689/en/694824/23/IB_logo_stacked_-_Copy.jpg">
+  <meta property="twitter:image" content="https://mms.businesswire.com/media/20210128005689/en/694824/23/IB_logo_stacked_-_Copy.jpg">
 
 
 
@@ -53,14 +59,14 @@
   <meta property="twitter:image" content="https://avatars3.githubusercontent.com/u/12522657?s=400&u=ccfcf050a757c6a49241737eefe4386064400b5e&v=4">
 
 
-    <title>RT Log 5: 关于Mac系统中文打字卡顿问题</title>
+    <title>A guide to transfer securities from Saxo To Interactive Brokers</title>
 
     <link rel="icon" href="https://shadowsong27.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://shadowsong27.github.io/2021/08/rt-log-5-%E5%85%B3%E4%BA%8Emac%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%96%87%E6%89%93%E5%AD%97%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/">
+    <link rel="canonical" href="https://shadowsong27.github.io/2021/08/a-guide-to-transfer-securities-from-saxo-to-interactive-brokers/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -212,9 +218,17 @@ if (!doNotTrack) {
 </nav>
 
       
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('https://mms.businesswire.com/media/20210128005689/en/694824/23/IB_logo_stacked_-_Copy.jpg')"
+       data-behavior="5">
+    
+  </div>
+
 
       <div id="main" data-behavior="5"
-        class="
+        class="hasCover
                hasCoverMetaOut
                ">
         <article class="post" itemscope itemType="http://schema.org/BlogPosting">
@@ -223,15 +237,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      RT Log 5: 关于Mac系统中文打字卡顿问题
+      A guide to transfer securities from Saxo To Interactive Brokers
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-08-13T00:00:00Z">
+      <time itemprop="datePublished" datetime="2021-08-31T00:00:00Z">
         
-  August 13, 2021
+  August 31, 2021
 
       </time>
     
@@ -240,7 +254,7 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="https://shadowsong27.github.io/categories/rt-log">rt-log</a>
+      <a class="category-link" href="https://shadowsong27.github.io/categories/toy-tip">toy-tip</a>
     
   
 
@@ -250,15 +264,60 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>这个问题说实话有点烦。</p>
-<p>本来是在写一个随想的，结果在notion里写中文打着打着就感觉卡顿十分明显，之前特别卡的时候已经把touchbar联想关闭了，所以我想如果没关应该会更糟糕。但是基本来说，我发现主要的问题应该是有好几层。</p>
+              <p>I have been using SAXO for three years and Interactive Brokers for more than one year, and recently I have decided to switch from SAXO to IB completely, but I could not find a proper instruction on the Internet.</p>
+<p>Note: I am in Singapore and I believe my account was under SAXO Singapore, but I think it does not really matter when it comes to security transfer. However, obviously you can only transfer assets that are available in IB. e.g., you can&rsquo;t transfer SGX stocks into IB.</p>
+<p>Disclaimer: This article is just a recollection of me doing something a few days ago, please always check for the detail input of the table. Use at Your Own Risk.</p>
+<p>This article is going to cover all the steps involved and address some of the confusions I have during the process of transferring securities, but before that &hellip;</p>
+<h3 id="major-reasons-for-switching">Major reasons for switching</h3>
 <ol>
-<li>notion本身输入中文的时候是有一定卡顿的。这个主要是通过对比sublime text输入的时候， 很明显作为一个轻量级的文字编辑器，sublime对中文输入的反应更快一些</li>
-<li>filevault加密也会影响到输入卡顿。一个显著的特征就是当我把电源拔掉之后，似乎就不那么卡了，虽然backspace依旧会有一丢丢卡顿，但是比连着电源的效果好一些。按照网上的说法是连着电源会自动开启filevault，用电池会自动关</li>
-<li>最后我觉得就是系统级别的问题了，我工作的时候用microsoft teams，那个中文输入法加上microsoft teams本身就足够垃圾，我经常卡的动都动不了。所以哪怕是跟中国同事感觉用英文交流还舒畅一些，尤其是那种需要中英切换的时候，microsoft teams能直接给你卡死 （当然这个锅主要是在MS而不是在Mac）</li>
+<li>SAXO has a way higher minimum commission per trade - which is pretty costly if you have developed the bad habits of regular trading</li>
+<li>SAXO forced you to convert to and from SGD to USD when trading US stocks, your trading routines are essentially deprived of control over the currency conversion timing</li>
+<li>SAXO has a pretty bad conversion rate compared with other platforms</li>
 </ol>
-<p>解决方案我感觉目前没有，只能等系统update了。回滚Catalina可能也有用但是我不太确认提升有多大，总之这个事情确实还是蛮影响心情和效率。想想用英文在Terminal里健步如飞的酸爽，再看看现在中文输入的步履蹒跚，哎。</p>
-<p>我这个电脑还是32Gb ram，我都觉得有时候开多了pycharm windows会卡，可能是时候转战vscode了。</p>
+<h3 id="major-advantages-for-switching">Major advantages for switching:</h3>
+<ol>
+<li>You avoid paying for the closing cost (conversion cost plus the commission) on SAXO especially when you do not wish completely exit the US market</li>
+<li>You automatically have a multi-currency account</li>
+<li>You can easily carry out margin trading (don&rsquo;t do it if you do not know what that is)</li>
+</ol>
+<h3 id="major-disadvantages-for-switching">Major disadvantages for switching</h3>
+<ol>
+<li>Bad UI (both Mobile and Desktop)</li>
+<li>Bad server connection on peak period</li>
+</ol>
+<h1 id="how">How</h1>
+<h3 id="ib">IB</h3>
+<ul>
+<li>Just like the funding process in IB, you will need to initiate a transfer request, search it in the search bar, it could also be found in some of the dropdown menu, but I realise there is an UI bug which might somehow make the dropdown menu disappeared, so just stick to the search bar, click <code>Transfer Positions</code></li>
+</ul>
+<p><img src="https://shadowsong27.github.io/img/ib-search-bar.png" alt="alt"></p>
+<ul>
+<li>Read / Google all available methods for transfer <code>IN</code> to IB, that is you need to select the <code>Incoming</code> tab. I used the <code>Basic FOP Transfer</code> type, because SAXO can only be found there.</li>
+</ul>
+<ol start="2">
+<li>Filling the form accordingly, the confusing part is the contact info. so I am going to write it down in detail in the <code>Note</code> column - I think this is going to work since my transfer request is completed.</li>
+</ol>
+<p><img src="https://shadowsong27.github.io/img/ib-table.png" alt="alt"></p>
+<ul>
+<li>So once the form is filled, proceed to add in the incoming assets and you are done with the work on IB side</li>
+<li>I believe, I can&rsquo;t remember clearly now but I think IB will give you a message containing the information on their side such as the contact email and name. This will take a while, like one or two days, so I think they are handling the securities transfer manually.</li>
+</ul>
+<h3 id="saxo">Saxo</h3>
+<ul>
+<li>Once you have received the information from IB, follow this partially useful and outdated documentation provided by Saxo to find the transfer security window <a href="https://www.help.saxo/hc/en-sg/articles/360001270546-How-do-I-request-a-securities-transfer-">https://www.help.saxo/hc/en-sg/articles/360001270546-How-do-I-request-a-securities-transfer-</a> It&rsquo;s now under the <code>hamburger button</code> → <code>portfolio transfer</code></li>
+<li>The form detail</li>
+</ul>
+<p><img src="https://shadowsong27.github.io/img/saxo-table.png" alt="alt"></p>
+<ul>
+<li>Assuming you are going to close your SAXO account, you should be prepared to have at least 160 EUR cash in your bank - that&rsquo;s the total amount of cost this process will incur, once this is done you can just sit back and relax</li>
+</ul>
+<h1 id="final-note">Final note:</h1>
+<ol>
+<li>Most of the fields in both forms are poorly designed, key information is hard to retrieved or located online, this is particularly triggering for users who are trying to move a huge amount of money across bank - it should be designed with more accuracy and precision</li>
+<li>That being said, I found the entire process is most likely done manually by both parties, so you should be fine even if you made some typos or entered a wrong value (they will probably email you and clarify with you)</li>
+<li>The original open price on SAXO will NOT be transferred into IB, so that kinda messed up your performance calculation a bit. You will have to do it yourself</li>
+<li>Happy trading everyone</li>
+</ol>
               
             </div>
           </div>
@@ -273,7 +332,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2021/08/a-guide-to-transfer-securities-from-saxo-to-interactive-brokers/" data-tooltip="A guide to transfer securities from Saxo To Interactive Brokers">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -281,7 +340,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2021/04/de-log-7-migrating-from-airflow-1-to-2/" data-tooltip="DE Log 7: Migrating from Airflow 1 to 2">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2021/08/rt-log-5-%E5%85%B3%E4%BA%8Emac%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%96%87%E6%89%93%E5%AD%97%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/" data-tooltip="RT Log 5: 关于Mac系统中文打字卡顿问题">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -299,19 +358,19 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2021/08/rt-log-5-%E5%85%B3%E4%BA%8Emac%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%96%87%E6%89%93%E5%AD%97%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2021/08/a-guide-to-transfer-securities-from-saxo-to-interactive-brokers/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2021/08/rt-log-5-%E5%85%B3%E4%BA%8Emac%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%96%87%E6%89%93%E5%AD%97%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2021/08/a-guide-to-transfer-securities-from-saxo-to-interactive-brokers/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2021/08/rt-log-5-%E5%85%B3%E4%BA%8Emac%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%96%87%E6%89%93%E5%AD%97%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2021/08/a-guide-to-transfer-securities-from-saxo-to-interactive-brokers/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -359,7 +418,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2021/08/a-guide-to-transfer-securities-from-saxo-to-interactive-brokers/" data-tooltip="A guide to transfer securities from Saxo To Interactive Brokers">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -367,7 +426,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2021/04/de-log-7-migrating-from-airflow-1-to-2/" data-tooltip="DE Log 7: Migrating from Airflow 1 to 2">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2021/08/rt-log-5-%E5%85%B3%E4%BA%8Emac%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%96%87%E6%89%93%E5%AD%97%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/" data-tooltip="RT Log 5: 关于Mac系统中文打字卡顿问题">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -385,19 +444,19 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2021/08/rt-log-5-%E5%85%B3%E4%BA%8Emac%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%96%87%E6%89%93%E5%AD%97%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2021/08/a-guide-to-transfer-securities-from-saxo-to-interactive-brokers/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2021/08/rt-log-5-%E5%85%B3%E4%BA%8Emac%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%96%87%E6%89%93%E5%AD%97%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2021/08/a-guide-to-transfer-securities-from-saxo-to-interactive-brokers/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2021/08/rt-log-5-%E5%85%B3%E4%BA%8Emac%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%96%87%E6%89%93%E5%AD%97%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2021/08/a-guide-to-transfer-securities-from-saxo-to-interactive-brokers/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -427,19 +486,19 @@ if (!doNotTrack) {
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2021%2F08%2Frt-log-5-%25E5%2585%25B3%25E4%25BA%258Emac%25E7%25B3%25BB%25E7%25BB%259F%25E4%25B8%25AD%25E6%2596%2587%25E6%2589%2593%25E5%25AD%2597%25E5%258D%25A1%25E9%25A1%25BF%25E9%2597%25AE%25E9%25A2%2598%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2021%2F08%2Fa-guide-to-transfer-securities-from-saxo-to-interactive-brokers%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2021%2F08%2Frt-log-5-%25E5%2585%25B3%25E4%25BA%258Emac%25E7%25B3%25BB%25E7%25BB%259F%25E4%25B8%25AD%25E6%2596%2587%25E6%2589%2593%25E5%25AD%2597%25E5%258D%25A1%25E9%25A1%25BF%25E9%2597%25AE%25E9%25A2%2598%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2021%2F08%2Fa-guide-to-transfer-securities-from-saxo-to-interactive-brokers%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2021%2F08%2Frt-log-5-%25E5%2585%25B3%25E4%25BA%258Emac%25E7%25B3%25BB%25E7%25BB%259F%25E4%25B8%25AD%25E6%2596%2587%25E6%2589%2593%25E5%25AD%2597%25E5%258D%25A1%25E9%25A1%25BF%25E9%2597%25AE%25E9%25A2%2598%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2021%2F08%2Fa-guide-to-transfer-securities-from-saxo-to-interactive-brokers%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -529,9 +588,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/shadowsong27.github.io\/2021\/08\/rt-log-5-%E5%85%B3%E4%BA%8Emac%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%96%87%E6%89%93%E5%AD%97%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98\/';
+          this.page.url = 'https:\/\/shadowsong27.github.io\/2021\/08\/a-guide-to-transfer-securities-from-saxo-to-interactive-brokers\/';
           
-            this.page.identifier = '\/2021\/08\/rt-log-5-%E5%85%B3%E4%BA%8Emac%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%96%87%E6%89%93%E5%AD%97%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98\/'
+            this.page.identifier = '\/2021\/08\/a-guide-to-transfer-securities-from-saxo-to-interactive-brokers\/'
           
         };
         (function() {
