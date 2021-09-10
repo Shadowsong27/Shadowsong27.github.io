@@ -72,6 +72,8 @@ this page as a gallery.
 
 #### 粉蒸肉
 
+![pic](/img/food/粉蒸肉.jpeg)
+
 #### 辣椒炒五花肉
 
 ![pic](/img/food/辣椒炒五花肉.jpeg)
