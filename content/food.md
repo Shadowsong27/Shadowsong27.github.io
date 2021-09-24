@@ -117,9 +117,15 @@ this page as a gallery.
 
 #### 烧个鱼
 
+冷冻多利鱼
+
 ![pic](/img/food/烧鱼.jpeg)
 
-是个鱼就能这么烧
+新鲜的鲳鱼
+
+![pic](/img/food/红烧鲳鱼.jpg)
+
+是个鱼就能这么烧， 但是我以后不会再买冷冻鱼了
 
 # 素菜
 
