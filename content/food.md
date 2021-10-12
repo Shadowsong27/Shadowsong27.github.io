@@ -99,6 +99,13 @@ this page as a gallery.
 ![pic](/img/food/水煮肉片.jpeg)
 
 
+## 羊肉
+
+这里用的redmart羊排，最好不是冷冻的
+
+![pic](/img/food/烤羊排.jpeg)
+
+
 ## 牛肉
 
 #### 土豆烧牛肉
