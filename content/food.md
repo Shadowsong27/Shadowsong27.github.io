@@ -74,7 +74,7 @@ this page as a gallery.
 
 #### 红烧肉 （可以加土豆就成了土豆烧五花肉）
 
-![pic](/img/food/红烧肉.png)
+![pic](/img/food/红烧肉.jpeg)
 
 #### 粉蒸肉
 
