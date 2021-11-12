@@ -103,6 +103,10 @@ this page as a gallery.
 
 猪脚啃起来
 
+#### 烤排骨
+
+![pic](/img/food/烤排骨.jpeg)
+
 ![pic](/img/food/红烧猪脚.jpeg)
 
 
@@ -195,7 +199,7 @@ this page as a gallery.
 
 #### 麻婆豆腐
 
-![pic](/img/food/麻婆豆腐.png)
+![pic](/img/food/麻婆豆腐.jpeg)
 
 辣的
 
