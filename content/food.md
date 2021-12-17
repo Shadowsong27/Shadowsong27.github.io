@@ -103,12 +103,11 @@ this page as a gallery.
 
 猪脚啃起来
 
+![pic](/img/food/红烧猪脚.jpeg)
+
 #### 烤排骨
 
 ![pic](/img/food/烤排骨.jpeg)
-
-![pic](/img/food/红烧猪脚.jpeg)
-
 
 ## 羊肉
 
@@ -124,6 +123,14 @@ this page as a gallery.
 ![pic](/img/food/土豆烧牛肉.jpeg)
 
 太麻烦，耗时太长。
+
+#### 萝卜烧牛尾
+
+![pic](/img/food/萝卜烧牛尾.jpg)
+
+#### 卤牛肉
+
+![pic](/img/food/卤牛肉.jpg)
 
 ## 鱼
 
@@ -226,6 +233,12 @@ another 为数不多吃的绿叶菜
 ![pic](/img/food/干煸四季豆.jpg)
 
 猪肉末和四季豆，小米辣。
+
+#### 水煮四季豆
+
+![pic](/img/food/水煮肉沫四季豆.jpg)
+
+四季豆这次用煮的，在进行炒制，少油之后健康很多，口感出人意料的清脆，也不用担心中毒问题
 
 ### 土豆
 
