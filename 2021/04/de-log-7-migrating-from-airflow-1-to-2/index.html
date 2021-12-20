@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.79.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.91.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
 <meta name="description" content="Today I have successfully migrated my current Airflow setup from v1.10.14 to v2.0.2. This article will not be a very detailed step by step guide for upgrading, instead I will introduce the general migration step worked very specifically for my setup, and share some of the problems I encountered during the process, and finally some general feelings with Airflow 2.">
@@ -98,7 +98,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -290,7 +289,7 @@ if (!doNotTrack) {
 <p>This is a bit embarrassing but because the last time I did Airflow setup it was one year ago,  and it costs me 10 mins to realise I forgot to enable the deployment key in Gitlab</p>
 <h4 id="trouble-with-sqlalchemy">trouble with SQLAlchemy</h4>
 <p>SQLA upgraded recently to 1.4, I did not follow it since I don&rsquo;t really have the time to upgrade my current projects. So I sticked to the 1.3.0 version, until I have this bug.</p>
-<pre><code>Something bad has happened.
+<pre tabindex="0"><code>Something bad has happened.
 Please consider letting us know by creating a bug report using GitHub.
 
 Python version: 3.6.13
@@ -332,10 +331,10 @@ AttributeError: '_UnboundLoad' object has no attribute 'options'
 <li>
 <p>create TWO replica of existing metadata database in your production database, grant the necessary db access rights, connect to the new prod meta db LOCALLY. The 2nd replica is a backup, so that you won&rsquo;t need to cut off every connection in the current production in order to re-do the replication</p>
 <p>PAUSE ALL DAGS! OR the active state will be replicated into your new replica, which will inevitable auto start some of the DAGs in your local Airflow instance - we don&rsquo;t want that because here we are just testing the database setup, not the DAGs.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#75715e">-- revoke access so we can successfully terminate all connections in the prod
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#75715e">-- revoke access so we can successfully terminate all connections in the prod
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">REVOKE</span> <span style="color:#66d9ef">CONNECT</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> airflow <span style="color:#66d9ef">FROM</span> airflow;
 <span style="color:#66d9ef">REVOKE</span> <span style="color:#66d9ef">CONNECT</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> airflow <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">public</span>;
-   
+
 <span style="color:#66d9ef">SELECT</span>
     pg_terminate_backend(pid)
 <span style="color:#66d9ef">FROM</span>
@@ -346,17 +345,17 @@ AttributeError: '_UnboundLoad' object has no attribute 'options'
     <span style="color:#75715e">-- don&#39;t kill the connections to other databases
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">AND</span> datname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;airflow&#39;</span>
     ;
-   
+
 <span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> airflow_db_v2 <span style="color:#66d9ef">TEMPLATE</span> airflow;
 <span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> airflow_db_v3 <span style="color:#66d9ef">TEMPLATE</span> airflow;
-   
+
 <span style="color:#75715e">-- grant it back because you want your current prod Airflow to continue
 </span><span style="color:#75715e">-- to work, you might already received some alerts from the current
 </span><span style="color:#75715e">-- Airflow, let it auto-heal / redeploy if needed
-</span><span style="color:#75715e"></span>   
+</span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">CONNECT</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> airflow <span style="color:#66d9ef">TO</span> airflow;
 <span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">CONNECT</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> airflow <span style="color:#66d9ef">TO</span> <span style="color:#66d9ef">public</span>;
-   
+
 <span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> airflow_db_v2 <span style="color:#66d9ef">TO</span> airflow;
 <span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> airflow_db_v3 <span style="color:#66d9ef">TO</span> airflow;
 </code></pre></div></li>
@@ -368,7 +367,7 @@ AttributeError: '_UnboundLoad' object has no attribute 'options'
 </li>
 <li>
 <p>run in the new local airflow virtual env, or start a new container to execute the upgrade DB command  <code>airflow db upgrade</code> . I did run into another problem while upgrading:</p>
-<pre><code>sqlalchemy.exc.IntegrityError: (psycopg2.errors.NotNullViolation) column &quot;conn_type&quot; contains null values
+<pre tabindex="0"><code>sqlalchemy.exc.IntegrityError: (psycopg2.errors.NotNullViolation) column &quot;conn_type&quot; contains null values
 </code></pre><p>Well it&rsquo;s not an alien error message, so you simply just understand and navigate in the Metadata database and realise ok one of my existing Airflow Connections have a NULL conn_type, thus during alembic migration it failed and throws this. This is probably due to some legacy issue since I believe I started my cluster from v1.10.10?</p>
 <p>At this point, we have tested that the new pipelines more or less works with the new scheduler and the new database, we can then actually deploy it.</p>
 </li>

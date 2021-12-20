@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.79.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.91.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
 <meta name="description" content="Recently I am migrating some microservices and streaming pipelines to AWS Fargate.
@@ -110,7 +110,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -403,7 +402,7 @@ Details of each ENVs used to configure the agent could be checked here:
 </tbody>
 </table>
 <p>The <code>localhost</code> is not written anywhere on official docs. I originally use <code>datadog-agent</code> , the name of the agent container, after that I see the logs saying:</p>
-<pre><code>2019-07-16 07:57:03,286 : ERROR : Failed to send traces to Datadog Agent at datadog-agent:8126: [Errno -2] Name does not resolve
+<pre tabindex="0"><code>2019-07-16 07:57:03,286 : ERROR : Failed to send traces to Datadog Agent at datadog-agent:8126: [Errno -2] Name does not resolve
 </code></pre><p>This tells us that the hostname in this case is not <code>datadog-agent</code>, which should work if we are using <code>docker-compose</code> by just stating the <code>service</code> name. Because of this I start to read more deeply in the Fargate docs and I found this here:  <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html</a></p>
 <blockquote>
 <p>When a task is started with the <code>awsvpc</code> network mode, … This means that all containers in a task are addressable by the IP addresses of the ENI, and they can communicate with each other over the <code>localhost</code>interface.</p>
@@ -412,7 +411,7 @@ Details of each ENVs used to configure the agent could be checked here:
 <p>When I go back and try to understand the whole thing, I associated this with my effort to setup a docker Postgres Together with other applications. The IP address of the database to the application is never <code>localhost</code>, it is rather the assigned IP address by the docker host, but in Fargate because of ENI they seem to solve this problem.</p>
 <h3 id="configure-application-code">Configure Application Code</h3>
 <p>I am using Python, so basically it is configure the tracer during application initialisation, nothing much to be elaborated here. Something similar to the following code would do:</p>
-<pre><code>import os
+<pre tabindex="0"><code>import os
 from ddtrace import tracer
 
 tracer.configure(
