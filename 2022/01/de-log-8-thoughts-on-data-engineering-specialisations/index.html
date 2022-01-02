@@ -8,25 +8,25 @@
 <meta name="generator" content="Hugo 0.79.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
-<meta name="description" content="Data engineering jobs are really popular nowadays, mostly contributed by the rising demand of data insights and data driven decision making.">
+<meta name="description" content="Happy New Year everyone! And I am too lazy to change the thumbnail image.">
 
 
-<meta property="og:description" content="Data engineering jobs are really popular nowadays, mostly contributed by the rising demand of data insights and data driven decision making.">
+<meta property="og:description" content="Happy New Year everyone! And I am too lazy to change the thumbnail image.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DE Log 6: From Data Engineering to Meta Data Engineering - the future of Data Engineering">
-<meta name="twitter:title" content="DE Log 6: From Data Engineering to Meta Data Engineering - the future of Data Engineering">
-<meta property="og:url" content="https://shadowsong27.github.io/2020/08/de-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering/">
-<meta property="twitter:url" content="https://shadowsong27.github.io/2020/08/de-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering/">
+<meta property="og:title" content="DE Log 8: Thoughts on Data Engineering Specialisations">
+<meta name="twitter:title" content="DE Log 8: Thoughts on Data Engineering Specialisations">
+<meta property="og:url" content="https://shadowsong27.github.io/2022/01/de-log-8-thoughts-on-data-engineering-specialisations/">
+<meta property="twitter:url" content="https://shadowsong27.github.io/2022/01/de-log-8-thoughts-on-data-engineering-specialisations/">
 <meta property="og:site_name" content="Shadowsong&#39;s Personal Website">
-<meta property="og:description" content="Data engineering jobs are really popular nowadays, mostly contributed by the rising demand of data insights and data driven decision making.">
-<meta name="twitter:description" content="Data engineering jobs are really popular nowadays, mostly contributed by the rising demand of data insights and data driven decision making.">
+<meta property="og:description" content="Happy New Year everyone! And I am too lazy to change the thumbnail image.">
+<meta name="twitter:description" content="Happy New Year everyone! And I am too lazy to change the thumbnail image.">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-08-19T00:00:00">
+    <meta property="article:published_time" content="2022-01-01T00:00:00">
   
   
-    <meta property="article:modified_time" content="2020-08-19T00:00:00">
+    <meta property="article:modified_time" content="2022-01-01T00:00:00">
   
   
   
@@ -61,14 +61,14 @@
   <meta property="twitter:image" content="https://avatars3.githubusercontent.com/u/12522657?s=400&u=ccfcf050a757c6a49241737eefe4386064400b5e&v=4">
 
 
-    <title>DE Log 6: From Data Engineering to Meta Data Engineering - the future of Data Engineering</title>
+    <title>DE Log 8: Thoughts on Data Engineering Specialisations</title>
 
     <link rel="icon" href="https://shadowsong27.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://shadowsong27.github.io/2020/08/de-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering/">
+    <link rel="canonical" href="https://shadowsong27.github.io/2022/01/de-log-8-thoughts-on-data-engineering-specialisations/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -239,15 +239,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      DE Log 6: From Data Engineering to Meta Data Engineering - the future of Data Engineering
+      DE Log 8: Thoughts on Data Engineering Specialisations
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-08-19T00:00:00Z">
+      <time itemprop="datePublished" datetime="2022-01-01T00:00:00Z">
         
-  August 19, 2020
+  January 1, 2022
 
       </time>
     
@@ -268,28 +268,55 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>Data engineering jobs are really popular nowadays, mostly contributed by the rising demand of data insights and data driven decision making.</p>
-<p>Data is essentially the go-to-crystal-ball these days whenever you want to check some random hypothesis just popped up in your mind while you are in the toilet. But it&rsquo;s more than that, people start to realise they need a systematic way to approach any data work. You cannot leave random SQL snippets scattered around in your local computer, not version controlled, and manually executing scripts every morning when you arrive in the office. It will be also too inefficient if you specifically hire some dedicated guys (SQL bois) running SQL in your legacy Microsoft SQL Server for the entire organisation. Some engineering work and engineering practices has to be installed here, that&rsquo;s how data engineering started, because people are sick of emailing Excel files around.</p>
-<p>Today I want to talk about something more abstract, I call it <code>Meta Data Engineering</code> because it sounds cool. Data engineering in most companies now, especially who just hired their first data engineer team, are busy creating their pipelines, migrating data warehouses etc, which is the painful but necessary process when a company transitioned to apply the data engineering concept. However, after being in practice for a few years, I start to realise scheduling pipelines is boring and troublesome, the fear of which is one of the best qualities you can find in software engineers. If you have read my previous articles, you will know I like automation a lot. I would like to replace any manual repetition work in my life as much as possible.</p>
-<p>Then you may be thinking, how can you automate the automation itself, when you have different pipelines and different type of tasks, and the evidently different underlying data? There are actually commonalities you can abstract, and so that it not only improves the efficiency and consistency of pipeline scheduling, but also hands over the very responsibility of pipeline scheduling towards the user - data analysts and data scientists, who should be the best person to decide what kind and what shape of datasets they would like to have.</p>
-<p>That&rsquo;s basically meta data engineering, you are supposed to build frameworks and services to support the scheduling of tasks, the pipelines, the very popular nowadays <code>Data Platform</code> or <code>数据中台</code>, not the actual scheduling itself. I think this is the future of data engineering, because how hard can scheduling an Airflow task get?</p>
-<p>Speaking of the redistribution of responsibilities, I have thought about it briefly and here is the list that I think should stay with data engineers:</p>
-<ul>
-<li>infrastructure design, provisioning (yes unless you have a DevOps team)</li>
-<li>schema level design of data lake, data warehouse</li>
-<li>table level design for base tables, the ground layer of the data warehouse (here we need the participation of contextual knowledge, when normalisation occurs)</li>
-<li>services, frameworks or more complex and engineering demanding processing pipelines to interact with data, analyse data or train ML models more efficiently</li>
-</ul>
-<p>Things that I think should be transferred to others (Data Analysts and Data Scientists)</p>
-<ul>
-<li>table level design for upper layer data warehouse</li>
-<li>scheduling of pure SQL transformation transformation (very dependent on use cases)</li>
-<li>design and installation of data validation</li>
-<li>POC, provision and deployment of machine learning models</li>
-</ul>
-<p>For me personally I would like to have some tools that allow my teammates to build pipeline and schedule them in a GUI, like a back office, but unfortunately I am in and will probably always in a small team, so I might have to do it myself one day, or some bigger companies like Gojek could open source their framework.</p>
-<p>Essentially, the responsibilities of data engineers will start to converge with software engineers, but serve a different purpose, another sign is the existence of data product managers nowadays. You need somebody who understands how data can be used to reinforce the decision making process in the company, in the form of modern technology. Eventually, as the world inevitably becomes more digitalised, data will be just as important as any product itself, or even more for those companies that sell data analytics as a service.</p>
-<p>And for some time, a lot of data engineers, including me, will be responsible to write the pipelines that are not fun.</p>
+              <p>Happy New Year everyone! And I am too lazy to change the thumbnail image.</p>
+<p>As the title of data engineer starts to gain more recognitions, their responsible domains are  becoming more specialised. Data engineers have been asked to both cover from the lowest end of a pipeline, that is more infra involved - the DevOps side of fun when designing a data intensive application, to the highest end, that is more analytically involved - the data modelling and engineering support of your fellow business analysts.</p>
+<p>A person who is capable of developing a data product end-to-end, including the data pipelines that supports the data aspect of the product, which can be described by a prevalently used phrase these days - <code>full stack</code>. Yes besides <code>data alchemist</code> and <code>data magicians</code> on LinkedIn, we are getting <code>full stack</code> data engineers as well.</p>
+<p>Remember the core responsibility of a data engineer is to help your company / teammates have easy and reliable access to data, in vague terms, regardless what technologies you have decided adopt. Hence as the data engineering industry grows, the old craft of setting up your own distributed Airflow cluster, Spark Clusters, sadly becomes less important, all thanks to these commercially available services like Databricks and AWS MWAA. Unless you are developing some new customized in-house features, you do not and should not build everything from scratch.</p>
+<p>If you are like me, circulating from startups to startups in the last few years, most likely you have been working as this so called <code>full stack data engineer</code> . Some may argue that you are not learning anything in-depth with this behaviour, you are just Airflow monkeys busy fixing pipelines that breaks everyday. It tends to be true if you do not have a great mentor, but it could become a good learning package with proper guidance, and an effective way for you to nurture the <code>bigger picture</code>. Eventually if you want to dive deeper into the craft (pursuing the IC track or something), you will start to lean towards one of the two spectrums mentioned above.</p>
+<p>There are different titles coined for the specialised data engineers. Categorising by tech stack, you will have <code>data enigineers</code> and <code>big data engineers</code> (this is a joke); categorising by functional roles, you will have a variety of <code>ETL engineers</code> <code>Data Warehouse Engineers (Chinese companies) / Analytical Engineers</code>, <code>Big Data Infrastructure Engineers</code> <code>(Big) Data Platform Engineers</code>.</p>
+<h2 id="different-skillsets-reusable-fundamentals">Different Skillsets, Reusable Fundamentals</h2>
+<p>After all, these variants are still software engineers, that means they are supposed to solve problems using automated / programmatic ways. Although the skillsets and area of focuses involved could be drastically different for each title, there are a few fundamental skills that all variants of data engineers should possess (the discussion here is excluding common skill sets that should be a norm for all engineers: programming language, git etc…)</p>
+<h3 id="understand-those-generic-data-concepts">Understand those generic data concepts</h3>
+<p>There are several data concepts that applies the entire life cycle of a data pipeline. If your variant of data engineers directly or indirectly works on a pipeline, being batch or streaming, you will most likely need to understand concepts such as Slowly Changing Dimension (SCD), Change Data Capture(CDC), ACID properties, data partitioning and those common challenges a distributed data system would face. By understanding these concepts in depth, you will then be able to make technical decision with confidence, avoid saying “I saw this on StackOverflow but I m not sure why” when ur pipeline boomed.</p>
+<h3 id="cultivate-data-quality-sense">Cultivate data quality sense</h3>
+<p>Data quality, data health, whatever, in my opinion is a set of dynamic, subjective metrics you derived to measure the quality of your data,. I can’t stress this more than enough, as long as data is flowing through your manned position, find a way to check it, it improves the general quality of life for everyone, especially yourself. Otherwise you will be running the same select count(*) statement over and over and over again.</p>
+<p>Aside from the basic checks, you might need to derive some customized / business logic specific checks to monitor certain aspect of the data source. Average incoming data daily? Seasonal reporting deviation percentage? Now it’s time to apply some middle school mathematics (i hate math since young as a Chinese, but I do admit it’s tremendously useful).</p>
+<h3 id="understand-a-few-various-data-tools">Understand a few various data tools</h3>
+<p>There are tons of tools and technologies out there for each component in the data tech stack. I would say one should have a firm grasp of at least one tech for each component, and preferably for both Hadoop and none Hadoop based solutions of applicable. For the complete list I would suggest to take a look at the awesome data engineering list here: <a href="https://github.com/igorbarinov/awesome-data-engineering">https://github.com/igorbarinov/awesome-data-engineering</a></p>
+<p>Now the why part, I would argue that some technologies in the same component are similar , hence the knowledge is transferable to some extend. If you understand Postgres, you should not have major problem understanding MySQL, but this barrier gets higher when the underlying implementation diverges. A file system based batch SQL engine like Presto could be more different than MySQL when comparing to Postgres.</p>
+<p>Let’s say you want to prepare a table with partitions. You know that partitioning the data would allow you to have better read performance in some cases, but not always. Despite the fact the different data warehouse / processing tools partition the data differently, it’s all about having a dictionary/index like access to shards of data, so the scanned data is less, read speed is faster. You would then realise you need to read how the new data tool implements this mechanism, after which you should be able to make a technical decision and get it with some hands-on.</p>
+<h3 id="stay-informed-with-the-latest-data-design-trends-and-paradigms">Stay informed with the latest data design trends and paradigms</h3>
+<p>The data engineering scene, like any other field in the software industry, is constantly changing. I still remember that in 2014 summer during my first university course, I was introduced with Hadoop &amp; MapReduce, before I could even code in Python. Fast forward to today, Dataspark is gaining presence, cloud computing is a cliche and making products is easier than ever. It is utmost important to stay with the trend. What’s the latest open source/ proprietary technologies that makes existing solution obsolete? What’s the new tool that makes your original in-house design look like a student project? Constantly absorbing these knowledge, if not information, is helpful for you to have a bigger picture.</p>
+<h2 id="start-with-big-data-or-small-data">Start with Big Data or Small Data?</h2>
+<p>Short answer: it is better to have knowledge with Hadoop based tech experience and if you are a CS graduate, it’s going to help you land a decent job. However, if you are like me coming from a non-CS background, it really does not matter, you should start small and learn as much as you can on the job, so in this case the Small Data stack might be more suitable.</p>
+<p>Back then there is always this constant fear that I will not be able to catch up the latest technology, especially those Hadoop based, since I mostly operate in companies that data computational load and storage could be handled by a single Redshift cluster. And I stand by this design today, where the computation and storage are both handled by the data warehouse. This is the most economic solution for a small startup (well if I am really really familiar with ClickHouse I could probably bring down the cost even more I guess).</p>
+<p>Now I am working in a company with Spark Hive and Presto, a lot of new info to digest at first but soon I realize many concepts are transferable, especially those that are closer to the fundamentals.</p>
+<p>There are after all several differences between a managed Redshift and a Hive+Spark setup, but ultimately one should understand both side of the things. It does not make sense to fire up a Spark cluster whenever.</p>
+<h2 id="whats-next">Whats next?</h2>
+<p>Keep reading blogs or other online materials. I like reading technical blogs because they are concise, they are really up-to-date and they are fun to read. It’s like as if a tech leader in the industry is chatting with you face to face, it’s much more fun than reading a book.</p>
+<p>Like this <a href="https://www.dataengineeringpodcast.com/">https://www.dataengineeringpodcast.com/</a></p>
+<p>That being said, I do need to gain knowledge more systematically sometimes, or dig deeper in the craft, that’s when I start to read a book. Shamelessly, I have never completely finished a technical book, I read it selectively and more like an information lookup. It has something to do with my learning habits - which is something based on needs (so I learn stuff that earns money, or brings joy)</p>
+<p>On a concluding note, I will list a few things that I believe worth checking out. I am no master in anyone of the following fields, and I’m not going to be. A generalist seems to suit me better than a specialist so far.</p>
+<p>P.S. the jargons are extremely “useful” in interviews</p>
+<h3 id="concepts">Concepts:</h3>
+<p>Snowflake vs Star Schema design</p>
+<p>Data Warehouse paradigm shift: data warehouse → data lake → data lakehouse</p>
+<p>Data layers in the data warehouse (and their technical names)</p>
+<p>Data modeling</p>
+<p>Data Quality</p>
+<p>Data Governance (Security, Access, Privacy and Compliance)</p>
+<p>Pipeline &amp; Query optimization</p>
+<h3 id="books">Books:</h3>
+<p>Read selectively as some of the concepts are outdated, but I do believe as the main contributors to the modern data warehouse, one should at least read them.</p>
+<p>The Data Warehouse Toolkit - Ralph Kimball</p>
+<p>Building the Data Warehouse - Bill Inmon</p>
+<p>Designing Data-Intensive Applications - Martin Kleppmann</p>
+<p>Building the data lakehouse - Bill Inmon (Waiting to get this, I personnally still have not formed a good view on data lakehouse)</p>
+<h3 id="and-a-few-other-things-transferred-from-software-engineering">And a few other things transferred from software engineering</h3>
+<p>Design patterns</p>
+<p>Data Mesh</p>
+<p>Domain Driven Design in Data Warehouse</p>
+<p>The general testing mindset of software engineering and how it can be applied to data engineering</p>
               
             </div>
           </div>
@@ -304,7 +331,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2021/04/de-log-7-migrating-from-airflow-1-to-2/" data-tooltip="DE Log 7: Migrating from Airflow 1 to 2">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -312,7 +339,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2020/08/rt-log-4-about-starcraft-2/" data-tooltip="RT Log 4: About Starcraft 2">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2021/09/book-log-3-%E6%96%87%E6%98%8E%E7%9A%84%E6%BB%B4%E5%AE%9A%E4%B8%8E%E4%B8%AA%E4%BA%BA%E7%A7%91%E5%AD%A6%E5%8F%B2%E8%A7%82/" data-tooltip="Book Log 3: 《文明的滴定》与个人科学史观">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -330,19 +357,19 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2020/08/de-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2022/01/de-log-8-thoughts-on-data-engineering-specialisations/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2020/08/de-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2022/01/de-log-8-thoughts-on-data-engineering-specialisations/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2020/08/de-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2022/01/de-log-8-thoughts-on-data-engineering-specialisations/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -390,7 +417,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2021/04/de-log-7-migrating-from-airflow-1-to-2/" data-tooltip="DE Log 7: Migrating from Airflow 1 to 2">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -398,7 +425,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2020/08/rt-log-4-about-starcraft-2/" data-tooltip="RT Log 4: About Starcraft 2">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2021/09/book-log-3-%E6%96%87%E6%98%8E%E7%9A%84%E6%BB%B4%E5%AE%9A%E4%B8%8E%E4%B8%AA%E4%BA%BA%E7%A7%91%E5%AD%A6%E5%8F%B2%E8%A7%82/" data-tooltip="Book Log 3: 《文明的滴定》与个人科学史观">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -416,19 +443,19 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2020/08/de-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2022/01/de-log-8-thoughts-on-data-engineering-specialisations/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2020/08/de-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2022/01/de-log-8-thoughts-on-data-engineering-specialisations/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2020/08/de-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2022/01/de-log-8-thoughts-on-data-engineering-specialisations/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -458,19 +485,19 @@ if (!doNotTrack) {
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F08%2Fde-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2022%2F01%2Fde-log-8-thoughts-on-data-engineering-specialisations%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F08%2Fde-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2022%2F01%2Fde-log-8-thoughts-on-data-engineering-specialisations%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F08%2Fde-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2022%2F01%2Fde-log-8-thoughts-on-data-engineering-specialisations%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -560,9 +587,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/shadowsong27.github.io\/2020\/08\/de-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering\/';
+          this.page.url = 'https:\/\/shadowsong27.github.io\/2022\/01\/de-log-8-thoughts-on-data-engineering-specialisations\/';
           
-            this.page.identifier = '\/2020\/08\/de-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering\/'
+            this.page.identifier = '\/2022\/01\/de-log-8-thoughts-on-data-engineering-specialisations\/'
           
         };
         (function() {

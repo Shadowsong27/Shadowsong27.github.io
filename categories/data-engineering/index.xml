@@ -6,7 +6,16 @@
     <description>Recent content in data-engineering on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shadowsong27.github.io/categories/data-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shadowsong27.github.io/categories/data-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DE Log 8: Thoughts on Data Engineering Specialisations</title>
+      <link>https://shadowsong27.github.io/2022/01/de-log-8-thoughts-on-data-engineering-specialisations/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/2022/01/de-log-8-thoughts-on-data-engineering-specialisations/</guid>
+      <description>&lt;p&gt;Happy New Year everyone! And I am too lazy to change the thumbnail image.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>DE Log 7: Migrating from Airflow 1 to 2</title>
       <link>https://shadowsong27.github.io/2021/04/de-log-7-migrating-from-airflow-1-to-2/</link>

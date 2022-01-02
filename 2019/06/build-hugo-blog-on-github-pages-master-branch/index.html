@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.91.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.79.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
 <meta name="description" content="This short article aims to address issues I encountered during hosting personal static blog
@@ -104,6 +104,7 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
+
     
     
   </head>
@@ -314,7 +315,7 @@ content of <code>public</code> folder there. This is just like having a mini-rep
 first switch to a separate branch, called <code>builder</code>.</p>
 <p>Then we build the project by running <code>hugo</code>, by adapting the command in the docs, we could make
 the <code>master</code> branch become the mini-repo we want, set up stream to <code>master</code> as well.</p>
-<pre tabindex="0"><code>git worktree add -B master public origin/master
+<pre><code>git worktree add -B master public origin/master
 </code></pre><p>Checkout to local <code>master</code> branch by simply <code>cd public</code>, and do <code>git push</code>, use <code>--force</code> if necessary.</p>
 <p>Remember to push your changes in <code>builder</code> branch to remote as well.</p>
 <p>In summary, use <code>builder</code> branch to write, build and publish the static content, use <code>master</code> branch to host
@@ -323,7 +324,7 @@ on Github Pages</p>
 <p>For those who are lazy to read, or for lazy publication, I have the following deployment script, I copy-paste
 the entire thing here because I want to see how it looks like when a large chunk of code
 is rendered using this Hugo Theme.</p>
-<pre tabindex="0"><code>#!/bin/sh
+<pre><code>#!/bin/sh
 
 if [[ $(git status -s) ]]
 then
@@ -483,7 +484,7 @@ to see a long list of red/green <code>git status</code> result (weirdo alert!).<
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2021 Shadowsong27. All Rights Reserved
+    &copy; 2022 Shadowsong27. All Rights Reserved
   </span>
 </footer>
 
