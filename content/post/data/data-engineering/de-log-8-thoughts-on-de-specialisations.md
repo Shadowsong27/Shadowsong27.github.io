@@ -2,8 +2,8 @@
 title: "DE Log 8: Thoughts on Data Engineering Specialisations"
 thumbnailImagePosition: "left"
 metaAlignment: center
-thumbnailImage: https://www.offshore-technology.com/wp-content/uploads/sites/6/2019/12/shutterstock_570368662.jpg
-coverImage: https://www.offshore-technology.com/wp-content/uploads/sites/6/2019/12/shutterstock_570368662.jpg
+thumbnailImage: https://images.ctfassets.net/k49d63tr8kcn/4jbw1fdWLuMUh0Ztlb2dOn/6964e6b873b904392990355ed48c983a/data_pipeline-1-.svg
+coverImage: https://images.ctfassets.net/k49d63tr8kcn/4jbw1fdWLuMUh0Ztlb2dOn/6964e6b873b904392990355ed48c983a/data_pipeline-1-.svg
 coverMeta: out
 date: 2022-01-01
 categories:
