@@ -122,6 +122,10 @@ this page as a gallery.
 
 ## 羊肉
 
+#### 土豆烧羊蝎子
+
+![pic](/img/food/土豆烧羊蝎子.jpeg)
+
 #### 烤羊排
 
 这里用的redmart羊排，最好不是冷冻的
@@ -147,12 +151,6 @@ this page as a gallery.
 
 ## 鱼
 
-#### 酸菜鱼
-
-![pic](/img/food/酸菜鱼.JPG)
-
-这个是用料包做的。但是理论上是可以做的。水煮鱼同理。
-
 #### 蒸三文鱼
 
 ![pic](/img/food/蒸三文鱼2.jpeg)
@@ -170,6 +168,12 @@ this page as a gallery.
 ![pic](/img/food/红烧鲳鱼.jpg)
 
 是个鱼就能这么烧， 但是我以后不会再买冷冻鱼了
+
+#### 酸菜鱼
+
+![pic](/img/food/酸菜鱼.JPG)
+
+这个是用料包做的。但是理论上是可以做的。水煮鱼同理。
 
 ## 虾
 
@@ -191,7 +195,7 @@ this page as a gallery.
 
 #### 西红柿炒鸡蛋
 
-![pic](/img/food/西红柿炒蛋.JPG)
+![pic](/img/food/西红柿炒蛋.jpeg)
 
 家常菜，不加醋，咸口。
 
@@ -218,11 +222,9 @@ this page as a gallery.
 
 ![pic](/img/food/麻婆豆腐.jpeg)
 
-辣的
+(当然也可以做不辣🌶的)
 
 ![pic](/img/food/麻婆豆腐2.jpeg)
-
-不辣的
 
 ## 其他蔬菜
 
@@ -237,6 +239,12 @@ this page as a gallery.
 ![pic](/img/food/蚝油生菜.jpeg)
 
 another 为数不多吃的绿叶菜
+
+#### 蒜蓉小青菜
+
+![pic](/img/food/蒜蓉小青菜.jpeg)
+
+好了，我现在好像能吃挺多绿叶菜了🤭
 
 #### 干煸四季豆
 
@@ -288,7 +296,7 @@ another 为数不多吃的绿叶菜
 
 #### 西红柿蛋汤
 
-![pic](/img/food/西红柿蛋汤.png)
+(🍅+🥚汤，图可以意会)
 
 # 其他
 
