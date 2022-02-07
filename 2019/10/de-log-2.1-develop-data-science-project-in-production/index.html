@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.91.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.79.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
 <meta name="description" content="Recently I was working on the deployment of a predictive model built by my dear
@@ -99,6 +99,7 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
+
     
     
   </head>
@@ -295,7 +296,7 @@ I have encountered during its production deployment.</p>
 <p>It is pretty straight forward, politely ask your data scientist colleague to organize the commands to prepare, train the model. If your dear friend and valued colleague does not know how to do that, help them by wrapping the code with a CLI command interface.</p>
 <p>One very important thing to note:
 Some parts of the data science project such as prediction function or other data processing functions will inevitably be reused in the backend service. While preparing the commands for scheduling, I would package those necessary tools into a separate folder, decoupled from memory intensive libs such as  <code>pandas</code> (still in the same repo), and later on built by running <code>pip install git+ssh</code>.</p>
-<pre tabindex="0"><code>root
+<pre><code>root
 |____prediction_model
 | |____stuff for model training
 | |______init__.py
