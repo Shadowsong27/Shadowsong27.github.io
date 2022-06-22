@@ -12,13 +12,12 @@ I am a data engineer.
 
 My vision is to automate everything that can be automated, and automating the automation itself.
 
-What I do on a day-to-day basis:
-1. tend data pipeline and make data flows efficiently for my fellow data analysts and data scientists
+What I do on a daily basis:
+1. tend data pipelines and make data flows efficiently, reliably for my fellow data analysts and data scientists
 2. build software solutions to make data more accessible from Data lake/warehouse
 3. help explore latest framework / DE solutions
 4. people and team management if needed
 
-I am a happy guy when I see all Airflow jobs passed with green circles. 
 You should only notice me when something is broken.
 
 
@@ -98,7 +97,7 @@ Management Responsibilities:
 - 1:1 with team members 
 
 
-### Data Engineer - Aug 2018 to JUne 2020
+### Data Engineer - Aug 2018 to June 2020
 
 This role requires me to work both as a backend developer and a data engineer, 
 it also requires me to communicate a lot with different stakeholders in 
@@ -159,6 +158,7 @@ legend (being as accurate as I can):
 #### Tools
 
 - Spark, Presto, Hive - Proficient in usage, familiar with internals
+- Kafka - familiar with usage
 - Delta Lake - Proficient
 - Proficient in Airflow 1 + 2, including internals
 - Data Warehouses (Redshift) - Proficient
