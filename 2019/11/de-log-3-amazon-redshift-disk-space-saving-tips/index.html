@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.91.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.79.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
 <meta name="description" content="Recently Amazon Redshift launched a new console interface, which is pretty nice. It actually gives some valuable optimisation tips. A data warehouse is like a sword, you need to constantly sharpen it so it won’t lose its edge.">
@@ -94,6 +94,7 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
+
     
     
   </head>
@@ -270,7 +271,7 @@ if (!doNotTrack) {
               <p>Recently Amazon Redshift launched a new console interface, which is pretty nice. It actually gives some valuable optimisation tips. A data warehouse is like a sword, you need to constantly sharpen it so it won’t lose its edge.</p>
 <p>I will cover a few disk space saving tips in this article. Though it is Redshift specific, I believe the idea could be generalised into other Data Warehouse solution.</p>
 <p>To analyse the disk usage, you just need to run</p>
-<pre tabindex="0"><code>SELECT
+<pre><code>SELECT
     schema as table_schema,
     &quot;table&quot; as table_name,
     size as used_mb,
@@ -312,7 +313,7 @@ order by size desc;
 <p>This is something I find out recently, so I do have some very naive comparison stats.
 The main idea is to compress your data by columns, period. You could google more on the algorithm and implementation, I have taken a look, it is a good read.</p>
 <p>To analyse:</p>
-<pre tabindex="0"><code>ANALYZE COMPRESSION &lt;table name&gt;;
+<pre><code>ANALYZE COMPRESSION &lt;table name&gt;;
 </code></pre><p>This will tell you how much you can compress by percentage for each column.</p>
 <p>Before compression:</p>
 <ul>
