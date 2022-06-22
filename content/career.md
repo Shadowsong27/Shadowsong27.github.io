@@ -6,21 +6,99 @@ showMeta:       false
 showActions:    false
 ---
 
-I am a data engineer, I tend data pipelines and make data flows efficiently for my
-fellow data analysts and data scientists.
+# Overview and Vision
 
+I am a data engineer.
+
+My vision is to automate everything that can be automated, and automating the automation itself.
+
+What I do on a day-to-day basis:
+1. tend data pipeline and make data flows efficiently for my fellow data analysts and data scientists
+2. build software solutions to make data more accessible from Data lake/warehouse
+3. help explore latest framework / DE solutions
+4. people and team management if needed
+
+I am a happy guy when I see all Airflow jobs passed with green circles. 
 You should only notice me when something is broken.
 
-# Education Background
 
-### National University of Singapore - Aug 2014 to May 2018 
+### Focus
 
-- Bachelor of Science in Business Analytics
-- Science & Tech Scholarship
+Based on my understanding that the current data engineering job scope can be divided into three sub fields:
+1. Infrastructure
+2. Pipeline (with in-house tooling or dynamically generate pipelines)
+3. Data Warehouse + Data modelling (more like Analytical Engineering)
+
+I have various level of experience with all three fields, focusing on different parts at different stages in
+my career. Currently focusing mostly on #2. 
+
 
 # Work Experience
 
-### Data Engineer - Aug 2018 to now
+### Senior Data Engineer + Pod Lead - Sept 2021 - Present
+ 
+This requires me to work as an IC role, and gradually move towards a team lead position. I am primarily focusing
+on delivering Python-based software solutions that automate the building of pipelines, and maintaining the 
+quality of our data lakehouse.
+
+Tech stack used:
+
+Orchestrator: Airflow 1 + Airflow 2 (in transition)
+Data Lakehouse: Delta Lake + Hive
+Ingestion: in-house
+Ingestion Engine: Databricks Spark
+Transformation Engine: Databricks Spark
+Transformation Framework: dbt
+Analytical Engine: Presto / Trino
+Streaming: Kafka Connect + Debezium
+BI: Looker
+Monitoring: Datadog + Pagerduty + Slack
+
+Responsibilities:
+- Build Python solutions 
+    - to make data analytics self-serviceable
+    - to abstract complex spark and delta lake usages for data analysts
+    - to make generation of batch/streaming pipelines (semi)-automated via configurations
+    - to make pipelines auto recover
+- Exploring new data solutions (Looking at Airbyte and DataHub now) 
+- participate in cross-team projects if needed
+- Drafting and driving projects / epics within Pod, Building + setting success metrics, monitoring of success metrics
+- other standard management stuff like my last job
+- DOCUMENTATIONS!
+ 
+ 
+### Data Team Lead - June 2020 - Sept 2021
+
+This role requires me to work as a manager with hands on work to setup the data platform infrastructure of a small 
+startup from scratch, plus a distributed web-crawling system.
+
+Tech stack used:
+
+Orchestrator: open sourced version of Apache Airflow 2
+Data Warehouse: AWS Redshift
+Ingestion: in-house
+Job Queues: Apache Kafka
+Transformation Framework: dbt
+BI: Metabase
+Metadata Management: Django Admin Page (I did not follow up this part of the data stack that closely back then)
+
+Most of the stuff are setup in house and fully on AWS ECS Fargate.
+
+Engineering Responsibilities:
+- Infrastructure setup
+- Build pipelines end-to-end
+- Exploring new data solutions (lead to adoption of Airflow 2 and dbt)
+- Difficult bugs
+
+Management Responsibilities:
+- sprint planning
+- solution design
+- mentoring juniors
+- setup and standardize workflow such as bug reporting
+- 1:1 with team members 
+
+
+### Data Engineer - Aug 2018 to JUne 2020
 
 This role requires me to work both as a backend developer and a data engineer, 
 it also requires me to communicate a lot with different stakeholders in 
@@ -31,7 +109,7 @@ Main responsibilities:
 Data Engineering
 
 - Maintain (Python, SQL, AWS ECS) batch/stream data pipelines using Apache Airflow 
-- Mgrated Data Warehouse from legacy Postgres RDS into AWS Redshift
+- Migrated Data Warehouse from legacy Postgres RDS into AWS Redshift
 - Design Data Warehouse (AWS Redshift) architecture, data health check and alerts (Emails and Slack) to speed up data analysis, validation, exploration & hypothesis testing
 - Data modelling and design optimised analytical tables to speed up B2B data deliveries and data science iteration
 - Enable safe automated data deployment into production environment and validation 
@@ -60,33 +138,47 @@ Data Science
 legend (being as accurate as I can):
 
 - `Basic understanding`: Never used in production environment 
-    but has a general idea on how a solution should be like, able to build POCs
-- `familiar`: able to design, implement solutions
-- `proficient`: able to design, implement and optimized solutions, workflow
+    but has a general idea on how a solution should be like, able to build POCs and experiment on it
+- `familiar`: has production experience, able to design, implement solutions or workflow end to end
+- `proficient`: everything from `familiar` + with confidence that this should be the 
+    most optimized solution given all factors considered
 
 ### Engineering Skills
 
-Programming language
+#### Programming language
 
-- Main programming language is Python 3, 
-    familiar with Python coding standard, common practices and design patterns
-    
-- Familiar with Python web backend frameworks 
-    (Falcon and Django), familiar with RESTful API design
+- Python 3 - Proficient
+    - familiar with Python coding standard, common practices and design patterns
+    - thinks type hinting, naming convention and inline docs are critical
+    - familiar with Python web backend frameworks
+    (Falcon, Django, FastAPI), familiar with RESTful API design
 
-Data
+- SQL - Proficient
+    - not much to talk about really
 
-- Proficient in Data modeling
-- Proficient in Airflow, aware of pitfalls, able to design custom Plugins, able to device workarounds for framework related bugs
+#### Tools
+
+- Spark, Presto, Hive - Proficient in usage, familiar with internals
+- Delta Lake - Proficient
+- Proficient in Airflow 1 + 2, including internals
+- Data Warehouses (Redshift) - Proficient
+- Data Lake (Delta + s3) - Proficient
+- Relational DB - Proficient in Postgres, MySQL
+- NoSQL - Familiar with Mongo and Dynamo
+- Familiar with other databases such as redis, AWS Dynamo etc.
+
+#### Data
+
+- Proficient in Data modeling 
 - Proficient in modern Data Warehouse solution design (Inmon approach), data pipeline designs
-- Proficient Postgres (Redshift) SQL skill for both OLAP and OLTP types of queries, familiar with and relational database knowledge
-- Familiar with other databases such as KV store, AWS Dynamo etc.
-- Basic understanding with open sourced big data technologies including Kafka and Spark
+- Proficient in performing common optimization measures like partitioning, bucketing etc.
+- Proficient in design and performing Data Quality Checks
 
 General
 
 - Familiar with modern programming toolkit: Unix terminal operations, version control, Docker, setup CI/CD, documentations
-- Familiar in commonly used Amazon Web Services, able to independently deploy solutions from start to end
+- Familiar in commonly used Amazon Web Services (including those that are typically 
+out of DE scope such as Cloudfront or networking configuration), able to independently deploy solutions from start to end
 
 
 ### Analytical Skills
@@ -102,5 +194,11 @@ General
 - Strong self-learning capability and a desire for knowledge
 - Able to communicate with data analysts, data scientists and understand, accept / pushback / propose alternative solutions for their needs
 - Able to communicate with non-data, non-technical team members (marketing, sales, upper management) 
-- Experience with Team and Project Management (managed interns, managed JIRA boards)
 
+
+# Education Background
+
+### National University of Singapore 
+
+- Bachelor of Science in Business Analytics
+- Science & Tech Scholarship
