@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.101.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Shadowsong27">
+<meta name="keywords" content="">
+<meta name="description" content="In this article, I am sharing my first impression on the open-sourced almighty data ingestion tool - Airbyte.">
+
+
+<meta property="og:description" content="In this article, I am sharing my first impression on the open-sourced almighty data ingestion tool - Airbyte.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DET Log 1: A first “byte” of Airbyte">
+<meta name="twitter:title" content="DET Log 1: A first “byte” of Airbyte">
+<meta property="og:url" content="https://shadowsong27.github.io/2022/10/det-log-1-a-first-byte-of-airbyte/">
+<meta property="twitter:url" content="https://shadowsong27.github.io/2022/10/det-log-1-a-first-byte-of-airbyte/">
+<meta property="og:site_name" content="Shadowsong&#39;s Personal Website">
+<meta property="og:description" content="In this article, I am sharing my first impression on the open-sourced almighty data ingestion tool - Airbyte.">
+<meta name="twitter:description" content="In this article, I am sharing my first impression on the open-sourced almighty data ingestion tool - Airbyte.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2022-10-21T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2022-10-21T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="data">
+    
+      <meta property="article:section" content="data-engineering">
+    
+  
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://logopond.com/logos/b51007a3306928fccb50567403c68e47.png">
+  <meta property="twitter:image" content="https://logopond.com/logos/b51007a3306928fccb50567403c68e47.png">
+
+
+  <meta property="og:image" content="https://sdtimes.com/wp-content/uploads/2021/07/606345e0c1c8a8915cce45f2_Airbyte-Social-Share.jpg">
+  <meta property="twitter:image" content="https://sdtimes.com/wp-content/uploads/2021/07/606345e0c1c8a8915cce45f2_Airbyte-Social-Share.jpg">
+
+
+
+
+  <meta property="og:image" content="https://avatars3.githubusercontent.com/u/12522657?s=400&u=ccfcf050a757c6a49241737eefe4386064400b5e&v=4">
+  <meta property="twitter:image" content="https://avatars3.githubusercontent.com/u/12522657?s=400&u=ccfcf050a757c6a49241737eefe4386064400b5e&v=4">
+
+
+    <title>DET Log 1: A first “byte” of Airbyte</title>
+
+    <link rel="icon" href="https://shadowsong27.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://shadowsong27.github.io/2022/10/det-log-1-a-first-byte-of-airbyte/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://shadowsong27.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-104611639-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://shadowsong27.github.io/">Shadowsong&#39;s Personal Website</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://shadowsong27.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://avatars3.githubusercontent.com/u/12522657?s=400&amp;u=ccfcf050a757c6a49241737eefe4386064400b5e&amp;v=4" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://shadowsong27.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://avatars3.githubusercontent.com/u/12522657?s=400&amp;u=ccfcf050a757c6a49241737eefe4386064400b5e&amp;v=4" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Shadowsong27</h4>
+        
+          <h5 class="sidebar-profile-bio">I just want to sit in my garden and tend my pipelines.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/career">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-suitcase"></i>
+      
+      <span class="sidebar-button-desc">Career</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/food">
+    
+      <i class="sidebar-button-icon fa fa-cutlery"></i>
+      
+      <span class="sidebar-button-desc">Food</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/Shadowsong27" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('https://sdtimes.com/wp-content/uploads/2021/07/606345e0c1c8a8915cce45f2_Airbyte-Social-Share.jpg')"
+       data-behavior="5">
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaOut
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      DET Log 1: A first “byte” of Airbyte
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2022-10-21T00:00:00Z">
+        
+  October 21, 2022
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://shadowsong27.github.io/categories/data">data</a>, 
+    
+      <a class="category-link" href="https://shadowsong27.github.io/categories/data-engineering">data-engineering</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>In this article, I am sharing my first impression on the open-sourced almighty data ingestion tool - Airbyte.</p>
+<p>I am currently on a week long leave after shipping our streaming pipeline
+foundation in Q3, this break finally allows me to pause a bit so I could
+fully focus on  <del>watching Dota2 The International</del> thinking about the
+data engineering scene strategically.</p>
+<p>Data ingestion has always been an interesting component to me, collecting
+data automatically into a database/warehouse/lake is a very convenient
+remedy for my <code>mild</code> (yes, just mild) hoarding disorder. Therefore it is no doubt that
+Airbyte has been one of the many data products that I wish to try, so I did.</p>
+<p>Disclaimer: I have not used this tool to its fullest capability, I have left out
+certain features like CDC syncs, or performed a very robust load
+test, what I will do instead is to highlight some of the features that I really like (and provide reasons for it),
+and some of the concerns I have observed so far based on my unique and non-universal sets of needs when it comes to data ingestions.</p>
+<h1 id="the-good">The Good</h1>
+<p>Overall I think this tool is perfect for small teams or companies with a very small
+data engineering team, commonly observed at their initial stages.
+It without a doubt speeds up the data movements from the operational product environment
+into the offline (online/live is out of the question here since Airbyte is not for streaming) analytical environment with minimal efforts.</p>
+<p>I will highlight some of the features that make this possible.</p>
+<h3 id="configuration-based-pipelines-with-gui">Configuration-based pipelines, with GUI</h3>
+<p>Over the years of practices I have come to realisation
+that building data pipelines is fun only when you are building something new constantly,
+it quickly becomes boring once the repetitive pattern starts, even with the help of a few for loops.
+I think it has very much established in the industry that we would want to dynamically generate data pipelines,
+or automatically generate data pipelines from scripts as much as possible.</p>
+<p>What I have done recently in my day job is basically generating Airflow DAGs and Tasks based on a
+YAML git repository that got synced in a S3 bucket via CI pipeline, this makes adding/removing a pipeline extremely convenient,
+not mentioned the additional benefits comes with CI, such as validation logic and versioning.</p>
+<p>Airbyte took a very similar approach, it does not only provide the YAML configuration
+option via their cli offering, but the application itself comes with a very nice GUI.</p>
+<p>The GUI can be very useful under two conditions:</p>
+<ol>
+<li>Data replication is done on a requested basis - we only request what we needs, instead by default syncing everything from the operational databases or data systems</li>
+<li>The organisation is embracing a self-service culture, or at least in the data usage aspect - I would say GUI will be the most important pre-requisite to drive this culture. It’s hard to convince even more technical data analysts or data scientists to write YAMLs, it would be easier if the company is started with this culture.
+It also shortens new hires onboarding time and opens up more room for hiring when certain skills are not required.
+This miniatures the platform strategy many big techs are taking to a certain extend.</li>
+</ol>
+<h3 id="handles-long-tail-problem-with-saas-apis">Handles long tail problem with SaaS APIs</h3>
+<p>We often need to ingest data from a third party SaaS product, via their raw APIs or SDKs. The SDKs can vary in terms of usability, and limited by the programming language used, plus it’s mentally draining for our engineers to build a custom Hook to a system just to bringing 30 rows of data from Zendesk.</p>
+<p>Airbyte solves this with finesse, as an open-sourced tool it has a lot of community contributed connectors,
+saving your extensive amount of time to deal with integration. I think this is pretty obvious, so no further elaboration will be penned down here.</p>
+<h1 id="the-bad">The Bad</h1>
+<p>However I do have some concerns, some of them can be found in the Github Issues, some of them are very specific to my current usage.
+I do want to stress again that I have not used the tool in production extensively so
+it’s purely based on speculations and other discussions online.
+I would not say these are critical flaws that make this product bad, it’s more like nuances that one might
+need to overcome to fit this great product into their stack.</p>
+<h3 id="performance">Performance</h3>
+<p>Performance either on read or write is one of my initial concern, in particular against those often heavily used operational databases, when you have billions of records in a single Postgres table.</p>
+<p>Per this <a href="https://discuss.airbyte.io/t/sync-performance/1578">discussion</a>, it looks like you will have to create multiple <code>connections</code> to achieve parallel sync within a single database. Would this also mean that within the connections syncs are done sequentially? Of course this could still be overcome by dynamic YAML generations so we can still tinker a bit of configs and generate the correct set of tables in each connection, just need extra work.</p>
+<p>Based on the official docs, the workers are horizontally scalable globally, but seems impossible to at connection level.</p>
+<blockquote>
+<p>Sync jobs use two workers. One worker reads from the source; the other worker writes to the destination.</p>
+</blockquote>
+<p>This most likely means that one connection would at most take two workers, but not more than that, if I understand this correctly.
+You can’t devote a cluster of workers on either read or write process here, which is possible in other data system.
+In Spark you might to something like a controlled parallelism allowing
+each worker to read a partition of a table, by providing a list of predicates, but on the write side I believe the destination
+<code>databricks lakehouse</code> will allow you to tap in the scalability of managed Spark.</p>
+<p>Essentially I am not 100% sure that this is going to be a critical problem without trying
+it with production tables, since if incremental tables can be setup and if the incremental load is pretty manageable,
+the gain from boosting performance on read and write beyond one worker setup might be marginal.
+Nonetheless I think it would be nice to have similar options.</p>
+<h3 id="abstraction-level">Abstraction Level</h3>
+<p>In Airbyte each pipeline or connection could sync one or more tables from the source, so each pipeline could be used to handle a set of tables that are similar in configurations, however this means that the configuration is not set at table level. Let’s say we have 100 tables, if we want to run everything concurrently, we need to create 100 connections. This would require us to create a different layer of abstraction of configs so we could manage this dynamically.</p>
+<p>I would like to have a destination table level pipeline because in my current setup, we are using data lake(house), essentially we would want to have:</p>
+<ol>
+<li>Able to run (or have the option to run) everything concurrently</li>
+<li>Able to execute other optional post-ingestion actions, such as registering the lake table in Presto/Trino</li>
+</ol>
+<h1 id="the-solution">The Solution</h1>
+<p>I will just propose a very high level solution here for the issue above briefly. Note that this might not be an issue at all for you based on your needs, and I would say with confidence that this will not be a problem for most teams. The solution is based on what I have proposed and created in Xendit, essentially revolves around a centralised configuration repository, what I called the Registra.</p>
+<h3 id="overview">Overview</h3>
+<p>The Registra is a central storage table level configurations, tables that are in your main analytical storage, being either data warehouse or data lake, or lakehouse.</p>
+<p>A rough flow will be like the following:</p>
+<p><img src="https://shadowsong27.github.io/img/det-log-1-img-1.png" alt="pic"></p>
+<ol>
+<li>
+<p>configurations are used and parsed to generate the Airbyte YAML files. We could easily introduce new config fields that helps group connections
+logically together, something like <code>cron_groups</code>, <code>connection_groups</code> at table level so
+eventually we know which tables can be grouped together into a single Airbyte connection,
+which (normally those heavy tables) requires it’s own slot in Airbyte</p>
+</li>
+<li>
+<p>Apply the generated YAMLs so the YAMLs gets recognised by Airbyte</p>
+</li>
+<li>
+<p>Trigger the connections so they are online, and let Airbyte takes over the Data Ingestion</p>
+</li>
+<li>
+<p>On a separate process, most likely in a separate orchestrator as well,
+you dynamically generate a list of tasks based on the same Registra YAML repo and use that to handle any post-ingestion operation</p>
+</li>
+</ol>
+<p>The above flow could be easily converted into a proper CI flow too, any changes pushed into the Registra repo will be the trigger and the rest can just follow.</p>
+<h3 id="other-directions">Other directions</h3>
+<p>Besides YAML Github Repo based solution, the centralised configs Git repo could be replaced with a proper relational database too,
+which will enable you to better control on concurrent changes to the configurations.
+This will easily get you a decent self-service tool internally if a GUI is attached in front of that database.</p>
+<p>Wait a second, we already have that self-service GUI comes with Airbyte that
+allows people to self-serve their data ingestion needs, would not this be a bit duplicated?</p>
+<p>I would say the Registra is not just designed for data ingestion, it should be
+the central config and a single source of truth for tables in your analytical storage, including things that are not yet possible in Airbyte, and other things around the tables such as metadata, lineage, access control or archiving.</p>
+<p>However if we are looking at the data ingestion step alone, it is a little bit
+overlapped because Airbyte has covered a lot of angles in the data ingestion aspect, any wrapping layers around it will not be very useful unless you have a very specific real use case. To reconcile this, we need to recognize that there are two sets of configurations here, one from Airbytes, in the form of YAML and eventually values inside Airbyte DB, one from Registra, in the form of YAMLs or DB values directly. The Registra YAMLs will be used to handle those specific stuff that can’t be done with Airbyte, where Airbyte configs will stay the same. In this regard we are opening up two entry points for configuration changes, one for data ingestion, done with Airbyte GUI, one for analytical table, done with Registra.</p>
+<p>A typical user flow would be:</p>
+<ol>
+<li>I want to replicate this table, so I went to Registra GUI and setup the source, destination and destination configs</li>
+<li>I pushed the changes</li>
+<li>CI triggered, Airbyte YAMLs will be generated and connections will be registered automatically, after a while</li>
+<li>If needed, I could go into Airbyte GUI to further configure the ingestion changes, if not needed, the default setting should be enough to get my data into the destination</li>
+</ol>
+<p>Yes I would consider this a bit confusing, but with this setup it is possible to integrate
+many other open source tools into the data stack, centrally controlled from the central configs.
+We have successfully integrated dbt into this setup where Registra configs sits side by side with the entire <code>dbt</code> YAML configs,
+connected using the path of <code>dbt</code> models.</p>
+<h1 id="concluding-remarks">Concluding Remarks</h1>
+<p>At high level I feel Airbyte is a great tool for companies / orgs that:</p>
+<ol>
+<li>initially start to build up their analytical platform to extract data insights</li>
+<li>does not have a huge amount of data in their operational databases</li>
+<li>are not financially stable enough to support a relatively complete data engineering team</li>
+</ol>
+<p>With Airbyte, one experienced data engineer, or even generic software engineer
+could probably handle the data ingestion needs of the team and unlocks more potential in data usages
+downstream. However, I would still caution every team to examine their specific data ingestion needs and evaluate
+whether Airbyte is something worth trying. There is little gain from converting some
+of the existing working pipelines, but it does help save the time of reading different API Docs when integrating a new
+data sources like Salesforce or Zendesk.</p>
+<p>Despite such tools are making data engineers more replaceable (my job alike) over the time, I still feel
+this is good for the world overall. It&rsquo;s just the wheel of history, you do not counter that popular and cliche term
+these days, <code>democratize data engineering</code>, you just embrace it, but that discussion demands a separate blog post.</p>
+<p>Hope this article is helpful for you.</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2022/02/rt-log-6-career-summary-v3/" data-tooltip="RT Log 6: Career summary v3">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2022/10/det-log-1-a-first-byte-of-airbyte/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2022/10/det-log-1-a-first-byte-of-airbyte/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2022/10/det-log-1-a-first-byte-of-airbyte/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2022 Shadowsong27. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2022/02/rt-log-6-career-summary-v3/" data-tooltip="RT Log 6: Career summary v3">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2022/10/det-log-1-a-first-byte-of-airbyte/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2022/10/det-log-1-a-first-byte-of-airbyte/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2022/10/det-log-1-a-first-byte-of-airbyte/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2022%2F10%2Fdet-log-1-a-first-byte-of-airbyte%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2022%2F10%2Fdet-log-1-a-first-byte-of-airbyte%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2022%2F10%2Fdet-log-1-a-first-byte-of-airbyte%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://avatars3.githubusercontent.com/u/12522657?s=400&amp;u=ccfcf050a757c6a49241737eefe4386064400b5e&amp;v=4" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Shadowsong27</h4>
+    
+      <div id="about-card-bio">I just want to sit in my garden and tend my pipelines.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Data Engineer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Singapore
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://i.pinimg.com/originals/00/93/9d/00939dff0059e823658afe98bb6d87a4.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://shadowsong27.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/shadowsong27.github.io\/2022\/10\/det-log-1-a-first-byte-of-airbyte\/';
+          
+            this.page.identifier = '\/2022\/10\/det-log-1-a-first-byte-of-airbyte\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'shadowsongs-blog';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

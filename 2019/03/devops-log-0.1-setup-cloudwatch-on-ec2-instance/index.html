@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.79.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.101.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
 <meta name="description" content="I wrote this initially in our internal documentation website, so this is a very short note on how to setup Cloudwatch on AWS EC2.">
@@ -102,7 +102,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -282,15 +281,15 @@ if (!doNotTrack) {
 <ol>
 <li>Download the agent package</li>
 </ol>
-<pre><code>wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb
+<pre tabindex="0"><code>wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb
 </code></pre><ol start="2">
 <li>Install package</li>
 </ol>
-<pre><code>sudo dpkg -i -E ./amazon-cloudwatch-agent.deb
+<pre tabindex="0"><code>sudo dpkg -i -E ./amazon-cloudwatch-agent.deb
 </code></pre><ol start="3">
 <li>Configuration using wizard</li>
 </ol>
-<pre><code>sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
+<pre tabindex="0"><code>sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
 </code></pre><ol start="4">
 <li>
 <p>Check the EC2 instance is attached with an IAM role that has Cloudwatch rights</p>
@@ -299,18 +298,18 @@ if (!doNotTrack) {
 <p>Install <code>collectd</code> if not done so (most likely you are not)</p>
 </li>
 </ol>
-<pre><code>sudo apt-get install collectd
+<pre tabindex="0"><code>sudo apt-get install collectd
 </code></pre><ol start="6">
 <li>Start the Agent with the latest configuration</li>
 </ol>
-<pre><code>sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
+<pre tabindex="0"><code>sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
 </code></pre><p>To check the status:</p>
-<pre><code>sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a status
+<pre tabindex="0"><code>sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a status
 </code></pre><p>Response should be something like</p>
-<pre><code>{
-  &quot;status&quot;: &quot;running&quot;,
-  &quot;starttime&quot;: &quot;2019-03-28T04:36:52+00:00&quot;,
-  &quot;version&quot;: &quot;1.208036.0&quot;
+<pre tabindex="0"><code>{
+  &#34;status&#34;: &#34;running&#34;,
+  &#34;starttime&#34;: &#34;2019-03-28T04:36:52+00:00&#34;,
+  &#34;version&#34;: &#34;1.208036.0&#34;
 }
 </code></pre><p>Note a few things:</p>
 <ol>
@@ -334,7 +333,7 @@ if (!doNotTrack) {
 <ul>
 <li>
 <p>If the agent is not running for some reason, first thing check the agent log at:</p>
-<pre><code>sudo tail /opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log
+<pre tabindex="0"><code>sudo tail /opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log
 </code></pre><p>Usually it provides you with the necessary error message (This is not included in the AWS guide)</p>
 </li>
 <li>
@@ -352,7 +351,7 @@ if (!doNotTrack) {
 </ol>
 </li>
 </ul>
-<pre><code>sudo service awslogs stop
+<pre tabindex="0"><code>sudo service awslogs stop
 </code></pre>
               
             </div>

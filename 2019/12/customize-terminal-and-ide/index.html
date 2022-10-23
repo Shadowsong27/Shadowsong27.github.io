@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.79.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.101.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
 <meta name="description" content="This short article aims to reproduce my current workbench, using color plattes of my choice.">
@@ -92,7 +92,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -284,27 +283,27 @@ if (!doNotTrack) {
 </ul>
 <h1 id="vs-code-configuration">VS Code Configuration</h1>
 <p>This requires installation of <code>Menlo for Powerline</code> font. It has to be a monospace version.</p>
-<pre><code>{
-    “terminal.integrated.fontFamily”: “Menlo for Powerline&quot;,
+<pre tabindex="0"><code>{
+    “terminal.integrated.fontFamily”: “Menlo for Powerline&#34;,
     “workbench.startupEditor”: “newUntitledFile”,
-    &quot;terminal.integrated.shell.osx&quot;: &quot;/bin/zsh&quot;,
-    &quot;window.zoomLevel&quot;: 1,
-    &quot;editor.fontFamily&quot;: &quot;Menlo for Powerline&quot;,
-    &quot;workbench.colorTheme&quot;: &quot;Solarized Light&quot;,
-    &quot;editor.fontSize&quot;: 14,
-    &quot;workbench.colorCustomizations&quot;: {
-        &quot;terminal.background&quot;:&quot;#594f4f&quot;,
-        &quot;terminal.foreground&quot;:&quot;#e5fcc2&quot;,
+    &#34;terminal.integrated.shell.osx&#34;: &#34;/bin/zsh&#34;,
+    &#34;window.zoomLevel&#34;: 1,
+    &#34;editor.fontFamily&#34;: &#34;Menlo for Powerline&#34;,
+    &#34;workbench.colorTheme&#34;: &#34;Solarized Light&#34;,
+    &#34;editor.fontSize&#34;: 14,
+    &#34;workbench.colorCustomizations&#34;: {
+        &#34;terminal.background&#34;:&#34;#594f4f&#34;,
+        &#34;terminal.foreground&#34;:&#34;#e5fcc2&#34;,
     },
-    &quot;terminal.integrated.lineHeight&quot;: 1.2
+    &#34;terminal.integrated.lineHeight&#34;: 1.2
 }
 </code></pre><h1 id="agnoster-theme">Agnoster Theme</h1>
 <p>Locate your <code>agnoster.zsh-theme</code> file by searching <code>oh-my-zsh</code> home. There is a <code>themes</code> folder.</p>
 <p>Replace with the following config:</p>
 <p>Note color number (256 color system) can be customized.</p>
-<pre><code># vim:ft=zsh ts=2 sw=2 sts=2
+<pre tabindex="0"><code># vim:ft=zsh ts=2 sw=2 sts=2
 #
-# agnoster's Theme - https://gist.github.com/3712874
+# agnoster&#39;s Theme - https://gist.github.com/3712874
 # A Powerline-inspired theme for ZSH
 #
 # # README
@@ -313,7 +312,7 @@ if (!doNotTrack) {
 # [Powerline-patched font](https://gist.github.com/1595572).
 #
 # In addition, I recommend the
-# [Solarized theme](https://github.com/altercation/solarized/) and, if you're
+# [Solarized theme](https://github.com/altercation/solarized/) and, if you&#39;re
 # using it on Mac OS X, [iTerm 2](http://www.iterm2.com/) over Terminal.app -
 # it has significantly better color fidelity.
 #
@@ -340,31 +339,31 @@ typeset -aHg AGNOSTER_PROMPT_SEGMENTS=(
 ### Segment drawing
 # A few utility functions to make it easy and re-usable to draw segmented prompts
 
-CURRENT_BG='NONE'
-if [[ -z &quot;$PRIMARY_FG&quot; ]]; then
+CURRENT_BG=&#39;NONE&#39;
+if [[ -z &#34;$PRIMARY_FG&#34; ]]; then
   PRIMARY_FG=black
 fi
 
 # Characters
-SEGMENT_SEPARATOR=&quot;\ue0b0&quot;
-PLUSMINUS=&quot;\u00b1&quot;
-BRANCH=&quot;\ue0a0&quot;
-DETACHED=&quot;\u27a6&quot;
-CROSS=&quot;\u2718&quot;
-LIGHTNING=&quot;\u26a1&quot;
-GEAR=&quot;\u2699&quot;
+SEGMENT_SEPARATOR=&#34;\ue0b0&#34;
+PLUSMINUS=&#34;\u00b1&#34;
+BRANCH=&#34;\ue0a0&#34;
+DETACHED=&#34;\u27a6&#34;
+CROSS=&#34;\u2718&#34;
+LIGHTNING=&#34;\u26a1&#34;
+GEAR=&#34;\u2699&#34;
 
 # Begin a segment
 # Takes two arguments, background and foreground. Both can be omitted,
 # rendering default background/foreground.
 prompt_segment() {
   local bg fg
-  [[ -n $1 ]] &amp;&amp; bg=&quot;%K{$1}&quot; || bg=&quot;%k&quot;
-  [[ -n $2 ]] &amp;&amp; fg=&quot;%F{$2}&quot; || fg=&quot;%f&quot;
-  if [[ $CURRENT_BG != 'NONE' &amp;&amp; $1 != $CURRENT_BG ]]; then
-    print -n &quot;%{$bg%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{$fg%}&quot;
+  [[ -n $1 ]] &amp;&amp; bg=&#34;%K{$1}&#34; || bg=&#34;%k&#34;
+  [[ -n $2 ]] &amp;&amp; fg=&#34;%F{$2}&#34; || fg=&#34;%f&#34;
+  if [[ $CURRENT_BG != &#39;NONE&#39; &amp;&amp; $1 != $CURRENT_BG ]]; then
+    print -n &#34;%{$bg%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{$fg%}&#34;
   else
-    print -n &quot;%{$bg%}%{$fg%}&quot;
+    print -n &#34;%{$bg%}%{$fg%}&#34;
   fi
   CURRENT_BG=$1
   [[ -n $3 ]] &amp;&amp; print -n $3
@@ -373,12 +372,12 @@ prompt_segment() {
 # End the prompt, closing any open segments
 prompt_end() {
   if [[ -n $CURRENT_BG ]]; then
-    print -n &quot;%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR&quot;
+    print -n &#34;%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR&#34;
   else
-    print -n &quot;%{%k%}&quot;
+    print -n &#34;%{%k%}&#34;
   fi
-  print -n &quot;%{%f%}&quot;
-  CURRENT_BG=''
+  print -n &#34;%{%f%}&#34;
+  CURRENT_BG=&#39;&#39;
 }
 
 ### Prompt components
@@ -388,8 +387,8 @@ prompt_end() {
 prompt_context() {
   local user=`whoami`
 
-  if [[ &quot;$user&quot; != &quot;$DEFAULT_USER&quot; || -n &quot;$SSH_CONNECTION&quot; ]]; then
-    prompt_segment $PRIMARY_FG default &quot; %(!.%{%F{yellow}%}.)$user@%m &quot;
+  if [[ &#34;$user&#34; != &#34;$DEFAULT_USER&#34; || -n &#34;$SSH_CONNECTION&#34; ]]; then
+    prompt_segment $PRIMARY_FG default &#34; %(!.%{%F{yellow}%}.)$user@%m &#34;
   fi
 }
 
@@ -397,30 +396,30 @@ prompt_context() {
 prompt_git() {
   local color ref
   is_dirty() {
-    test -n &quot;$(git status --porcelain --ignore-submodules)&quot;
+    test -n &#34;$(git status --porcelain --ignore-submodules)&#34;
   }
-  ref=&quot;$vcs_info_msg_0_&quot;
-  if [[ -n &quot;$ref&quot; ]]; then
+  ref=&#34;$vcs_info_msg_0_&#34;
+  if [[ -n &#34;$ref&#34; ]]; then
     if is_dirty; then
       color=220
-      ref=&quot;${ref} $PLUSMINUS&quot;
+      ref=&#34;${ref} $PLUSMINUS&#34;
     else
       color=167
-      ref=&quot;${ref} &quot;
+      ref=&#34;${ref} &#34;
     fi
-    if [[ &quot;${ref/.../}&quot; == &quot;$ref&quot; ]]; then
-      ref=&quot;$BRANCH $ref&quot;
+    if [[ &#34;${ref/.../}&#34; == &#34;$ref&#34; ]]; then
+      ref=&#34;$BRANCH $ref&#34;
     else
-      ref=&quot;$DETACHED ${ref/.../}&quot;
+      ref=&#34;$DETACHED ${ref/.../}&#34;
     fi
     prompt_segment $color $PRIMARY_FG
-    print -n &quot; $ref&quot;
+    print -n &#34; $ref&#34;
   fi
 }
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment 30 $PRIMARY_FG ' %~ '
+  prompt_segment 30 $PRIMARY_FG &#39; %~ &#39;
 }
 
 # Status:
@@ -430,11 +429,11 @@ prompt_dir() {
 prompt_status() {
   local symbols
   symbols=()
-  [[ $RETVAL -ne 0 ]] &amp;&amp; symbols+=&quot;%{%F{red}%}$CROSS&quot;
-  [[ $UID -eq 0 ]] &amp;&amp; symbols+=&quot;%{%F{yellow}%}$LIGHTNING&quot;
-  [[ $(jobs -l | wc -l) -gt 0 ]] &amp;&amp; symbols+=&quot;%{%F{cyan}%}$GEAR&quot;
+  [[ $RETVAL -ne 0 ]] &amp;&amp; symbols+=&#34;%{%F{red}%}$CROSS&#34;
+  [[ $UID -eq 0 ]] &amp;&amp; symbols+=&#34;%{%F{yellow}%}$LIGHTNING&#34;
+  [[ $(jobs -l | wc -l) -gt 0 ]] &amp;&amp; symbols+=&#34;%{%F{cyan}%}$GEAR&#34;
 
-  [[ -n &quot;$symbols&quot; ]] &amp;&amp; prompt_segment $PRIMARY_FG default &quot; $symbols &quot;
+  [[ -n &#34;$symbols&#34; ]] &amp;&amp; prompt_segment $PRIMARY_FG default &#34; $symbols &#34;
 }
 
 # Display current virtual environment
@@ -442,22 +441,22 @@ prompt_virtualenv() {
   if [[ -n $VIRTUAL_ENV ]]; then
     color=cyan
     prompt_segment $color $PRIMARY_FG
-    print -Pn &quot; $(basename $VIRTUAL_ENV) &quot;
+    print -Pn &#34; $(basename $VIRTUAL_ENV) &#34;
   fi
 }
 
 ## Main prompt
 prompt_agnoster_main() {
   RETVAL=$?
-  CURRENT_BG='NONE'
-  for prompt_segment in &quot;${AGNOSTER_PROMPT_SEGMENTS[@]}&quot;; do
+  CURRENT_BG=&#39;NONE&#39;
+  for prompt_segment in &#34;${AGNOSTER_PROMPT_SEGMENTS[@]}&#34;; do
     [[ -n $prompt_segment ]] &amp;&amp; $prompt_segment
   done
 }
 
 prompt_agnoster_precmd() {
   vcs_info
-  PROMPT='%{%f%b%k%}$(prompt_agnoster_main) '
+  PROMPT=&#39;%{%f%b%k%}$(prompt_agnoster_main) &#39;
 }
 
 prompt_agnoster_setup() {
@@ -468,14 +467,13 @@ prompt_agnoster_setup() {
 
   add-zsh-hook precmd prompt_agnoster_precmd
 
-  zstyle ':vcs_info:*' enable git
-  zstyle ':vcs_info:*' check-for-changes false
-  zstyle ':vcs_info:git*' formats '%b'
-  zstyle ':vcs_info:git*' actionformats '%b (%a)'
+  zstyle &#39;:vcs_info:*&#39; enable git
+  zstyle &#39;:vcs_info:*&#39; check-for-changes false
+  zstyle &#39;:vcs_info:git*&#39; formats &#39;%b&#39;
+  zstyle &#39;:vcs_info:git*&#39; actionformats &#39;%b (%a)&#39;
 }
 
-prompt_agnoster_setup &quot;$@&quot;
-
+prompt_agnoster_setup &#34;$@&#34;
 </code></pre><h1 id="iterm2-config">iTerm2 Config</h1>
 <p>The rest of the color platte is controlled by iTerm2.</p>
 <p>Using:</p>

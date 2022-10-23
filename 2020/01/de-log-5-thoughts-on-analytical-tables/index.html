@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.79.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.101.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
 <meta name="description" content="I have taken some Database design course back in university days, though I have skipped almost all of the lectures as I was also self-learning during my first internship on the same matter, in a much more practical manner. I did not even know the word OLAP  back then. However, I am not dismissing the importance of data modelling in data engineering. On the contrary, data modelling is one of the important skills if you want to be a data engineer.">
@@ -94,7 +94,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -325,12 +324,12 @@ if (!doNotTrack) {
 <p>If the <code>recreation</code> is not yet explained clearly, think about an analytical tables that has three columns - (DATE | COUNTRY | DAU). This allows you to explore DAU numbers by country. Now your boss would like to see a distribution according to languages simultaneously , you will need to recreate the table by adding a new column, which is troublesome.</p>
 <p>Note the phrase <code>simultaneously</code>, here we are actually talking about a combinational usage for filters, it has always been the case for me during work too. However, recently I start to wonder do we really need a combinational filters in some cases? Does the information `users who are active in French (FR) also uses language Chinese (zh) matter for your business, because without considering this edge cases that, in some business context insignificant, could save the engineers some work by transforming the table into something like - (DATE | FILTER NAME | FILTER VALUE | DAU)</p>
 <p>and do</p>
-<pre><code>SELECT
+<pre tabindex="0"><code>SELECT
     date
     , dau
 FROM table
-WHERE filter_name = 'country'
-    AND filter_value = 'US'
+WHERE filter_name = &#39;country&#39;
+    AND filter_value = &#39;US&#39;
 </code></pre><p>Less engineering work in the long run, easier to scale.</p>
 <p>It’s really dependant on the business usage.</p>
 <h1 id="metric-column">Metric Column</h1>
@@ -347,8 +346,8 @@ WHERE filter_name = 'country'
 <p>You could also compute metrics based on sole on the previous complete
 day / week / month, for this you will need to specify the time range in the WHERE clause.</p>
 <p>Personally, I prefer to use something like the following for daily. It’s more readable in my opinion, but other people use <code>INTERVAL</code> , <code>DATEDIFF</code> (which is an absolute value!) and others. Be careful with the inclusion and exclusion on each side of the time interval. Do not recommend <code>BETWEEN</code> because it’s both inclusion.</p>
-<pre><code>WHERE creationtime &gt;= 'STRING_DATE'::DATE
-	AND creationtime &lt; 'STRING_DATE'::DATE + 1
+<pre tabindex="0"><code>WHERE creationtime &gt;= &#39;STRING_DATE&#39;::DATE
+	AND creationtime &lt; &#39;STRING_DATE&#39;::DATE + 1
 </code></pre><p>For week and monthly, <code>date_trunc</code> or a variation of it is good enough.</p>
 <h3 id="case-when-you-need-window-functions">CASE WHEN you need window functions</h3>
 <p>There are quite a few window functions so I won’t try to categorise them and list them one by one (not really helpful). It’s just for these computations, it could be slow + memory intensive. So you might need to consider create temp tables if needed, and dropped them alter.</p>
@@ -366,7 +365,7 @@ day / week / month, for this you will need to specify the time range in the WHER
 </ol>
 <p>Pros: intuitive, this make the read query pretty readable, easier to access more features within a query
 Cons: less scalable as every additional feature requires a new column on the table</p>
-<pre><code>SELECT
+<pre tabindex="0"><code>SELECT
     metric_name
 FROM table
 WHERE …
@@ -375,7 +374,7 @@ WHERE …
 </ol>
 <p>Pros: easier to scale
 Cons: one extra WHERE clause, troublesome to computations among the metrics stored within a query, needs to use either CTE / Subquery or other operation to transform first.</p>
-<pre><code>SELECT
+<pre tabindex="0"><code>SELECT
     generic_value
 FROM table
 WHERE generic_name = ‘&lt;METRIC_NAME&gt;’

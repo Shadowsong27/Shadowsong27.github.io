@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shadowsong27.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shadowsong27.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DET Log 1: A first “byte” of Airbyte</title>
+      <link>https://shadowsong27.github.io/2022/10/det-log-1-a-first-byte-of-airbyte/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/2022/10/det-log-1-a-first-byte-of-airbyte/</guid>
+      <description>&lt;p&gt;In this article, I am sharing my first impression on the open-sourced almighty data ingestion tool - Airbyte.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>RT Log 6: Career summary v3</title>
       <link>https://shadowsong27.github.io/2022/02/rt-log-6-career-summary-v3/</link>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.79.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.101.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
 <meta name="description" content="This article briefly records the step to reschedule a DAG on Apache Airflow">
@@ -100,7 +100,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -302,7 +301,7 @@ if (!doNotTrack) {
 <ul>
 <li>Change the last execution time in metadata DB to the desired starting time,  one <code>scheduled_interval</code> before.  (I might remember the wrong column name)</li>
 </ul>
-<pre><code>UPDATE dag_run SET execution_date = ...
+<pre tabindex="0"><code>UPDATE dag_run SET execution_date = ...
 WHERE dag_id = ...
 </code></pre><ul>
 <li>e.g. you have a daily DAG at 2am, now it is running every at 1am. So you change your latest DAG run to 1am.</li>

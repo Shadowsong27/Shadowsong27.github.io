@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.79.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.101.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
 <meta name="description" content="This short article aims to address issues I encountered during hosting personal static blog
@@ -104,7 +104,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -315,7 +314,7 @@ content of <code>public</code> folder there. This is just like having a mini-rep
 first switch to a separate branch, called <code>builder</code>.</p>
 <p>Then we build the project by running <code>hugo</code>, by adapting the command in the docs, we could make
 the <code>master</code> branch become the mini-repo we want, set up stream to <code>master</code> as well.</p>
-<pre><code>git worktree add -B master public origin/master
+<pre tabindex="0"><code>git worktree add -B master public origin/master
 </code></pre><p>Checkout to local <code>master</code> branch by simply <code>cd public</code>, and do <code>git push</code>, use <code>--force</code> if necessary.</p>
 <p>Remember to push your changes in <code>builder</code> branch to remote as well.</p>
 <p>In summary, use <code>builder</code> branch to write, build and publish the static content, use <code>master</code> branch to host
@@ -324,38 +323,38 @@ on Github Pages</p>
 <p>For those who are lazy to read, or for lazy publication, I have the following deployment script, I copy-paste
 the entire thing here because I want to see how it looks like when a large chunk of code
 is rendered using this Hugo Theme.</p>
-<pre><code>#!/bin/sh
+<pre tabindex="0"><code>#!/bin/sh
 
 if [[ $(git status -s) ]]
 then
-    echo &quot;The working directory is dirty. Please commit any pending changes.&quot;
+    echo &#34;The working directory is dirty. Please commit any pending changes.&#34;
     exit 1;
 fi
 
-echo &quot;Deleting old publication&quot;
+echo &#34;Deleting old publication&#34;
 rm -rf public
 mkdir public
 git worktree prune
 rm -rf .git/worktrees/public/
 
-echo &quot;Checking out gh-pages branch into public&quot;
+echo &#34;Checking out gh-pages branch into public&#34;
 git worktree add -B master public origin/master
 
-echo &quot;Removing existing files&quot;
+echo &#34;Removing existing files&#34;
 rm -rf public/*
 
-echo &quot;Generating site&quot;
+echo &#34;Generating site&#34;
 hugo
 
-echo &quot;Copy README.md&quot;
+echo &#34;Copy README.md&#34;
 cp README.md public/README.md
 
-echo &quot;Updating master branch&quot;
-cd public &amp;&amp; git add --all &amp;&amp; git commit -m &quot;Publishing to github personal page master branch&quot;
+echo &#34;Updating master branch&#34;
+cd public &amp;&amp; git add --all &amp;&amp; git commit -m &#34;Publishing to github personal page master branch&#34;
 
 git push
 
-echo &quot;Updating builder branch&quot;
+echo &#34;Updating builder branch&#34;
 cd ../
 git push
 </code></pre><p>Create a <code>deploy.sh</code> file at project root and copy paste the above code in.</p>

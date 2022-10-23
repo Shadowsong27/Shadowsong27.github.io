@@ -6,7 +6,16 @@
     <description>Recent content on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shadowsong27.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shadowsong27.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DET Log 1: A first “byte” of Airbyte</title>
+      <link>https://shadowsong27.github.io/2022/10/det-log-1-a-first-byte-of-airbyte/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/2022/10/det-log-1-a-first-byte-of-airbyte/</guid>
+      <description>&lt;p&gt;In this article, I am sharing my first impression on the open-sourced almighty data ingestion tool - Airbyte.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>RT Log 6: Career summary v3</title>
       <link>https://shadowsong27.github.io/2022/02/rt-log-6-career-summary-v3/</link>
@@ -202,7 +211,7 @@ This page will be used as a mini-menu for my home visitors. The photos / present
       <description>Overview and Vision I am a data engineer.
 My vision is to automate everything that can be automated, and automating the automation itself.
 What I do on a daily basis:
- tend data pipelines and make data flows efficiently, reliably for my fellow data analysts and data scientists build software solutions to make data more accessible from Data lake/warehouse help explore latest framework / DE solutions people and team management if needed  You should only notice me when something is broken.</description>
+tend data pipelines and make data flows efficiently, reliably for my fellow data analysts and data scientists build software solutions to make data more accessible from Data lake/warehouse help explore latest framework / DE solutions people and team management if needed You should only notice me when something is broken.</description>
     </item>
     
     <item>
