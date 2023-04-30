@@ -8,40 +8,32 @@
 <meta name="generator" content="Hugo 0.111.3 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Shadowsong27">
 <meta name="keywords" content="">
-<meta name="description" content="This article will describe the process to setup Fargate tasks with only private IP, using images stored in a private registry.">
+<meta name="description" content="最近用chatgpt越来越频繁，感触良多。这里简单聊一下最近的一些感想，尤其是在自我学习上的一些辅助作用，如果能给予读者一些启示那再好不过了。">
 
 
-<meta property="og:description" content="This article will describe the process to setup Fargate tasks with only private IP, using images stored in a private registry.">
+<meta property="og:description" content="最近用chatgpt越来越频繁，感触良多。这里简单聊一下最近的一些感想，尤其是在自我学习上的一些辅助作用，如果能给予读者一些启示那再好不过了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DevOps Log 2: Setup Fargate Service without Public IP">
-<meta name="twitter:title" content="DevOps Log 2: Setup Fargate Service without Public IP">
-<meta property="og:url" content="https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
-<meta property="twitter:url" content="https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
+<meta property="og:title" content="RT Log 7: 关于Chatgpt和学习">
+<meta name="twitter:title" content="RT Log 7: 关于Chatgpt和学习">
+<meta property="og:url" content="https://shadowsong27.github.io/2023/04/rt-log-7-%E5%85%B3%E4%BA%8Echatgpt%E5%92%8C%E5%AD%A6%E4%B9%A0/">
+<meta property="twitter:url" content="https://shadowsong27.github.io/2023/04/rt-log-7-%E5%85%B3%E4%BA%8Echatgpt%E5%92%8C%E5%AD%A6%E4%B9%A0/">
 <meta property="og:site_name" content="Shadowsong&#39;s Personal Website">
-<meta property="og:description" content="This article will describe the process to setup Fargate tasks with only private IP, using images stored in a private registry.">
-<meta name="twitter:description" content="This article will describe the process to setup Fargate tasks with only private IP, using images stored in a private registry.">
+<meta property="og:description" content="最近用chatgpt越来越频繁，感触良多。这里简单聊一下最近的一些感想，尤其是在自我学习上的一些辅助作用，如果能给予读者一些启示那再好不过了。">
+<meta name="twitter:description" content="最近用chatgpt越来越频繁，感触良多。这里简单聊一下最近的一些感想，尤其是在自我学习上的一些辅助作用，如果能给予读者一些启示那再好不过了。">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-03-07T00:00:00">
+    <meta property="article:published_time" content="2023-04-30T00:00:00">
   
   
-    <meta property="article:modified_time" content="2020-03-07T00:00:00">
+    <meta property="article:modified_time" content="2023-04-30T00:00:00">
   
-  
-  
-    
-      <meta property="article:section" content="software-engineering">
-    
-      <meta property="article:section" content="dev-ops">
-    
   
   
     
-      <meta property="article:tag" content="AWS">
+      <meta property="article:section" content="rt-log">
     
-      <meta property="article:tag" content="Fargate">
-    
+  
   
 
 
@@ -53,12 +45,9 @@
 
 
 
-  <meta property="og:image" content="https://cdn.aimconsulting.com/wp-content/uploads/2018/07/aws-fargate-v2.png">
-  <meta property="twitter:image" content="https://cdn.aimconsulting.com/wp-content/uploads/2018/07/aws-fargate-v2.png">
+  <meta property="og:image" content="https://investingnews.com/media-library/image-of-hand-holding-an-ai-face-looking-at-the-words-chatgpt-openai.jpg?id=32871272&width=1200&height=800&quality=85&coordinates=0%2C0%2C0%2C0">
+  <meta property="twitter:image" content="https://investingnews.com/media-library/image-of-hand-holding-an-ai-face-looking-at-the-words-chatgpt-openai.jpg?id=32871272&width=1200&height=800&quality=85&coordinates=0%2C0%2C0%2C0">
 
-
-  <meta property="og:image" content="https://cdn.aimconsulting.com/wp-content/uploads/2018/07/aws-fargate-v2.png">
-  <meta property="twitter:image" content="https://cdn.aimconsulting.com/wp-content/uploads/2018/07/aws-fargate-v2.png">
 
 
 
@@ -67,14 +56,14 @@
   <meta property="twitter:image" content="https://avatars3.githubusercontent.com/u/12522657?s=400&u=ccfcf050a757c6a49241737eefe4386064400b5e&v=4">
 
 
-    <title>DevOps Log 2: Setup Fargate Service without Public IP</title>
+    <title>RT Log 7: 关于Chatgpt和学习</title>
 
     <link rel="icon" href="https://shadowsong27.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
+    <link rel="canonical" href="https://shadowsong27.github.io/2023/04/rt-log-7-%E5%85%B3%E4%BA%8Echatgpt%E5%92%8C%E5%AD%A6%E4%B9%A0/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -225,34 +214,26 @@ if (!doNotTrack) {
 </nav>
 
       
-  <div class="post-header-cover
-              text-left
-              "
-       style="background-image:url('https://cdn.aimconsulting.com/wp-content/uploads/2018/07/aws-fargate-v2.png')"
-       data-behavior="5">
-    
-  </div>
-
 
       <div id="main" data-behavior="5"
-        class="hasCover
+        class="
                hasCoverMetaOut
                ">
         <article class="post" itemscope itemType="http://schema.org/BlogPosting">
           
           
-            <div class="post-header main-content-wrap text-left">
+            <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      DevOps Log 2: Setup Fargate Service without Public IP
+      RT Log 7: 关于Chatgpt和学习
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-03-07T00:00:00Z">
+      <time itemprop="datePublished" datetime="2023-04-30T00:00:00Z">
         
-  March 7, 2020
+  April 30, 2023
 
       </time>
     
@@ -261,9 +242,7 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="https://shadowsong27.github.io/categories/software-engineering">software-engineering</a>, 
-    
-      <a class="category-link" href="https://shadowsong27.github.io/categories/dev-ops">dev-ops</a>
+      <a class="category-link" href="https://shadowsong27.github.io/categories/rt-log">rt-log</a>
     
   
 
@@ -273,98 +252,31 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>This article will describe the process to setup Fargate tasks with only private IP, using images stored in a private registry.</p>
-<p>Disclaimer: I am not a security expert, in fact my computer network knowledge was even picked up during work. I realized as the need of designing your own architecture grows, I will inevitably fill in the holes in my computer science theory. I merely receive a goal, research the tools and theories behind, and execute it to the best of my ability.</p>
-<p>Before covering the main steps, there are some important concepts one needs to know in the AWS, besides Fargate related concept.</p>
+              <p>最近用chatgpt越来越频繁，感触良多。这里简单聊一下最近的一些感想，尤其是在自我学习上的一些辅助作用，如果能给予读者一些启示那再好不过了。</p>
+<h3 id="一些个人背景">一些个人背景</h3>
+<p>在开始之前，我想要大概描述一下我的学习方式。从大二开始，我对知识的学习方式开始从自上而下系统化的，慢慢转变为一种按需学习，按需拓展的方式。前者大概是最常见的学习方式，你去学校上课，学校有着经过反复优化迭代的教学大纲，按部就班的学习，完成一个个里程碑之后，你自然能够掌握知识。而我所描述的后者，有更强的功利性，这完全是我第一次实习影响下的结果。做成一件事，或者用代码写出一个完整的解决方案所带来的正向反馈，会强力驱动我继续挖掘那个知识点。</p>
+<p>从小作为一个还算“好”的学生，我很早其实就意识到了一件事 - 学习所带来的正向反馈对我的影响太大了，换句话说，我的学习是十分利益驱动的。举几个例子：小时候化学竞赛做卷子，一两个月做了八十多套，但是现在其实对化学的喜爱没有那么强烈，请不要误会，并不是没有，而是没有那么强烈。同理我工作这么久之后一直拖延没去学前端或者底层架构的一些东西，也是因为它们在我的工作中带来的收益太低。这么一想，幸好我当初没有从ba转去cs，不然毕业可能有困难。</p>
+<p>说了这些，跟chatgpt的关系在哪里呢？</p>
+<h3 id="迅速的正向反馈">迅速的正向反馈</h3>
+<p>我之前说了因为我的学习方式是非常依赖正向反馈的，所以我知识获取渠道从最讨厌到最喜欢是：</p>
 <ol>
-<li>
-<p>VPC</p>
-</li>
-<li>
-<p>Subnet</p>
-</li>
-<li>
-<p>Route table</p>
-</li>
-<li>
-<p>Internet Gateway</p>
-</li>
-<li>
-<p>NAT Gateway</p>
-</li>
+<li>看视频 / 上讲座 （所以大学经常逃课）</li>
+<li>看书</li>
+<li>看文档，博客 （比看书更快更直接）</li>
+<li>我有个问题，你回答我，并且给我例子</li>
 </ol>
-<p>All related concepts could be found in the official <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">AWS documentations</a></p>
-<h3 id="overview">Overview</h3>
-<p>For Fargate to pull images from private registry, it needs Internet access. I initially would think that ECR, the private registry provided by AWS, would provide some sort of intranet access so we don’t have to go through Internet, but I did not find such route.</p>
-<p>For a task running in Fargate to access the Internet, it either needs a public IP, which could be enabled during service configuration, or more securely, resides in a private subnet that routes outbound Internet request to the etwork address translation (NAT) gateway, and then the Internet Gateway (IGW).</p>
-<p>This approach obviously provides better network control, monitoring and security protection.</p>
-<h3 id="configure-your-network-optional">Configure your network (Optional)</h3>
-<p>This step is optional if you have already did it. According to <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-configure-network.html">AWS docs here</a></p>
-<blockquote>
-<p>If you are using Fargate tasks, in order for the task to pull the container image it must either use a public subnet and be assigned a public IP address or a private subnet that has a route to the internet or a NAT gateway that can route requests to the internet</p>
-</blockquote>
-<p>So configure this setup, you need to do the following:</p>
-<p>The following is just a steps paraphrasing of the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html">AWS docs</a> here
-<img src="https://shadowsong27.github.io/img/devops-log-2-img-1.png" alt="alt"></p>
-<ol>
-<li>
-<p>Choose (or create) a VPC, everything after will be down within this VPC</p>
-</li>
-<li>
-<p>Create a subnet, name it xxx-public to indicate this will be your public subnet</p>
-</li>
-<li>
-<p>Create another subnet, name it xxx-private</p>
-</li>
-<li>
-<p>Create a NAT gateway, attach it with an elastic IP</p>
-</li>
-<li>
-<p>Create an Internet gateway</p>
-</li>
-<li>
-<p>Create two route table, one routes internal requests to the NAT gateway (RT 1), one routes internal requests to the Internet gateway (RT2)</p>
-</li>
-<li>
-<p>Associate (In <code>Route Tables</code>  side tab, <code>Subnets Association</code>) xxx-private subnet to RT1 (Bottom subnet in the diagram above, where private servers reside in)</p>
-</li>
-<li>
-<p>Associate xxx-public to RT2 (Top subnet in the diagram, where Internet facing servers reside)</p>
-</li>
-</ol>
-<h3 id="launch-applications-in-fargate">Launch applications in Fargate</h3>
-<p>After this is successfully setup, you can start to configure your Fargate SERVICE, yes once again the network layer is configured at service level, not task level.</p>
-<p>There are three things in particular that require some attention if we want to disable the public IP, the rest is going to be as usual.</p>
-<ol>
-<li>
-<p>Selecting the appropriate subnets: Instead of randomly select your subnets or select across availability zones, you need to select the subnets that are attached to NAT, so you could</p>
-</li>
-<li>
-<p>Disable your <code>Auto-assign Public IP</code> option in the settings, this will make your Fargate Task inaccessible and receive calls from the Internet</p>
-</li>
-<li>
-<p>Configure your ALB / NLB - This has to be in the public subnet and facing the IGW, so you load balancer could take receive HTTP requests and route them to the private Fargate instance</p>
-</li>
-</ol>
-<h1 id="conclusion">Conclusion</h1>
-<p>This is actually pretty easy if one understands how network works in AWS, and for those are not familiar with computing networks (like me), reading the AWS docs is enough to complete all these setups too.</p>
+<p>可能写到这里大家也看出来哈哈4可不就是chatgpt嘛。这里我想强调的是，chatgpt不一定让我学习效率更高（其实应该是更高了但是这里不讨论这个），它把我学习过程中的步骤正向反馈变得无限大。比如之前看文档，我可能只能跟随它的新手指南搭建一些固定的，预设的东西。但是有了chatgpt我可以很轻易的让他做真正我想做的事情，然后在这个过程中通过不断尝试来发现它的错误，以此巩固自己的知识。</p>
+<p>哪怕这种正向反馈是虚妄的或者并没有实际提升我的学习效率，我想也是利大于弊的吧。至少终于促使我今天把terraform给学了（一定不是因为我们组一个人要走）。</p>
+<h3 id="无比契合我的学习模式">无比契合我的学习模式</h3>
+<p>因为我的学习模式是功利的，所以每个小知识点的获取其实是点状的。但实际上我自己会试图把知识点重新互相串联起来，找到知识点之间的联系，组成最终我自己的知识网。举个例子，如果大家用过docker的话，大概有过需要在里面放个db啊web app啥的，比如一个postgres在docker里，我怎么用我的datagrip连上它。然后这里就会带出docker network / vm network的东西（相信我不是cs本科的话network会很难受）。我只是想要每次用postgres的时候起一个container，然后就能正常连上我的IDE。但因为这个问题我“被迫”学习了一些network的知识，大概理解了两个不同网络之间dns解析是怎么一回事，这些知识最后又帮助了我理解vpc natgateway的东西。 而chatgpt的一个好处就是我能很迅速的获取这部分知识，因为我完全可以问“is data block in terraform like constant in programming language” （which is not）它能帮我把知识变成通用的啊，那通过一个知识点触及到另一个知识点的速度就无比的快了。</p>
+<p>刚好这种学习模式又是我熟悉的，而且现阶段职业要求不需要非常深入的学习这些东西，只需要知道他们怎么运作，怎么和其他部分的技术共同实现某个目的就可以了。实在是非常契合。</p>
+<h3 id="总结">总结</h3>
+<p>chatgpt 的功能也不仅限于辅助学习，当然chatgpt更不是万能的，至少它在我学习过程中也给我制造了不少麻烦，比如一些错误的信息，胡编乱造，但是对于编程这一行来说你总有办法去测试的，所以问题也不算太大，总体来说还是利大于弊的。如果是在学习一个全新的，没有任何知识储备的课题，或者是深挖一个领域的时候，我不知道chatgpt在学习中扮演的角色会不会有一些不同，或许更多的它会成为一个提供思路而不是答疑解惑的对象吧，那会可能需要充值才知道了。</p>
               
             </div>
           </div>
           <div id="post-footer" class="post-footer main-content-wrap">
             
-              
-                
-                
-                  <div class="post-footer-tags">
-                    <span class="text-color-light text-small">TAGGED IN</span><br/>
-                    
-  <a class="tag tag--primary tag--small" href="https://shadowsong27.github.io/tags/aws/">AWS</a>
-
-  <a class="tag tag--primary tag--small" href="https://shadowsong27.github.io/tags/fargate/">Fargate</a>
-
-                  </div>
-                
               
             
             <div class="post-actions-wrap">
@@ -374,7 +286,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2020/04/movie-log-4-the-day-after-tomorrow/" data-tooltip="Movie Log 4: The Day After Tomorrow">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -382,7 +294,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2020/01/rt-log-2-about-wuhan-virus/" data-tooltip="RT Log 2: About Wuhan Virus">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2022/10/det-log-1-a-first-byte-of-airbyte/" data-tooltip="DET Log 1: A first “byte” of Airbyte">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -400,19 +312,19 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2023/04/rt-log-7-%E5%85%B3%E4%BA%8Echatgpt%E5%92%8C%E5%AD%A6%E4%B9%A0/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2023/04/rt-log-7-%E5%85%B3%E4%BA%8Echatgpt%E5%92%8C%E5%AD%A6%E4%B9%A0/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2023/04/rt-log-7-%E5%85%B3%E4%BA%8Echatgpt%E5%92%8C%E5%AD%A6%E4%B9%A0/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -460,7 +372,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2020/04/movie-log-4-the-day-after-tomorrow/" data-tooltip="Movie Log 4: The Day After Tomorrow">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -468,7 +380,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2020/01/rt-log-2-about-wuhan-virus/" data-tooltip="RT Log 2: About Wuhan Virus">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2022/10/det-log-1-a-first-byte-of-airbyte/" data-tooltip="DET Log 1: A first “byte” of Airbyte">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -486,19 +398,19 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2023/04/rt-log-7-%E5%85%B3%E4%BA%8Echatgpt%E5%92%8C%E5%AD%A6%E4%B9%A0/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2023/04/rt-log-7-%E5%85%B3%E4%BA%8Echatgpt%E5%92%8C%E5%AD%A6%E4%B9%A0/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2020/03/devops-log-2-setup-fargate-service-without-public-ip/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2023/04/rt-log-7-%E5%85%B3%E4%BA%8Echatgpt%E5%92%8C%E5%AD%A6%E4%B9%A0/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -528,19 +440,19 @@ if (!doNotTrack) {
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F03%2Fdevops-log-2-setup-fargate-service-without-public-ip%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2023%2F04%2Frt-log-7-%25E5%2585%25B3%25E4%25BA%258Echatgpt%25E5%2592%258C%25E5%25AD%25A6%25E4%25B9%25A0%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F03%2Fdevops-log-2-setup-fargate-service-without-public-ip%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2023%2F04%2Frt-log-7-%25E5%2585%25B3%25E4%25BA%258Echatgpt%25E5%2592%258C%25E5%25AD%25A6%25E4%25B9%25A0%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2020%2F03%2Fdevops-log-2-setup-fargate-service-without-public-ip%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2023%2F04%2Frt-log-7-%25E5%2585%25B3%25E4%25BA%258Echatgpt%25E5%2592%258C%25E5%25AD%25A6%25E4%25B9%25A0%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -630,9 +542,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/shadowsong27.github.io\/2020\/03\/devops-log-2-setup-fargate-service-without-public-ip\/';
+          this.page.url = 'https:\/\/shadowsong27.github.io\/2023\/04\/rt-log-7-%E5%85%B3%E4%BA%8Echatgpt%E5%92%8C%E5%AD%A6%E4%B9%A0\/';
           
-            this.page.identifier = '\/2020\/03\/devops-log-2-setup-fargate-service-without-public-ip\/'
+            this.page.identifier = '\/2023\/04\/rt-log-7-%E5%85%B3%E4%BA%8Echatgpt%E5%92%8C%E5%AD%A6%E4%B9%A0\/'
           
         };
         (function() {
