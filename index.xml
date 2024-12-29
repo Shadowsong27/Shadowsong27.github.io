@@ -8,11 +8,11 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 28 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shadowsong27.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>DE Log 9: Extend duckdb beyond single player just a little bit</title>
-      <link>https://shadowsong27.github.io/2024/12/de-log-9-extend-duckdb-beyond-single-player-just-a-little-bit/</link>
+      <title>DE Log 9: Extend duckdb beyond the single player mode, by just a little bit</title>
+      <link>https://shadowsong27.github.io/2024/12/de-log-9-extend-duckdb-beyond-the-single-player-mode-by-just-a-little-bit/</link>
       <pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://shadowsong27.github.io/2024/12/de-log-9-extend-duckdb-beyond-single-player-just-a-little-bit/</guid>
+      <guid>https://shadowsong27.github.io/2024/12/de-log-9-extend-duckdb-beyond-the-single-player-mode-by-just-a-little-bit/</guid>
       <description>&lt;p&gt;Yet another take on poor man’s lakehouse / or how to NOT contribute to Databricks&amp;rsquo; IPO success even though it seems
 inevitable.&lt;/p&gt;</description>
     </item>
