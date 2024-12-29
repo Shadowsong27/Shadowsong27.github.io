@@ -2,8 +2,8 @@
 title: "DE Log 9: Extend duckdb beyond single player just a little bit"
 thumbnailImagePosition: "left"
 metaAlignment: center
-thumbnailImage: https://images.ctfassets.net/k49d63tr8kcn/4jbw1fdWLuMUh0Ztlb2dOn/6964e6b873b904392990355ed48c983a/data_pipeline-1-.svg
-coverImage: https://images.ctfassets.net/k49d63tr8kcn/4jbw1fdWLuMUh0Ztlb2dOn/6964e6b873b904392990355ed48c983a/data_pipeline-1-.svg
+thumbnailImage: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaq0bwECCAHR7Km5jsJ80INGkiOaQqWmnG-A&s
+coverImage: https://miro.medium.com/v2/resize:fit:761/1*ijFeaaYnxxZlNixSczLAng.png
 coverMeta: out
 date: 2024-12-28
 categories:
@@ -11,41 +11,58 @@ categories:
 - data-engineering
 ---
 
-YET another take on poor man’s lakehouse.
+Yet another take on poor man’s lakehouse / or how to NOT contribute to Databricks' IPO success even though it seems 
+inevitable. 
 
 <!--more-->
 
 # Overview
 
-Recently, I commissioned a friend to acquire a NAS server with the specific requirement to run extra services on it. That was about three months ago, so in the past few months, I’ve been learning the fundamentals of navigating the TrueNAS Scale system. It wasn’t until I discovered [jailmaker](https://github.com/Jip-Hop/jailmaker?tab=readme-ov-file#usage) that I could start building something concrete. Staying true to typical human behavior, I chose to build a lakehouse since, well, I’m a data engineer, and I wanted to use this opportunity to play around with all the popular tools I’ve heard about in the past few years that i have yet tried during my day job.
+Recently, I asked a friend to help me acquire a NAS server with the requirement that it could run extra services. 
+That was about three months ago, in the past few months, I’ve been learning the fundamentals of navigating the TrueNAS Scale system. 
+It wasn’t until I discovered [jailmaker](https://github.com/Jip-Hop/jailmaker?tab=readme-ov-file#usage) that 
+I could start building something concrete. Staying true to typical human behavior, I chose to build a 
+lakehouse since, well, I’m a data engineer, and I wanted to use this opportunity to play around with 
+all the popular tools I’ve heard about in the past few years that I have yet tried during my day job.
 
-In this blog, I’ll cover the setup of a *poor man’s lakehouse*, a solution that is slightly more mature than a POC setup but definitely requires further polishing if you wish to run it as the main lakehouse for your startup. This won’t be a strict step-by-step tutorial, but I’ll outline as many technical details as possible to make it reproducible. My immediate goal is to set up a decent lakehouse to host the financial data collected from the internet, which will help with my options trading.
+In this blog, I’ll cover the setup of a *poor man’s lakehouse*, 
+a solution that is slightly more mature than a POC setup but definitely 
+requires further polishing if you wish to run it as the main lakehouse for your startup. 
+This won’t be a strict step-by-step tutorial, but I’ll outline as many technical 
+details as possible to make it reproducible. My immediate goal is to set up a decent 
+lakehouse to host the financial data collected from the internet, which will help with my options trading.
 
 ### What Does *Poor Man’s* Mean?
 
-As the name suggests, it should be cheap in terms of upfront costs (though not necessarily in terms of human effort, but that’s beyond the scope of this discussion). You literally pay nothing for software licenses by using open sourced projects as much as possible. If you already own hardware to host it, you’re in luck! However, you’ll need to invest a lot of time making things work. This is why I wouldn’t recommend this unless you’re really into the topic and doing it as a hobby (like me) or just looking for a challenge.
+As the name suggests, it should be cheap upfront (not so much in human effort, but that’s beyond the scope of this discussion). You literally pay nothing for software licenses by using open sourced projects as much as possible. If you already own hardware to host it, you’re in luck! However, you’ll need to invest a lot of time making things work. This is why I wouldn’t recommend this unless you’re really into the topic and doing it as a hobby (like me) or just looking for a challenge.
 
-Ideally, you have an unused computer lying around your house—one with a decent amount of RAM and a capable CPU (you’ll need to perform data transformations, after all). In my case, my NAS has 128GB of RAM, so I can use it for more than just storing files.
-
-Ideally you have an unused computer sitting somewhere in your house, with a decent amount of RAM and eating dusts, and a decent CPU (you need to perform data transformation after all). In my case I have the NAS built with 128GB ram so i could use it for something more than just a NAS server. 
+Ideally you have an unused computer sitting somewhere in your house, with a decent amount of RAM and collecting dust, and a solid CPU (you need to perform data transformation after all). In my case I have the NAS built with 128GB of RAM, so I could use it for more than just a NAS server. 
 
 ### Why Extend it *Slightly* Beyond Just a POC?
 
-While a POC will work for my homelab use case, there are countless articles that demo the integration of DuckDB and DBT or DuckDB and Delta. However, as a practitioner who actually has a day job as a data engineer, I need to try it myself to make a sound judgment. Blindly following online articles is as risky as trusting AWS’s benchmark on Redshift vs. Databricks. Additionally, I wanted to see if DuckDB could truly function as a pure compute engine, similar to Spark, and potentially replace Spark in future projects — saving me tons of money on paper (great visibility for DE 🙂).
+While a POC will work for my homelab use case, there are countless articles that demo the integration of DuckDB and DBT or DuckDB and Delta. However, as a practitioner who actually has a day job as a data engineer, I need to try it myself to make a sound judgment. 
+Blindly following online articles is like putting faith in AWS's Redshift benchmarks against Databricks — optimistic at best. 
+Additionally, I wanted to see if DuckDB could function as a pure compute engine, similar to Spark. If successful, it might even replace Spark in future projects — saving tons of money on paper (and earning some of that all-important visibility that everyone seems to chase, for better or worse 🙂).
 
 ### Why a Lakehouse?
 
-The trend is clear: with the decoupling of compute and storage and the rise of Open Table Formats, I personally no longer see the general need of a traditional data warehouse — except perhaps for legacy compatibility and for low latency queries. If I were to start a new company, Lakehouse will be a safe choice in most cases. This might sound a bit extreme and narrow-minded, but my work primarily involves building new data platforms for teams or transforming/migrating existing ones. So, when I decided to build an analytical platform for personal use, I chose the lakehouse approach using a different stack to explore whether I could build something similar using fully open-source tools instead of relying on Databricks.
+The trend is clear: with the decoupling of compute and storage and the rise of Open Table Formats, 
+I personally don't see the general need of a traditional batch focused data warehouse anymore
+— except maybe for legacy compatibility and for ultra-low latency queries. If I were to start a new company,
+a Lakehouse will be a safer choice in most cases. This might sound a bit extreme and narrow-minded, 
+but my work primarily involves building new data platforms for teams or transforming/migrating existing ones. 
+So, when I decided to build an analytical platform for personal use, 
+I chose the lakehouse approach with a different stack to see if I could build something similar to my profession-grade stack entirely with open-source tools.
 
-For paid work, though, I’d still go for Databricks — for the sake of my team’s sanity (and weekends).
+For paid work, though, I’d still go for Databricks — gotta keep the team sane and weekends free.
 
-Enough BS, let’s dive to the how.
+Enough BS, let’s dive to the details..
 
 # Design
 
 ## High Level Architecture
 
-<insert diagram here>
+![de-log-9-img.png](/img/de-log-9-img.png)
 
 First let’s talk about the high level design, and to 
 repeat our goal: to set up a lakehouse architecture that decouples compute from storage, using open sourced tools to keep costs low and flexibility high so that if we want to migrate to something like a cloud setup, it would be less painful. 
@@ -88,9 +105,10 @@ I am using Delta because I am more familiar with it, but I am eager to migrate t
 
 If you use `dbt-duckdb` as intended / in single player mode, you will have to hold on to that single connection during your write process, which prevents you from reading using standard GUI tools (I have tried it via DataGrip and Metabase, both will fail). 
 
-Since we are using DuckDB External tables, the data is actually not saved in the `.duckdb` file, we can easily duplicate the DuckDB file as if it’s a data catalog. This is inspired by [this article](https://motherduck.com/blog/from-data-lake-to-lakehouse-duckdb-portable-catalog/). The idea is if I duplicate the catalog file after each write on dbt side, and DataGrip (or whatever reading client you are using) will read using this duplicated `.duckdb` file, we will have no problem accessing the data while further executedbt transformation concurrently. The actual duckdb file will be used only for registering table namespace and the actual reading of data will happen between the compute engine and the storage layer, so the size of the file is super small and portable. 
+Since we are using DuckDB External tables, the data is actually not saved in the `.duckdb` file, we can easily duplicate the DuckDB file as if it’s a data catalog. This is inspired by [this article](https://motherduck.com/blog/from-data-lake-to-lakehouse-duckdb-portable-catalog/). The idea is if I duplicate the catalog file after each write on dbt side, and DataGrip (or whatever reading client you are using) will read using this duplicated `.duckdb` file, we will have no problem accessing the data while further execute dbt transformation concurrently. The actual duckdb file will be used only for registering table namespace and the actual reading of data will happen between the compute engine and the storage layer, so the size of the file is super small and portable. 
 
-Obviously distributed writes (writing from multiple containers / host to the same storage, and to the same duckdb catalog) is much more complicated, and so far I don’t think it’s possible without writing a custom layer of application / service to manage a pool of duckdb files / locks. Personally, i think DuckDB has some potential to become the defacto production ready Small Data compute engine, I have not really checked MotherDuck in detail but probably that’s what they are doing.  
+Obviously this is a pretty simplistic way of expanding the default concurrency support of the native DuckDB, 
+and to enable distributed writes (writing from multiple containers / host to the same storage, and to the same duckdb catalog) requires more work and is much more complicated, and so far I don’t think it’s possible without writing a custom layer of application / service to manage a pool of duckdb files / locks. Personally, i think DuckDB has some potential to become the defacto production ready Small Data compute engine, I have not really checked MotherDuck in detail but probably that’s what they are doing.  
 
 Regarding catalogs, there are indeed the newly open sourced UC and iceberg catalog, however none seems to be working with Duckdb perfectly yet. and given my use case, I will be more than ok with a crippled distributed read setup. No distributed write at all (it means all Airflow tasks will need to be executed sequentially). 
 
