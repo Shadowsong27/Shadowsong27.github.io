@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.111.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Shadowsong27">
+<meta name="keywords" content="">
+<meta name="description" content="Yet another take on poor man’s lakehouse / or how to NOT contribute to Databricks&rsquo; IPO success even though it seems
+inevitable.">
+
+
+<meta property="og:description" content="Yet another take on poor man’s lakehouse / or how to NOT contribute to Databricks&rsquo; IPO success even though it seems
+inevitable.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DE Log 9: Extend duckdb beyond single player just a little bit">
+<meta name="twitter:title" content="DE Log 9: Extend duckdb beyond single player just a little bit">
+<meta property="og:url" content="https://shadowsong27.github.io/2024/12/de-log-9-extend-duckdb-beyond-single-player-just-a-little-bit/">
+<meta property="twitter:url" content="https://shadowsong27.github.io/2024/12/de-log-9-extend-duckdb-beyond-single-player-just-a-little-bit/">
+<meta property="og:site_name" content="Shadowsong&#39;s Personal Website">
+<meta property="og:description" content="Yet another take on poor man’s lakehouse / or how to NOT contribute to Databricks&rsquo; IPO success even though it seems
+inevitable.">
+<meta name="twitter:description" content="Yet another take on poor man’s lakehouse / or how to NOT contribute to Databricks&rsquo; IPO success even though it seems
+inevitable.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2024-12-28T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2024-12-28T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="data">
+    
+      <meta property="article:section" content="data-engineering">
+    
+  
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaq0bwECCAHR7Km5jsJ80INGkiOaQqWmnG-A&s">
+  <meta property="twitter:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaq0bwECCAHR7Km5jsJ80INGkiOaQqWmnG-A&s">
+
+
+  <meta property="og:image" content="https://miro.medium.com/v2/resize:fit:761/1*ijFeaaYnxxZlNixSczLAng.png">
+  <meta property="twitter:image" content="https://miro.medium.com/v2/resize:fit:761/1*ijFeaaYnxxZlNixSczLAng.png">
+
+
+
+
+  <meta property="og:image" content="https://avatars3.githubusercontent.com/u/12522657?s=400&u=ccfcf050a757c6a49241737eefe4386064400b5e&v=4">
+  <meta property="twitter:image" content="https://avatars3.githubusercontent.com/u/12522657?s=400&u=ccfcf050a757c6a49241737eefe4386064400b5e&v=4">
+
+
+    <title>DE Log 9: Extend duckdb beyond single player just a little bit</title>
+
+    <link rel="icon" href="https://shadowsong27.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://shadowsong27.github.io/2024/12/de-log-9-extend-duckdb-beyond-single-player-just-a-little-bit/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://shadowsong27.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-104611639-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://shadowsong27.github.io/">Shadowsong&#39;s Personal Website</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://shadowsong27.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://avatars3.githubusercontent.com/u/12522657?s=400&amp;u=ccfcf050a757c6a49241737eefe4386064400b5e&amp;v=4" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://shadowsong27.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://avatars3.githubusercontent.com/u/12522657?s=400&amp;u=ccfcf050a757c6a49241737eefe4386064400b5e&amp;v=4" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Shadowsong27</h4>
+        
+          <h5 class="sidebar-profile-bio">I just want to sit in my garden and tend my pipelines.</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/career">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-suitcase"></i>
+      
+      <span class="sidebar-button-desc">Career</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/food">
+    
+      <i class="sidebar-button-icon fa fa-cutlery"></i>
+      
+      <span class="sidebar-button-desc">Food</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/Shadowsong27" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('https://miro.medium.com/v2/resize:fit:761/1*ijFeaaYnxxZlNixSczLAng.png')"
+       data-behavior="5">
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaOut
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      DE Log 9: Extend duckdb beyond single player just a little bit
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2024-12-28T00:00:00Z">
+        
+  December 28, 2024
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://shadowsong27.github.io/categories/data">data</a>, 
+    
+      <a class="category-link" href="https://shadowsong27.github.io/categories/data-engineering">data-engineering</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Yet another take on poor man’s lakehouse / or how to NOT contribute to Databricks&rsquo; IPO success even though it seems
+inevitable.</p>
+<h1 id="overview">Overview</h1>
+<p>Recently, I asked a friend to help me acquire a NAS server with the requirement that it could run extra services.
+That was about three months ago, in the past few months, I’ve been learning the fundamentals of navigating the TrueNAS Scale system.
+It wasn’t until I discovered <a href="https://github.com/Jip-Hop/jailmaker?tab=readme-ov-file#usage">jailmaker</a> that
+I could start building something concrete. Staying true to typical human behavior, I chose to build a
+lakehouse since, well, I’m a data engineer, and I wanted to use this opportunity to play around with
+all the popular tools I’ve heard about in the past few years that I have yet tried during my day job.</p>
+<p>In this blog, I’ll cover the setup of a <em>poor man’s lakehouse</em>,
+a solution that is slightly more mature than a POC setup but definitely
+requires further polishing if you wish to run it as the main lakehouse for your startup.
+This won’t be a strict step-by-step tutorial, but I’ll outline as many technical
+details as possible to make it reproducible. My immediate goal is to set up a decent
+lakehouse to host the financial data collected from the internet, which will help with my options trading.</p>
+<h3 id="what-does-poor-mans-mean">What Does <em>Poor Man’s</em> Mean?</h3>
+<p>As the name suggests, it should be cheap upfront (not so much in human effort, but that’s beyond the scope of this discussion). You literally pay nothing for software licenses by using open sourced projects as much as possible. If you already own hardware to host it, you’re in luck! However, you’ll need to invest a lot of time making things work. This is why I wouldn’t recommend this unless you’re really into the topic and doing it as a hobby (like me) or just looking for a challenge.</p>
+<p>Ideally you have an unused computer sitting somewhere in your house, with a decent amount of RAM and collecting dust, and a solid CPU (you need to perform data transformation after all). In my case I have the NAS built with 128GB of RAM, so I could use it for more than just a NAS server.</p>
+<h3 id="why-extend-it-slightly-beyond-just-a-poc">Why Extend it <em>Slightly</em> Beyond Just a POC?</h3>
+<p>While a POC will work for my homelab use case, there are countless articles that demo the integration of DuckDB and DBT or DuckDB and Delta. However, as a practitioner who actually has a day job as a data engineer, I need to try it myself to make a sound judgment.
+Blindly following online articles is like putting faith in AWS&rsquo;s Redshift benchmarks against Databricks — optimistic at best.
+Additionally, I wanted to see if DuckDB could function as a pure compute engine, similar to Spark. If successful, it might even replace Spark in future projects — saving tons of money on paper (and earning some of that all-important visibility that everyone seems to chase, for better or worse 🙂).</p>
+<h3 id="why-a-lakehouse">Why a Lakehouse?</h3>
+<p>The trend is clear: with the decoupling of compute and storage and the rise of Open Table Formats,
+I personally don&rsquo;t see the general need of a traditional batch focused data warehouse anymore
+— except maybe for legacy compatibility and for ultra-low latency queries. If I were to start a new company,
+a Lakehouse will be a safer choice in most cases. This might sound a bit extreme and narrow-minded,
+but my work primarily involves building new data platforms for teams or transforming/migrating existing ones.
+So, when I decided to build an analytical platform for personal use,
+I chose the lakehouse approach with a different stack to see if I could build something similar to my profession-grade stack entirely with open-source tools.</p>
+<p>For paid work, though, I’d still go for Databricks — gotta keep the team sane and weekends free.</p>
+<p>Enough BS, let’s dive to the details..</p>
+<h1 id="design">Design</h1>
+<h2 id="high-level-architecture">High Level Architecture</h2>
+<p><img src="https://shadowsong27.github.io/img/de-log-9-img.png" alt="de-log-9-img.png"></p>
+<p>First let’s talk about the high level design, and to
+repeat our goal: to set up a lakehouse architecture that decouples compute from storage, using open sourced tools to keep costs low and flexibility high so that if we want to migrate to something like a cloud setup, it would be less painful.</p>
+<p>I picked the following tools:</p>
+<ol>
+<li>uses DBT for data transformation</li>
+<li>DuckDB as a pure compute engine (think of it as your &ldquo;query engine&rdquo;)</li>
+<li>NAS File system and MinIO as the storage layer</li>
+</ol>
+<p>This setup will allow me to work with large datasets without needing a traditional data warehouse or the complexity of Spark clusters (unless your dataset is truly biggy big then perhaps you need spark afterall).</p>
+<p>In the next sections, I’ll dive into how each of these components fits into the architecture.</p>
+<h2 id="decoupled-compute-and-storage">Decoupled Compute and Storage</h2>
+<p>One of the key design goals of this architecture is to <strong>decouple compute and storage</strong>. This means we want to use DuckDB purely as a compute engine, while the actual data storage will be handled separately through MinIO (or potentially other object stores). This is achieved via <code>External Tables</code>. Though frankly speaking, it’s a bit hard to get <code>duckdb</code> to work with external tables via dbt like what we used to on Databricks + Spark.</p>
+<h3 id="why-external-tables">Why External Tables?</h3>
+<p>The main reason here is to allow concurrent read on the actual data from different system, thereby bypassing the DuckDB single player constraint. With external tables, data can be accessed from various platforms (like <strong>Trino</strong>) without being tied to a specific storage format or location. It also allows for avoiding certain constraints, like file locks, which can happen when reading from a DuckDB file directly (e.g., when using tools like <strong>Datagrip, it will hold the file lock even you specify the mode to be <code>read-only</code> , thus preventing any writing from the dbt side</strong>).</p>
+<h3 id="how-it-works-data-flow">How it Works (data flow)</h3>
+<p>Let’s assume we are using the standard medallion architecture. You have a landing layer before the bronze layer, followed by silver and gold.</p>
+<p>Note, there is an limitation that dbt-duckdb does not yet support writing of Delta Table, or any Open Table Formats yet. Hence, the <code>write</code> from dbt are all done using Parquet External Table, this also means that incremental write via MERGE command will not be available either. There are interesting workarounds online that talks about
+persisting models at partitions level to achieve incremental load, but for my use case I choose to FULL RELOAD everything everyday.</p>
+<ol>
+<li>Your python scripts will land the data into landing layer in Delta Table format (pandas / polars → Delta)</li>
+<li>Landing → Bronze:
+<ol>
+<li>Read: DBT will instruct DuckDB to read data from external delta table with the <code>dbt-duckdb-delta</code> plugin.</li>
+<li>Write: DBT will instruct DuckDB to write into bronze layer as an external parquet table</li>
+</ol>
+</li>
+<li>Bronze Onwards:
+<ol>
+<li>Read + Write: to be done via standard external Parquet tables</li>
+</ol>
+</li>
+</ol>
+<p>I am using Delta because I am more familiar with it, but I am eager to migrate to other formats if they are supported by duckdb.</p>
+<h2 id="distributed-read-duckdb-file-as-a-catalog"><strong>Distributed Read: DuckDB File as a Catalog</strong></h2>
+<p>If you use <code>dbt-duckdb</code> as intended / in single player mode, you will have to hold on to that single connection during your write process, which prevents you from reading using standard GUI tools (I have tried it via DataGrip and Metabase, both will fail).</p>
+<p>Since we are using DuckDB External tables, the data is actually not saved in the <code>.duckdb</code> file, we can easily duplicate the DuckDB file as if it’s a data catalog. This is inspired by <a href="https://motherduck.com/blog/from-data-lake-to-lakehouse-duckdb-portable-catalog/">this article</a>. The idea is if I duplicate the catalog file after each write on dbt side, and DataGrip (or whatever reading client you are using) will read using this duplicated <code>.duckdb</code> file, we will have no problem accessing the data while further execute dbt transformation concurrently. The actual duckdb file will be used only for registering table namespace and the actual reading of data will happen between the compute engine and the storage layer, so the size of the file is super small and portable.</p>
+<p>Obviously this is a pretty simplistic way of expanding the default concurrency support of the native DuckDB,
+and to enable distributed writes (writing from multiple containers / host to the same storage, and to the same duckdb catalog) requires more work and is much more complicated, and so far I don’t think it’s possible without writing a custom layer of application / service to manage a pool of duckdb files / locks. Personally, i think DuckDB has some potential to become the defacto production ready Small Data compute engine, I have not really checked MotherDuck in detail but probably that’s what they are doing.</p>
+<p>Regarding catalogs, there are indeed the newly open sourced UC and iceberg catalog, however none seems to be working with Duckdb perfectly yet. and given my use case, I will be more than ok with a crippled distributed read setup. No distributed write at all (it means all Airflow tasks will need to be executed sequentially).</p>
+<h2 id="minio-for-distributed-write-optional">MinIO for distributed write (Optional)</h2>
+<hr>
+<p>I have mentioned above that I will be more than happy to accept a sequential write, but I will still want it to be semi-distributed (sequential write from a few hosts). For that, instead of relying on the native linux file system i have in my NAS server, I turned to MinIO. Reasons being:</p>
+<ol>
+<li>you have an easier codebase to maintain - you do not have to manage directories like mkdirs all the time, permissions are farm more easier than SMB / NFS shares</li>
+<li>able to share across different hosts if you ever have to. In my case even though it’s a homelab project, I have set aside one jail for development (when I m away from home and on mobile data), and one jail for production. Enabling write to the same storage layer from both hosts will be extremely convenient</li>
+<li>easier to migrate to cloud if you ever have to later</li>
+<li>You actually get an UI for managing your files, like what happened in S3</li>
+<li>Minio setup is somewhat simple if you are using docker-compose, thus it’s worthy of the effort to use it</li>
+</ol>
+<p>However i did have some issue with the minio SSL when integrating with duckdb and dbt. This indeed presents a blocker for real production usage and thus I have disabled all SSL in both MinIO and Delta table read. I hope to revisit this and it will be solved by others in the future.</p>
+<h2 id="some-other-thoughts">Some other thoughts</h2>
+<p>Some other features i have not tested but i think possible to be done:</p>
+<ol>
+<li>Incremental loading / merge into: despite being a little bit too far fetched for my current use case, i would definitely revisit this when duckdb enables real external writing capabilities with any one of the existing Open Table Format. One potential workaround is to generate dbt model at partition level, essentially going back towards the old hive-style data management for delta. It’s a bit backward but I think it will work just fine with proper orchestrator logic</li>
+<li>File compaction and other Delta specific features like liquid clustering - a bit too early for my use case, but I think i will need it eventually and it should not be very hard to implement</li>
+<li>If I really really need a fully working production ready lakehouse that enables distributed write and read, I can still turn to self hosting a spark cluster, which sounds really annoying but I think it’s not that hard anymore in today’s landscape.</li>
+</ol>
+<h1 id="integration-snippets">Integration snippets</h1>
+<p>in this section, i will talk about some integration configuration to provide a starting point for anyone wish to replicate my setup.</p>
+<h3 id="write-from-python-memory-to-delta-tables-in-minio">Write from Python memory to Delta Tables in MinIO</h3>
+<p>Use the <code>write_deltalake</code> method from <code>deltalake</code> package together with the storage options.</p>
+<p>The key-value pairs documentation is very hard to locate online, I have spent some time to make MinIO work with the setup below.</p>
+<p>e.g.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> deltalake <span style="color:#f92672">import</span> write_deltalake
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>storage_options <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;AWS_ENDPOINT_URL&#34;</span>: config<span style="color:#f92672">.</span>remote_storage<span style="color:#f92672">.</span>STORAGE_ENDPOINT_URL,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;AWS_ACCESS_KEY_ID&#34;</span>: config<span style="color:#f92672">.</span>remote_storage<span style="color:#f92672">.</span>STORAGE_ACCESS_KEY_ID,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;AWS_SECRET_ACCESS_KEY&#34;</span>: config<span style="color:#f92672">.</span>remote_storage<span style="color:#f92672">.</span>STORAGE_SECRET_ACCESS_KEY,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;AWS_ALLOW_HTTP&#34;</span>: <span style="color:#e6db74">&#34;true&#34;</span>,  <span style="color:#75715e"># Required</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;AWS_S3_ALLOW_UNSAFE_RENAME&#34;</span>: <span style="color:#e6db74">&#34;true&#34;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>write_deltalake(
+</span></span><span style="display:flex;"><span>    table_or_uri<span style="color:#f92672">=&lt;</span>delta_table_dir<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>    data<span style="color:#f92672">=&lt;</span>your_pyarrow_table_obj<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>    mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;overwrite&#34;</span>,
+</span></span><span style="display:flex;"><span>    schema_mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;overwrite&#34;</span>,
+</span></span><span style="display:flex;"><span>    storage_options<span style="color:#f92672">=</span>storage_options
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><h3 id="dbt-setup">DBT setup</h3>
+<p>There are mainly 3 things to consider, the <code>profile.yaml</code> , which is used for ensuring successful authentication to MinIO, and <code>dbt_project.yaml</code> and the macro for <code>external_location</code> which are crucial for automatic creation of external tables.</p>
+<p>In your <code>profile.yaml</code>, you should declare <code>plugins</code> with <code>delta</code> and specify the secrets. this corresponds to the <code>s3 secrets</code>  in DuckDB setup. If you choose to use <code>iceberg</code>, find the corresponding extension in dbt plugins.</p>
+<p>Another thing to note here is the <code>path</code> , where your <code>.duckdb</code> file has to be on your local file system. This is essentially the catalog of your current dbt session. I don’t see an obvious way to make this accessible / writable in a remote sense.</p>
+<p>Now for sequential write, you can have a single host pointing towards a single <code>.duckdb</code> file, and then duplicate it layer for distributed read.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">project_name</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">target</span>: <span style="color:#e6db74">&#34;{{ env_var(&#39;DBT_TARGET&#39;) }}&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">outputs</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">dev</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">duckdb</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#34;{{ env_var(&#39;PROJECT_ROOT&#39;) }}/dbt.duckdb&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">plugins</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">module</span>: <span style="color:#ae81ff">delta</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">threads</span>: <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">extensions</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">httpfs</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">parquet</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">secrets</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">type</span>: <span style="color:#ae81ff">s3</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">region</span>: <span style="color:#ae81ff">ap-southeast-1</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">key_id</span>: <span style="color:#e6db74">&#39;&lt;enter your key id here, pass in with env var&gt;&#39;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">secret</span>: <span style="color:#e6db74">&#39;&lt;enter your secret here, pass in with env var&gt;&#39;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">endpoint</span>: <span style="color:#e6db74">&#34;xxx.xxx.xxx.xxx:port&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">url_style</span>: <span style="color:#e6db74">&#39;path&#39;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">use_ssl</span>: <span style="color:#e6db74">&#39;false&#39;</span>  <span style="color:#75715e"># adjust for your case</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">schema</span>: <span style="color:#ae81ff">dev</span>
+</span></span></code></pre></div><p>Typically you will need to declare the <code>external_location</code> manually for each model to ensure your model to be written as external table. However this can be quite tedious, and we can very well utilise <code>dbt</code> jinja syntax to make this less painful.</p>
+<p>In your <code>dbt_project.yaml</code>, declare the general model config as the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">models</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">finget</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">+external_root</span>: <span style="color:#e6db74">&#34;{{ env_var(&#39;EXTERNAL_ROOT&#39;) }}&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">silver</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">+materialized</span>: <span style="color:#ae81ff">external</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">+mode</span>: <span style="color:#e6db74">&#34;overwrite&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">+schema</span>: <span style="color:#e6db74">&#34;silver&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">bronze</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">+materialized</span>: <span style="color:#ae81ff">external</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">+mode</span>: <span style="color:#e6db74">&#34;overwrite&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">+schema</span>: <span style="color:#e6db74">&#34;bronze&#34;</span>
+</span></span></code></pre></div><p>And in your macro folder, override the original duckdb external location macro to be:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>{<span style="color:#ae81ff">% macro external_location(relation, config) %}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#ae81ff">%- set default_schema = target.schema -%}</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#ae81ff">%- set location_root = config.get(&#39;external_root&#39;, validator=validation.any[basestring]) -%}</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#ae81ff">%- set identifier = model[&#39;alias&#39;] -%}</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#ae81ff">%- set fqn = model[&#39;fqn&#39;] -%}</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#ae81ff">%- set pkg_name = model[&#39;package_name&#39;] -%}</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#ae81ff">%- set format = config.get(&#39;format&#39;, &#39;parquet&#39;) -%}</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#ae81ff">%- set model_layer = fqn[1] -%}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#ae81ff">%- if location_root is not none %}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        {<span style="color:#ae81ff">%- if config.get(&#39;options&#39;, {}).get(&#39;partition_by&#39;) is none -%}</span>
+</span></span><span style="display:flex;"><span>            {<span style="color:#ae81ff">%- set identifier_ending = identifier ~ &#39;.&#39; ~ format -%}</span>
+</span></span><span style="display:flex;"><span>        {<span style="color:#ae81ff">%- else -%}</span>
+</span></span><span style="display:flex;"><span>            {<span style="color:#ae81ff">%- set identifier_ending = identifier -%}</span>
+</span></span><span style="display:flex;"><span>        {<span style="color:#ae81ff">%- endif -%}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        {<span style="color:#ae81ff">%- if default_schema == &#39;prod&#39; -%}</span>
+</span></span><span style="display:flex;"><span>            {<span style="color:#ae81ff">%- set location = location_root ~ &#39;main&#39; ~ &#39;/&#39; ~ model_layer ~ &#39;/&#39; ~ identifier_ending -%}</span>
+</span></span><span style="display:flex;"><span>        {<span style="color:#ae81ff">%- else -%}</span>
+</span></span><span style="display:flex;"><span>            {<span style="color:#ae81ff">%- set location = location_root ~ &#39;main&#39;  ~ &#39;/&#39; ~ model_layer ~ &#39;_&#39; ~ default_schema ~ &#39;/&#39; ~ identifier_ending -%}</span>
+</span></span><span style="display:flex;"><span>        {<span style="color:#ae81ff">%- endif -%}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#ae81ff">%- endif -%}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  {{ <span style="color:#ae81ff">log(&#39;Writing the data files to &#39; ~ location, True) }}</span>
+</span></span><span style="display:flex;"><span>  {{ <span style="color:#ae81ff">return(location) }}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>{<span style="color:#ae81ff">%- endmacro -%}</span>
+</span></span></code></pre></div><p>Essentially, once we have set the location_root / external_root to be something like <code>s3://bucket-name/</code> or a local path like <code>/mnt/data/</code> , for each one of your model declared in <code>external</code> materialization mode, the actual path will be generated based on environment and the model name automatically, thus saving you the hassle of declaring it inside every model.
+At this point, all transformation (<code>dbt build</code> commands) will function properly.</p>
+<p>And lastly, for constructing the dbt sources, it took me a while to realise you need to include the
+actual scan function in the declaration, like below (note on the usage of <code>delta_scan</code> which directly
+invoke duckdb-delta extension. )</p>
+<pre tabindex="0"><code>sources:
+  - name: staging
+    tables:
+      - name: table_1
+  - name: staging_2
+    tables:
+      - name: table_2
+        meta:
+          external_location: &#34;delta_scan(&#39;s3://bucket/landing/xxx/table_2&#39;)&#34;
+</code></pre><p>Couple of limitations here to note:</p>
+<ol>
+<li>this only supports writing of standard data format such as parquet, csv etc. the code example uses parquet. This is mentioned above being part of the writing limitation for duckdb</li>
+<li>I have not tried writing real partitions with DuckDB. It is <a href="https://duckdb.org/docs/data/partitioning/partitioned_writes.html">supported</a> but I have no idea whether it’s possible to integrate with this setup.</li>
+</ol>
+<h1 id="conclusion">Conclusion</h1>
+<p>This blog provides a potential &ldquo;low effort&rdquo; way of extending DuckDB read capabilities beyond single player, which are
+typically more prioritised than distributed write in a homelab setup.</p>
+<p>There are several workarounds presented online for distributed writes, most designs have been
+already highlighted in the official doc <a href="https://duckdb.org/docs/connect/concurrency.html#writing-to-duckdb-from-multiple-processes">here</a>.</p>
+<p>Hope you find this helpful and informative.</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2023/04/rt-log-7-%E5%85%B3%E4%BA%8Echatgpt%E5%92%8C%E5%AD%A6%E4%B9%A0/" data-tooltip="RT Log 7: 关于Chatgpt和学习">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2024/12/de-log-9-extend-duckdb-beyond-single-player-just-a-little-bit/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2024/12/de-log-9-extend-duckdb-beyond-single-player-just-a-little-bit/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2024/12/de-log-9-extend-duckdb-beyond-single-player-just-a-little-bit/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2024 Shadowsong27. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2023/04/rt-log-7-%E5%85%B3%E4%BA%8Echatgpt%E5%92%8C%E5%AD%A6%E4%B9%A0/" data-tooltip="RT Log 7: 关于Chatgpt和学习">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2024/12/de-log-9-extend-duckdb-beyond-single-player-just-a-little-bit/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2024/12/de-log-9-extend-duckdb-beyond-single-player-just-a-little-bit/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2024/12/de-log-9-extend-duckdb-beyond-single-player-just-a-little-bit/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2024%2F12%2Fde-log-9-extend-duckdb-beyond-single-player-just-a-little-bit%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2024%2F12%2Fde-log-9-extend-duckdb-beyond-single-player-just-a-little-bit%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2024%2F12%2Fde-log-9-extend-duckdb-beyond-single-player-just-a-little-bit%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://avatars3.githubusercontent.com/u/12522657?s=400&amp;u=ccfcf050a757c6a49241737eefe4386064400b5e&amp;v=4" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Shadowsong27</h4>
+    
+      <div id="about-card-bio">I just want to sit in my garden and tend my pipelines.</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Data Engineer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Singapore
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://i.pinimg.com/originals/00/93/9d/00939dff0059e823658afe98bb6d87a4.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://shadowsong27.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/shadowsong27.github.io\/2024\/12\/de-log-9-extend-duckdb-beyond-single-player-just-a-little-bit\/';
+          
+            this.page.identifier = '\/2024\/12\/de-log-9-extend-duckdb-beyond-single-player-just-a-little-bit\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'shadowsongs-blog';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

@@ -6,7 +6,17 @@
     <description>Recent content in data on Shadowsong&#39;s Personal Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shadowsong27.github.io/categories/data/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shadowsong27.github.io/categories/data/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DE Log 9: Extend duckdb beyond single player just a little bit</title>
+      <link>https://shadowsong27.github.io/2024/12/de-log-9-extend-duckdb-beyond-single-player-just-a-little-bit/</link>
+      <pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://shadowsong27.github.io/2024/12/de-log-9-extend-duckdb-beyond-single-player-just-a-little-bit/</guid>
+      <description>&lt;p&gt;Yet another take on poor man’s lakehouse / or how to NOT contribute to Databricks&amp;rsquo; IPO success even though it seems
+inevitable.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>DET Log 1: A first “byte” of Airbyte</title>
       <link>https://shadowsong27.github.io/2022/10/det-log-1-a-first-byte-of-airbyte/</link>
