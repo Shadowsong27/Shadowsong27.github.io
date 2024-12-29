@@ -1,5 +1,5 @@
 ---
-title: "DE Log 9: Extend duckdb beyond single player just a little bit"
+title: "DE Log 9: Extend duckdb beyond the single player mode, by just a little bit"
 thumbnailImagePosition: "left"
 metaAlignment: center
 thumbnailImage: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaq0bwECCAHR7Km5jsJ80INGkiOaQqWmnG-A&s
