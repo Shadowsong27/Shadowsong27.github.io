@@ -48,8 +48,6 @@ this page as a gallery.
 	- [西餐](#西餐)
 
 
- <!-- {{< table_of_contents >}} -->
-
 # 荤菜
 
 ## 鸡肉

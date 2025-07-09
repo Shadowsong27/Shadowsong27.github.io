@@ -18,9 +18,14 @@ defaultContentLanguage = "en-us"
 title = "Shadowsong's Personal Website"
 theme = "hugo-tranquilpeak-theme"
 disqusShortname = "shadowsongs-blog"
-googleAnalytics = "UA-104611639-1"
-paginate = 7
 canonifyurls = true
+
+[services]
+  [services.googleAnalytics]
+    ID = "GA-363147269"
+
+[pagination]
+  pagerSize = 10 # use the same number here
 
 [permalinks]
   post = "/:year/:month/:slug/"
@@ -30,7 +35,7 @@ canonifyurls = true
   category = "categories"
   archive = "archives"
 
-[author]
+[params.author]
   name = "Shadowsong27"
   bio = """
   I just want to sit in my garden and tend my pipelines.
