@@ -1,74 +1,68 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>rt-log on Shadowsong&#39;s Personal Website</title>
+    <title>Rt-Log on Shadowsong&#39;s Personal Website</title>
     <link>https://shadowsong27.github.io/categories/rt-log/</link>
-    <description>Recent content in rt-log on Shadowsong&#39;s Personal Website</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Rt-Log on Shadowsong&#39;s Personal Website</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 30 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://shadowsong27.github.io/categories/rt-log/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://shadowsong27.github.io/categories/rt-log/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RT Log 8: 5 Vibe Coding techniques</title>
+      <link>https://shadowsong27.github.io/2025/07/rt-log-8-5-vibe-coding-techniques/</link>
+      <pubDate>Wed, 09 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://shadowsong27.github.io/2025/07/rt-log-8-5-vibe-coding-techniques/</guid>
+      <description>&lt;p&gt;This article talks about several techniques I used when I code. It is not meant for direct adoption by readers because we might be writing different types of code. I was focusing mostly on Data Engineering and Software engineering (backend) code. If you were a data scientist, take this with a pinch of salt.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>RT Log 7: 关于Chatgpt和学习</title>
       <link>https://shadowsong27.github.io/2023/04/rt-log-7-%E5%85%B3%E4%BA%8Echatgpt%E5%92%8C%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Sun, 30 Apr 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/2023/04/rt-log-7-%E5%85%B3%E4%BA%8Echatgpt%E5%92%8C%E5%AD%A6%E4%B9%A0/</guid>
       <description>&lt;p&gt;最近用chatgpt越来越频繁，感触良多。这里简单聊一下最近的一些感想，尤其是在自我学习上的一些辅助作用，如果能给予读者一些启示那再好不过了。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>RT Log 6: Career summary v3</title>
       <link>https://shadowsong27.github.io/2022/02/rt-log-6-career-summary-v3/</link>
       <pubDate>Thu, 17 Feb 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/2022/02/rt-log-6-career-summary-v3/</guid>
       <description>&lt;p&gt;刚在看冬奥女子花滑决赛，特鲁索娃太过分了这么多四周跳，不过妹子长大了之后感觉没有原来轻盈了。结果看到有人在询问第三份总结的事情，想了想自从上次跳槽过了快半年了，也差不多是时候写一下新的总结。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>RT Log 5: 关于Mac系统中文打字卡顿问题</title>
       <link>https://shadowsong27.github.io/2021/08/rt-log-5-%E5%85%B3%E4%BA%8Emac%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%96%87%E6%89%93%E5%AD%97%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/</link>
       <pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/2021/08/rt-log-5-%E5%85%B3%E4%BA%8Emac%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%96%87%E6%89%93%E5%AD%97%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;p&gt;这个问题说实话有点烦。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>RT Log 4: About Starcraft 2</title>
       <link>https://shadowsong27.github.io/2020/08/rt-log-4-about-starcraft-2/</link>
       <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/2020/08/rt-log-4-about-starcraft-2/</guid>
       <description>&lt;p&gt;I just reached Diamond 3 on American server in Starcraft 2. Yeah yeah I know NA server is easier compared to Asian but it is still a diamond, and I am pretty happy. For this particular season I have not played a single game of cheese, but I have, sadly to say, counter cheesed opponents. Most of my games are played with heavy reliance on macro.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>RT Log 3: 又一个工作总结</title>
       <link>https://shadowsong27.github.io/2020/05/rt-log-3-%E5%8F%88%E4%B8%80%E4%B8%AA%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/2020/05/rt-log-3-%E5%8F%88%E4%B8%80%E4%B8%AA%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/</guid>
       <description>&lt;p&gt;还有不到两周的时间就要换工作了，时隔两年再打算写一个总结。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>RT Log 2: About Wuhan Virus</title>
       <link>https://shadowsong27.github.io/2020/01/rt-log-2-about-wuhan-virus/</link>
       <pubDate>Wed, 22 Jan 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/2020/01/rt-log-2-about-wuhan-virus/</guid>
       <description>&lt;p&gt;The battle against the fearful death himself is an everlasting one, and today we are, after seventeen years, effortless watching another heavy strike laid upon us. Well, to be more specific, mostly the people lived in China and who had been to China during this unfortunate period.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>RT Log 1: About Automation</title>
       <link>https://shadowsong27.github.io/2019/10/rt-log-1-about-automation/</link>
       <pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/2019/10/rt-log-1-about-automation/</guid>
       <description>&lt;p&gt;I will have some random thoughts here and there. This is a new series of logs, which will be short.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -4,116 +4,93 @@
     <title>Categories on Shadowsong&#39;s Personal Website</title>
     <link>https://shadowsong27.github.io/categories/</link>
     <description>Recent content in Categories on Shadowsong&#39;s Personal Website</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shadowsong27.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://shadowsong27.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>data</title>
-      <link>https://shadowsong27.github.io/categories/data/</link>
-      <pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://shadowsong27.github.io/categories/data/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>data-engineering</title>
-      <link>https://shadowsong27.github.io/categories/data-engineering/</link>
-      <pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://shadowsong27.github.io/categories/data-engineering/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rt-log</title>
+      <title>Rt-Log</title>
       <link>https://shadowsong27.github.io/categories/rt-log/</link>
-      <pubDate>Sun, 30 Apr 2023 00:00:00 +0000</pubDate>
-      
+      <pubDate>Wed, 09 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://shadowsong27.github.io/categories/rt-log/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>book-log</title>
+      <title>Data</title>
+      <link>https://shadowsong27.github.io/categories/data/</link>
+      <pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://shadowsong27.github.io/categories/data/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data-Engineering</title>
+      <link>https://shadowsong27.github.io/categories/data-engineering/</link>
+      <pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://shadowsong27.github.io/categories/data-engineering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Book-Log</title>
       <link>https://shadowsong27.github.io/categories/book-log/</link>
       <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/categories/book-log/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>toy-tip</title>
+      <title>Toy-Tip</title>
       <link>https://shadowsong27.github.io/categories/toy-tip/</link>
       <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/categories/toy-tip/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>music-log</title>
+      <title>Music-Log</title>
       <link>https://shadowsong27.github.io/categories/music-log/</link>
       <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/categories/music-log/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>piano-practice</title>
+      <title>Piano-Practice</title>
       <link>https://shadowsong27.github.io/categories/piano-practice/</link>
       <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/categories/piano-practice/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>movie-log</title>
+      <title>Movie-Log</title>
       <link>https://shadowsong27.github.io/categories/movie-log/</link>
       <pubDate>Thu, 09 Jul 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/categories/movie-log/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>data-analysis</title>
+      <title>Data-Analysis</title>
       <link>https://shadowsong27.github.io/categories/data-analysis/</link>
       <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/categories/data-analysis/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>dev-ops</title>
+      <title>Dev-Ops</title>
       <link>https://shadowsong27.github.io/categories/dev-ops/</link>
       <pubDate>Sat, 07 Mar 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/categories/dev-ops/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>software-engineering</title>
+      <title>Software-Engineering</title>
       <link>https://shadowsong27.github.io/categories/software-engineering/</link>
       <pubDate>Sat, 07 Mar 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/categories/software-engineering/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>tv-log</title>
+      <title>Tv-Log</title>
       <link>https://shadowsong27.github.io/categories/tv-log/</link>
       <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/categories/tv-log/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

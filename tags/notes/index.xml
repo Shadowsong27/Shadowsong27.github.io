@@ -1,30 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>notes on Shadowsong&#39;s Personal Website</title>
+    <title>Notes on Shadowsong&#39;s Personal Website</title>
     <link>https://shadowsong27.github.io/tags/notes/</link>
-    <description>Recent content in notes on Shadowsong&#39;s Personal Website</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Notes on Shadowsong&#39;s Personal Website</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Jun 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://shadowsong27.github.io/tags/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://shadowsong27.github.io/tags/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Build Hugo Blog on Github Pages Master Branch</title>
       <link>https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/</link>
       <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/</guid>
-      <description>&lt;p&gt;This short article aims to address issues I encountered during hosting personal static blog
-on Github Page.&lt;/p&gt;</description>
+      <description>&lt;p&gt;This short article aims to address issues I encountered during hosting personal static blog&#xA;on Github Page.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>DE Log 0.1: Rescheduling of Airflow DAGs</title>
       <link>https://shadowsong27.github.io/2018/09/de-log-0.1-rescheduling-of-airflow-dags/</link>
       <pubDate>Sat, 22 Sep 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/2018/09/de-log-0.1-rescheduling-of-airflow-dags/</guid>
       <description>&lt;p&gt;This article briefly records the step to reschedule a DAG on Apache Airflow&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

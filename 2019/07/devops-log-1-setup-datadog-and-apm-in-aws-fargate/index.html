@@ -2,11 +2,29 @@
 <html lang="en-us">
   <head>
     
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/shadowsong27.github.io\/",
+  "author": {
+    "@type": "Person",
+    "name":  null ,
+    
+  },
+  "name":"Shadowsong\u0027s Personal Website",
+  "description":"\u003cp\u003eRecently I am migrating some microservices and streaming pipelines to AWS Fargate.\nThis article mainly covers the issues, pitfalls and other useful notes\nwhen I was deploying a web backend with DataDog.\u003c\/p\u003e",
+  "url":"https:\/\/shadowsong27.github.io\/2019\/07\/devops-log-1-setup-datadog-and-apm-in-aws-fargate\/",
+  "keywords":"[]"
+}
+
+</script>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.111.3 with theme Tranquilpeak 0.4.8-BETA">
-<meta name="author" content="Shadowsong27">
+<meta name="generator" content="Hugo 0.148.0 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="">
 <meta name="keywords" content="">
 <meta name="description" content="Recently I am migrating some microservices and streaming pipelines to AWS Fargate.
 This article mainly covers the issues, pitfalls and other useful notes
@@ -63,18 +81,15 @@ when I was deploying a web backend with DataDog.">
 
 
 
+
+
+
   <meta property="og:image" content="https://cdn.aimconsulting.com/wp-content/uploads/2018/07/aws-fargate-v2.png">
   <meta property="twitter:image" content="https://cdn.aimconsulting.com/wp-content/uploads/2018/07/aws-fargate-v2.png">
 
 
   <meta property="og:image" content="https://cdn.aimconsulting.com/wp-content/uploads/2018/07/aws-fargate-v2.png">
   <meta property="twitter:image" content="https://cdn.aimconsulting.com/wp-content/uploads/2018/07/aws-fargate-v2.png">
-
-
-
-
-  <meta property="og:image" content="https://avatars3.githubusercontent.com/u/12522657?s=400&u=ccfcf050a757c6a49241737eefe4386064400b5e&v=4">
-  <meta property="twitter:image" content="https://avatars3.githubusercontent.com/u/12522657?s=400&u=ccfcf050a757c6a49241737eefe4386064400b5e&v=4">
 
 
     <title>DevOps Log 1: Setup DataDog and APM in AWS Fargate</title>
@@ -87,29 +102,15 @@ when I was deploying a web backend with DataDog.">
     <link rel="canonical" href="https://shadowsong27.github.io/2019/07/devops-log-1-setup-datadog-and-apm-in-aws-fargate/">
 
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     
-    <link rel="stylesheet" href="https://shadowsong27.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    <link rel="stylesheet" href="https://shadowsong27.github.io/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
     
     
 
-    
-      
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-104611639-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
     
     
   </head>
@@ -119,17 +120,15 @@ if (!doNotTrack) {
       <header id="header" data-behavior="5">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="https://shadowsong27.github.io/">Shadowsong&#39;s Personal Website</a>
+    <a class="header-title-link" href="https://shadowsong27.github.io/" aria-label="Go to homepage">Shadowsong&#39;s Personal Website</a>
   </div>
   
     
       <a class="header-right-picture "
-         href="https://shadowsong27.github.io/#about">
+         href="https://shadowsong27.github.io/#about" aria-label="Open the link: /#about">
     
     
     
-      
-        <img class="header-picture" src="https://avatars3.githubusercontent.com/u/12522657?s=400&amp;u=ccfcf050a757c6a49241737eefe4386064400b5e&amp;v=4" alt="Author&#39;s picture" />
       
     
     </a>
@@ -139,21 +138,11 @@ if (!doNotTrack) {
       <nav id="sidebar" data-behavior="5">
   <div class="sidebar-container">
     
-      <div class="sidebar-profile">
-        <a href="https://shadowsong27.github.io/#about">
-          <img class="sidebar-profile-picture" src="https://avatars3.githubusercontent.com/u/12522657?s=400&amp;u=ccfcf050a757c6a49241737eefe4386064400b5e&amp;v=4" alt="Author&#39;s picture" />
-        </a>
-        <h4 class="sidebar-profile-name">Shadowsong27</h4>
-        
-          <h5 class="sidebar-profile-bio">I just want to sit in my garden and tend my pipelines.</h5>
-        
-      </div>
-    
     <ul class="sidebar-buttons">
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://shadowsong27.github.io/">
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/" title="Home">
     
       <i class="sidebar-button-icon fa fa-lg fa-home"></i>
       
@@ -163,7 +152,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://shadowsong27.github.io/categories">
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/categories" title="Categories">
     
       <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
       
@@ -173,7 +162,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://shadowsong27.github.io/tags">
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/tags" title="Tags">
     
       <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
       
@@ -183,7 +172,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://shadowsong27.github.io/archives">
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/archives" title="Archives">
     
       <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
       
@@ -193,7 +182,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://shadowsong27.github.io/career">
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/career" title="Career">
     
       <i class="sidebar-button-icon fa fa-lg fa-suitcase"></i>
       
@@ -203,7 +192,7 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://shadowsong27.github.io/food">
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/food" title="Food">
     
       <i class="sidebar-button-icon fa fa-cutlery"></i>
       
@@ -217,7 +206,7 @@ if (!doNotTrack) {
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://github.com/Shadowsong27" target="_blank" rel="noopener">
+      <a class="sidebar-button-link " href="https://github.com/Shadowsong27" target="_blank" rel="noopener" title="GitHub">
     
       <i class="sidebar-button-icon fa fa-lg fa-github"></i>
       
@@ -248,19 +237,19 @@ if (!doNotTrack) {
         class="hasCover
                hasCoverMetaOut
                ">
-        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+        <article class="post" id="top">
           
           
             <div class="post-header main-content-wrap text-center">
   
-    <h1 class="post-title" itemprop="headline">
+    <h1 class="post-title">
       DevOps Log 1: Setup DataDog and APM in AWS Fargate
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-07-16T00:00:00Z">
+      <time datetime="2019-07-16T00:00:00Z">
         
   July 16, 2019
 
@@ -281,7 +270,7 @@ if (!doNotTrack) {
 
 </div>
           
-          <div class="post-content markdown" itemprop="articleBody">
+          <div class="post-content markdown">
             <div class="main-content-wrap">
               <p>Recently I am migrating some microservices and streaming pipelines to AWS Fargate.
 This article mainly covers the issues, pitfalls and other useful notes
@@ -308,8 +297,7 @@ since we want to have the DataDog Agent and application in different containers,
 we need to configure both of them so that they could talk to each other.</p>
 <p>It is stated in the official docs that:</p>
 <blockquote>
-<p>To monitor your ECS Fargate tasks with Datadog, run the Agent as a container in same task definition as your application. To collect metrics with Datadog, each task definition should include a Datadog Agent container in addition to the application containers.</p>
-</blockquote>
+<p>To monitor your ECS Fargate tasks with Datadog, run the Agent as a container in same task definition as your application. To collect metrics with Datadog, each task definition should include a Datadog Agent container in addition to the application containers.</p></blockquote>
 <p>Basically this means we need to have at least two containers in the Task Definition setup.</p>
 <p><img src="https://shadowsong27.github.io/img/aws-fargate-datadog-1.png" alt="pic"></p>
 <h3 id="configure-datadog-agent-container">Configure DataDog Agent Container</h3>
@@ -319,94 +307,93 @@ we need to configure both of them so that they could talk to each other.</p>
 Details of each ENVs used to configure the agent could be checked here:
 <a href="https://docs.datadoghq.com/agent/docker/?tab=standard">Docker Agent</a></p>
 <table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>DD_API_KEY</td>
-<td>YOUR_API_KEY</td>
-</tr>
-<tr>
-<td>DD_APM_ENABLED</td>
-<td>true</td>
-</tr>
-<tr>
-<td>DD_APM_IGNORE_RESOURCES</td>
-<td>YOUR_IGNORED_RESOURCES</td>
-</tr>
-<tr>
-<td>DD_APM_NON_LOCAL_TRAFFIC</td>
-<td>true</td>
-</tr>
-<tr>
-<td>DD_APM_RECEIVER_PORT</td>
-<td>8126</td>
-</tr>
-<tr>
-<td>DD_DOGSTATSD_NON_LOCAL_TRAFFIC</td>
-<td>true</td>
-</tr>
-<tr>
-<td>DD_DOGSTATSD_PORT</td>
-<td>8125</td>
-</tr>
-<tr>
-<td>ECS_FARGATE</td>
-<td>true</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Key</th>
+          <th>Value</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>DD_API_KEY</td>
+          <td>YOUR_API_KEY</td>
+      </tr>
+      <tr>
+          <td>DD_APM_ENABLED</td>
+          <td>true</td>
+      </tr>
+      <tr>
+          <td>DD_APM_IGNORE_RESOURCES</td>
+          <td>YOUR_IGNORED_RESOURCES</td>
+      </tr>
+      <tr>
+          <td>DD_APM_NON_LOCAL_TRAFFIC</td>
+          <td>true</td>
+      </tr>
+      <tr>
+          <td>DD_APM_RECEIVER_PORT</td>
+          <td>8126</td>
+      </tr>
+      <tr>
+          <td>DD_DOGSTATSD_NON_LOCAL_TRAFFIC</td>
+          <td>true</td>
+      </tr>
+      <tr>
+          <td>DD_DOGSTATSD_PORT</td>
+          <td>8125</td>
+      </tr>
+      <tr>
+          <td>ECS_FARGATE</td>
+          <td>true</td>
+      </tr>
+  </tbody>
 </table>
 <p>You will also need to open the ports configurations in containers, by default it is using <code>8126</code> to receive traces. Since we are not running the agent and the application on the same machine, <code>NON_LOCAL_TRAFFIC</code> related ENVs needs to be set as <code>true</code>.</p>
 <p><a href="https://docs.datadoghq.com/tracing/#setting-up-apm">APM &amp; Distributed Tracing</a></p>
 <p>Open the following ports as stated in docs:</p>
 <table>
-<thead>
-<tr>
-<th>Port</th>
-<th>Protocol</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>8126</td>
-<td>TCP</td>
-</tr>
-<tr>
-<td>8125</td>
-<td>UDP</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Port</th>
+          <th>Protocol</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>8126</td>
+          <td>TCP</td>
+      </tr>
+      <tr>
+          <td>8125</td>
+          <td>UDP</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="configure-application-container">Configure Application Container</h3>
 <p>The configuration on the application container is much simpler. It will need to be able to send traces to the agent container. So we need to define two extra ENVs:</p>
 <table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>DD_AGENT_HOST</td>
-<td>localhost</td>
-</tr>
-<tr>
-<td>DD_TRACE_AGENT_PORT</td>
-<td>8126</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Key</th>
+          <th>Value</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>DD_AGENT_HOST</td>
+          <td>localhost</td>
+      </tr>
+      <tr>
+          <td>DD_TRACE_AGENT_PORT</td>
+          <td>8126</td>
+      </tr>
+  </tbody>
 </table>
 <p>The <code>localhost</code> is not written anywhere on official docs. I originally use <code>datadog-agent</code> , the name of the agent container, after that I see the logs saying:</p>
 <pre tabindex="0"><code>2019-07-16 07:57:03,286 : ERROR : Failed to send traces to Datadog Agent at datadog-agent:8126: [Errno -2] Name does not resolve
 </code></pre><p>This tells us that the hostname in this case is not <code>datadog-agent</code>, which should work if we are using <code>docker-compose</code> by just stating the <code>service</code> name. Because of this I start to read more deeply in the Fargate docs and I found this here:  <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html</a></p>
 <blockquote>
-<p>When a task is started with the <code>awsvpc</code> network mode, … This means that all containers in a task are addressable by the IP addresses of the ENI, and they can communicate with each other over the <code>localhost</code>interface.</p>
-</blockquote>
+<p>When a task is started with the <code>awsvpc</code> network mode, … This means that all containers in a task are addressable by the IP addresses of the ENI, and they can communicate with each other over the <code>localhost</code>interface.</p></blockquote>
 <p>Well then I tried <code>localhost</code> and it worked.</p>
 <p>When I go back and try to understand the whole thing, I associated this with my effort to setup a docker Postgres Together with other applications. The IP address of the database to the application is never <code>localhost</code>, it is rather the assigned IP address by the docker host, but in Fargate because of ENI they seem to solve this problem.</p>
 <h3 id="configure-application-code">Configure Application Code</h3>
@@ -422,6 +409,8 @@ tracer.configure(
 <p>Enable logs for the DataDog agents help with the debugging. It is advised to leave it on for the first few times, and disabled it later on if you find it unnecessary.</p>
 <p>I would consider myself pretty weak when it comes networks (never studied in an academic sense), but with constant exposure to things like docker-compose and managed services, you focus much more on the connection of resources rather than the provision of them. This is pretty useful.</p>
               
+
+
             </div>
           </div>
           <div id="post-footer" class="post-footer main-content-wrap">
@@ -442,214 +431,186 @@ tracer.configure(
                 
               
             
-            <div class="post-actions-wrap">
-  
-      <nav >
-        <ul class="post-actions post-action-nav">
-          
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/08/dramas-checklist/" data-tooltip="Dramas Checklist">
-              
-                  <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-                </a>
-            </li>
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/" data-tooltip="Build Hugo Blog on Github Pages Master Branch">
-              
-                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                  <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-          
-        </ul>
-      </nav>
-    <ul class="post-actions post-action-share" >
-      
-        <li class="post-action hide-lg hide-md hide-sm">
-          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
-            <i class="fa fa-share-alt"></i>
-          </a>
-        </li>
-        
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2019/07/devops-log-1-setup-datadog-and-apm-in-aws-fargate/">
-              <i class="fa fa-facebook-official"></i>
-            </a>
-          </li>
-        
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2019/07/devops-log-1-setup-datadog-and-apm-in-aws-fargate/">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
-        
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2019/07/devops-log-1-setup-datadog-and-apm-in-aws-fargate/">
-              <i class="fa fa-google-plus"></i>
-            </a>
-          </li>
-        
-      
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
       
         <li class="post-action">
-          <a class="post-action-btn btn btn--default" href="#disqus_thread">
-            <i class="fa fa-comment-o"></i>
-          </a>
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/08/dramas-checklist/" data-tooltip="Dramas Checklist" aria-label="NEXT: Dramas Checklist">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/" data-tooltip="Build Hugo Blog on Github Pages Master Branch" aria-label="PREVIOUS: Build Hugo Blog on Github Pages Master Branch">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
         </li>
       
-      <li class="post-action">
-        
-          <a class="post-action-btn btn btn--default" href="#">
-        
-          <i class="fa fa-list"></i>
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2019/07/devops-log-1-setup-datadog-and-apm-in-aws-fargate/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fa-facebook-official" aria-hidden="true"></i>
         </a>
       </li>
-    </ul>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2019/07/devops-log-1-setup-datadog-and-apm-in-aws-fargate/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2019/07/devops-log-1-setup-datadog-and-apm-in-aws-fargate/" title="Share on Google&#43;" aria-label="Share on Google&#43;">
+          <i class="fa-google-plus" aria-hidden="true"></i>
+        </a>
+      </li>
+    
   
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
 </div>
 
+
             
-              
-                <div id="disqus_thread">
-  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-              
-            
+  
+
+
           </div>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2024 Shadowsong27. All Rights Reserved
+    &copy; 2025 Shadowsong&#39;s Personal Website. All Rights Reserved
   </span>
 </footer>
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-        <div class="post-actions-wrap">
-  
-      <nav >
-        <ul class="post-actions post-action-nav">
-          
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/08/dramas-checklist/" data-tooltip="Dramas Checklist">
-              
-                  <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
-                </a>
-            </li>
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/" data-tooltip="Build Hugo Blog on Github Pages Master Branch">
-              
-                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-                  <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-          
-        </ul>
-      </nav>
-    <ul class="post-actions post-action-share" >
-      
-        <li class="post-action hide-lg hide-md hide-sm">
-          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
-            <i class="fa fa-share-alt"></i>
-          </a>
-        </li>
         
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2019/07/devops-log-1-setup-datadog-and-apm-in-aws-fargate/">
-              <i class="fa fa-facebook-official"></i>
-            </a>
-          </li>
-        
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2019/07/devops-log-1-setup-datadog-and-apm-in-aws-fargate/">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
-        
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2019/07/devops-log-1-setup-datadog-and-apm-in-aws-fargate/">
-              <i class="fa fa-google-plus"></i>
-            </a>
-          </li>
-        
-      
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
       
         <li class="post-action">
-          <a class="post-action-btn btn btn--default" href="#disqus_thread">
-            <i class="fa fa-comment-o"></i>
-          </a>
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/08/dramas-checklist/" data-tooltip="Dramas Checklist" aria-label="NEXT: Dramas Checklist">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2019/06/build-hugo-blog-on-github-pages-master-branch/" data-tooltip="Build Hugo Blog on Github Pages Master Branch" aria-label="PREVIOUS: Build Hugo Blog on Github Pages Master Branch">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
         </li>
       
-      <li class="post-action">
-        
-          <a class="post-action-btn btn btn--default" href="#">
-        
-          <i class="fa fa-list"></i>
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2019/07/devops-log-1-setup-datadog-and-apm-in-aws-fargate/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fa-facebook-official" aria-hidden="true"></i>
         </a>
       </li>
-    </ul>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2019/07/devops-log-1-setup-datadog-and-apm-in-aws-fargate/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2019/07/devops-log-1-setup-datadog-and-apm-in-aws-fargate/" title="Share on Google&#43;" aria-label="Share on Google&#43;">
+          <i class="fa-google-plus" aria-hidden="true"></i>
+        </a>
+      </li>
+    
   
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
 </div>
 
+
       </div>
-      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
-  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F07%2Fdevops-log-1-setup-datadog-and-apm-in-aws-fargate%2F">
-          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F07%2Fdevops-log-1-setup-datadog-and-apm-in-aws-fargate%2F" aria-label="Share on Facebook">
+          <i class="fa-facebook-official" aria-hidden="true"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F07%2Fdevops-log-1-setup-datadog-and-apm-in-aws-fargate%2F">
-          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F07%2Fdevops-log-1-setup-datadog-and-apm-in-aws-fargate%2F" aria-label="Share on Twitter">
+          <i class="fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F07%2Fdevops-log-1-setup-datadog-and-apm-in-aws-fargate%2F">
-          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2019%2F07%2Fdevops-log-1-setup-datadog-and-apm-in-aws-fargate%2F" aria-label="Share on Google&#43;">
+          <i class="fa-google-plus" aria-hidden="true"></i><span>Share on Google&#43;</span>
         </a>
       </li>
     
   </ul>
 </div>
 <div id="share-options-mask" class="share-options-mask"></div>
+
+
     </div>
     
     <div id="about">
   <div id="about-card">
     <div id="about-btn-close">
-      <i class="fa fa-remove"></i>
+      <i class="fa fa-times"></i>
     </div>
     
-      <img id="about-card-picture" src="https://avatars3.githubusercontent.com/u/12522657?s=400&amp;u=ccfcf050a757c6a49241737eefe4386064400b5e&amp;v=4" alt="Author&#39;s picture" />
-    
-    <h4 id="about-card-name">Shadowsong27</h4>
-    
-      <div id="about-card-bio">I just want to sit in my garden and tend my pipelines.</div>
+    <h4 id="about-card-name"></h4>
     
     
-      <div id="about-card-job">
-        <i class="fa fa-briefcase"></i>
-        <br/>
-        Data Engineer
-      </div>
-    
-    
-      <div id="about-card-location">
-        <i class="fa fa-map-marker"></i>
-        <br/>
-        Singapore
-      </div>
     
   </div>
 </div>
@@ -663,30 +624,16 @@ tracer.configure(
 
 
     
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
-
-
-<script src="https://shadowsong27.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-<script lang="javascript">
-window.onload = updateMinWidth;
-window.onresize = updateMinWidth;
-document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
-function updateMinWidth() {
-  var sidebar = document.getElementById("sidebar");
-  var main = document.getElementById("main");
-  main.style.minWidth = "";
-  var w1 = getComputedStyle(main).getPropertyValue("min-width");
-  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
-  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
-  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
-}
-</script>
+<script src="https://shadowsong27.github.io/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
 
 <script>
 $(document).ready(function() {
@@ -699,33 +646,6 @@ $(document).ready(function() {
   });
 });
 </script>
-
-
-  
-    
-      <script>
-        var disqus_config = function () {
-          this.page.url = 'https:\/\/shadowsong27.github.io\/2019\/07\/devops-log-1-setup-datadog-and-apm-in-aws-fargate\/';
-          
-            this.page.identifier = '\/2019\/07\/devops-log-1-setup-datadog-and-apm-in-aws-fargate\/'
-          
-        };
-        (function() {
-          
-          
-          if (window.location.hostname == "localhost") {
-            return;
-          }
-          var d = document, s = d.createElement('script');
-          var disqus_shortname = 'shadowsongs-blog';
-          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-
-          s.setAttribute('data-timestamp', +new Date());
-          (d.head || d.body).appendChild(s);
-        })();
-      </script>
-    
-  
 
 
 

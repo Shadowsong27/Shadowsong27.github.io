@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <script type="application/ld+json">
+
+{  
+  "@context":"http://schema.org",
+  "@type":"Website",
+  "@id":"https:\/\/shadowsong27.github.io\/",
+  "author": {
+    "@type": "Person",
+    "name":  null ,
+    
+  },
+  "name":"Shadowsong\u0027s Personal Website",
+  "description":"\u003cp\u003eThis article talks about several techniques I used when I code. It is not meant for direct adoption by readers because we might be writing different types of code. I was focusing mostly on Data Engineering and Software engineering (backend) code. If you were a data scientist, take this with a pinch of salt.\u003c\/p\u003e",
+  "url":"https:\/\/shadowsong27.github.io\/2025\/07\/rt-log-8-5-vibe-coding-techniques\/",
+  "keywords":"[]"
+}
+
+</script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.148.0 with theme Tranquilpeak 0.5.3-BETA">
+<meta name="author" content="">
+<meta name="keywords" content="">
+<meta name="description" content="This article talks about several techniques I used when I code. It is not meant for direct adoption by readers because we might be writing different types of code. I was focusing mostly on Data Engineering and Software engineering (backend) code. If you were a data scientist, take this with a pinch of salt.">
+
+
+<meta property="og:description" content="This article talks about several techniques I used when I code. It is not meant for direct adoption by readers because we might be writing different types of code. I was focusing mostly on Data Engineering and Software engineering (backend) code. If you were a data scientist, take this with a pinch of salt.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RT Log 8: 5 Vibe Coding techniques">
+<meta name="twitter:title" content="RT Log 8: 5 Vibe Coding techniques">
+<meta property="og:url" content="https://shadowsong27.github.io/2025/07/rt-log-8-5-vibe-coding-techniques/">
+<meta property="twitter:url" content="https://shadowsong27.github.io/2025/07/rt-log-8-5-vibe-coding-techniques/">
+<meta property="og:site_name" content="Shadowsong&#39;s Personal Website">
+<meta property="og:description" content="This article talks about several techniques I used when I code. It is not meant for direct adoption by readers because we might be writing different types of code. I was focusing mostly on Data Engineering and Software engineering (backend) code. If you were a data scientist, take this with a pinch of salt.">
+<meta name="twitter:description" content="This article talks about several techniques I used when I code. It is not meant for direct adoption by readers because we might be writing different types of code. I was focusing mostly on Data Engineering and Software engineering (backend) code. If you were a data scientist, take this with a pinch of salt.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2025-07-09T00:00:00">
+  
+  
+    <meta property="article:modified_time" content="2025-07-09T00:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="rt-log">
+    
+  
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.mygreatlearning.com/blog/wp-content/uploads/2025/04/what-is-vibe-coding-1024x683.webp">
+  <meta property="twitter:image" content="https://www.mygreatlearning.com/blog/wp-content/uploads/2025/04/what-is-vibe-coding-1024x683.webp">
+
+
+    <title>RT Log 8: 5 Vibe Coding techniques</title>
+
+    <link rel="icon" href="https://shadowsong27.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://shadowsong27.github.io/2025/07/rt-log-8-5-vibe-coding-techniques/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    <link rel="stylesheet" href="https://shadowsong27.github.io/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css" />
+    
+    
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://shadowsong27.github.io/" aria-label="Go to homepage">Shadowsong&#39;s Personal Website</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://shadowsong27.github.io/#about" aria-label="Open the link: /#about">
+    
+    
+    
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/" title="Home">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/categories" title="Categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/tags" title="Tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/archives" title="Archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/career" title="Career">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-suitcase"></i>
+      
+      <span class="sidebar-button-desc">Career</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://shadowsong27.github.io/food" title="Food">
+    
+      <i class="sidebar-button-icon fa fa-cutlery"></i>
+      
+      <span class="sidebar-button-desc">Food</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/Shadowsong27" target="_blank" rel="noopener" title="GitHub">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaOut
+               ">
+        <article class="post" id="top">
+          
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title">
+      RT Log 8: 5 Vibe Coding techniques
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time datetime="2025-07-09T00:00:00Z">
+        
+  July 9, 2025
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://shadowsong27.github.io/categories/rt-log">rt-log</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown">
+            <div class="main-content-wrap">
+              <p>This article talks about several techniques I used when I code. It is not meant for direct adoption by readers because we might be writing different types of code. I was focusing mostly on Data Engineering and Software engineering (backend) code. If you were a data scientist, take this with a pinch of salt.</p>
+<p>Some context on my stacks:</p>
+<ol>
+<li>Tool - Cline</li>
+<li>Models - Gemini 2.5 Pro for Planning, Claude 3.7 for Act</li>
+<li>MCP - <code>sequentialthinking</code> , <code>context7</code> , <code>mcp-clickhouse</code> because I have setup my homelab warehouse with clickhouse. There might be other choices out there but Clickhouse is a pretty popular open-sourced data warehouse</li>
+<li>Custom instructions: Cline memory bank with modification to my usual tasks. e.g. to run dbt tasks, I have a dedicated section in the custom instructions to setup the dbt execution environment when opening up a new shell.</li>
+</ol>
+<pre tabindex="0"><code># DBT Execution
+
+When I am executing DBT commands, I will always prepare the new bash shell session by running:
+1. `source .venv/bin/activate` to activate the virtualenv 
+2. to cd into `/Users/shadowsong/Code/asp/asp-core/dbt` folder. This is my working directory for DBT commands. I will always execute DBT commands under this directory.. 
+3. run `export DBT_TARGET=dev`  
+4. run `export DBT_PROJECT_DIR=&#34;/Users/shadowsong/Code/asp/asp-core/dbt/asp&#34;` 
+
+Once finished all these, run `dbt debug` to ensure everything is set up correctly.
+
+This will prepare me the environment for executing DBT commands correctly.
+</code></pre><ol>
+<li><code>.clinerules</code> to indicate several coding practices.</li>
+</ol>
+<h3 id="1-be-super-explicit-in-custom-instructions-and-normal-explicit-in-standard-prompts">#1: Be super Explicit in Custom instructions, and normal explicit in standard prompts</h3>
+<p>I think we kinda expect nowadays, the model to understand our vague instructions. However, when it comes to custom instructions, it’s better to be super explicit. Using the custom instruction for dbt above, I started with <code>cd into </code>asp<code> folder</code> which it might execute several times and end up in a completely different directory. In fact, it has become my habit (though probably unnecessary as models become more intelligent) when writing prompts to always tell the model where the file is and where do I want to change it as much as possible. I don&rsquo;t think it&rsquo;s always needed for the standard prompts.</p>
+<p>For standard prompts, I will always try to balance my laziness with explicit context, especially in reviewing of an update.</p>
+<p>Point form replies help shape my thoughts just as if I am writing my PR review, without the need to add <strong>euphemism</strong> providing reasons.</p>
+<p>e.g.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>1. rename the classname to <span style="color:#e6db74">`</span>xxx<span style="color:#e6db74">`</span> <span style="color:#f92672">(</span>here you don<span style="color:#960050;background-color:#1e0010">&#39;</span>t have to specify which class to rename from usually<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>2. abstract the recursion logic into a new method called <span style="color:#e6db74">`</span>_apply_something<span style="color:#e6db74">`</span> within the same class
+</span></span></code></pre></div><h3 id="2-think-critically-do-not-happily-accept-everything">#2: Think critically, do not happily accept everything</h3>
+<p>One thing we need to be clear is that AI is here to help us deliver, we are ultimately be held responsible for producing code that smells. So be sure to review every analysis that the AI is producing while you are waiting, it will help you discover potential issue with the current execution direction before it’s too late, and sometimes even new knowledge (but obviously please fact checks this with other sources).</p>
+<p>If sometimes the updates are too massive to review, you should instruct the tool / model to produce less updates per run (I am used to big PRs sadly).</p>
+<p>Just go check some instagram or 小红书 while you are waiting is theoretically not good but if you are on a stressful day hey why not? Mental health matters.</p>
+<h3 id="3-avoid-multiple-tasks-per-task-unless-super-small">#3: Avoid multiple tasks per task, unless super small</h3>
+<p>I notice the performance of the model (or at least Claude 3.7) will degrade drastically (and sometimes, start to duplicating response) if the context is too big. This may seem to be an obvious rule but sometimes we get too carried away while chatting happily with our AI friend and watching it spits out shinny garbage in our project.</p>
+<h3 id="4-be-active-to-shape-how-you-want-the-model-to-behave">#4: Be active to shape how you want the model to behave</h3>
+<p>If you do not like the generic <code>try-except</code> code that AI friend is generating or the massive amount of parse-args where in fact you want it to use <code>click</code> or <code>typer</code>, state it and write it down in the rule files. You need to mindfully and proactively do this as if you are teaching a student. Model will not know this and this is again another important thing I notice during my usage. If I am being lazy, I will have the same crap response some time again in the future so when you notice it, do it right.</p>
+<h3 id="5-know-exactly-when-to-think-and-when-to-delegate">#5: Know exactly when to think, and when to delegate</h3>
+<p>The first four points are mostly related to providing context (”Context Engineering” is indeed an appropriate word). The last note I want to mention is more on how to keep us afloat in today’s vibe coding environment and grow.</p>
+<p>To me, it’s such a good time to increase my time of coding daily because AI helps me automate things I am not fond of, time consuming, but yet crucially important - unit tests, e2e tests, generating mock data, remembering syntax, algorithms that I studied 7 years ago. I used to spend a huge chunk of time to do all these out of professionalism, but they are definitely not my favourite code to write, but I have done it a few times manually, and I know it DOES NOT help too much in my personal growing anymore, I am only doing it out of necessity. Thus, I am knowingly delegate that portion of the code to AI.</p>
+<p>However, if you have never written any recursion in real work context (like parsing the struct schema in Spark), I would at least recommend you to do it once to understand it, and then delegate to AI. This is something I could not stress enough, AI is not a magical box, you will be able to determine its upper limit. There are certain things you should experience and grasp yourselves.</p>
+<p>From a different perspective, sometimes AI are just not smart enough yet to perfectly execute your requests. It might very well take 2 - 5 more carefully constructed prompts for it to understand the exact needs you want. In this case, please, do it manually if you can within 20s instead of chatting and instructing AI with it for 5 mins, focusing on your objective which is to deliver. I am sure people who spend millions poaching AI talents from each other could have done a better job in upskilling our AI friend than we did in those 5 mins.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>These are not meant to be prescriptive but rather what worked for me. As AI continues to evolve (and probably at a faster rate than we can imagine), we need to evolve our approaches too. The balance between delegating and thinking is fluid - what works today might be obsolete tomorrow. But I think the essence stays the same - be mindful, be critical, and most importantly, focus on growing your skills while leveraging AI to handle the stuff you&rsquo;ve mastered but don&rsquo;t particularly enjoy. After all, we&rsquo;re still the ones responsible for the code that goes into production, so let&rsquo;s make sure it doesn&rsquo;t smell too bad.</p>
+              
+
+
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+            
+            
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2024/12/de-log-9-extend-duckdb-beyond-the-single-player-mode-by-just-a-little-bit/" data-tooltip="DE Log 9: Extend duckdb beyond the single player mode, by just a little bit" aria-label="PREVIOUS: DE Log 9: Extend duckdb beyond the single player mode, by just a little bit">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2025/07/rt-log-8-5-vibe-coding-techniques/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fa-facebook-official" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2025/07/rt-log-8-5-vibe-coding-techniques/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2025/07/rt-log-8-5-vibe-coding-techniques/" title="Share on Google&#43;" aria-label="Share on Google&#43;">
+          <i class="fa-google-plus" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+            
+  
+
+
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2025 Shadowsong&#39;s Personal Website. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+<div class="post-actions-wrap">
+  <nav >
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+              <i class="fa fa-angle-left"></i>
+              <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+            </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://shadowsong27.github.io/2024/12/de-log-9-extend-duckdb-beyond-the-single-player-mode-by-just-a-little-bit/" data-tooltip="DE Log 9: Extend duckdb beyond the single player mode, by just a little bit" aria-label="PREVIOUS: DE Log 9: Extend duckdb beyond the single player mode, by just a little bit">
+          
+              <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+              <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+      
+    </ul>
+  </nav>
+<ul class="post-actions post-action-share" >
+  
+    <li class="post-action hide-lg hide-md hide-sm">
+      <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+      </a>
+    </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://shadowsong27.github.io/2025/07/rt-log-8-5-vibe-coding-techniques/" title="Share on Facebook" aria-label="Share on Facebook">
+          <i class="fa-facebook-official" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://shadowsong27.github.io/2025/07/rt-log-8-5-vibe-coding-techniques/" title="Share on Twitter" aria-label="Share on Twitter">
+          <i class="fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://shadowsong27.github.io/2025/07/rt-log-8-5-vibe-coding-techniques/" title="Share on Google&#43;" aria-label="Share on Google&#43;">
+          <i class="fa-google-plus" aria-hidden="true"></i>
+        </a>
+      </li>
+    
+  
+  
+  <li class="post-action">
+    
+      <a class="post-action-btn btn btn--default" href="#top" aria-label="Back to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    
+    </a>
+  </li>
+</ul>
+</div>
+
+
+      </div>
+      
+<div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-times"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshadowsong27.github.io%2F2025%2F07%2Frt-log-8-5-vibe-coding-techniques%2F" aria-label="Share on Facebook">
+          <i class="fa-facebook-official" aria-hidden="true"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fshadowsong27.github.io%2F2025%2F07%2Frt-log-8-5-vibe-coding-techniques%2F" aria-label="Share on Twitter">
+          <i class="fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fshadowsong27.github.io%2F2025%2F07%2Frt-log-8-5-vibe-coding-techniques%2F" aria-label="Share on Google&#43;">
+          <i class="fa-google-plus" aria-hidden="true"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-times"></i>
+    </div>
+    
+    <h4 id="about-card-name"></h4>
+    
+    
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://i.pinimg.com/originals/00/93/9d/00939dff0059e823658afe98bb6d87a4.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://shadowsong27.github.io/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+    
+  </body>
+</html>
+

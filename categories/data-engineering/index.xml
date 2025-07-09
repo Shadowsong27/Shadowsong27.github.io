@@ -1,115 +1,89 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>data-engineering on Shadowsong&#39;s Personal Website</title>
+    <title>Data-Engineering on Shadowsong&#39;s Personal Website</title>
     <link>https://shadowsong27.github.io/categories/data-engineering/</link>
-    <description>Recent content in data-engineering on Shadowsong&#39;s Personal Website</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Data-Engineering on Shadowsong&#39;s Personal Website</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://shadowsong27.github.io/categories/data-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://shadowsong27.github.io/categories/data-engineering/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DE Log 9: Extend duckdb beyond the single player mode, by just a little bit</title>
       <link>https://shadowsong27.github.io/2024/12/de-log-9-extend-duckdb-beyond-the-single-player-mode-by-just-a-little-bit/</link>
       <pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/2024/12/de-log-9-extend-duckdb-beyond-the-single-player-mode-by-just-a-little-bit/</guid>
-      <description>&lt;p&gt;Yet another take on poor man’s lakehouse / or how to NOT contribute to Databricks&amp;rsquo; IPO success even though it seems
-inevitable.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Yet another take on poor man’s lakehouse / or how to NOT contribute to Databricks&amp;rsquo; IPO success even though it seems&#xA;inevitable.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>DET Log 1: A first “byte” of Airbyte</title>
       <link>https://shadowsong27.github.io/2022/10/det-log-1-a-first-byte-of-airbyte/</link>
       <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/2022/10/det-log-1-a-first-byte-of-airbyte/</guid>
       <description>&lt;p&gt;In this article, I am sharing my first impression on the open-sourced almighty data ingestion tool - Airbyte.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>DE Log 8: Thoughts on Data Engineering Specialisations</title>
       <link>https://shadowsong27.github.io/2022/01/de-log-8-thoughts-on-data-engineering-specialisations/</link>
       <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/2022/01/de-log-8-thoughts-on-data-engineering-specialisations/</guid>
       <description>&lt;p&gt;Happy New Year everyone! And I am too lazy to change the thumbnail image.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>DE Log 7: Migrating from Airflow 1 to 2</title>
       <link>https://shadowsong27.github.io/2021/04/de-log-7-migrating-from-airflow-1-to-2/</link>
       <pubDate>Thu, 29 Apr 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/2021/04/de-log-7-migrating-from-airflow-1-to-2/</guid>
       <description>&lt;p&gt;Today I have successfully migrated my current Airflow setup from v1.10.14 to v2.0.2. This article will not be a very detailed step by step guide for upgrading, instead I will introduce the general migration step worked very specifically for my setup, and share some of the problems I encountered during the process, and finally some general feelings with Airflow 2.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>DE Log 6: From Data Engineering to Meta Data Engineering - the future of Data Engineering</title>
       <link>https://shadowsong27.github.io/2020/08/de-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering/</link>
       <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/2020/08/de-log-6-from-data-engineering-to-meta-data-engineering-the-future-of-data-engineering/</guid>
       <description>&lt;p&gt;Data engineering jobs are really popular nowadays, mostly contributed by the rising demand of data insights and data driven decision making.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>DE Log 5: Thoughts on Analytical Tables</title>
       <link>https://shadowsong27.github.io/2020/01/de-log-5-thoughts-on-analytical-tables/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/2020/01/de-log-5-thoughts-on-analytical-tables/</guid>
       <description>&lt;p&gt;I have taken some Database design course back in university days, though I have skipped almost all of the lectures as I was also self-learning during my first internship on the same matter, in a much more practical manner. I did not even know the word &lt;code&gt;OLAP&lt;/code&gt;  back then. However, I am not dismissing the importance of data modelling in data engineering. On the contrary, data modelling is one of the important skills if you want to be a data engineer.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>DE Log 4: ETL vs ELT</title>
       <link>https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/2020/01/de-log-4-etl-vs-elt/</guid>
       <description>&lt;p&gt;We have all heard of the term ETL. If you are working in the data field, you might have been asked to do some sort of ETL work regardless of your actual job description.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>DE Log 3: Amazon Redshift disk space saving tips</title>
       <link>https://shadowsong27.github.io/2019/11/de-log-3-amazon-redshift-disk-space-saving-tips/</link>
       <pubDate>Mon, 04 Nov 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/2019/11/de-log-3-amazon-redshift-disk-space-saving-tips/</guid>
       <description>&lt;p&gt;Recently Amazon Redshift launched a new console interface, which is pretty nice. It actually gives some valuable optimisation tips. A data warehouse is like a sword, you need to constantly sharpen it so it won’t lose its edge.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>DE Log 2.1: Develop Data Science Project in Production</title>
       <link>https://shadowsong27.github.io/2019/10/de-log-2.1-develop-data-science-project-in-production/</link>
       <pubDate>Thu, 17 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/2019/10/de-log-2.1-develop-data-science-project-in-production/</guid>
-      <description>&lt;p&gt;Recently I was working on the deployment of a predictive model built by my dear
-friend valued ex-colleague. Here I will share some thoughts and challenges
-I have encountered during its production deployment.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Recently I was working on the deployment of a predictive model built by my dear&#xA;friend valued ex-colleague. Here I will share some thoughts and challenges&#xA;I have encountered during its production deployment.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>DE Log 1: Idempotency</title>
       <link>https://shadowsong27.github.io/2019/08/de-log-1-idempotency/</link>
       <pubDate>Sat, 31 Aug 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/2019/08/de-log-1-idempotency/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;In linear algebra, an idempotent matrix is a matrix which, when multiplied by itself, yields itself.&lt;/p&gt;
-&lt;/blockquote&gt;</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;In linear algebra, an idempotent matrix is a matrix which, when multiplied by itself, yields itself.&lt;/p&gt;&lt;/blockquote&gt;</description>
     </item>
-    
     <item>
       <title>DE Log 0.1: Rescheduling of Airflow DAGs</title>
       <link>https://shadowsong27.github.io/2018/09/de-log-0.1-rescheduling-of-airflow-dags/</link>
       <pubDate>Sat, 22 Sep 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://shadowsong27.github.io/2018/09/de-log-0.1-rescheduling-of-airflow-dags/</guid>
       <description>&lt;p&gt;This article briefly records the step to reschedule a DAG on Apache Airflow&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
