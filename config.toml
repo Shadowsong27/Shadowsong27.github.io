@@ -19,7 +19,7 @@ title = "Shadowsong's Personal Website"
 theme = "hugo-tranquilpeak-theme"
 disqusShortname = "shadowsongs-blog"
 canonifyurls = true
-
+googleAnalytics = "GA-363147269"
 [services]
   [services.googleAnalytics]
     ID = "GA-363147269"
