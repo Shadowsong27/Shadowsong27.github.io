@@ -19,10 +19,10 @@ title = "Shadowsong's Personal Website"
 theme = "hugo-tranquilpeak-theme"
 disqusShortname = "shadowsongs-blog"
 canonifyurls = true
-googleAnalytics = "GA-363147269"
+googleAnalytics = "G-1SHS81MHHD"
 [services]
   [services.googleAnalytics]
-    ID = "GA-363147269"
+    ID = "G-1SHS81MHHD"
 
 [pagination]
   pagerSize = 10 # use the same number here
