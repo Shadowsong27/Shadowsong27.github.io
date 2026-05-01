@@ -1,204 +1,114 @@
 ---
 title: "Career"
-date: 2019-11-20T23:38:52+08:00
-comments:       false
-showMeta:       false
-showActions:    false
+date: 2026-05-01
+comments: false
+showMeta: false
+showActions: false
 ---
 
-# Overview and Vision
+Engineering leader with 9+ years building data platforms, GenAI systems, and the teams that run them. Currently Director of GenAI Software Engineering at Standard Chartered, leading a squad delivering RAG pipelines and agentic workflows inside one of Asia's most regulated institutions. I tend to care as much about how things get shipped as what gets shipped — the process, the culture, the constraints that nobody warned you about.
 
-I am a data engineer.
+---
 
-My vision is to automate everything that can be automated, and automating the automation itself.
+## What I Do
 
-What I do on a daily basis:
-1. tend data pipelines and make data flows efficiently, reliably for my fellow data analysts and data scientists
-2. build software solutions to make data more accessible from Data lake/warehouse
-3. help explore latest framework / DE solutions
-4. people and team management if needed
+I sit somewhere at the intersection of data engineering, GenAI systems, and engineering leadership. Over the years that's meant writing a lot of Python, designing a lot of pipelines, and more recently spending a meaningful chunk of time on things like how to get an agentic workflow past a compliance review, or how to grow an engineer who's never had a 1:1 before.
 
-You should only notice me when something is broken.
+My technical home is data — lakehouses, pipelines, transformations, the full stack from raw ingestion to analytical surface. The last couple of years have pulled me toward GenAI infrastructure: RAG, vector databases, LLM orchestration, and the newer question of how you build reliable agentic systems that actually hold up in production.
 
+On the leadership side I've built teams from scratch (3 to 11 engineers at ADI), run pre-sales architecture discussions, designed delivery SOPs, and spent a lot of time just trying to make sure people have what they need to do their best work.
 
-### Focus
+---
 
-Based on my understanding that the current data engineering job scope can be divided into three sub fields:
-1. Infrastructure
-2. Pipeline (with in-house tooling or dynamically generate pipelines)
-3. Data Warehouse + Data modelling (more like Analytical Engineering)
+## Experience
 
-I have various level of experience with all three fields, focusing on different parts at different stages in
-my career. Currently focusing mostly on #2. 
+**Director, GenAI Software Engineering · Standard Chartered Singapore**
+*Dec 2025 – Present*
 
+Leading Team Vectors — a 9-person squad building GenAI-powered data solutions inside a global bank. The technical work covers RAG pipelines, vector-database preparation, and durable agentic workflows via Temporal.io, deployed across both on-prem and Databricks cloud environments.
 
-# Work Experience
+What makes this interesting (and occasionally difficult) is the gap between what's architecturally elegant and what can realistically reach production given data security boundaries, governance approval paths, and shared infrastructure at varying maturity levels. A lot of my job is navigating that gap without losing momentum — or relationships.
 
-### Senior Data Engineer + Pod Lead - Sept 2021 - Present
- 
-This requires me to work as an IC role, and gradually move towards a team lead position. I am primarily focusing
-on delivering Python-based software solutions that automate the building of pipelines, and maintaining the 
-quality of our data lakehouse.
+Also mandated and operationalised AI-assisted coding across the team in a compliance-compatible way. The team has fully transitioned to spec-driven development and agentic engineering practices. Built and open-sourced [agentic-beacon](https://github.com/Shadowsong27/agentic-beacon) as part of that culture work.
 
-Tech stack used:
+---
 
-Orchestrator: Airflow 1 + Airflow 2 (in transition)
-Data Lakehouse: Delta Lake + Hive
-Ingestion: in-house
-Ingestion Engine: Databricks Spark
-Transformation Engine: Databricks Spark
-Transformation Framework: dbt
-Analytical Engine: Presto / Trino
-Streaming: Kafka Connect + Debezium
-BI: Looker
-Monitoring: Datadog + Pagerduty + Slack
+**Data Engineering Lead (Consultant) · Asian Development Bank**
+*Jun 2025 – Nov 2025*
 
-Responsibilities:
-- Build Python solutions 
-    - to make data analytics self-serviceable
-    - to abstract complex spark and delta lake usages for data analysts
-    - to make generation of batch/streaming pipelines (semi)-automated via configurations
-    - to make pipelines auto recover
-- Exploring new data solutions (Looking at Airbyte and DataHub now) 
-- participate in cross-team projects if needed
-- Drafting and driving projects / epics within Pod, Building + setting success metrics, monitoring of success metrics
-- other standard management stuff like my last job
-- DOCUMENTATIONS!
- 
- 
-### Data Team Lead - June 2020 - Sept 2021
+Technical lead on ADB's GenAI data platform, with a team of 4. The flagship deliverable was a RAG application over a 200,000+ document knowledge base covering multilateral development research and policy content, with daily ingestion growth.
 
-This role requires me to work as a manager with hands on work to setup the data platform infrastructure of a small 
-startup from scratch, plus a distributed web-crawling system.
+Adapted an architecture previously battle-tested in commercial engagements (Airflow, Databricks, MLFlow, Terraform) to ADB's requirements as a multilateral institution. Also contributed to architectural design of ADB's new credit analysis platform before the engagement concluded.
 
-Tech stack used:
+---
 
-Orchestrator: open sourced version of Apache Airflow 2
-Data Warehouse: AWS Redshift
-Ingestion: in-house
-Job Queues: Apache Kafka
-Transformation Framework: dbt
-BI: Metabase
-Metadata Management: Django Admin Page (I did not follow up this part of the data stack that closely back then)
+**Head, Data Engineering · Aboitiz Data Innovation (ADI)**
+*Apr 2024 – Jun 2025*
 
-Most of the stuff are setup in house and fully on AWS ECS Fargate.
+Expanded scope to pre-sales technical leadership alongside running the engineering function. Attended pre-sales meetings as the senior technical voice, providing architecture estimates and the kind of credibility that helps close contracts.
 
-Engineering Responsibilities:
-- Infrastructure setup
-- Build pipelines end-to-end
-- Exploring new data solutions (lead to adoption of Airflow 2 and dbt)
-- Difficult bugs
+Grew the function to 11 engineers across three teams: MLE delivery, DE delivery, and an internal platform/infra/products team.
 
-Management Responsibilities:
-- sprint planning
-- solution design
-- mentoring juniors
-- setup and standardize workflow such as bug reporting
-- 1:1 with team members 
+---
 
+**Lead, Data Engineering · Aboitiz Data Innovation (ADI)**
+*Feb 2023 – Apr 2024*
 
-### Data Engineer - Aug 2018 to June 2020
+Scaled a 3-person team to 10 in 12 months, while simultaneously delivering commercial data projects and building reusable internal products. The headline product was a white-label Data Platform — fully Terraformed, reproducible across AWS and Azure, with configurable security and data boundaries per client.
 
-This role requires me to work both as a backend developer and a data engineer, 
-it also requires me to communicate a lot with different stakeholders in 
-different functional teams.
+Standardised delivery lifecycles for both DE and MLE engagements: SOPs, scoping templates, handoff workflows. The kind of work that's invisible when it's done well.
 
-Main responsibilities:
+---
 
-Data Engineering
+**Pod Lead, Data Platform · Xendit**
+*Sep 2021 – Jan 2023*
 
-- Maintain (Python, SQL, AWS ECS) batch/stream data pipelines using Apache Airflow 
-- Migrated Data Warehouse from legacy Postgres RDS into AWS Redshift
-- Design Data Warehouse (AWS Redshift) architecture, data health check and alerts (Emails and Slack) to speed up data analysis, validation, exploration & hypothesis testing
-- Data modelling and design optimised analytical tables to speed up B2B data deliveries and data science iteration
-- Enable safe automated data deployment into production environment and validation 
+Led the self-serve data platform pod at a high-growth fintech. Maintained a 1.5 PB lakehouse serving ~300 internal consumers, oversaw 1,500+ batch and 30+ streaming pipelines, and drove the Delta Lake migration from a Parquet-based lake.
 
-Backend & DevOps
+Designed a YAML-based centralised pipeline configuration repo integrated with Airflow — making pipeline additions and removals fully self-serviceable. Introduced semantic versioning, end-to-end test frameworks, poetry, and Airflow 2 in distributed setup.
 
-- Handle several (Python Falcon and Django) backend services, including data science projects and internal services, deployed in containers (AWS Fargate)
-- Implement a data back office to augment automatically processed data with manually cleaned data
-- Setup CI/CD processes
-- Build a few internal Python libraries shared across projects
+---
 
-Data Analysis
+**Data Team Lead · Real Estate Analytics (8prop)**
+*May 2020 – Sep 2021*
 
-- Build and maintain monitoring dashboards (Metabase, Mode Analytics) for in-app usage, data quality and service performances
-- Investigate data anomalies to help the team theorise  / make decisions
-- Support marketing and product team with data insights
+Built the full data stack from scratch for a proptech startup across SG, MY, and HK — Airflow + dbt scheduler, a distributed web crawler ingesting 50+ data sources, and 60+ entity models in Postgres. Team of 5 covering all data engineering, ops, and analytics.
 
-Data Science
+---
 
-- Maintain, refactor and debug existing data science projects
-- Brainstorm improvements / implement based on user inputs and other data metrics
+**Data Engineer · Healint**
+*Aug 2018 – May 2020*
 
+Full-stack data engineering in health-tech. Migrated a legacy Postgres warehouse to Redshift, built and maintained ~40 Airflow batch DAGs and 2 streaming pipelines, and shipped 4 microservices end-to-end including 2 data science products. First real taste of owning the full lifecycle from infra to production.
 
-# Professional Skills
+---
 
-legend (being as accurate as I can):
+**Data Engineer · Aly Pte. Ltd. (Spiking)**
+*Jul 2017 – Apr 2018*
 
-- `Basic understanding`: Never used in production environment 
-    but has a general idea on how a solution should be like, able to build POCs and experiment on it
-- `familiar`: has production experience, able to design, implement solutions or workflow end to end
-- `proficient`: everything from `familiar` + with confidence that this should be the 
-    most optimized solution given all factors considered
+First proper engineering job. ETL pipelines, database optimisation, and a self-learning NLP keyword extractor for stock news. Learned a lot about what good (and bad) data infrastructure looks like by inheriting some of each.
 
-### Engineering Skills
+---
 
-#### Programming language
+## Tech I've Worked With
 
-- Python 3 - Proficient
-    - familiar with Python coding standard, common practices and design patterns
-    - thinks type hinting, naming convention and inline docs are critical
-    - familiar with Python web backend frameworks
-    (Falcon, Django, FastAPI), familiar with RESTful API design
+**AI / GenAI** — RAG architecture, vector databases, LLM orchestration, MLFlow, Temporal.io, embedding pipelines, agentic engineering, spec-driven development
 
-- SQL - Proficient
-    - not much to talk about really
+**Data Engineering** — Apache Spark, Airflow, dbt, Kafka, Delta Lake, Trino, Hive, Databricks, Redshift, Postgres
 
-#### Tools
+**Cloud & Infra** — AWS (Fargate, Redshift, S3, Kinesis, EC2, ELB, VPC), Azure, Terraform, Kubernetes, Docker, CI/CD
 
-- Spark, Presto, Hive - Proficient in usage, familiar with internals
-- Kafka - familiar with usage
-- Delta Lake - Proficient
-- Proficient in Airflow 1 + 2, including internals
-- Data Warehouses (Redshift) - Proficient
-- Data Lake (Delta + s3) - Proficient
-- Relational DB - Proficient in Postgres, MySQL
-- NoSQL - Familiar with Mongo and Dynamo
-- Familiar with other databases such as redis, AWS Dynamo etc.
+**Backend** — Python, SQL, microservices, REST APIs, FastAPI, SQLAlchemy, event-driven architecture
 
-#### Data
+---
 
-- Proficient in Data modeling 
-- Proficient in modern Data Warehouse solution design (Inmon approach), data pipeline designs
-- Proficient in performing common optimization measures like partitioning, bucketing etc.
-- Proficient in design and performing Data Quality Checks
+## Education
 
-General
+**Bachelor of Science, Business Analytics** · National University of Singapore, School of Computing
+*2014 – 2018 · Science & Technology Scholarship*
 
-- Familiar with modern programming toolkit: Unix terminal operations, version control, Docker, setup CI/CD, documentations
-- Familiar in commonly used Amazon Web Services (including those that are typically 
-out of DE scope such as Cloudfront or networking configuration), able to independently deploy solutions from start to end
+---
 
+## Elsewhere
 
-### Analytical Skills
-
-- Able to understand and grasp the business context quickly
-- Able to understand data, data flow, transform business requirements to technical requirements
-- Able to temporarily cover data analysis requests and simple model building 
-- Data visualisation
-
-### Other Skills
-
-- Fluent in mandarin and English
-- Strong self-learning capability and a desire for knowledge
-- Able to communicate with data analysts, data scientists and understand, accept / pushback / propose alternative solutions for their needs
-- Able to communicate with non-data, non-technical team members (marketing, sales, upper management) 
-
-
-# Education Background
-
-### National University of Singapore 
-
-- Bachelor of Science in Business Analytics
-- Science & Tech Scholarship
+You should only notice me when something is broken — but if you want to reach out, [GitHub](https://github.com/Shadowsong27) is the best place to find me.
