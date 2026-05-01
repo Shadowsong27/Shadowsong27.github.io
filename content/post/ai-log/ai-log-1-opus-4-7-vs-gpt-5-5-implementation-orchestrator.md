@@ -1,6 +1,6 @@
 ---
 title: "AI Log 1: Claude vs GPT — A Head-to-Head Agent Delegation Experiment"
-date: 2026-05-02
+date: 2025-05-02
 categories:
 - ai-log
 tags:
