@@ -143,6 +143,7 @@ capitalizeListTitles = false
         bio = "Personal notes on data, software, media, food, and AI logs."
         links = [
           { github = "https://github.com/Shadowsong27" },
+          { linkedin = "https://www.linkedin.com/in/yikun-song-62a194108/" },
         ]
 
 [[menus.main]]

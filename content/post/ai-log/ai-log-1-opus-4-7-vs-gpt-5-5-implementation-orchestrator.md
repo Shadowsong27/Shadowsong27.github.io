@@ -3,10 +3,7 @@ title: "AI Log 1: Claude vs GPT — A Head-to-Head Agent Delegation Experiment"
 date: 2026-05-01
 categories:
 - ai-log
-tags:
-- ai
-- agent
-- llm
+tags: []
 ---
 
 I pitted **Claude Opus 4.7 via Bedrock API** against **GPT 5.5** — not as chatbots, but as **agentic supervisors**. Each was given the same task: write a delegation prompt for a coding agent, dispatch it, review the result, and iterate to correctness. Same codebase. Same delegate model. Same constraints. Only the parent agent changed.
