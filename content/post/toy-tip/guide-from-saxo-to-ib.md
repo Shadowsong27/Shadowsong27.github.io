@@ -8,6 +8,8 @@ coverMeta: out
 date: 2021-08-31
 categories:
 - toy-tip
+tags:
+- human-written
 ---
 
 I have been using SAXO for three years and Interactive Brokers for more than one year, and recently I have decided to switch from SAXO to IB completely, but I could not find a proper instruction on the Internet. 

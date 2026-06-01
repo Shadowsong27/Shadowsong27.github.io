@@ -8,6 +8,8 @@ coverMeta: out
 date: 2018-06-04
 categories:
 - tv-log
+tags:
+- human-written
 ---
 
 > Bull is an American drama television series starring Michael Weatherly. CBS ordered the program to series on May 13, 

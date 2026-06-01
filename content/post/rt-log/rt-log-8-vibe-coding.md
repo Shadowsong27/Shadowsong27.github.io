@@ -7,6 +7,8 @@ coverMeta: out
 date: 2025-07-09
 categories:
 - rt-log
+tags:
+- human-written
 ---
 
 This article talks about several techniques I used when I code. It is not meant for direct adoption by readers because we might be writing different types of code. I was focusing mostly on Data Engineering and Software engineering (backend) code. If you were a data scientist, take this with a pinch of salt.

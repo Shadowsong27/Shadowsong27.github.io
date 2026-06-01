@@ -8,6 +8,8 @@ coverMeta: out
 date: 2020-07-09
 categories:
 - movie-log
+tags:
+- human-written
 ---
 
 I have been on some sort of movie spree for a few nights in a row, without dropping my piano practices of course, and I ran into this movie called __Knives Out__ a few hours ago. 

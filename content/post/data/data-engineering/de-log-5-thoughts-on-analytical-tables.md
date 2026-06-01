@@ -9,6 +9,8 @@ date: 2020-01-09
 categories:
 - data
 - data-engineering
+tags:
+- human-written
 ---
 
 I have taken some Database design course back in university days, though I have skipped almost all of the lectures as I was also self-learning during my first internship on the same matter, in a much more practical manner. I did not even know the word `OLAP`  back then. However, I am not dismissing the importance of data modelling in data engineering. On the contrary, data modelling is one of the important skills if you want to be a data engineer.

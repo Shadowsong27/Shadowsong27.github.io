@@ -8,6 +8,8 @@ coverMeta: out
 date: 2019-09-27
 categories:
 - movie-log
+tags:
+- human-written
 ---
 
 刚看了《Ad Adstra》回来，趁热还是把想法写一下，不然等过个几个小时我可能就懒得写了。

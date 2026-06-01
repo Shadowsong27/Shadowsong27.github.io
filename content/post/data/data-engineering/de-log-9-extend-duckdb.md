@@ -9,6 +9,8 @@ date: 2024-12-28
 categories:
 - data
 - data-engineering
+tags:
+- human-written
 ---
 
 Yet another take on poor man’s lakehouse / or how to NOT contribute to Databricks' IPO success even though it seems 

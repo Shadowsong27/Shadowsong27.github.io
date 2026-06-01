@@ -4,6 +4,8 @@ date: 2026-05-01
 comments: false
 showMeta: false
 showActions: false
+tags:
+- human-written
 ---
 
 Engineering leader with 9+ years building data platforms, GenAI systems, and the teams that run them. Currently Director of GenAI Software Engineering at Standard Chartered, leading a squad delivering RAG pipelines and agentic workflows inside one of Asia's most regulated institutions. I tend to care as much about how things get shipped as what gets shipped — the process, the culture, the constraints that nobody warned you about.

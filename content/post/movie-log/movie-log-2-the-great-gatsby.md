@@ -8,6 +8,8 @@ coverMeta: out
 date: 2019-01-07
 categories:
 - movie-log
+tags:
+- human-written
 ---
 
 I had watched this movie some years ago in the cinema, together with my friends. 

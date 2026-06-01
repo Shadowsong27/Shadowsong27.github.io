@@ -8,7 +8,8 @@ coverMeta: out
 date: 2018-07-17
 categories:
 - book-log
-
+tags:
+- human-written
 ---
 
 这几天读书时间不太固定，心情也比较浮躁，生活中事情也比较多。觉得《芳华》这本书的厚度也比较好欺负，

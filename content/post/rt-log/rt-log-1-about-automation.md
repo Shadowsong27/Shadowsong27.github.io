@@ -7,6 +7,8 @@ coverMeta: out
 date: 2019-10-23
 categories:
 - rt-log
+tags:
+- human-written
 ---
 
 I will have some random thoughts here and there. This is a new series of logs, which will be short. 

@@ -8,6 +8,8 @@ coverMeta: out
 date: 2019-08-24
 categories:
 - tv-log
+tags:
+- human-written
 ---
 
 A list of TV series I would like to watch / have watched, and a short comments on them, by category.

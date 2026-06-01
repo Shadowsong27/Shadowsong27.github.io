@@ -12,7 +12,7 @@ categories:
 tags:
 - AWS
 - Cloudwatch
-- EC2
+- human-written- EC2
 ---
 
 I wrote this initially in our internal documentation website, so this is a very short note on how to setup Cloudwatch on AWS EC2. 

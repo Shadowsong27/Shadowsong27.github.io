@@ -9,6 +9,8 @@ date: 2020-08-19
 categories:
 - data
 - data-engineering
+tags:
+- human-written
 ---
 
 Data engineering jobs are really popular nowadays, mostly contributed by the rising demand of data insights and data driven decision making. 

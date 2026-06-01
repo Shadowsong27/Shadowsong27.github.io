@@ -9,6 +9,8 @@ date: 2022-10-21
 categories:
 - data
 - data-engineering
+tags:
+- human-written
 ---
 
 In this article, I am sharing my first impression on the open-sourced almighty data ingestion tool - Airbyte.

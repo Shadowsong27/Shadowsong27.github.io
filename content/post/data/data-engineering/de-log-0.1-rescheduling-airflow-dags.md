@@ -11,7 +11,7 @@ categories:
 - data-engineering
 tags:
 - airflow
-- notes
+- human-written- notes
 ---
 
 This article briefly records the step to reschedule a DAG on Apache Airflow

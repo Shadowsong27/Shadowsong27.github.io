@@ -11,6 +11,7 @@ categories:
 - data-engineering
 tags:
 - airflow
+- human-written
 ---
 Today I have successfully migrated my current Airflow setup from v1.10.14 to v2.0.2. This article will not be a very detailed step by step guide for upgrading, instead I will introduce the general migration step worked very specifically for my setup, and share some of the problems I encountered during the process, and finally some general feelings with Airflow 2.
 <!--more-->

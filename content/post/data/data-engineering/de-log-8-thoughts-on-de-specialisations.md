@@ -9,6 +9,8 @@ date: 2022-01-01
 categories:
 - data
 - data-engineering
+tags:
+- human-written
 ---
 
 Happy New Year everyone! And I am too lazy to change the thumbnail image.

@@ -7,6 +7,8 @@ coverMeta: out
 date: 2023-04-30
 categories:
 - rt-log
+tags:
+- human-written
 ---
 最近用chatgpt越来越频繁，感触良多。这里简单聊一下最近的一些感想，尤其是在自我学习上的一些辅助作用，如果能给予读者一些启示那再好不过了。
 

@@ -8,6 +8,8 @@ coverMeta: out
 date: 2019-12-14
 categories:
 - toy-tip
+tags:
+- human-written
 ---
 
 This short article aims to reproduce my current workbench, using color plattes of my choice.

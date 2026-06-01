@@ -8,6 +8,8 @@ coverMeta: out
 date: 2020-08-13
 categories:
 - rt-log
+tags:
+- human-written
 ---
 
 I just reached Diamond 3 on American server in Starcraft 2. Yeah yeah I know NA server is easier compared to Asian but it is still a diamond, and I am pretty happy. For this particular season I have not played a single game of cheese, but I have, sadly to say, counter cheesed opponents. Most of my games are played with heavy reliance on macro. 

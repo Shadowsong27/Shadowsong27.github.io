@@ -7,6 +7,8 @@ coverMeta: out
 date: 2020-05-05
 categories:
 - rt-log
+tags:
+- human-written
 ---
 
 还有不到两周的时间就要换工作了，时隔两年再打算写一个总结。

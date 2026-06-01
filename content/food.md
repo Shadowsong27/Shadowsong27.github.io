@@ -4,6 +4,8 @@ date: 2021-01-30T23:38:52+08:00
 comments:       false
 showMeta:       false
 showActions:    false
+tags:
+- human-written
 ---
 
 这一页还是用中文写吧，毕竟做饭的话还是以中餐居多。

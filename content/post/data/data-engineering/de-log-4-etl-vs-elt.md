@@ -9,6 +9,8 @@ date: 2020-01-01
 categories:
 - data
 - data-engineering
+tags:
+- human-written
 ---
 
 We have all heard of the term ETL. If you are working in the data field, you might have been asked to do some sort of ETL work regardless of your actual job description. 

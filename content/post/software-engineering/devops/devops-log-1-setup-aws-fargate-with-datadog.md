@@ -12,7 +12,7 @@ categories:
 tags:
 - AWS
 - Fargate
-- Monitoring
+- human-written- Monitoring
 ---
 
 Recently I am migrating some microservices and streaming pipelines to AWS Fargate. 

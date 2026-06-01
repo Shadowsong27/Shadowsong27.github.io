@@ -9,6 +9,8 @@ date: 2019-08-31
 categories:
 - data
 - data-engineering
+tags:
+- human-written
 ---
 
 > In linear algebra, an idempotent matrix is a matrix which, when multiplied by itself, yields itself.

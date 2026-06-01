@@ -9,7 +9,8 @@ date: 2020-05-13
 categories:
 - data
 - data-analysis
-
+tags:
+- human-written
 ---
 
 This is a bold title I know, and I am not even a data analyst.

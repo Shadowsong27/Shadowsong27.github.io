@@ -5,6 +5,8 @@ coverMeta: out
 date: 2021-08-13
 categories:
 - rt-log
+tags:
+- human-written
 ---
 
 这个问题说实话有点烦。

@@ -9,6 +9,8 @@ date: 2019-10-17
 categories:
 - data
 - data-engineering
+tags:
+- human-written
 ---
 
 Recently I was working on the deployment of a predictive model built by my dear 

@@ -7,6 +7,8 @@ coverMeta: out
 date: 2020-01-22
 categories:
 - rt-log
+tags:
+- human-written
 ---
 
 The battle against the fearful death himself is an everlasting one, and today we are, after seventeen years, effortless watching another heavy strike laid upon us. Well, to be more specific, mostly the people lived in China and who had been to China during this unfortunate period. 
