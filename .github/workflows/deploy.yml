@@ -1,0 +1,74 @@
+name: Deploy Hugo site to master branch
+
+# Mirrors the manual deploy.sh flow:
+#   1. Run hugo on every push to builder
+#   2. Force-push the rendered public/ to master
+#   3. GH Pages picks up the master push and serves the site
+#
+# The repo's GH Pages source is configured as "Deploy from branch (master)";
+# this workflow does NOT use the modern actions/deploy-pages flow so that
+# nothing about the existing publish model has to change.
+
+on:
+  push:
+    branches:
+      - builder
+  workflow_dispatch:
+
+# Avoid concurrent runs racing on master
+concurrency:
+  group: deploy-hugo
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: "0.161.1"
+    steps:
+      - name: Checkout builder branch with submodules
+        uses: actions/checkout@v4
+        with:
+          ref: builder
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Install Hugo (extended)
+        run: |
+          curl -sSL -o /tmp/hugo.deb \
+            "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
+          sudo dpkg -i /tmp/hugo.deb
+          hugo version
+
+      - name: Build site
+        run: |
+          rm -rf public
+          hugo --minify
+
+      - name: Copy README into public
+        run: |
+          if [ -f README.md ]; then
+            cp README.md public/README.md
+          fi
+
+      - name: Publish public/ to master branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          cd public
+
+          git init -q
+          git checkout -q -b master
+
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add --all
+          git commit -q -m "Publishing to github personal page master branch (auto)"
+
+          REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push --force --quiet "$REMOTE" master:master
