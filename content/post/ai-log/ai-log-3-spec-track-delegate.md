@@ -1,6 +1,6 @@
 ---
 title: "AI Log 3: My AI Workflow — Spec, Track, Delegate"
-date: 2026-06-01
+date: 2026-05-31
 draft: false
 categories:
 - ai-log
