@@ -7,8 +7,7 @@ coverImage: https://www.blazeclan.com/wp-content/uploads/2013/08/Amazon-Redshift
 coverMeta: out
 date: 2019-11-04
 categories:
-- data
-- data-engineering
+- data-engineering-log
 tags:
 - human-written
 ---

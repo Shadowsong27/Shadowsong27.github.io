@@ -6,7 +6,7 @@ metaAlignment: center
 coverMeta: out
 date: 2019-10-23
 categories:
-- rt-log
+- random-thoughts
 tags:
 - human-written
 ---

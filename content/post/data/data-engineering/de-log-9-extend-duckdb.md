@@ -7,8 +7,7 @@ coverImage: https://miro.medium.com/v2/resize:fit:761/1*ijFeaaYnxxZlNixSczLAng.p
 coverMeta: out
 date: 2024-12-28
 categories:
-- data
-- data-engineering
+- data-engineering-log
 tags:
 - human-written
 ---

@@ -10,7 +10,8 @@ categories:
 - toy-tip
 tags:
 - hugo
-- human-written- static website
+- human-written
+- static website
 - notes
 ---
 

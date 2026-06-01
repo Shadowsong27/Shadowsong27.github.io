@@ -7,8 +7,7 @@ metaAlignment: center
 coverMeta: out
 date: 2020-05-13
 categories:
-- data
-- data-analysis
+- data-analysis-log
 tags:
 - human-written
 ---

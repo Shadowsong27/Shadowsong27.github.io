@@ -7,12 +7,12 @@ metaAlignment: center
 coverMeta: out
 date: 2019-07-16
 categories:
-- software-engineering
-- dev-ops
+- devops-log
 tags:
 - AWS
 - Fargate
-- human-written- Monitoring
+- human-written
+- Monitoring
 ---
 
 Recently I am migrating some microservices and streaming pipelines to AWS Fargate. 

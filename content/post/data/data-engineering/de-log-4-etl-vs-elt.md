@@ -7,8 +7,7 @@ coverImage: https://panoply.io/uploads/versions/diagram4---x----750-328x---.jpg
 coverMeta: out
 date: 2020-01-01
 categories:
-- data
-- data-engineering
+- data-engineering-log
 tags:
 - human-written
 ---

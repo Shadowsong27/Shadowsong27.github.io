@@ -7,12 +7,12 @@ metaAlignment: left
 coverMeta: out
 date: 2019-03-28
 categories:
-- software-engineering
-- dev-ops
+- devops-log
 tags:
 - AWS
 - Cloudwatch
-- human-written- EC2
+- human-written
+- EC2
 ---
 
 I wrote this initially in our internal documentation website, so this is a very short note on how to setup Cloudwatch on AWS EC2. 

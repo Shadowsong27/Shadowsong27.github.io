@@ -7,8 +7,7 @@ coverImage: https://airflow.apache.org/images/feature-image.png
 coverMeta: out
 date: 2021-04-29
 categories:
-- data
-- data-engineering
+- data-engineering-log
 tags:
 - airflow
 - human-written

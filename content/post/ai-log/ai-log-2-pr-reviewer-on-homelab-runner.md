@@ -7,7 +7,8 @@ tags:
 - github-actions
 - review
 - opencode
-- ai-written- orchestration
+- ai-written
+- orchestration
 ---
 
 I just added a new piece to my agent harness: an AI that reviews every PR before I do.

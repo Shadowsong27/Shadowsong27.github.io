@@ -7,11 +7,11 @@ metaAlignment: left
 coverMeta: out
 date: 2020-03-07
 categories:
-- software-engineering
-- dev-ops
+- devops-log
 tags:
 - AWS
-- human-written- Fargate
+- human-written
+- Fargate
 ---
 
 This article will describe the process to setup Fargate tasks with only private IP, using images stored in a private registry.

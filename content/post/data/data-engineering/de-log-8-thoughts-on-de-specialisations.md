@@ -7,8 +7,7 @@ coverImage: https://images.ctfassets.net/k49d63tr8kcn/4jbw1fdWLuMUh0Ztlb2dOn/696
 coverMeta: out
 date: 2022-01-01
 categories:
-- data
-- data-engineering
+- data-engineering-log
 tags:
 - human-written
 ---

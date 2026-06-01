@@ -7,8 +7,7 @@ metaAlignment: center
 coverMeta: out
 date: 2022-10-21
 categories:
-- data
-- data-engineering
+- data-engineering-log
 tags:
 - human-written
 ---

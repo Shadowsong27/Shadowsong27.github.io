@@ -7,8 +7,7 @@ coverImage: http://www.jetbrains.com/datagrip/img/screenshots/query-console.png
 coverMeta: out
 date: 2020-01-09
 categories:
-- data
-- data-engineering
+- data-engineering-log
 tags:
 - human-written
 ---

@@ -4,7 +4,7 @@ metaAlignment: center
 coverMeta: out
 date: 2021-08-13
 categories:
-- rt-log
+- random-thoughts
 tags:
 - human-written
 ---

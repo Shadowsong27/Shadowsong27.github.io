@@ -7,11 +7,11 @@ metaAlignment: center
 coverMeta: out
 date: 2018-09-22
 categories:
-- data
-- data-engineering
+- data-engineering-log
 tags:
 - airflow
-- human-written- notes
+- human-written
+- notes
 ---
 
 This article briefly records the step to reschedule a DAG on Apache Airflow
