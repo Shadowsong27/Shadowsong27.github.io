@@ -4,7 +4,8 @@ public/
 *~
 .DS_Store
 .sass-cache
-assets
+# NOTE: assets/ holds Blowfish source overrides (custom.css, etc.) and MUST be tracked.
+# Hugo's pipeline outputs to resources/ and public/, never back into assets/ — so this is safe.
 node_modules
 src/_bower_components
 static/js/*
