@@ -63,6 +63,15 @@ capitalizeListTitles = false
   description = "I just want to sit in my garden and tend my pipelines."
   defaultBackgroundImage = "/img/background.svg"
 
+  # Authoring-era badge (see layouts/partials/era-badge.html).
+  # Era is derived from a post's `date` unless `era:` is set in front matter.
+  # Boundaries (tune freely): Sonnet 3.7 launch = start of the AI-assisted/"vibe coding" period;
+  # agenticStart = when your harness/multi-agent workflow began.
+  [params.era]
+    vibeCodingStart = "2025-02-24"
+    agenticStart = "2025-10-01"
+    technicalCategories = ["data-engineering-log", "data-analysis-log", "devops-log", "toy-tip", "ai-log"]
+
   [params.header]
     layout = "basic"
 
@@ -74,7 +83,7 @@ capitalizeListTitles = false
     showScrollToTop = true
 
   [params.homepage]
-    layout = "background"
+    layout = "custom"  # renders layouts/partials/home/custom.html (Logbook lobby)
     homepageImage = "/img/background.svg"
     showRecent = true
     showRecentItems = 8

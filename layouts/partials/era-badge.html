@@ -1,0 +1,38 @@
+{{/*
+  Era badge — shows the AI-coding paradigm a post belongs to.
+  Derived from the post's `date` (or an explicit `era:` front-matter override),
+  and only rendered on "technical" posts (configurable category list).
+  Config lives under [params.era] in config.toml. Values: classic | vibe-coding | agentic.
+  Design rationale recorded in project memory (era-taxonomy).
+*/}}
+{{- $cfg := site.Params.era | default dict -}}
+{{- $technical := $cfg.technicalCategories | default (slice "data-engineering-log" "data-analysis-log" "devops-log" "toy-tip" "ai-log") -}}
+{{- $cats := .Params.categories | default slice -}}
+{{- $isTech := false -}}
+{{- range $cats -}}{{- if in $technical . -}}{{- $isTech = true -}}{{- end -}}{{- end -}}
+{{- if $isTech -}}
+  {{- $era := .Params.era -}}
+  {{- if not $era -}}
+    {{- $vibe := time.AsTime ($cfg.vibeCodingStart | default "2025-02-24") -}}
+    {{- $agentic := time.AsTime ($cfg.agenticStart | default "2025-10-01") -}}
+    {{- if ge .Date $agentic -}}{{- $era = "agentic" -}}
+    {{- else if ge .Date $vibe -}}{{- $era = "vibe-coding" -}}
+    {{- else -}}{{- $era = "classic" -}}{{- end -}}
+  {{- end -}}
+  {{- $year := .Date.Year -}}
+  {{- $icon := "" }}{{ $label := "" }}{{ $blurb := "" -}}
+  {{- if eq $era "classic" -}}
+    {{- $icon = "📜" }}{{ $label = "Pre-AI era" -}}
+    {{- $blurb = printf "Written in %d, before AI-assisted coding. The principles likely still hold, but the manual workflows described here are probably automatable today." $year -}}
+  {{- else if eq $era "vibe-coding" -}}
+    {{- $icon = "⚡" }}{{ $label = "AI-assisted era" -}}
+    {{- $blurb = printf "Written in %d, during the early AI-assisted (\"vibe coding\") period — AI in the loop, but human-driven and pre-agentic." $year -}}
+  {{- else -}}
+    {{- $icon = "🤖" }}{{ $label = "Agentic era" -}}
+    {{- $blurb = printf "Written in %d, in the agentic era — multi-agent, harness-driven workflows." $year -}}
+  {{- end -}}
+  <aside class="era-badge era-{{ $era }} not-prose print:hidden" aria-label="Authoring era context">
+    <span class="era-label">{{ $icon }} {{ $label }}</span>
+    <span class="era-blurb">{{ $blurb }}</span>
+  </aside>
+{{- end -}}

@@ -1,0 +1,23 @@
+# Homepage "Currently" status — what you're up to right now.
+# Edit freely. Entries with an empty `text` are hidden automatically.
+# `text` supports inline markdown (links, **bold**, etc.).
+
+- icon: "🔨"
+  label: "Building"
+  text: "an agentic coding & trading-research harness"
+
+- icon: "🌱"
+  label: "Tending"
+  text: "data pipelines, as always"
+
+- icon: "📖"
+  label: "Reading"
+  text: ""        # e.g. "*The Grand Titration* — Joseph Needham"
+
+- icon: "🎧"
+  label: "Listening"
+  text: ""        # e.g. an album / artist you're into
+
+- icon: "📍"
+  label: "Based in"
+  text: ""        # optional — city, or remove this entry

@@ -1,0 +1,106 @@
+{{/*
+  PROJECT custom homepage — "Logbook lobby".
+  Activated via homepage.layout = "custom" in config.toml; Blowfish's index.html
+  dispatches to partials/home/<layout>.html, so this is a fork-free extension (not a theme override).
+  Bands: Identity · Currently (hand-written status, data/currently.yaml) · The Logs (taxonomy shelves) · Latest.
+*/}}
+
+{{/* ── Background image (restored from Blowfish's "background" layout) ── */}}
+<div class="fixed inset-x-0 top-0 -z-10" aria-hidden="true">
+  {{ $useDefault := true }}
+  {{ $homepageImage := "" }}
+  {{ with site.Params.defaultBackgroundImage }}
+    {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}{{ $homepageImage = resources.GetRemote . }}{{ else }}{{ $homepageImage = resources.Get . }}{{ end }}
+  {{ end }}
+  {{ with site.Params.homepage.homepageImage }}
+    {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}{{ $homepageImage = resources.GetRemote . }}{{ $useDefault = false }}{{ else }}{{ $homepageImage = resources.Get . }}{{ $useDefault = false }}{{ end }}
+  {{ end }}
+  {{ if $homepageImage }}
+    <img id="background-image" class="nozoom mt-0 mr-0 mb-0 ml-0 h-[1000px] w-full object-cover" src="{{ $homepageImage.RelPermalink }}" role="presentation" />
+    <div class="from-neutral absolute inset-0 h-[1000px] bg-gradient-to-t to-transparent mix-blend-normal dark:from-neutral-800"></div>
+    <div class="from-neutral absolute inset-0 h-[1000px] bg-gradient-to-t to-neutral-100 opacity-60 mix-blend-normal dark:from-neutral-800 dark:to-neutral-800"></div>
+  {{ end }}
+</div>
+
+<div class="home-lobby">
+
+  {{/* ── Identity ───────────────────────────────────────── */}}
+  {{ with site.Params.Author }}
+  <section class="home-hero">
+    {{ with .image }}<img class="home-avatar" src="{{ . }}" alt="{{ $.Site.Params.Author.name }}" loading="lazy" />{{ end }}
+    <div class="home-hero-text">
+      <h1 class="home-name">{{ .name | default site.Title }}</h1>
+      {{ with .headline }}<p class="home-tagline">{{ . }}</p>{{ end }}
+      <div class="home-links">
+        {{ range .links }}{{ range $platform, $url := . }}
+          <a href="{{ $url }}" target="_blank" rel="me noopener" aria-label="{{ $platform }}">{{ partial "icon.html" $platform }}</a>
+        {{ end }}{{ end }}
+        <a href="{{ "index.xml" | relURL }}" aria-label="RSS feed">{{ partial "icon.html" "rss" }}</a>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* ── Currently (hand-written status — edit data/currently.yaml) ── */}}
+  {{ $items := where (hugo.Data.currently | default slice) "text" "!=" "" }}
+  {{ with $items }}
+  <section class="home-currently">
+    <h2 class="home-section-title">Currently</h2>
+    <ul class="currently-list">
+      {{ range . }}
+        <li>
+          <span class="currently-label">{{ with .icon }}{{ . }} {{ end }}{{ .label }}</span>
+          <span class="currently-text">{{ .text | markdownify }}</span>
+        </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+  {{/* ── The Logs (taxonomy shelves; counts live from the categories taxonomy) ── */}}
+  {{ $shelves := slice
+      (dict "icon" "🤖" "label" "AI Log"           "cat" "ai-log")
+      (dict "icon" "🛠️" "label" "Data Engineering"  "cat" "data-engineering-log")
+      (dict "icon" "📊" "label" "Data Analysis"     "cat" "data-analysis-log")
+      (dict "icon" "⚙️" "label" "DevOps"            "cat" "devops-log")
+      (dict "icon" "🧪" "label" "Toy Tips"          "cat" "toy-tip")
+      (dict "icon" "📈" "label" "Trading"           "cat" "trading-log")
+      (dict "icon" "📚" "label" "Books"             "cat" "book-log")
+      (dict "icon" "🎬" "label" "Films"             "cat" "movie-log")
+      (dict "icon" "🎵" "label" "Music"             "cat" "music-log")
+      (dict "icon" "💭" "label" "Random Thoughts"   "cat" "random-thoughts") }}
+  <section class="home-logs">
+    <h2 class="home-section-title">The Logs</h2>
+    <div class="log-grid">
+      {{ range $shelves }}
+        {{ $icon := .icon }}{{ $label := .label }}
+        {{ with site.GetPage (printf "/categories/%s" .cat) }}
+          {{ $n := len .Pages }}
+          <a class="log-shelf" href="{{ .RelPermalink }}">
+            <span class="log-icon">{{ $icon }}</span>
+            <span class="log-label">{{ $label }}</span>
+            <span class="log-count">{{ $n }} log{{ if ne $n 1 }}s{{ end }}</span>
+          </a>
+        {{ end }}
+      {{ end }}
+    </div>
+  </section>
+
+  {{/* ── Latest (the old feed, demoted to one band) ──────── */}}
+  <section class="home-latest">
+    <div class="home-latest-head">
+      <h2 class="home-section-title">Latest</h2>
+      <a class="home-allposts" href="{{ "/post/" | relURL }}">all posts →</a>
+    </div>
+    <div class="latest-cards">
+      {{ range first 6 (where site.RegularPages "Section" "post").ByDate.Reverse }}
+        <a class="latest-card" href="{{ .RelPermalink }}">
+          {{ with .Params.categories }}<span class="latest-card-cat">{{ index . 0 }}</span>{{ end }}
+          <span class="latest-card-title">{{ .Title }}</span>
+          <time class="latest-card-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
+        </a>
+      {{ end }}
+    </div>
+  </section>
+
+</div>
