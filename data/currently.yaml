@@ -10,6 +10,10 @@
   label: "Tending"
   text: "data pipelines, as always"
 
+- icon: "🤖"
+  label: "Thinking"
+  text: "Agentic Over Engineering with Justified Excuses"
+
 - icon: "📖"
   label: "Reading"
   text: ""        # e.g. "*The Grand Titration* — Joseph Needham"
