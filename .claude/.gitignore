@@ -1,0 +1,5 @@
+# >>> Agentic Beacon (managed) >>>
+skills/
+scheduled_tasks.lock
+worktrees/
+# <<< Agentic Beacon (managed) <<<

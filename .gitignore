@@ -15,3 +15,15 @@ static/css/*
 
 
 .cline/
+# >>> Agentic Beacon (managed) >>>
+.agentic-beacon/config.toml
+.agentic-beacon/artifacts/
+.agentic-beacon/warehouse-catalog.md
+.agentic-beacon/pending.yaml
+.claude/skills/
+.claude/commands/
+.claude/agents/
+.opencode/skills/
+.opencode/command/
+.opencode/agents/
+# <<< Agentic Beacon (managed) <<<

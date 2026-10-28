@@ -1,0 +1,8 @@
+# >>> Agentic Beacon (managed) >>>
+skills/
+command/
+bun.lock
+package.json
+package-lock.json
+node_modules/
+# <<< Agentic Beacon (managed) <<<

@@ -1,0 +1,36 @@
+# beacon.yaml - Declare which warehouse artifacts this project needs.
+# Run 'abc sync' after editing to download artifacts.
+#
+# Skills are tracked at the directory level: skills/code-review/
+# Agents are declared per-project in beacon.yaml.artifacts.agents.
+# Use 'abc adopt' to wire agents into .claude/agents/ and .opencode/agents/.
+
+artifacts:
+  skills: []
+    # Examples:
+    # - skills/code-review/
+    # - skills/generate-unit-tests/
+    # Note: abc bundled skills (e.g. record-knowledge) are installed globally
+    #       into ~/.config/opencode/skills/ and ~/.claude/skills/ by 'abc sync'
+    #       — they are not project-scoped and need no entry here.
+
+  contexts:
+  - contexts/personal-blog.md
+  - contexts/README.md
+  - contexts/beacon-ops.md
+    # Examples:
+    # - contexts/README.md
+    # - contexts/teams/backend/README.md
+
+  agents: []
+    # Examples:
+    # - agents/spec-planner.md
+    # - agents/code-reviewer.md
+
+# ignore: Suppress skills installed by external tools (e.g. openspec) from
+#   appearing in warehouse-status reports. Supports fnmatch patterns.
+#
+# ignore:
+#   skills:
+#     - "openspec-*"
+#     - "opsx-*"
