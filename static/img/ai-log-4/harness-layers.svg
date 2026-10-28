@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" role="img" aria-label="Harness layers: an orchestration layer containing conductor, workflows and inboxes sits above an agent runtime layer containing Claude Code plus my own context and hooks, which calls the model">
+  <style>
+    text{font-family:ui-monospace,"SF Mono","Menlo",monospace}
+    .bg{fill:#EEF1F6}
+    .brd{fill:none;stroke:#C7D1DD;stroke-width:1}
+    .band{fill:#FBFCFE;stroke:#C7D1DD;stroke-width:1}
+    .rnum{font-size:11px;fill:#C9760F;letter-spacing:1.5px}
+    .nbox{fill:#EFF3F8;stroke:#C7D1DD;stroke-width:1.25}
+    .store{fill:#EFF3F8;stroke:#8B99A9;stroke-width:1.1;stroke-dasharray:4 3}
+    .later{fill:#F6F8FB;stroke:#AEB9C6;stroke-width:1.1;stroke-dasharray:3 4}
+    .hub{fill:#FBEFDD;stroke:#C9760F;stroke-width:2}
+    .nt{font-size:12px;font-weight:600;fill:#18212E}
+    .nt.hubt{fill:#C9760F}
+    .ns{font-size:10px;fill:#586576}
+    .e{fill:none;stroke:#8B99A9;stroke-width:1.6}
+    .fl{font-size:11px;fill:#586576}
+  </style>
+  <defs>
+    <marker id="an" viewBox="0 0 10 10" markerWidth="9" markerHeight="9" refX="8.5" refY="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8B99A9"/></marker>
+  </defs>
+  <rect class="bg" x="0" y="0" width="960" height="440"/>
+  <rect class="brd" x="0.5" y="0.5" width="959" height="439" rx="10"/>
+
+  <!-- Orchestration layer -->
+  <rect class="band" x="20" y="20" width="920" height="150" rx="14"/>
+  <text class="rnum" x="38" y="44">ORCHESTRATION LAYER · MINE</text>
+  <rect class="hub" x="40" y="62" width="260" height="84" rx="9"/><text class="nt hubt" x="170" y="88" text-anchor="middle">conductor</text><text class="ns" x="170" y="106" text-anchor="middle">the deterministic part, in plain code</text><text class="ns" x="170" y="122" text-anchor="middle">lease · dispatch · reap · gate</text>
+  <rect class="nbox" x="320" y="62" width="190" height="84" rx="9"/><text class="nt" x="415" y="96" text-anchor="middle">Workflows</text><text class="ns" x="415" y="114" text-anchor="middle">build · ops · plan</text>
+  <rect class="nbox" x="530" y="62" width="190" height="84" rx="9"/><text class="nt" x="625" y="96" text-anchor="middle">Inboxes</text><text class="ns" x="625" y="114" text-anchor="middle">escalations with context</text>
+  <rect class="later" x="740" y="62" width="180" height="84" rx="9"/><text class="nt" x="830" y="96" text-anchor="middle">Operator UI</text><text class="ns" x="830" y="114" text-anchor="middle">vendor-neutral</text>
+
+  <!-- Agent runtime layer -->
+  <rect class="band" x="20" y="190" width="920" height="150" rx="14"/>
+  <text class="rnum" x="38" y="214">AGENT RUNTIME LAYER · PROVIDED, THEN CUSTOMISED</text>
+  <rect class="nbox" x="40" y="232" width="260" height="84" rx="9"/><text class="nt" x="170" y="262" text-anchor="middle">Claude Code</text><text class="ns" x="170" y="280" text-anchor="middle">loop · tools · permissions</text>
+  <rect class="nbox" x="320" y="232" width="190" height="84" rx="9"/><text class="nt" x="415" y="262" text-anchor="middle">My context</text><text class="ns" x="415" y="280" text-anchor="middle">CLAUDE.md · skills</text>
+  <rect class="nbox" x="530" y="232" width="190" height="84" rx="9"/><text class="nt" x="625" y="262" text-anchor="middle">My hooks</text><text class="ns" x="625" y="280" text-anchor="middle">pushed at set moments</text>
+  <rect class="later" x="740" y="232" width="180" height="84" rx="9"/><text class="nt" x="830" y="262" text-anchor="middle">Other runtime</text><text class="ns" x="830" y="280" text-anchor="middle">swappable per workflow</text>
+
+  <!-- Model -->
+  <rect class="store" x="40" y="368" width="880" height="48" rx="9"/><text class="nt" x="480" y="397" text-anchor="middle">Model</text>
+
+  <!-- Edges -->
+  <path class="e" d="M170,146 L170,232" marker-end="url(#an)"/>
+  <text class="fl" x="178" y="194">spawns</text>
+  <path class="e" d="M170,316 L170,368" marker-end="url(#an)"/>
+  <text class="fl" x="178" y="346">calls</text>
+</svg>
