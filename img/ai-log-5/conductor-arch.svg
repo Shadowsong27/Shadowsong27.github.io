@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-labelledby="map-title">
+  <title id="map-title">Conductor component map: inputs, tracker and Postgres, daemon, execution hosts, and the operator console</title>
+  <style>
+    text{font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;fill:#16212c}
+    .t-title{font-family:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;font-weight:600;font-size:16px}
+    .t-sub{font-size:12.5px;fill:#56636f}
+    .t-col{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.08em;fill:#56636f}
+    .t-edge{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:11.5px;fill:#56636f}
+    .t-node{font-family:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;font-weight:600;font-size:14px}
+    .t-tag{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:10.5px}
+    .b-core{fill:#ffffff;stroke:#16212c;stroke-width:1.6}
+    .b-swap{fill:#e3f2f1;stroke:#0e7c7b;stroke-width:1.4}
+    .b-config{fill:#f8eedd;stroke:#a8660b;stroke-width:1.4}
+    .b-plan{fill:#ecebfa;stroke:#5b4fc4;stroke-width:1.4;stroke-dasharray:5 4}
+    .b-frame{fill:none;stroke:#c9d1d9;stroke-width:1.2}
+    .b-inner{fill:#f4f6f8;stroke:#c9d1d9;stroke-width:1}
+    .edge{fill:none;stroke:#56636f;stroke-width:1.4}
+    .edge-swap{fill:none;stroke:#0e7c7b;stroke-width:1.4}
+    .arrowhead{fill:#56636f}
+    .c-swap{fill:#0e7c7b}
+    .c-config{fill:#a8660b}
+    .c-plan{fill:#5b4fc4}
+  </style>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker>
+    <marker id="ahs" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="c-swap"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1200" height="800" fill="#f4f6f8"/>
+
+  <text x="20" y="34" class="t-col">INPUTS</text>
+  <text x="262" y="34" class="t-col">TRACKER &amp; STATE</text>
+  <text x="552" y="34" class="t-col">DAEMON · CONTROL PLANE</text>
+  <text x="932" y="34" class="t-col">EXECUTION</text>
+
+  <!-- Inputs -->
+  <rect x="20" y="52" width="200" height="88" rx="8" class="b-core"/>
+  <text x="34" y="78" class="t-title">Operator</text>
+  <text x="34" y="98" class="t-sub">designs, answers gates,</text>
+  <text x="34" y="115" class="t-sub">approves, merges flagged PRs</text>
+
+  <rect x="20" y="160" width="200" height="80" rx="8" class="b-core"/>
+  <text x="34" y="186" class="t-title">Ideas &amp; intake</text>
+  <text x="34" y="206" class="t-sub">a person or a run files work;</text>
+  <text x="34" y="223" class="t-sub">nothing skips triage</text>
+
+  <rect x="20" y="260" width="200" height="80" rx="8" class="b-swap"/>
+  <text x="34" y="286" class="t-title">Alerts</text>
+  <text x="34" y="306" class="t-sub">Grafana → reactor files</text>
+  <text x="34" y="323" class="t-sub">recovery tickets</text>
+
+  <rect x="20" y="360" width="200" height="130" rx="8" class="b-core"/>
+  <text x="34" y="386" class="t-title">Owner agents</text>
+  <text x="34" y="406" class="t-sub">idea owner · epic owner ·</text>
+  <text x="34" y="423" class="t-sub">Conductor chat</text>
+  <text x="34" y="446" class="t-sub">absorb routine events,</text>
+  <text x="34" y="463" class="t-sub">raise only real decisions</text>
+
+  <!-- Tracker -->
+  <rect x="260" y="52" width="250" height="290" rx="8" class="b-swap"/>
+  <text x="276" y="80" class="t-title">Tracker</text>
+  <rect x="402" y="64" width="94" height="22" rx="11" class="b-swap"/>
+  <text x="449" y="79" text-anchor="middle" class="t-tag c-swap">native | Plane</text>
+  <rect x="276" y="98" width="218" height="52" rx="6" class="b-inner"/>
+  <text x="288" y="119" class="t-node">Items</text>
+  <text x="288" y="139" class="t-sub">idea → epic → feature → task</text>
+  <rect x="276" y="160" width="218" height="52" rx="6" class="b-inner"/>
+  <text x="288" y="181" class="t-node">Gates</text>
+  <text x="288" y="201" class="t-sub">question · approval · decision</text>
+  <rect x="276" y="222" width="218" height="52" rx="6" class="b-inner"/>
+  <text x="288" y="243" class="t-node">Events + change feed</text>
+  <text x="288" y="263" class="t-sub">every write, in order</text>
+  <rect x="276" y="284" width="218" height="44" rx="6" class="b-inner"/>
+  <text x="288" y="311" class="t-node">Lease = the lock on an item</text>
+
+  <!-- Postgres -->
+  <rect x="260" y="362" width="250" height="128" rx="8" class="b-core"/>
+  <text x="276" y="389" class="t-title">Postgres · source of truth</text>
+  <text x="276" y="411" class="t-sub">runs · attempts · process registry</text>
+  <text x="276" y="429" class="t-sub">item path through its workflow</text>
+  <text x="276" y="447" class="t-sub">usage and cost per node</text>
+  <text x="276" y="470" class="t-sub">restart rebuilds memory from here</text>
+
+  <!-- Daemon -->
+  <rect x="550" y="52" width="340" height="438" rx="8" class="b-frame"/>
+  <text x="566" y="78" class="t-sub">one tick: reconcile first, then dispatch</text>
+
+  <rect x="566" y="90" width="308" height="54" rx="6" class="b-core"/>
+  <text x="580" y="112" class="t-node">Triage</text>
+  <text x="580" y="131" class="t-sub">routes each item to one workflow</text>
+  <rect x="790" y="100" width="72" height="20" rx="10" class="b-plan"/>
+  <text x="826" y="114" text-anchor="middle" class="t-tag c-plan">in front</text>
+
+  <rect x="566" y="156" width="308" height="96" rx="6" class="b-config"/>
+  <text x="580" y="178" class="t-node">Workflow registry</text>
+  <text x="580" y="198" class="t-sub">global, shipped · project, config repo</text>
+  <text x="580" y="216" class="t-sub">load checks refuse a bad workflow</text>
+  <rect x="580" y="226" width="96" height="20" rx="10" class="b-config"/>
+  <text x="628" y="240" text-anchor="middle" class="t-tag c-config">kind: dag</text>
+  <rect x="684" y="226" width="140" height="20" rx="10" class="b-plan"/>
+  <text x="754" y="240" text-anchor="middle" class="t-tag c-plan">kind: dynamic, later</text>
+
+  <rect x="566" y="264" width="308" height="76" rx="6" class="b-swap"/>
+  <text x="580" y="286" class="t-node">Agent nodes</text>
+  <text x="580" y="306" class="t-sub">plan · builder ⇄ coder · operate</text>
+  <text x="580" y="324" class="t-sub">agent, model, effort per node</text>
+
+  <rect x="566" y="352" width="308" height="58" rx="6" class="b-core"/>
+  <text x="580" y="375" class="t-node">Merge gate · two keys</text>
+  <text x="580" y="395" class="t-sub">gate decision AND agent "merge"</text>
+
+  <rect x="566" y="422" width="308" height="54" rx="6" class="b-core"/>
+  <text x="580" y="444" class="t-node">Wake poller</text>
+  <text x="580" y="463" class="t-sub">change feed → owner wake events</text>
+
+  <!-- Execution -->
+  <rect x="930" y="52" width="250" height="246" rx="8" class="b-core"/>
+  <text x="946" y="80" class="t-title">hostd · execution host</text>
+  <text x="946" y="101" class="t-sub">prepare_workspace · launch · terminate</text>
+  <rect x="946" y="114" width="218" height="52" rx="6" class="b-swap"/>
+  <text x="958" y="135" class="t-node">Agent runtimes</text>
+  <text x="958" y="155" class="t-sub">Claude Code · OpenCode</text>
+  <rect x="946" y="176" width="218" height="52" rx="6" class="b-inner"/>
+  <text x="958" y="197" class="t-node">Run tools (MCP)</text>
+  <text x="958" y="217" class="t-sub">report_outcome · tracker reads</text>
+  <rect x="946" y="238" width="218" height="46" rx="6" class="b-inner"/>
+  <text x="958" y="259" class="t-node">One worktree per run</text>
+  <text x="958" y="277" class="t-sub">outside the repo checkout</text>
+
+  <rect x="930" y="314" width="250" height="56" rx="8" class="b-swap"/>
+  <text x="946" y="337" class="t-title">GitHub + CI</text>
+  <text x="946" y="356" class="t-sub">branches, PRs, checks</text>
+
+  <rect x="930" y="382" width="250" height="44" rx="8" class="b-swap"/>
+  <text x="946" y="409" class="t-title">pi review bot <tspan class="t-sub">· advisory</tspan></text>
+
+  <rect x="930" y="438" width="250" height="52" rx="8" class="b-config"/>
+  <text x="946" y="460" class="t-title">Context &amp; definitions</text>
+  <text x="946" y="479" class="t-sub">Beacon contexts · config repo</text>
+
+  <!-- Edges -->
+  <path d="M220,96 H258" class="edge" marker-end="url(#ah)"/>
+  <path d="M220,200 H258" class="edge" marker-end="url(#ah)"/>
+  <path d="M220,300 H258" class="edge" marker-end="url(#ah)"/>
+  <path d="M220,400 L258,338" class="edge" marker-end="url(#ah)"/>
+  <path d="M510,150 H548" class="edge" marker-end="url(#ah)"/>
+  <text x="514" y="143" class="t-edge">feed</text>
+  <path d="M548,430 H512" class="edge" marker-end="url(#ah)"/>
+  <path d="M890,170 H928" class="edge" marker-end="url(#ah)"/>
+  <text x="893" y="162" class="t-edge">HTTP</text>
+  <path d="M1055,298 V312" class="edge" marker-end="url(#ah)"/>
+  <path d="M890,381 C908,381 908,350 928,346" class="edge" marker-end="url(#ah)"/>
+  <text x="893" y="400" class="t-edge">merge</text>
+  <path d="M566,476 V510 H120 V492" class="edge" marker-end="url(#ah)"/>
+  <text x="330" y="526" class="t-edge">wake: gate, escalation, failure, stall, merged, scheduled check</text>
+  <path d="M930,272 C900,272 900,500 600,500 C540,500 530,480 512,476" class="edge-swap" marker-end="url(#ahs)"/>
+  <text x="640" y="516" class="t-edge">hostd records outcomes and heartbeats</text>
+
+  <!-- Console -->
+  <rect x="20" y="552" width="1160" height="120" rx="8" class="b-core"/>
+  <text x="36" y="580" class="t-title">Operator console</text>
+  <text x="36" y="600" class="t-sub">reads the tracker, Postgres and hostd through the control API</text>
+  <rect x="36" y="616" width="232" height="40" rx="6" class="b-inner"/>
+  <text x="48" y="633" class="t-node">Attention</text>
+  <text x="48" y="649" class="t-sub">Inbox · Overview</text>
+  <rect x="280" y="616" width="280" height="40" rx="6" class="b-inner"/>
+  <text x="292" y="633" class="t-node">Shape</text>
+  <text x="292" y="649" class="t-sub">Ideas · Roadmap · epic and Conductor chat</text>
+  <rect x="572" y="616" width="300" height="40" rx="6" class="b-inner"/>
+  <text x="584" y="633" class="t-node">Flow</text>
+  <text x="584" y="649" class="t-sub">Triage · Plan · Runs · Delivery · Releases</text>
+  <rect x="884" y="616" width="280" height="40" rx="6" class="b-inner"/>
+  <text x="896" y="633" class="t-node">System</text>
+  <text x="896" y="649" class="t-sub">Workflows · Usage · Health</text>
+  <text x="20" y="712" class="t-sub">Postgres is authoritative. The tracker owns item state and the lease. The daemon is the only scheduler and never touches a file or a process.</text>
+  <text x="20" y="732" class="t-sub">hostd spawns agents, watches them and writes their outcomes. A merge needs both keys: the daemon's gate decision and the agent's reported recommendation.</text>
+
+  <!-- Legend -->
+  <rect x="20" y="768" width="14" height="12" rx="3" class="b-core"/>
+  <text x="42" y="778" class="t-sub">fixed by design</text>
+  <rect x="190" y="768" width="14" height="12" rx="3" class="b-swap"/>
+  <text x="212" y="778" class="t-sub">swappable module</text>
+  <rect x="370" y="768" width="14" height="12" rx="3" class="b-config"/>
+  <text x="392" y="778" class="t-sub">configuration</text>
+  <rect x="520" y="768" width="14" height="12" rx="3" class="b-plan"/>
+  <text x="542" y="778" class="t-sub">planned</text>
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 410" width="900" height="410" role="img" aria-label="Mean drawdown from the 2026-10-06 Nasdaq peak by AI layer, split into still down and recovered off the low">
+<style>
+text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.t{font-size:16px;font-weight:600;fill:#0b0b0b}
+.s{font-size:12px;fill:#52514e}
+.h{font-size:12px;font-weight:600;fill:#52514e}
+.l{font-size:13px;fill:#0b0b0b}
+.n{font-size:11px;fill:#898781}
+.v{font-size:12px;fill:#52514e}
+.m{font-size:11px;fill:#898781}
+.g{stroke:#e1e0d9;stroke-width:1}
+.b{stroke:#c3c2b7;stroke-width:1}
+</style>
+<rect width="900" height="410" fill="#fcfcfb"/>
+<text class="t" x="24" y="30">How far each AI layer fell from the Nasdaq peak</text>
+<text class="s" x="24" y="50">Mean per layer. Bar = max drawdown, peak 2026-10-06 to low 2026-11-20. Label: max drawdown → drawdown at 2026-11-24 close.</text>
+<rect x="220" y="66" width="12" height="12" fill="#2a78d6"/>
+<text class="s" x="238" y="76">Still down</text>
+<rect x="330" y="66" width="12" height="12" fill="#86b6ef"/>
+<text class="s" x="348" y="76">Recovered off the low</text>
+
+<line class="g" x1="320" y1="96" x2="320" y2="352"/><line class="g" x1="420" y1="96" x2="420" y2="352"/><line class="g" x1="520" y1="96" x2="520" y2="352"/><line class="g" x1="620" y1="96" x2="620" y2="352"/><line class="g" x1="720" y1="96" x2="720" y2="352"/><line class="g" x1="820" y1="96" x2="820" y2="352"/>
+<line class="b" x1="220" y1="96" x2="220" y2="352"/>
+<text class="m" x="220" y="370" text-anchor="middle">0%</text><text class="m" x="320" y="370" text-anchor="middle">10%</text><text class="m" x="420" y="370" text-anchor="middle">20%</text><text class="m" x="520" y="370" text-anchor="middle">30%</text><text class="m" x="620" y="370" text-anchor="middle">40%</text><text class="m" x="720" y="370" text-anchor="middle">50%</text><text class="m" x="820" y="370" text-anchor="middle">60%</text>
+<text class="s" x="220" y="392">Drawdown from the 2026-10-06 peak</text>
+
+<text class="h" x="24" y="108">Potential long-term plays</text>
+
+<text class="l" x="210" y="134.5" text-anchor="end">1 Energy <tspan class="n">n=9</tspan></text>
+<rect x="220" y="118" width="265.6" height="24" fill="#2a78d6"/>
+<path d="M487.6 118h41.1a4 4 0 0 1 4 4v16a4 4 0 0 1 -4 4h-41.1z" fill="#86b6ef"/>
+<text class="v" x="541" y="134.5">−31.3 → −26.7</text>
+
+<text class="l" x="210" y="174.5" text-anchor="end">2 Chips + Storage <tspan class="n">n=18</tspan></text>
+<rect x="220" y="158" width="384.4" height="24" fill="#2a78d6"/>
+<path d="M606.4 158h33.7a4 4 0 0 1 4 4v16a4 4 0 0 1 -4 4h-33.7z" fill="#86b6ef"/>
+<text class="v" x="652" y="174.5">−42.4 → −38.5</text>
+
+<text class="l" x="210" y="214.5" text-anchor="end">3 Infra + Neoclouds <tspan class="n">n=16</tspan></text>
+<rect x="220" y="198" width="458.8" height="24" fill="#2a78d6"/>
+<path d="M680.8 198h19.4a4 4 0 0 1 4 4v16a4 4 0 0 1 -4 4h-19.4z" fill="#86b6ef"/>
+<text class="v" x="712" y="214.5">−48.4 → −46.0</text>
+
+<line class="g" x1="24" y1="236" x2="880" y2="236"/>
+
+<text class="l" x="210" y="262.5" text-anchor="end">4 Hyperscalers <tspan class="n">n=4</tspan></text>
+<rect x="220" y="246" width="119.2" height="24" fill="#2a78d6"/>
+<path d="M341.2 246h31.8a4 4 0 0 1 4 4v16a4 4 0 0 1 -4 4h-31.8z" fill="#86b6ef"/>
+<text class="v" x="385" y="262.5">−15.7 → −12.0</text>
+
+<text class="l" x="210" y="302.5" text-anchor="end">5 Software <tspan class="n">n=21</tspan></text>
+<rect x="220" y="286" width="135.1" height="24" fill="#2a78d6"/>
+<path d="M357.1 286h67.1a4 4 0 0 1 4 4v16a4 4 0 0 1 -4 4h-67.1z" fill="#86b6ef"/>
+<text class="v" x="436" y="302.5">−20.8 → −13.6</text>
+
+<text class="l" x="210" y="342.5" text-anchor="end">QQQ benchmark</text>
+<rect x="220" y="326" width="159" height="24" fill="#2a78d6"/>
+<path d="M381 326h34a4 4 0 0 1 4 4v16a4 4 0 0 1 -4 4h-34z" fill="#86b6ef"/>
+<text class="v" x="427" y="342.5">−19.9 → −16.0</text>
+</svg>
